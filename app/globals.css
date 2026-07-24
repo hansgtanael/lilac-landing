@@ -154,3 +154,15 @@ body {
     scroll-snap-type: none !important;
   }
 }
+
+/* iOS Low Power Mode (and other autoplay blocks) overlay a native play button
+   on <video> elements. Every video on the site is ambient — muted, looping, no
+   controls, with a poster — so hide that button; the poster shows instead of a
+   play overlay cluttering the hero and carousel on mobile. */
+video::-webkit-media-controls-start-playback-button,
+video::-webkit-media-controls-overlay-play-button,
+video::-webkit-media-controls-play-button {
+  display: none !important;
+  -webkit-appearance: none;
+  appearance: none;
+}
