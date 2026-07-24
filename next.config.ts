@@ -26,15 +26,16 @@ const CSP = [
 // that needs eval + web workers and talks to Sanity's API/CDN/realtime hosts,
 // so its policy is necessarily looser than the public site's — but still bounds
 // what an admin-route script could reach. `*.sanity.io` covers api/apicdn/cdn/
-// auth/telemetry subdomains; lh3.googleusercontent.com is the account avatar.
+// auth/telemetry subdomains; `*.sanity-cdn.com` serves the Studio "core" bridge
+// (core.sanity-cdn.com/bridge.js); lh3.googleusercontent.com is the avatar.
 const STUDIO_CSP = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline' 'unsafe-eval' blob:",
+  "script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https://*.sanity-cdn.com",
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob: https://cdn.sanity.io https://*.sanity.io https://lh3.googleusercontent.com",
+  "img-src 'self' data: blob: https://cdn.sanity.io https://*.sanity.io https://*.sanity-cdn.com https://lh3.googleusercontent.com",
   "media-src 'self' blob: data:",
   "font-src 'self' data:",
-  `connect-src 'self' https://*.sanity.io wss://*.api.sanity.io${dev ? " ws:" : ""}`,
+  `connect-src 'self' https://*.sanity.io https://*.sanity-cdn.com wss://*.api.sanity.io${dev ? " ws:" : ""}`,
   "worker-src 'self' blob:",
   "object-src 'none'",
   "base-uri 'self'",
