@@ -1,7 +1,7 @@
 {
   "app/layout.tsx": {
-    "mtime": 1784868788.0175586,
-    "ast_hash": "3aba6d1a628a1a46aaf8de974988fc46",
+    "mtime": 1784876533.494089,
+    "ast_hash": "758efa902aa0045b269b7a237e7b9cab",
     "semantic_hash": ""
   },
   "app/page.tsx": {
@@ -254,39 +254,9 @@
     "ast_hash": "e52dae57adfaa6ccea5a9a868adf1b5b",
     "semantic_hash": ""
   },
-  "app/api/content/route.ts": {
-    "mtime": 1784868741.9348555,
-    "ast_hash": "21709e76937aabd8a79c69e6f5683773",
-    "semantic_hash": ""
-  },
-  "app/api/photos/route.ts": {
-    "mtime": 1784868777.861864,
-    "ast_hash": "e726afcad8b4b925718ca10198a15de4",
-    "semantic_hash": ""
-  },
-  "app/api/text-edits/route.ts": {
-    "mtime": 1784868759.5492706,
-    "ast_hash": "a1f53c85648e41fc135c73a8baa457bf",
-    "semantic_hash": ""
-  },
-  "app/cms/page.tsx": {
-    "mtime": 1784097582.568736,
-    "ast_hash": "f3580367c236c8a11896b01c75edbb5d",
-    "semantic_hash": ""
-  },
-  "components/EditMode.tsx": {
-    "mtime": 1784071416.1600697,
-    "ast_hash": "7a2e11ca9af1ba1e90901840441de5a0",
-    "semantic_hash": ""
-  },
   "content/content.json": {
     "mtime": 1784868505.167613,
     "ast_hash": "4d1134adb2938c3c1e6304d400619884",
-    "semantic_hash": ""
-  },
-  "content/text-edits.json": {
-    "mtime": 1784778380.6934125,
-    "ast_hash": "58e0494c51d30eb3494f7c9198986bb9",
     "semantic_hash": ""
   },
   "lib/content.ts": {
@@ -685,8 +655,8 @@
     "semantic_hash": ""
   },
   "app/api/guard.ts": {
-    "mtime": 1784871358.8701897,
-    "ast_hash": "b416b152d2fc61f2ba22396c61856901",
+    "mtime": 1784876508.9295874,
+    "ast_hash": "f8c724ec6854eec7f688bf47e8698fb0",
     "semantic_hash": ""
   },
   "public/photos/rooms-cover-flowers.jpg": {

@@ -15,7 +15,7 @@ import { structureTool } from "sanity/structure";
 import { visionTool } from "@sanity/vision";
 import { apiVersion, dataset, projectId } from "@/sanity/env";
 import { schema } from "@/sanity/schemaTypes";
-import { structure, LUX_PAGE_ID } from "@/sanity/structure";
+import { structure } from "@/sanity/structure";
 
 export default defineConfig({
   name: "lilac-lux",
@@ -29,23 +29,18 @@ export default defineConfig({
     visionTool({ defaultApiVersion: apiVersion }),
   ],
   document: {
-    // Singletons: never offer "duplicate" or "delete" on the lux page or the
-    // main site content document.
+    // Singleton: never offer "duplicate" or "delete" on the site content document.
     actions: (prev, { schemaType }) =>
-      schemaType === "luxPage" || schemaType === "siteContent"
+      schemaType === "siteContent"
         ? prev.filter(
             ({ action }) =>
               action && !["unpublish", "delete", "duplicate"].includes(action),
           )
         : prev,
-    // Route "create new" of the singletons to their fixed ids.
+    // Route "create new" of the singleton to its fixed id.
     newDocumentOptions: (prev, { creationContext }) =>
       creationContext.type === "global"
-        ? prev.filter(
-            (t) => t.templateId !== "luxPage" && t.templateId !== "siteContent",
-          )
+        ? prev.filter((t) => t.templateId !== "siteContent")
         : prev,
   },
 });
-
-export { LUX_PAGE_ID };

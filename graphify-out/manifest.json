@@ -225,8 +225,8 @@
     "semantic_hash": ""
   },
   "components/SmoothScroll.tsx": {
-    "mtime": 1784837374.4636931,
-    "ast_hash": "44b2c76be820ea692e4294eb530626dc",
+    "mtime": 1784885863.4713736,
+    "ast_hash": "a007858a32a989e0c881ec29f43fb604",
     "semantic_hash": ""
   },
   "components/lux/Arrival.tsx": {
@@ -710,8 +710,8 @@
     "semantic_hash": ""
   },
   "sanity.config.ts": {
-    "mtime": 1784874611.385938,
-    "ast_hash": "e707591730e5207735e08b936084b3ed",
+    "mtime": 1784885825.1307385,
+    "ast_hash": "9293372de291da889f73c3e8c0110ccb",
     "semantic_hash": ""
   },
   "sanity/env.ts": {
@@ -720,18 +720,13 @@
     "semantic_hash": ""
   },
   "sanity/schemaTypes/index.ts": {
-    "mtime": 1784874594.538025,
-    "ast_hash": "c308936cf6a95d3e7e39b85ffd811514",
-    "semantic_hash": ""
-  },
-  "sanity/schemaTypes/luxPage.ts": {
-    "mtime": 1784871693.8149855,
-    "ast_hash": "34ca50afa7f80b383796f467279cf5a6",
+    "mtime": 1784885809.211971,
+    "ast_hash": "7f059e8671c1ddd9b5ff7fb45cb31c9c",
     "semantic_hash": ""
   },
   "sanity/structure.ts": {
-    "mtime": 1784874604.1194038,
-    "ast_hash": "bf7c1d4d85e6715308981f9f40c974e5",
+    "mtime": 1784885806.6949668,
+    "ast_hash": "134e327aae93d669c00feb961d91b87b",
     "semantic_hash": ""
   },
   "scripts/seed-lux.mjs": {
@@ -757,6 +752,11 @@
   "scripts/migrate-site.mjs": {
     "mtime": 1784874698.7967405,
     "ast_hash": "13dedff06fe7d30918d38679238eca81",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1784882592.587924,
+    "ast_hash": "ecae3c24d3d46acd6bc2a7280583bbad",
     "semantic_hash": ""
   }
 }

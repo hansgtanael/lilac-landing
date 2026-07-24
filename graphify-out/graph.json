@@ -857,7 +857,7 @@
       "label": "SmoothScroll()",
       "file_type": "code",
       "source_file": "components/SmoothScroll.tsx",
-      "source_location": "L15",
+      "source_location": "L16",
       "_origin": "ast",
       "id": "components_smoothscroll_smoothscroll",
       "community": 7,
@@ -2317,7 +2317,7 @@
       "label": "schemaTypes",
       "file_type": "code",
       "source_file": "sanity/schemaTypes/index.ts",
-      "source_location": "L5",
+      "source_location": "L4",
       "_origin": "ast",
       "id": "sanity_schematypes_index_schematypes",
       "community": 8,
@@ -2327,41 +2327,11 @@
       "label": "schema",
       "file_type": "code",
       "source_file": "sanity/schemaTypes/index.ts",
-      "source_location": "L7",
+      "source_location": "L6",
       "_origin": "ast",
       "id": "sanity_schematypes_index_schema",
       "community": 8,
       "norm_label": "schema"
-    },
-    {
-      "label": "luxPage.ts",
-      "file_type": "code",
-      "source_file": "sanity/schemaTypes/luxPage.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "sanity_schematypes_luxpage",
-      "community": 8,
-      "norm_label": "luxpage.ts"
-    },
-    {
-      "label": "ctaFields",
-      "file_type": "code",
-      "source_file": "sanity/schemaTypes/luxPage.ts",
-      "source_location": "L23",
-      "_origin": "ast",
-      "id": "sanity_schematypes_luxpage_ctafields",
-      "community": 8,
-      "norm_label": "ctafields"
-    },
-    {
-      "label": "luxPage",
-      "file_type": "code",
-      "source_file": "sanity/schemaTypes/luxPage.ts",
-      "source_location": "L39",
-      "_origin": "ast",
-      "id": "sanity_schematypes_luxpage_luxpage",
-      "community": 8,
-      "norm_label": "luxpage"
     },
     {
       "label": "siteContent.ts",
@@ -2417,7 +2387,7 @@
       "label": "structure()",
       "file_type": "code",
       "source_file": "sanity/structure.ts",
-      "source_location": "L13",
+      "source_location": "L11",
       "_origin": "ast",
       "id": "sanity_structure_structure",
       "community": 8,
@@ -3162,6 +3132,36 @@
       "id": "handoff_open_threads_priority_order",
       "community": 6,
       "norm_label": "open threads (priority order)"
+    },
+    {
+      "label": "README.md",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "readme",
+      "community": 15,
+      "norm_label": "readme.md"
+    },
+    {
+      "label": "lilac-landing",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "readme_lilac_landing",
+      "community": 15,
+      "norm_label": "lilac-landing"
+    },
+    {
+      "label": "lilac-landing",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L2",
+      "_origin": "ast",
+      "id": "readme_lilac_landing_2",
+      "community": 15,
+      "norm_label": "lilac-landing"
     }
   ],
   "links": [
@@ -5879,7 +5879,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components/SmoothScroll.tsx",
-      "source_location": "L15",
+      "source_location": "L16",
       "weight": 1.0,
       "source": "components_smoothscroll",
       "target": "components_smoothscroll_smoothscroll",
@@ -5890,7 +5890,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "components/SmoothScroll.tsx",
-      "source_location": "L5",
+      "source_location": "L6",
       "weight": 1.0,
       "source": "components_smoothscroll",
       "target": "lib_usereducedmotion",
@@ -5901,7 +5901,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "components/SmoothScroll.tsx",
-      "source_location": "L5",
+      "source_location": "L6",
       "weight": 1.0,
       "source": "components_smoothscroll",
       "target": "lib_usereducedmotion_usereducedmotion",
@@ -5913,7 +5913,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "components/SmoothScroll.tsx",
-      "source_location": "L16",
+      "source_location": "L17",
       "weight": 1.0,
       "source": "components_smoothscroll_smoothscroll",
       "target": "lib_usereducedmotion_usereducedmotion"
@@ -7377,17 +7377,6 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "sanity/schemaTypes/luxPage.ts",
-      "source_location": "L1",
-      "weight": 1.0,
-      "source": "sanity_schematypes_luxpage",
-      "target": "lib_sanity",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "sanity/schemaTypes/siteContent.ts",
       "source_location": "L1",
       "weight": 1.0,
@@ -8083,7 +8072,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "sanity/schemaTypes/index.ts",
-      "source_location": "L7",
+      "source_location": "L6",
       "weight": 1.0,
       "source": "sanity_schematypes_index",
       "target": "sanity_schematypes_index_schema",
@@ -8093,7 +8082,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "sanity/schemaTypes/index.ts",
-      "source_location": "L5",
+      "source_location": "L4",
       "weight": 1.0,
       "source": "sanity_schematypes_index",
       "target": "sanity_schematypes_index_schematypes",
@@ -8107,7 +8096,7 @@
       "source_location": "L2",
       "weight": 1.0,
       "source": "sanity_schematypes_index",
-      "target": "sanity_schematypes_luxpage",
+      "target": "sanity_schematypes_sitecontent",
       "confidence_score": 1.0
     },
     {
@@ -8118,49 +8107,7 @@
       "source_location": "L2",
       "weight": 1.0,
       "source": "sanity_schematypes_index",
-      "target": "sanity_schematypes_luxpage_luxpage",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "sanity/schemaTypes/index.ts",
-      "source_location": "L3",
-      "weight": 1.0,
-      "source": "sanity_schematypes_index",
-      "target": "sanity_schematypes_sitecontent",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "sanity/schemaTypes/index.ts",
-      "source_location": "L3",
-      "weight": 1.0,
-      "source": "sanity_schematypes_index",
       "target": "sanity_schematypes_sitecontent_sitecontent",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "sanity/schemaTypes/luxPage.ts",
-      "source_location": "L23",
-      "weight": 1.0,
-      "source": "sanity_schematypes_luxpage",
-      "target": "sanity_schematypes_luxpage_ctafields",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "sanity/schemaTypes/luxPage.ts",
-      "source_location": "L39",
-      "weight": 1.0,
-      "source": "sanity_schematypes_luxpage",
-      "target": "sanity_schematypes_luxpage_luxpage",
       "confidence_score": 1.0
     },
     {
@@ -8197,7 +8144,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "sanity/structure.ts",
-      "source_location": "L13",
+      "source_location": "L11",
       "weight": 1.0,
       "source": "sanity_structure",
       "target": "sanity_structure_structure",
@@ -8937,7 +8884,28 @@
       "source": "handoff_lilac_landing_project_handoff",
       "target": "handoff_where_it_lives_how_to_run",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "readme",
+      "target": "readme_lilac_landing",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "readme",
+      "target": "readme_lilac_landing_2",
+      "confidence_score": 1.0
     }
   ],
-  "hyperedges": []
+  "hyperedges": [],
+  "built_at_commit": "c74a31fa0514940876e1a2b9e33e95093c40348c"
 }

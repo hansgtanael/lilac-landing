@@ -1,14 +1,12 @@
 import type { StructureResolver } from "sanity/structure";
 
-// The singleton document ids the whole app reads/writes. Keep LUX_PAGE_ID in
-// sync with lib/sanity.ts and SITE_CONTENT_ID with lib/site-content.ts (and the
-// GROQ queries there).
-export const LUX_PAGE_ID = "luxPage";
+// The singleton document id the app reads/writes. Keep SITE_CONTENT_ID in sync
+// with lib/site-content.ts (and the GROQ query there).
 export const SITE_CONTENT_ID = "siteContent";
 
 /**
- * Desk structure: expose each singleton as a single, fixed editor entry (no
- * "create new" list) so it behaves as a true singleton.
+ * Desk structure: expose the site-content singleton as a single, fixed editor
+ * entry (no "create new" list) so it behaves as a true singleton.
  */
 export const structure: StructureResolver = (S) =>
   S.list()
@@ -22,14 +20,5 @@ export const structure: StructureResolver = (S) =>
             .schemaType("siteContent")
             .documentId(SITE_CONTENT_ID)
             .title("Site Content (Home)"),
-        ),
-      S.listItem()
-        .title("Lux Page")
-        .id(LUX_PAGE_ID)
-        .child(
-          S.document()
-            .schemaType("luxPage")
-            .documentId(LUX_PAGE_ID)
-            .title("Lux Page"),
         ),
     ]);

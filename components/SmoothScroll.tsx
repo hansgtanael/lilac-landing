@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Lenis from "lenis";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 
@@ -14,19 +15,25 @@ import { useReducedMotion } from "@/lib/useReducedMotion";
  *  (see GalleryNoir). */
 export default function SmoothScroll() {
   const reduce = useReducedMotion();
+  const pathname = usePathname();
+  // The embedded Sanity Studio (/studio) manages its own scrolling; Lenis'
+  // global wheel hijacking + the scroll-to-top reset break it, so this
+  // component fully opts out on that route.
+  const disabled = pathname?.startsWith("/studio") ?? false;
 
   // A refresh always restarts at the hero: the pinned-hero choreography only
   // reads right entered from the top, so opt out of the browser's scroll
-  // memory and pin the load position to 0.
+  // memory and pin the load position to 0. (Skipped in the Studio.)
   useEffect(() => {
+    if (disabled) return;
     if ("scrollRestoration" in window.history) {
       window.history.scrollRestoration = "manual";
     }
     window.scrollTo(0, 0);
-  }, []);
+  }, [disabled]);
 
   useEffect(() => {
-    if (reduce) return;
+    if (reduce || disabled) return;
     const lenis = new Lenis({
       lerp: 0.15,
       smoothWheel: true,
@@ -39,7 +46,7 @@ export default function SmoothScroll() {
       delete (window as unknown as { __lilacLenis?: Lenis }).__lilacLenis;
       lenis.destroy();
     };
-  }, [reduce]);
+  }, [reduce, disabled]);
 
   return null;
 }
