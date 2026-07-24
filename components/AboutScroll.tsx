@@ -191,7 +191,12 @@ export default function AboutScroll() {
       {/* Story bands, generously separated so the drifting text never crowds
           the neighboring band. */}
       {about.sections.map((s, i) => (
-        <div key={i} className="mt-[var(--about-gap-band-sm,3vh)] md:mt-[var(--about-gap-band,4vh)]">
+        // First band = the main floor; the nav's "The House" jumps here.
+        <div
+          key={i}
+          id={i === 0 ? "main-floor" : undefined}
+          className="scroll-mt-24 mt-[var(--about-gap-band-sm,3vh)] md:mt-[var(--about-gap-band,4vh)]"
+        >
           <div className="relative flex min-h-[70svh] flex-col justify-start p-6 md:p-12">
             {/* Label sits OPPOSITE its text block so the drifting column never
                 slides up into it: text right → label left (unchanged); text

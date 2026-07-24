@@ -20,6 +20,16 @@ function scrollTo(href: string) {
   if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
+// Nav targets are structural (they point at section anchors), so they're fixed
+// in code rather than read from editable content: "The House" jumps to the
+// main-floor band, and Availability / Book Direct jump to the booking CALENDAR
+// (#reserve) instead of the lake photo at the top of the booking section.
+const HREF_REMAP: Record<string, string> = {
+  "#gallery": "#main-floor",
+  "#booking": "#reserve",
+};
+const navHref = (href: string) => HREF_REMAP[href] ?? href;
+
 export default function Nav() {
   const site = useSiteContent();
   const { nav } = site.text;
@@ -84,7 +94,7 @@ export default function Nav() {
             {LINKS.map((link) => (
               <button
                 key={link.label}
-                onClick={() => handleNav(link.href)}
+                onClick={() => handleNav(navHref(link.href))}
                 className={`font-helvetica text-[14px] font-semibold tracking-[-0.01em] transition-colors duration-300 ease-luxe ${
                   pastHero
                     ? "text-dark/80 hover:text-dark"
@@ -97,7 +107,7 @@ export default function Nav() {
           </div>
 
           <button
-            onClick={() => handleNav("#booking")}
+            onClick={() => handleNav("#reserve")}
             className="hidden h-9 items-center rounded-full bg-brand px-6 font-helvetica text-[14px] font-bold uppercase tracking-[0.08em] text-dark [text-shadow:none] transition-colors duration-300 ease-luxe hover:bg-brand-dark active:scale-[0.98] md:flex"
           >
             {nav.cta}
@@ -145,7 +155,7 @@ export default function Nav() {
             {LINKS.map((link, i) => (
               <motion.button
                 key={link.label}
-                onClick={() => handleNav(link.href)}
+                onClick={() => handleNav(navHref(link.href))}
                 className="font-display text-3xl italic text-dark"
                 initial={reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}

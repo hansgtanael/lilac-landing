@@ -152,8 +152,12 @@ export default function BookSection() {
           </motion.div>
         </div>
 
-        {/* RIGHT — live booking card, contact step, or confirmation. */}
+        {/* RIGHT — live booking card, contact step, or confirmation.
+            #reserve: the "Availability" / "Book Direct" nav targets land here on
+            the calendar, past the lake photo. scroll-mt clears the fixed nav. */}
         <motion.div
+          id="reserve"
+          className="scroll-mt-24"
           {...fade}
           transition={{ duration: 0.7, ease: EASE, delay: 0.15 }}
         >

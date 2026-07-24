@@ -1,13 +1,18 @@
 # Graph Report - lilac-landing-v2  (2026-07-24)
 
 ## Corpus Check
-- 63 files · ~1,389,116 words
+- 63 files · ~1,071,427 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 316 nodes · 548 edges · 20 communities (18 shown, 2 thin omitted)
+- 316 nodes · 545 edges · 21 communities (18 shown, 3 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 1 edges (avg confidence: 0.5)
 - Token cost: 0 input · 0 output
+
+## Graph Freshness
+- Built from commit: `c74a31fa`
+- Run `git rev-parse HEAD` and compare to check if the graph is stale.
+- Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
 - [[_COMMUNITY_compilerOptions|compilerOptions]]
@@ -22,6 +27,7 @@
 - [[_COMMUNITY_postcss.config.mjs|postcss.config.mjs]]
 - [[_COMMUNITY_layout.tsx|layout.tsx]]
 - [[_COMMUNITY_GalleryNoir.tsx|GalleryNoir.tsx]]
+- [[_COMMUNITY_README|README.md]]
 - [[_COMMUNITY_Elle's requests — master list|Elle's requests — master list]]
 - [[_COMMUNITY_seed-lux.mjs|seed-lux.mjs]]
 - [[_COMMUNITY_content.ts|content.ts]]
@@ -55,7 +61,7 @@
 ## Import Cycles
 - 1-file cycle: `sanity/structure.ts -> sanity/structure.ts`
 
-## Communities (20 total, 2 thin omitted)
+## Communities (21 total, 3 thin omitted)
 
 ### Community 1 - "compilerOptions"
 Cohesion: 0.10
@@ -86,8 +92,8 @@ Cohesion: 0.22
 Nodes (6): dmSans, fraunces, lora, metadata, nunito, SmoothScroll()
 
 ### Community 8 - "BookingCard.tsx"
-Cohesion: 0.20
-Nodes (7): schema, schemaTypes, ctaFields, luxPage, siteContent, titleSubFields, structure()
+Cohesion: 0.25
+Nodes (5): schema, schemaTypes, siteContent, titleSubFields, structure()
 
 ### Community 9 - "next.config.ts"
 Cohesion: 0.40
@@ -118,19 +124,19 @@ Cohesion: 0.25
 Nodes (10): assetCache, build(), client, content, imageRef(), isVideo(), key(), publicDir (+2 more)
 
 ## Knowledge Gaps
-- **140 isolated node(s):** `lora`, `fraunces`, `dmSans`, `nunito`, `metadata` (+135 more)
+- **141 isolated node(s):** `lora`, `fraunces`, `dmSans`, `nunito`, `metadata` (+136 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **2 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **3 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `sanity` connect `dependencies` to `GalleryNoir.tsx`?**
-  _High betweenness centrality (0.129) - this node is a cross-community bridge._
+  _High betweenness centrality (0.127) - this node is a cross-community bridge._
 - **Why does `useReducedMotion()` connect `page.tsx` to `content.ts`, `RangeCalendar.tsx`, `GalleryNoir.tsx`, `layout.tsx`?**
-  _High betweenness centrality (0.123) - this node is a cross-community bridge._
+  _High betweenness centrality (0.120) - this node is a cross-community bridge._
 - **What connects `lora`, `fraunces`, `dmSans` to the rest of the system?**
-  _140 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _141 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `compilerOptions` be split into smaller, more focused modules?**
   _Cohesion score 0.1 - nodes in this community are weakly interconnected._
 - **Should `dependencies` be split into smaller, more focused modules?**

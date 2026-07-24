@@ -56,7 +56,6 @@ const MEDIA_SETTLE = 1.5; // s — inner media 1.6 → 1 settle
 const DEAL_DUR = 1.0; // s — the timed spread bloom
 const SPREAD_PAUSE = 0.2; // s — beat between the stack landing and the bloom
 const GATHER_TRIGGER = 8 / SCROLL_SVH; // scroll depth that starts the sequence
-const RESET_BELOW = 2 / SCROLL_SVH; // scrolling back above re-arms everything
 
 // Stack size — the scale every card gathers into before the bloom. Hans's
 // dev slider (FrameTuner) drives it live; 0.45 is the baked default
@@ -454,18 +453,10 @@ function PinnedHorizontal() {
   useMotionValueEvent(scrollYProgress, "change", (v) => {
     const lenis = (window as unknown as { __lilacLenis?: Lenis }).__lilacLenis;
     const s = stage.current;
-    if (v <= RESET_BELOW && s !== "idle" && s !== "gather" && s !== "spread") {
-      stage.current = "idle";
-      dealT.stop();
-      dealT.set(0);
-      settled.set(0);
-      stripPct.stop();
-      stripPct.set(0);
-      setIndex(0);
-      setPanning(false);
-      setPlay(false);
-      return;
-    }
+    // The gather/spread clip plays ONCE per page load: once it has run, the
+    // stage never returns to "idle", so scrolling back up simply shows the
+    // settled photo strip instead of replaying. A refresh remounts this
+    // component and plays the intro fresh.
     if (s === "idle" && v > GATHER_TRIGGER) {
       stage.current = "gather";
       setPlay(true);
@@ -491,8 +482,8 @@ function PinnedHorizontal() {
     }
   });
 
-  // The heading bows out as the bloom starts and stays gone while browsing,
-  // reappearing only when the visitor scrolls back up and the stage resets.
+  // The heading bows out as the bloom starts and stays gone for the rest of the
+  // visit (the clip plays once — no scroll-up reset).
   const titleOpacity = useTransform(dealT, (d) => Math.max(0, 1 - d * 2.5));
 
   return (

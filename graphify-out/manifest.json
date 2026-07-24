@@ -40,8 +40,8 @@
     "semantic_hash": ""
   },
   "components/Nav.tsx": {
-    "mtime": 1784874655.7524912,
-    "ast_hash": "7b152d535d7425bf7776de54f0b48a66",
+    "mtime": 1784886742.3335094,
+    "ast_hash": "feb2b998e18921da1fa5dfaacc64fb00",
     "semantic_hash": ""
   },
   "components/RangeCalendar.tsx": {
@@ -100,13 +100,13 @@
     "semantic_hash": ""
   },
   "components/BookSection.tsx": {
-    "mtime": 1784874678.596609,
-    "ast_hash": "afad1fa9b2b7896212abee65d473085c",
+    "mtime": 1784886752.3253908,
+    "ast_hash": "5d1984a89cb17e87b3bd49ccc3d979e8",
     "semantic_hash": ""
   },
   "components/GalleryNoir.tsx": {
-    "mtime": 1784874804.3806176,
-    "ast_hash": "fa5d058d232b68ca08107512cc62f6b2",
+    "mtime": 1784886782.7494195,
+    "ast_hash": "b41dedb5a9a479333b59de0fa48c27a1",
     "semantic_hash": ""
   },
   "components/PropertyStrip.tsx": {
@@ -335,8 +335,8 @@
     "semantic_hash": ""
   },
   "components/AboutScroll.tsx": {
-    "mtime": 1784874765.217242,
-    "ast_hash": "78bed04aae800730f13968ca0e2303c0",
+    "mtime": 1784886754.927021,
+    "ast_hash": "c51b4cbca30853be85fe5923996c69ec",
     "semantic_hash": ""
   },
   "public/spaces-slider.html": {
