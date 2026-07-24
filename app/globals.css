@@ -1,0 +1,156 @@
+@import "tailwindcss";
+
+/* ----------------------------------------------------------------------------
+   Lilac Landing v2 — Design Tokens
+   Source of truth: Figma file u5L4DHYVJzeUSjlJvtqiZD, collection
+   "Lilac Landing lavender & blue". Custom-property names below are the exact
+   WEB code syntax assigned on the Figma variables — do not rename in code;
+   rename in Figma first, then mirror here.
+---------------------------------------------------------------------------- */
+:root {
+  /* Swatches — client brand brief 2026-07-04 (Elle Chan / Lilac Landing):
+     warm cream canvas, deep charcoal ink, dusty lilac accent, sage +
+     terracotta support, slate blue reserved for lake references. */
+  --swatch--brand: #c4a9c2; /* dusty lilac — CTA fills, accents on dark */
+  --swatch--brand-deep: #7a5a78; /* text-safe lilac on cream (WCAG AA) */
+  --swatch--brand-dark: #8d6f8d; /* deep lilac — hover/pressed accent */
+  --swatch--dark: #2c2825; /* deep charcoal — ink, warm photo overlays */
+  --swatch--blue-deep: #262220; /* darkest charcoal — footer close */
+  --swatch--blue: #7b9bae; /* slate blue — lake callouts, used sparingly */
+  --swatch--light: #fdfbf7; /* warm white — text on dark, input chips */
+  --swatch--cream: #f5efe4; /* linen cream — the page canvas */
+  --swatch--linen: #fbf8f1; /* elevated card surface on the canvas */
+  --swatch--sage: #8fa68a; /* sage green — icon glyphs, quiet support */
+  --swatch--terracotta: #c4846a; /* soft terracotta — rare warm highlight */
+  --swatch--gray: #e2dfda; /* warm gray — rare, light-surface support */
+  --swatch--light-faded: #ffffff1a; /* hairlines on dark surfaces */
+  --swatch--dark-faded: #3532331a; /* hairlines on light chips */
+
+  /* Theme layer */
+  --_theme---background: var(--swatch--cream);
+  --_theme---background-alt: var(--swatch--linen);
+  --_theme---text: var(--swatch--dark);
+  --_theme---text-alt: var(--swatch--brand-deep);
+  --_theme---border: var(--swatch--dark);
+
+  /* Section rhythm */
+  --section-space--xsmall: 2.5rem;
+  --section-space--small: 5rem;
+  --section-space--main: 7.5rem;
+  --section-space--large: 10rem;
+  --section-space--page-top: 15rem;
+
+  /* Radius */
+  --radius--small: 0.5rem;
+  --radius--main: 1rem;
+  --radius--round: 9999px;
+
+  /* Semantic layer: "paper" = page canvas, "ink" = primary text. Components
+     written against these re-skin with the theme. */
+  --swatch--paper: var(--swatch--cream);
+  --swatch--ink: var(--swatch--dark);
+  --swatch--ink-muted: rgba(44, 40, 37, 0.5);
+  --swatch--accent: var(--swatch--brand-deep); /* text-safe lilac on cream */
+}
+
+/* Tailwind utility layer — every value defers to the Figma-named variable
+   above so utilities and raw var() usage can never drift apart. */
+@theme inline {
+  --color-*: initial;
+  --color-brand: var(--swatch--brand);
+  --color-brand-deep: var(--swatch--brand-deep);
+  --color-brand-dark: var(--swatch--brand-dark);
+  --color-dark: var(--swatch--dark);
+  --color-blue-deep: var(--swatch--blue-deep);
+  --color-blue: var(--swatch--blue);
+  --color-light: var(--swatch--light);
+  --color-cream: var(--swatch--cream);
+  --color-linen: var(--swatch--linen);
+  --color-sage: var(--swatch--sage);
+  --color-terracotta: var(--swatch--terracotta);
+  --color-warm-gray: var(--swatch--gray);
+  --color-light-faded: var(--swatch--light-faded);
+  --color-dark-faded: var(--swatch--dark-faded);
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-transparent: transparent;
+  --color-paper: var(--swatch--paper);
+  --color-ink: var(--swatch--ink);
+  --color-muted: var(--swatch--ink-muted);
+  --color-accent: var(--swatch--accent);
+
+  --font-sans: var(--font-dm-sans);
+  /* Editorial prose (Welcome/About sections) — Nunito per the Figma
+     "Slow Lake" concept; falls back to the sans stack. */
+  --font-editorial: var(--font-nunito, var(--font-dm-sans));
+  /* --font-display-active is set on <html> by the A/B flag (lib/flags.ts);
+     unset it falls back to Lora. */
+  --font-display: var(--font-display-active, var(--font-lora));
+  /* Reference style (2026-07-04): Helvetica stack for the side-scroll
+     gallery + nav — tight tracking, tight leading. */
+  --font-helvetica: "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
+
+  --radius-small: var(--radius--small);
+  --radius-main: var(--radius--main);
+
+  /* The one ease. */
+  --ease-luxe: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Lenis writes scrollTop imperatively every frame — CSS smooth-behavior would
+   re-animate each write and fight the lerp, so it yields while Lenis is live.
+   (Root scroll-snap is gone for the same reason: the gallery pan is now a
+   continuous glide, not a snapped deck.) */
+html.lenis {
+  scroll-behavior: auto;
+}
+
+/* Rotating property carousel: the track holds two identical photo sets, so
+   translating by one set (-50%) loops seamlessly. GPU transform, off main
+   thread — smooth on all browsers. */
+@keyframes marquee-x {
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* Soft film grain (brand brief: linen texture / soft grain overlays).
+   Fixed + pointer-events-none so it never triggers scroll repaints. */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  pointer-events: none;
+  opacity: 0.045;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+body {
+  background: var(--_theme---background);
+  color: var(--_theme---text);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Reduced motion is a contract: every animation collapses to its end state.
+   Component-level guards branch on useReducedMotion; this is the safety net. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  html {
+    scroll-snap-type: none !important;
+  }
+}

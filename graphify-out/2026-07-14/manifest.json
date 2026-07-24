@@ -1,0 +1,487 @@
+{
+  "app/layout.tsx": {
+    "mtime": 1784069872.7380397,
+    "ast_hash": "75156ac233bc277799e789bf0999f172",
+    "semantic_hash": ""
+  },
+  "app/page.tsx": {
+    "mtime": 1784070061.351646,
+    "ast_hash": "cd432494a48664c2ae642ca079a9011e",
+    "semantic_hash": ""
+  },
+  "components/Amenities.tsx": {
+    "mtime": 1784071473.2018142,
+    "ast_hash": "17e9836e19d5880cd46bc61fc78dbf8c",
+    "semantic_hash": ""
+  },
+  "components/BookingCard.tsx": {
+    "mtime": 1784051572.925042,
+    "ast_hash": "19c668458d13c4c3e79cbbcde5d55099",
+    "semantic_hash": ""
+  },
+  "components/Experience.tsx": {
+    "mtime": 1784071486.2682133,
+    "ast_hash": "9fad671d138c35b1ce7a3d11cbb3d03d",
+    "semantic_hash": ""
+  },
+  "components/Footer.tsx": {
+    "mtime": 1784051590.1423817,
+    "ast_hash": "bc60918d66a5c250d18301c729b817f3",
+    "semantic_hash": ""
+  },
+  "components/Hero.tsx": {
+    "mtime": 1784071489.5441427,
+    "ast_hash": "3c3df1bdf1ef51697c21e414de5b79d9",
+    "semantic_hash": ""
+  },
+  "components/Loader.tsx": {
+    "mtime": 1783303678.609582,
+    "ast_hash": "4113d0306330ba605103aceca6a13113",
+    "semantic_hash": ""
+  },
+  "components/Nav.tsx": {
+    "mtime": 1784017246.7097888,
+    "ast_hash": "bcaeae18cf4ff9dbae51ce3b38be2925",
+    "semantic_hash": ""
+  },
+  "components/RangeCalendar.tsx": {
+    "mtime": 1783197401.7737513,
+    "ast_hash": "3a4c8d84e406c4b964d6dada955acd43",
+    "semantic_hash": ""
+  },
+  "components/ui/Bezel.tsx": {
+    "mtime": 1783119030.2561352,
+    "ast_hash": "d33fa4a028dd43a35c0ad3426c747aaa",
+    "semantic_hash": ""
+  },
+  "components/ui/Eyebrow.tsx": {
+    "mtime": 1783197133.7671492,
+    "ast_hash": "ebbd985a671f82964ad6dc919a10222e",
+    "semantic_hash": ""
+  },
+  "lib/ease.ts": {
+    "mtime": 1783277522.7099311,
+    "ast_hash": "7c69767a95cb3543ba92cd707ad67cbe",
+    "semantic_hash": ""
+  },
+  "lib/useReducedMotion.ts": {
+    "mtime": 1783119012.791909,
+    "ast_hash": "4181000043cc74513498e205907ce87d",
+    "semantic_hash": ""
+  },
+  "next.config.ts": {
+    "mtime": 1783304299.1568599,
+    "ast_hash": "7b66ff892e7aab4180ad2854fe2e9364",
+    "semantic_hash": ""
+  },
+  "package.json": {
+    "mtime": 1783980437.3928084,
+    "ast_hash": "94941a2c49a703e9fb254149c5644d41",
+    "semantic_hash": ""
+  },
+  "postcss.config.mjs": {
+    "mtime": 1783118989.3674943,
+    "ast_hash": "239f3ebf717465dc636818a1a619398d",
+    "semantic_hash": ""
+  },
+  "tsconfig.json": {
+    "mtime": 1783118982.1429734,
+    "ast_hash": "02fc19ad21338c2ab820a70136310db4",
+    "semantic_hash": ""
+  },
+  "DIRECTION.md": {
+    "mtime": 1783231485.2101405,
+    "ast_hash": "685ebc394c1783fd191aa207273e335b",
+    "semantic_hash": ""
+  },
+  "public/photos/photo_01_exterior.jpg": {
+    "mtime": 1783119227.0511255,
+    "ast_hash": "1886524e513ee2d0148385aa9773c149",
+    "semantic_hash": ""
+  },
+  "public/photos/photo_02_living.jpg": {
+    "mtime": 1783119227.049612,
+    "ast_hash": "0dfb4eeeca267e87c632ffc08a2603d4",
+    "semantic_hash": ""
+  },
+  "public/photos/photo_03_kitchen.jpg": {
+    "mtime": 1783119227.0544508,
+    "ast_hash": "41f883dcee1cec3542ae660a3db14ddf",
+    "semantic_hash": ""
+  },
+  "public/photos/photo_04_outdoor.jpg": {
+    "mtime": 1783119227.0477881,
+    "ast_hash": "5dc506c0b184166c6a347dc9810a50b0",
+    "semantic_hash": ""
+  },
+  "public/photos/photo_05_bedroom1.jpg": {
+    "mtime": 1783119227.0451646,
+    "ast_hash": "383e3e01bfde6043d03427f3709a813d",
+    "semantic_hash": ""
+  },
+  "public/photos/photo_06_bedroom2.jpg": {
+    "mtime": 1783119227.052866,
+    "ast_hash": "52ffd66cc471e44423c196aaf2713473",
+    "semantic_hash": ""
+  },
+  "public/photos/photo_07_bedroom3.jpg": {
+    "mtime": 1783119227.0570884,
+    "ast_hash": "7e8e90abe5b944df1f665bdea3983327",
+    "semantic_hash": ""
+  },
+  "components/BookSection.tsx": {
+    "mtime": 1784051524.2035127,
+    "ast_hash": "0bcbbeb378b5aecf69dd5cd9c1914817",
+    "semantic_hash": ""
+  },
+  "components/GalleryNoir.tsx": {
+    "mtime": 1784071273.6553245,
+    "ast_hash": "a083b47addae9443570d01486263f41c",
+    "semantic_hash": ""
+  },
+  "components/PropertyStrip.tsx": {
+    "mtime": 1784071487.796445,
+    "ast_hash": "7ee2e774ab25e0d796911f7109a5379b",
+    "semantic_hash": ""
+  },
+  "public/figma/hero.png": {
+    "mtime": 1783132462.848766,
+    "ast_hash": "90fad62c4be1430ca6a3ec0d01e3544d",
+    "semantic_hash": ""
+  },
+  "public/figma/noir-bedroom.png": {
+    "mtime": 1783132462.6816845,
+    "ast_hash": "df81d00fb03d7cc27a3eea806bfff36d",
+    "semantic_hash": ""
+  },
+  "public/figma/noir-living.png": {
+    "mtime": 1783132462.74294,
+    "ast_hash": "b8a537af7c28be7d345332fdf4c11354",
+    "semantic_hash": ""
+  },
+  "public/figma/noir-stair.png": {
+    "mtime": 1783132462.8109126,
+    "ast_hash": "a9e1e1474b6801fe0648ed4b54e6a521",
+    "semantic_hash": ""
+  },
+  "public/figma/prop-1.png": {
+    "mtime": 1783132462.6641228,
+    "ast_hash": "b471438a0c74477dc3935e2e50682087",
+    "semantic_hash": ""
+  },
+  "public/figma/prop-2.png": {
+    "mtime": 1783132462.7258391,
+    "ast_hash": "03da7f171c40b8bf363b7a135ed4796d",
+    "semantic_hash": ""
+  },
+  "public/figma/prop-3.png": {
+    "mtime": 1783132462.735294,
+    "ast_hash": "72ed3280004620e5520b327ff4e3d90b",
+    "semantic_hash": ""
+  },
+  "public/figma/prop-4.png": {
+    "mtime": 1783132462.8147655,
+    "ast_hash": "2a2ee40d77aa41efad011b6cc037a269",
+    "semantic_hash": ""
+  },
+  "public/figma/prop-5.png": {
+    "mtime": 1783132462.8613553,
+    "ast_hash": "a74f052aae4636fea584780aeda79691",
+    "semantic_hash": ""
+  },
+  "public/figma/shore.png": {
+    "mtime": 1783132462.7099488,
+    "ast_hash": "0c52031cd7bc39e40a827665503e7d1f",
+    "semantic_hash": ""
+  },
+  "lib/utils.ts": {
+    "mtime": 1783143389.9822252,
+    "ast_hash": "7c238b68e81ca723f0513115308996d0",
+    "semantic_hash": ""
+  },
+  "public/figma/IMG_0703.jpeg": {
+    "mtime": 1783144177.9048865,
+    "ast_hash": "35514b518e7739a331225b4d6479b2af",
+    "semantic_hash": ""
+  },
+  "public/figma/IMG_4223 (1).jpeg": {
+    "mtime": 1783144178.1000502,
+    "ast_hash": "5427c8ec16a7586a255b9e51ba27cf20",
+    "semantic_hash": ""
+  },
+  "public/figma/IMG_4223.jpeg": {
+    "mtime": 1783144178.27862,
+    "ast_hash": "5427c8ec16a7586a255b9e51ba27cf20",
+    "semantic_hash": ""
+  },
+  "public/figma/IMG_4224.jpeg": {
+    "mtime": 1783144178.4463687,
+    "ast_hash": "bb961906e839fc3b685edc949cde8f01",
+    "semantic_hash": ""
+  },
+  "public/figma/IMG_4228.jpeg": {
+    "mtime": 1783144178.6222162,
+    "ast_hash": "cc4614365a23b89783378c14e30437a4",
+    "semantic_hash": ""
+  },
+  "public/figma/IMG_4234.jpeg": {
+    "mtime": 1783144178.7934475,
+    "ast_hash": "7345a70f4ad0ffe038d5e60948d72e85",
+    "semantic_hash": ""
+  },
+  "public/figma/IMG_4236.jpeg": {
+    "mtime": 1783144178.9704003,
+    "ast_hash": "b7f4bdfe262c50c40ab398bf8c6aff81",
+    "semantic_hash": ""
+  },
+  "public/figma/IMG_4238.jpeg": {
+    "mtime": 1783144179.1674364,
+    "ast_hash": "23709a1f247f299309fe448716d0492b",
+    "semantic_hash": ""
+  },
+  "public/figma/IMG_4242.jpeg": {
+    "mtime": 1783144179.345377,
+    "ast_hash": "fc445eacba9d876f49fa4e0eaead9d4c",
+    "semantic_hash": ""
+  },
+  "public/figma/IMG_4244.jpeg": {
+    "mtime": 1783144179.5148392,
+    "ast_hash": "360fd560a5dcd0a666bdc117a166011f",
+    "semantic_hash": ""
+  },
+  "public/figma/IMG_4248.jpeg": {
+    "mtime": 1783144179.6948886,
+    "ast_hash": "4e1a3bac9afa9294592854a815b1eb5e",
+    "semantic_hash": ""
+  },
+  "public/figma/IMG_4249.jpeg": {
+    "mtime": 1783144179.8833172,
+    "ast_hash": "a880dcaccca6c753b5510bed20da658a",
+    "semantic_hash": ""
+  },
+  "public/figma/IMG_4250.jpeg": {
+    "mtime": 1783144180.0610895,
+    "ast_hash": "1bd466389ca83029ba76b2c224d4ca5b",
+    "semantic_hash": ""
+  },
+  "public/figma/IMG_4251.jpeg": {
+    "mtime": 1783144180.2293148,
+    "ast_hash": "b4ba530085a7dacb4061b4c9e6387e73",
+    "semantic_hash": ""
+  },
+  "public/figma/IMG_4256.jpeg": {
+    "mtime": 1783144180.4003196,
+    "ast_hash": "588f610f6822c6e262fba12a098a6eb5",
+    "semantic_hash": ""
+  },
+  "public/figma/IMG_4258.jpeg": {
+    "mtime": 1783144180.5958579,
+    "ast_hash": "4691661a89dc1c6b56c1bc43bf7cdda2",
+    "semantic_hash": ""
+  },
+  "public/figma/IMG_4259.jpeg": {
+    "mtime": 1783144180.797309,
+    "ast_hash": "0423668dd4230f1084e8c0ccb60d359d",
+    "semantic_hash": ""
+  },
+  "public/figma/IMG_4273.jpeg": {
+    "mtime": 1783144180.9852474,
+    "ast_hash": "4920668be787aa8a02a851a3c7e505c9",
+    "semantic_hash": ""
+  },
+  "public/figma/IMG_4299.jpeg": {
+    "mtime": 1783144181.2958682,
+    "ast_hash": "5f1c490eb3e0e5e5c933e922c79dcaea",
+    "semantic_hash": ""
+  },
+  "public/figma/IMG_4302.jpeg": {
+    "mtime": 1783144181.4559805,
+    "ast_hash": "d56a99de3ecabaabedde6003a763fff9",
+    "semantic_hash": ""
+  },
+  "public/figma/IMG_4304 (1).jpeg": {
+    "mtime": 1783144181.6169329,
+    "ast_hash": "b1a55a65686ccc62194ecdd3edddd84b",
+    "semantic_hash": ""
+  },
+  "public/figma/IMG_4304.jpeg": {
+    "mtime": 1783144181.7915509,
+    "ast_hash": "b1a55a65686ccc62194ecdd3edddd84b",
+    "semantic_hash": ""
+  },
+  "public/figma/IMG_4305.jpeg": {
+    "mtime": 1783144182.0328605,
+    "ast_hash": "3a456ff2f61790c4927e3c43e7f3ba26",
+    "semantic_hash": ""
+  },
+  "public/figma/IMG_8343.jpeg": {
+    "mtime": 1783144182.3655357,
+    "ast_hash": "ae6e192bb90c54541a3ecb5cb9fd0827",
+    "semantic_hash": ""
+  },
+  "public/figma/IMG_8344.jpeg": {
+    "mtime": 1783144182.5497828,
+    "ast_hash": "0615a13006d5f19244db9ce9992709c3",
+    "semantic_hash": ""
+  },
+  "assets/hero-loop-master-2k.mp4": {
+    "mtime": 1783199230.594872,
+    "ast_hash": "935934adb722a94727a9e5256a17afd9",
+    "semantic_hash": ""
+  },
+  "public/figma/hero-loop.mp4": {
+    "mtime": 1783201842.8653188,
+    "ast_hash": "41b5540943dafdf87bbe2141c5ea6bdc",
+    "semantic_hash": ""
+  },
+  "assets/hero-reframed-master.png": {
+    "mtime": 1783199822.6542459,
+    "ast_hash": "a71b95a0db9a20a02049512f6b754b9b",
+    "semantic_hash": ""
+  },
+  "public/figma/hero-poster.jpg": {
+    "mtime": 1783201844.4284394,
+    "ast_hash": "068c66cf98fbe345eeda8dd4f9872cdc",
+    "semantic_hash": ""
+  },
+  "assets/hero-loop-v2-master-2k.mp4": {
+    "mtime": 1783200452.5265825,
+    "ast_hash": "a3b310ad19cce4c860c6aab5a0fabcc0",
+    "semantic_hash": ""
+  },
+  "assets/hero-loop-v3-master-2k.mp4": {
+    "mtime": 1783201798.456121,
+    "ast_hash": "2f5c985523a9a6455e1e6517e0a260c8",
+    "semantic_hash": ""
+  },
+  "HANDOFF.md": {
+    "mtime": 1784070358.5871673,
+    "ast_hash": "bfc7e2863209b9af270b27dba20f5638",
+    "semantic_hash": ""
+  },
+  "lib/flags.ts": {
+    "mtime": 1783296973.8028216,
+    "ast_hash": "cb03e671e002ab52519c88dad4490c0d",
+    "semantic_hash": ""
+  },
+  "lib/useMediaQuery.ts": {
+    "mtime": 1783300988.613272,
+    "ast_hash": "8346f6756c849df7d7d80495fa971ae1",
+    "semantic_hash": ""
+  },
+  ".claude/launch.json": {
+    "mtime": 1783828658.8964818,
+    "ast_hash": "cd131b2f6eb1777952ed38d2727df638",
+    "semantic_hash": ""
+  },
+  "app/lux/page.tsx": {
+    "mtime": 1783897605.2049828,
+    "ast_hash": "0e1db988a8d4d9339a5916b29fafab4a",
+    "semantic_hash": ""
+  },
+  "components/SmoothScroll.tsx": {
+    "mtime": 1783980716.5744226,
+    "ast_hash": "8d92f090ecb7dc71e3b13348ce4599c5",
+    "semantic_hash": ""
+  },
+  "components/lux/Arrival.tsx": {
+    "mtime": 1783897651.570515,
+    "ast_hash": "ccb9059178b9ccca716ee2d318415875",
+    "semantic_hash": ""
+  },
+  "components/lux/ConciergeStay.tsx": {
+    "mtime": 1783897727.0002275,
+    "ast_hash": "a4b32a8a62829036b3c6a7dd6c3aff6d",
+    "semantic_hash": ""
+  },
+  "components/lux/LuxHero.tsx": {
+    "mtime": 1783897705.7317142,
+    "ast_hash": "17a28a31d20c7e979f4eb6e90ed107db",
+    "semantic_hash": ""
+  },
+  "components/lux/RoomsFilm.tsx": {
+    "mtime": 1783897687.5138242,
+    "ast_hash": "37202a54e9d409e8b5714d57202b802e",
+    "semantic_hash": ""
+  },
+  "components/lux/ScrollFilm.tsx": {
+    "mtime": 1783897756.9666646,
+    "ast_hash": "6b87569a5a781d9a32e28147a0f5d6ad",
+    "semantic_hash": ""
+  },
+  "app/api/content/route.ts": {
+    "mtime": 1784051642.3454983,
+    "ast_hash": "3097dc7612160c4d9cbb8709a7456eef",
+    "semantic_hash": ""
+  },
+  "app/api/photos/route.ts": {
+    "mtime": 1784009955.3159022,
+    "ast_hash": "04a678034b30a8a00d3eabeb4bbbb2b0",
+    "semantic_hash": ""
+  },
+  "app/api/text-edits/route.ts": {
+    "mtime": 1784015227.440294,
+    "ast_hash": "9640f2eb683b9cf7721b007c9ad6deec",
+    "semantic_hash": ""
+  },
+  "app/cms/page.tsx": {
+    "mtime": 1784052077.4329786,
+    "ast_hash": "16681e43e7d4f75793d3ed45e57cfa5a",
+    "semantic_hash": ""
+  },
+  "components/EditMode.tsx": {
+    "mtime": 1784071416.1600697,
+    "ast_hash": "7a2e11ca9af1ba1e90901840441de5a0",
+    "semantic_hash": ""
+  },
+  "content/content.json": {
+    "mtime": 1784069887.1448088,
+    "ast_hash": "fef234929af02c40695b5de6aedb8002",
+    "semantic_hash": ""
+  },
+  "content/text-edits.json": {
+    "mtime": 1784015629.9746296,
+    "ast_hash": "58e0494c51d30eb3494f7c9198986bb9",
+    "semantic_hash": ""
+  },
+  "lib/content.ts": {
+    "mtime": 1784069902.4149923,
+    "ast_hash": "fc4bfe4f75983c381b4bb61766198d21",
+    "semantic_hash": ""
+  },
+  "ELLE-TASKS.md": {
+    "mtime": 1784058484.3059988,
+    "ast_hash": "99e3bdbba49ea318e3571991aff456e1",
+    "semantic_hash": ""
+  },
+  "assets/qr/lilaclanding-qr-black-2048.png": {
+    "mtime": 1784052917.3406043,
+    "ast_hash": "6a72322c609fb5e3ea1c7831d981264c",
+    "semantic_hash": ""
+  },
+  "assets/qr/lilaclanding-qr.svg": {
+    "mtime": 1784052917.2894595,
+    "ast_hash": "33e32fe060b2940feab8b5c71c88aaf6",
+    "semantic_hash": ""
+  },
+  "assets/qr/lilaclanding-netlify-qr.svg": {
+    "mtime": 1784056901.8568537,
+    "ast_hash": "b279ef43fc9a88ef417f6a82ed1513f7",
+    "semantic_hash": ""
+  },
+  "components/AboutEditorial.tsx": {
+    "mtime": 1784071458.3365386,
+    "ast_hash": "16d45d1fdf923dde1a2b9b43b26e4b85",
+    "semantic_hash": ""
+  },
+  "components/WaveEdge.tsx": {
+    "mtime": 1784071399.7336743,
+    "ast_hash": "422c02187a5e310e98296eb415e69ccd",
+    "semantic_hash": ""
+  },
+  "components/WelcomeIntro.tsx": {
+    "mtime": 1784071461.7693577,
+    "ast_hash": "bf83bcd43dcd15a5bde7b0e86350de70",
+    "semantic_hash": ""
+  }
+}

@@ -1,0 +1,36 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+
+# env files (keep the documented template committable)
+.env*
+!.env.example
+
+# sanity embedded studio build output
+/dist
+.sanity/
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# Local Netlify folder
+.netlify
+
+# Large source-master videos/images — not used by the built site (kept locally)
+/assets

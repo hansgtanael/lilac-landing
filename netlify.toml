@@ -1,0 +1,8 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+# Netlify's official Next.js runtime — handles SSR, next/font, and next/image
+# optimization. Netlify installs it automatically during the build.
+[[plugins]]
+  package = "@netlify/plugin-nextjs"

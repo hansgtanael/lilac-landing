@@ -1,0 +1,534 @@
+{
+  "house": {
+    "title": "Welcome to Lilac Landing",
+    "subtitle": "Relax and Rewind",
+    "rooms": [
+      {
+        "src": "/videos/house-intro.mp4",
+        "title": "Lilac Landing",
+        "caption": "A newly built lakehouse right on the water, 4.5 miles south of Penn Yan.",
+        "poster": "/videos/house-intro-poster.jpg",
+        "srcCompact": "/videos/house-intro-720.mp4"
+      },
+      {
+        "src": "/figma/pro-living-wide.jpeg",
+        "title": "The Great Room",
+        "caption": "Picture windows, morning light, the lake right there."
+      },
+      {
+        "src": "/figma/pro-kitchen.jpeg",
+        "title": "Kitchen & Dining",
+        "caption": "Induction range, Bosch dishwasher, and room for everyone."
+      },
+      {
+        "src": "/figma/pro-family-tv.jpeg",
+        "title": "Family Room",
+        "caption": "Movie nights behind a walnut barn door."
+      },
+      {
+        "src": "/photos/warm/warm-08.jpg",
+        "title": "Primary Bedroom",
+        "caption": "A quiet king retreat with its own en suite bath."
+      },
+      {
+        "src": "/figma/pro-room-king.jpeg",
+        "title": "King Bedroom",
+        "caption": "Lake views and a full bath on the upper level."
+      },
+      {
+        "src": "/figma/pro-room-twin.jpeg",
+        "title": "Twin Room",
+        "caption": "Plenty of closet space and soft lake light."
+      }
+    ]
+  },
+  "property": {
+    "heading": "A Closer Look",
+    "tagline": "Gallery",
+    "photos": [
+      {
+        "src": "/figma/IMG_0703.jpeg",
+        "alt": "Lilac Landing - Western Sunsets",
+        "area": "Outdoors"
+      },
+      {
+        "src": "/photos/warm/warm-66.jpg",
+        "alt": "Aerial view of Lilac Landing on the Keuka Lake shoreline",
+        "area": "Outdoors"
+      },
+      {
+        "src": "/photos/warm/warm-68.jpg",
+        "alt": "The private dock on the cove",
+        "area": "Outdoors"
+      },
+      {
+        "src": "/photos/warm/warm-53.jpg",
+        "alt": "Front entrance with the signature red door",
+        "area": "Outdoors"
+      },
+      {
+        "src": "/photos/warm/warm-54.jpg",
+        "alt": "The house from the driveway, lake beyond",
+        "area": "Outdoors"
+      },
+      {
+        "src": "/photos/warm/warm-56.jpg",
+        "alt": "Lakeside entry, steps from the water",
+        "area": "Outdoors"
+      },
+      {
+        "src": "/photos/warm/warm-57.jpg",
+        "alt": "Overhead look at the pergola deck",
+        "area": "Outdoors"
+      },
+      {
+        "src": "/photos/warm/warm-58.jpg",
+        "alt": "Pergola balcony and stairs on the lake side",
+        "area": "Outdoors"
+      },
+      {
+        "src": "/photos/warm/warm-59.jpg",
+        "alt": "Lakeside elevation from the lawn",
+        "area": "Outdoors"
+      },
+      {
+        "src": "/photos/warm/warm-60.jpg",
+        "alt": "The lawn and lower deck",
+        "area": "Outdoors"
+      },
+      {
+        "src": "/photos/warm/warm-62.jpg",
+        "alt": "Deck stairs down to the waterfront",
+        "area": "Outdoors"
+      },
+      {
+        "src": "/photos/warm/warm-63.jpg",
+        "alt": "Upper deck lounge over the water",
+        "area": "Outdoors"
+      },
+      {
+        "src": "/photos/warm/warm-69.jpg",
+        "alt": "Covered pergola deck with outdoor lounge",
+        "area": "Outdoors"
+      },
+      {
+        "src": "/photos/warm/warm-70.jpg",
+        "alt": "Pergola deck looking out over Keuka Lake",
+        "area": "Outdoors"
+      },
+      {
+        "src": "/photos/warm/warm-36.jpg",
+        "alt": "The great room from the kitchen island",
+        "area": "The Main Floor"
+      },
+      {
+        "src": "/photos/warm/warm-37.jpg",
+        "alt": "Dining and lounge with lake-view picture windows",
+        "area": "The Main Floor"
+      },
+      {
+        "src": "/photos/warm/warm-40.jpg",
+        "alt": "The Great Room (Samsung Frame TV and fireplace)",
+        "area": "The Main Floor"
+      },
+      {
+        "src": "/photos/warm/warm-41.jpg",
+        "alt": "The Great Room seating area",
+        "area": "The Main Floor"
+      },
+      {
+        "src": "/photos/warm/warm-42.jpg",
+        "alt": "Open living and dining room with lake views",
+        "area": "The Main Floor"
+      },
+      {
+        "src": "/photos/warm/warm-43.jpg",
+        "alt": "Dining table with kitchen and deck access beyond",
+        "area": "The Main Floor"
+      },
+      {
+        "src": "/photos/warm/warm-03.jpg",
+        "alt": "Kitchen island with bar seating",
+        "area": "The Main Floor"
+      },
+      {
+        "src": "/photos/warm/warm-38.jpg",
+        "alt": "Kitchen with lake-view window",
+        "area": "The Main Floor"
+      },
+      {
+        "src": "/photos/warm/warm-39.jpg",
+        "alt": "Chef's kitchen - range wall and island",
+        "area": "The Main Floor"
+      },
+      {
+        "src": "/photos/warm/warm-08.jpg",
+        "alt": "King bedroom with en suite full bathroom",
+        "area": "The Main Floor"
+      },
+      {
+        "src": "/photos/warm/warm-10.jpg",
+        "alt": "En suite bathroom with green tile shower",
+        "area": "The Main Floor"
+      },
+      {
+        "src": "/photos/warm/warm-12.jpg",
+        "alt": "En suite bathroom vanity",
+        "area": "The Main Floor"
+      },
+      {
+        "src": "/photos/warm/warm-13.jpg",
+        "alt": "Powder room off the dining area",
+        "area": "The Main Floor"
+      },
+      {
+        "src": "/photos/warm/warm-05.jpg",
+        "alt": "Pantry and utility room with laundry and coffee bar",
+        "area": "The Main Floor"
+      },
+      {
+        "src": "/photos/warm/warm-30.jpg",
+        "alt": "Entrance foyer",
+        "area": "Upstairs"
+      },
+      {
+        "src": "/photos/warm/warm-31.jpg",
+        "alt": "Foyer toward the stairs down to the main floor",
+        "area": "Upstairs"
+      },
+      {
+        "src": "/photos/warm/warm-15.jpg",
+        "alt": "Upstairs family room with 75” flatscreen TV",
+        "area": "Upstairs"
+      },
+      {
+        "src": "/photos/warm/warm-16.jpg",
+        "alt": "Family room with king sofa bed and barn door",
+        "area": "Upstairs"
+      },
+      {
+        "src": "/photos/warm/warm-17.jpg",
+        "alt": "Family room seating with lake-view windows",
+        "area": "Upstairs"
+      },
+      {
+        "src": "/photos/warm/warm-25.jpg",
+        "alt": "Primary king bedroom with lake views",
+        "area": "Upstairs"
+      },
+      {
+        "src": "/photos/warm/warm-27.jpg",
+        "alt": "Primary king bedroom dressers and mirror",
+        "area": "Upstairs"
+      },
+      {
+        "src": "/photos/warm/warm-29.jpg",
+        "alt": "Primary bedroom picture window",
+        "area": "Upstairs"
+      },
+      {
+        "src": "/photos/warm/warm-22.jpg",
+        "alt": "Twin bedroom with two beds",
+        "area": "Upstairs"
+      },
+      {
+        "src": "/photos/warm/warm-23.jpg",
+        "alt": "Twin bedroom closet and storage",
+        "area": "Upstairs"
+      },
+      {
+        "src": "/photos/warm/warm-18.jpg",
+        "alt": "Upstairs full bathroom with bathtub",
+        "area": "Upstairs"
+      }
+    ]
+  },
+  "text": {
+    "nav": {
+      "brand": "Lilac Landing",
+      "links": [
+        {
+          "label": "The House",
+          "href": "#gallery"
+        },
+        {
+          "label": "Gallery",
+          "href": "#property"
+        },
+        {
+          "label": "Availability",
+          "href": "#booking"
+        }
+      ],
+      "cta": "Book Direct"
+    },
+    "hero": {
+      "eyebrow": "Keuka Lake · Penn Yan, NY",
+      "title": "Life on the Lake",
+      "tagline": [
+        "Private dock, sunset views, 3 bedrooms + Family Room, 8 guests."
+      ],
+      "ctaPrimary": "Check Availability",
+      "ctaSecondary": "Explore the House"
+    },
+    "about": {
+      "heading": "Welcome to Lilac Landing",
+      "intro": [
+        "This year-round East side lake home (2300~ SF) is the perfect lakeside retreat for couples and families to experience Lake Life. Our newly built custom home has huge picture windows on both floors with incredible views of Keuka Lake. The sunsets are spectacular. Street level entrance to upstairs with 2 parking spaces adjacent to the house. Lilac Landing features 2 floors, 3 bedrooms plus a huge family room, 2.5 baths, gourmet kitchen, laundry room, deck, shady yard, dock and beach. Lilac Landing is located right on the water, just 4.5 miles South of Penn Yan. This is a quiet stretch of lower East Lake Road with wonderful neighbors and premium renovated and historic cottages."
+      ],
+      "sections": [
+        {
+          "title": "The Main Floor",
+          "textSide": "right",
+          "feature": {
+            "src": "/figma/pro-living-tv.jpeg",
+            "alt": "The Great Room with Samsung Frame TV and wood-burning fireplace"
+          },
+          "featureShape": "tall",
+          "pair": [
+            {
+              "src": "/figma/sl3-mf-kitchen.jpeg",
+              "alt": "Kitchen with induction range and Bosch dishwasher"
+            },
+            {
+              "src": "/figma/sl3-mf-dining.jpeg",
+              "alt": "Dining area beside the kitchen"
+            }
+          ],
+          "pairStyle": "bleed",
+          "caption": [
+            "Lake views - Being far away from city life has its benefits.",
+            "Enjoy dinner with your friends and family with the use of our fully furnished kitchen",
+            "Enjoy a dinner by the Lake."
+          ],
+          "paragraphs": [
+            "The main floor of the house is designed for guests to enjoy stunning views of the lake.",
+            "The Great Room is a beautifully furnished living room with central dining area and gourmet kitchen.",
+            "The kitchen and pantry are outfitted with induction range, drinks fridge, Bosch dishwasher, coffee maker, microwave, toaster, and stocked with cooking pots and pans, utensils, plates and glassware. Utility and laundry room are off the kitchen pantry with doors to keep it quiet.",
+            "Watch the game on the Samsung Frame TV while you're entertaining (or go to art mode). A small wood burning fireplace will warm the fall evenings and the entire house features heating and A/C for year-round comfort.",
+            "The primary bedroom on the ground floor is a quiet retreat with en suite full bathroom. The main floor of the house also has a powder room (half bath) for guests to change and jump in the lake."
+          ]
+        },
+        {
+          "title": "The Upper Level",
+          "textSide": "left",
+          "feature": {
+            "src": "/figma/pro-family-wide.jpeg",
+            "alt": "Upstairs family room with lake views"
+          },
+          "featureShape": "wide",
+          "pair": [
+            {
+              "src": "/figma/sl3-ul-bed.jpeg",
+              "alt": "King bedroom with picture window"
+            },
+            {
+              "src": "/figma/sl3-ul-twin.jpeg",
+              "alt": "Upper level lounge with colorful rug"
+            }
+          ],
+          "pairStyle": "grid",
+          "paragraphs": [
+            "The large upper level includes a king bedroom and a large family room, both with spectacular views.",
+            "The family room (16'4\" x 16'4\") has a king size pull out premium sofa bed and a 75\" LCD TV for movie nights, as well as a custom 2\" thick walnut barn door for privacy.",
+            "The king bedroom (15' x 16'4\") is luxuriously appointed with a giant picture window to wake up to in the morning. All rooms have darkening and scrim shades on the windows.",
+            "Also on the upper level are a spacious twin bedroom with plenty of closet space and dresser storage, plus a shared full bathroom with a shower and tub for soaking baths or bath time for kids."
+          ]
+        },
+        {
+          "title": "The Outdoors",
+          "textSide": "right",
+          "pair": [
+            {
+              "src": "/figma/sl4-out-deck.jpeg",
+              "alt": "Deck with pergola overlooking Keuka Lake"
+            }
+          ],
+          "pairStyle": "overlap",
+          "paragraphs": [
+            "A new, aluminum dock and lounge chairs are available for your use, as well as kayaks (use at your own risk), and four life preservers of various sizes.",
+            "The deck (325'~ SF) is fully furnished with 2 lounge chairs and matching couch and love seat as well as 3 umbrellas for shade. A gas barbecue is provided for outdoor cooking and entertaining."
+          ]
+        }
+      ],
+      "closing": "Swim all day. Enjoy sunset views.",
+      "roomsTitle": "View Our Rooms",
+      "roomsCover": {
+        "src": "/photos/warm/warm-60.jpg",
+        "alt": "Lilac Landing from the back lawn, deck and lakeside stairs"
+      },
+      "rooms": [
+        {
+          "title": "King Bedroom",
+          "floor": "Upstairs",
+          "src": "/figma/pro-room-king.jpeg",
+          "alt": "King bedroom with en suite full bathroom",
+          "desc": "Upper floor retreat with full bath and lake views.",
+          "photos": [
+            {
+              "src": "/figma/pro-room-king.jpeg",
+              "alt": "King bedroom with barn door and lake-view windows"
+            },
+            {
+              "src": "/figma/pro-room-king-2.jpeg",
+              "alt": "King bedroom, ground floor"
+            },
+            {
+              "src": "/figma/pro-bath-king.jpeg",
+              "alt": "En suite full bathroom with green tile shower"
+            },
+            {
+              "src": "/figma/pro-bath-king-2.jpeg",
+              "alt": "En suite bathroom vanity"
+            }
+          ]
+        },
+        {
+          "title": "Primary Bedroom",
+          "floor": "Ground Floor",
+          "src": "/photos/warm/warm-08.jpg",
+          "alt": "King bedroom on the ground floor",
+          "desc": "Ground floor retreat with en suite full bath.",
+          "photos": [
+            {
+              "src": "/figma/pro-room-primary.jpeg",
+              "alt": "Primary king bedroom with giant picture window over the water"
+            },
+            {
+              "src": "/figma/pro-room-primary-2.jpeg",
+              "alt": "Primary king bedroom, upstairs"
+            },
+            {
+              "src": "/figma/pro-bath-up.jpeg",
+              "alt": "Upstairs full bathroom with bathtub"
+            }
+          ]
+        },
+        {
+          "title": "Twin Bedroom",
+          "floor": "Upstairs",
+          "src": "/figma/pro-room-twin.jpeg",
+          "alt": "Upstairs twin bedroom",
+          "desc": "Plenty of closet space and soft lake light.",
+          "photos": [
+            {
+              "src": "/figma/pro-room-twin.jpeg",
+              "alt": "Twin bedroom with two beds and colorful rug"
+            },
+            {
+              "src": "/figma/pro-room-twin-2.jpeg",
+              "alt": "Twin bedroom closet and dresser storage"
+            }
+          ]
+        }
+      ]
+    },
+    "amenities": {
+      "heading": "What’s Included",
+      "items": [
+        "Lake view",
+        "Lake access",
+        "Full kitchen",
+        "WiFi",
+        "Free parking",
+        "Gas BBQ grill",
+        "Self check-in keypad",
+        "2.5 bathrooms",
+        "Fishing off dock",
+        "Outdoor seating",
+        "Wood-burning fireplace",
+        "Heating and A/C",
+        "Two kayaks + life vests",
+        "Laundry room",
+        "King sofa bed in Family Room"
+      ],
+      "note": "Lower East Lake Road is a quiet residential street right on the water. Just up the hill: blueberry picking, The Windmill Market, and world-renowned Finger Lakes wineries.",
+      "stats": [
+        {
+          "value": 3,
+          "label": "Bedrooms"
+        },
+        {
+          "value": 4,
+          "label": "Beds"
+        },
+        {
+          "value": 2.5,
+          "label": "Baths"
+        },
+        {
+          "value": 8,
+          "label": "Guests Max"
+        }
+      ]
+    },
+    "experience": {
+      "eyebrow": "The Experience",
+      "quote": "We have built this house for maximum enjoyment of the lake. We look forward to welcoming you to Lilac Landing!",
+      "highlights": [
+        {
+          "title": "On the Lake",
+          "sub": "Right on Keuka Lake"
+        },
+        {
+          "title": "Sunset Views",
+          "sub": "West-facing sunset views"
+        },
+        {
+          "title": "Private Dock",
+          "sub": "Fish directly off the dock"
+        }
+      ]
+    },
+    "booking": {
+      "lakeLabel": "THE LAKE",
+      "heading": "Lilac Landing",
+      "body": "This year-round lake home is the perfect lakeside retreat for couples and families. Newly built with huge picture windows on both floors, incredible views of Keuka Lake, and spectacular sunsets. Three bedrooms plus a huge family room, 2.5 baths, a gourmet kitchen, deck, dock, and beach, just 4.5 miles south of Penn Yan.",
+      "features": [
+        {
+          "title": "Lakefront",
+          "sub": "Private dock"
+        },
+        {
+          "title": "Chef's Kitchen",
+          "sub": "Premium appliances"
+        },
+        {
+          "title": "Direct Access",
+          "sub": "Keypad self entry"
+        }
+      ],
+      "policyTitle": "Direct Booking Policy",
+      "policyBody": "Booking directly through our portal ensures the best rate and eliminates external service fees. Your reservation includes 24/7 concierge support.",
+      "sentTitle": "We’ll be in touch soon.",
+      "sentBody": "Your dates are noted. Watch your inbox for a reply.",
+      "pricePerNight": 550,
+      "cleaningFee": 200,
+      "guestsMax": 8,
+      "rating": "4.98",
+      "perNightLabel": "/ night",
+      "checkInLabel": "Check-in",
+      "checkOutLabel": "Check-out",
+      "addDateLabel": "Add date",
+      "guestsLabel": "Guests",
+      "guestsMaxNote": "Maximum {n} guests",
+      "reserveLabel": "Reserve",
+      "chargeNote": "You won’t be charged yet",
+      "cleaningFeeLabel": "Cleaning fee",
+      "serviceFeeLabel": "Service fee",
+      "totalLabel": "Total"
+    },
+    "footer": {
+      "brand": "Lilac Landing",
+      "location": "Keuka Lake · Penn Yan, New York",
+      "hostedByPrefix": "Hosted by Elle Chan · ",
+      "email": "elle@wearetrademark.com",
+      "listingUrl": "https://www.airbnb.com/rooms/1666706918372638426",
+      "listingLabel": "View Airbnb Listing",
+      "availabilityLabel": "Check Availability",
+      "availabilityHref": "#booking",
+      "contactLabel": "Contact Host",
+      "copyright": "© 2026 Lilac Landing · Designed by Hans"
+    }
+  }
+}
