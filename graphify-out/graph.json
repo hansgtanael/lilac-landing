@@ -104,6 +104,26 @@
       "norm_label": "get()"
     },
     {
+      "label": "route.ts",
+      "file_type": "code",
+      "source_file": "app/api/revalidate/route.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_api_revalidate_route",
+      "community": 12,
+      "norm_label": "route.ts"
+    },
+    {
+      "label": "POST()",
+      "file_type": "code",
+      "source_file": "app/api/revalidate/route.ts",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "app_api_revalidate_route_post",
+      "community": 12,
+      "norm_label": "post()"
+    },
+    {
       "label": "layout.tsx",
       "file_type": "code",
       "source_file": "app/layout.tsx",
@@ -650,7 +670,7 @@
       "source_location": "L639",
       "_origin": "ast",
       "id": "components_gallerynoir_gallerynoir",
-      "community": 14,
+      "community": 3,
       "norm_label": "gallerynoir()"
     },
     {
@@ -870,7 +890,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_smoothscroll",
-      "community": 3,
+      "community": 7,
       "norm_label": "smoothscroll.tsx"
     },
     {
@@ -880,7 +900,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "components_smoothscroll_smoothscroll",
-      "community": 3,
+      "community": 7,
       "norm_label": "smoothscroll()"
     },
     {
@@ -890,7 +910,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_spacingtuner",
-      "community": 3,
+      "community": 8,
       "norm_label": "spacingtuner.tsx"
     },
     {
@@ -900,7 +920,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "components_spacingtuner_row",
-      "community": 3,
+      "community": 8,
       "norm_label": "row()"
     },
     {
@@ -910,7 +930,7 @@
       "source_location": "L56",
       "_origin": "ast",
       "id": "components_spacingtuner_spacingtuner",
-      "community": 3,
+      "community": 8,
       "norm_label": "spacingtuner()"
     },
     {
@@ -1010,7 +1030,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_lux_arrival",
-      "community": 3,
+      "community": 14,
       "norm_label": "arrival.tsx"
     },
     {
@@ -1020,7 +1040,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "components_lux_arrival_fallback",
-      "community": 3,
+      "community": 14,
       "norm_label": "fallback"
     },
     {
@@ -1030,7 +1050,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "components_lux_arrival_arrival",
-      "community": 3,
+      "community": 14,
       "norm_label": "arrival()"
     },
     {
@@ -1040,7 +1060,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_lux_conciergestay",
-      "community": 3,
+      "community": 14,
       "norm_label": "conciergestay.tsx"
     },
     {
@@ -1050,7 +1070,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "components_lux_conciergestay_fallback",
-      "community": 3,
+      "community": 14,
       "norm_label": "fallback"
     },
     {
@@ -1060,7 +1080,7 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "components_lux_conciergestay_conciergestay",
-      "community": 3,
+      "community": 14,
       "norm_label": "conciergestay()"
     },
     {
@@ -1070,7 +1090,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_lux_luxhero",
-      "community": 3,
+      "community": 14,
       "norm_label": "luxhero.tsx"
     },
     {
@@ -1080,7 +1100,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "components_lux_luxhero_fallback",
-      "community": 3,
+      "community": 14,
       "norm_label": "fallback"
     },
     {
@@ -1090,7 +1110,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "components_lux_luxhero_luxhero",
-      "community": 3,
+      "community": 14,
       "norm_label": "luxhero()"
     },
     {
@@ -1130,7 +1150,7 @@
       "source_location": "L111",
       "_origin": "ast",
       "id": "components_lux_roomsfilm_roomsfilm",
-      "community": 14,
+      "community": 3,
       "norm_label": "roomsfilm()"
     },
     {
@@ -1140,7 +1160,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_lux_scrollfilm",
-      "community": 14,
+      "community": 3,
       "norm_label": "scrollfilm.tsx"
     },
     {
@@ -1150,7 +1170,7 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "components_lux_scrollfilm_fallback",
-      "community": 14,
+      "community": 3,
       "norm_label": "fallback"
     },
     {
@@ -1160,7 +1180,7 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "components_lux_scrollfilm_scrubbedfilm",
-      "community": 14,
+      "community": 3,
       "norm_label": "scrubbedfilm()"
     },
     {
@@ -1170,7 +1190,7 @@
       "source_location": "L166",
       "_origin": "ast",
       "id": "components_lux_scrollfilm_ambientfilm",
-      "community": 14,
+      "community": 3,
       "norm_label": "ambientfilm()"
     },
     {
@@ -1180,7 +1200,7 @@
       "source_location": "L214",
       "_origin": "ast",
       "id": "components_lux_scrollfilm_scrollfilm",
-      "community": 14,
+      "community": 3,
       "norm_label": "scrollfilm()"
     },
     {
@@ -1400,7 +1420,7 @@
       "source_location": "L138",
       "_origin": "ast",
       "id": "lib_content_sitecontent",
-      "community": 3,
+      "community": 19,
       "norm_label": "sitecontent"
     },
     {
@@ -1587,7 +1607,7 @@
       "label": "urlFor()",
       "file_type": "code",
       "source_file": "lib/sanity.ts",
-      "source_location": "L48",
+      "source_location": "L52",
       "_origin": "ast",
       "id": "lib_sanity_urlfor",
       "community": 19,
@@ -1597,7 +1617,7 @@
       "label": "LuxCta",
       "file_type": "code",
       "source_file": "lib/sanity.ts",
-      "source_location": "L61",
+      "source_location": "L65",
       "_origin": "ast",
       "id": "lib_sanity_luxcta",
       "community": 14,
@@ -1607,17 +1627,17 @@
       "label": "LuxHeroContent",
       "file_type": "code",
       "source_file": "lib/sanity.ts",
-      "source_location": "L63",
+      "source_location": "L67",
       "_origin": "ast",
       "id": "lib_sanity_luxherocontent",
-      "community": 3,
+      "community": 14,
       "norm_label": "luxherocontent"
     },
     {
       "label": "LuxArrivalContent",
       "file_type": "code",
       "source_file": "lib/sanity.ts",
-      "source_location": "L75",
+      "source_location": "L79",
       "_origin": "ast",
       "id": "lib_sanity_luxarrivalcontent",
       "community": 14,
@@ -1627,7 +1647,7 @@
       "label": "LuxFilmContent",
       "file_type": "code",
       "source_file": "lib/sanity.ts",
-      "source_location": "L81",
+      "source_location": "L85",
       "_origin": "ast",
       "id": "lib_sanity_luxfilmcontent",
       "community": 14,
@@ -1637,7 +1657,7 @@
       "label": "LuxRoom",
       "file_type": "code",
       "source_file": "lib/sanity.ts",
-      "source_location": "L90",
+      "source_location": "L94",
       "_origin": "ast",
       "id": "lib_sanity_luxroom",
       "community": 14,
@@ -1647,7 +1667,7 @@
       "label": "LuxRoomsContent",
       "file_type": "code",
       "source_file": "lib/sanity.ts",
-      "source_location": "L97",
+      "source_location": "L101",
       "_origin": "ast",
       "id": "lib_sanity_luxroomscontent",
       "community": 14,
@@ -1657,7 +1677,7 @@
       "label": "LuxDetail",
       "file_type": "code",
       "source_file": "lib/sanity.ts",
-      "source_location": "L101",
+      "source_location": "L105",
       "_origin": "ast",
       "id": "lib_sanity_luxdetail",
       "community": 14,
@@ -1667,7 +1687,7 @@
       "label": "LuxCardField",
       "file_type": "code",
       "source_file": "lib/sanity.ts",
-      "source_location": "L102",
+      "source_location": "L106",
       "_origin": "ast",
       "id": "lib_sanity_luxcardfield",
       "community": 14,
@@ -1677,7 +1697,7 @@
       "label": "LuxConciergeContent",
       "file_type": "code",
       "source_file": "lib/sanity.ts",
-      "source_location": "L104",
+      "source_location": "L108",
       "_origin": "ast",
       "id": "lib_sanity_luxconciergecontent",
       "community": 14,
@@ -1687,7 +1707,7 @@
       "label": "LuxContent",
       "file_type": "code",
       "source_file": "lib/sanity.ts",
-      "source_location": "L120",
+      "source_location": "L124",
       "_origin": "ast",
       "id": "lib_sanity_luxcontent",
       "community": 14,
@@ -1697,7 +1717,7 @@
       "label": "getLuxContent()",
       "file_type": "code",
       "source_file": "lib/sanity.ts",
-      "source_location": "L181",
+      "source_location": "L185",
       "_origin": "ast",
       "id": "lib_sanity_getluxcontent",
       "community": 14,
@@ -1840,7 +1860,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_usemediaquery",
-      "community": 14,
+      "community": 3,
       "norm_label": "usemediaquery.ts"
     },
     {
@@ -1850,7 +1870,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "lib_usemediaquery_usemediaquery",
-      "community": 14,
+      "community": 3,
       "norm_label": "usemediaquery()"
     },
     {
@@ -2124,10 +2144,20 @@
       "norm_label": "@sanity/vision"
     },
     {
-      "label": "gsap",
+      "label": "@sanity/webhook",
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L20",
+      "_origin": "ast",
+      "id": "package_dependencies_sanity_webhook",
+      "community": 2,
+      "norm_label": "@sanity/webhook"
+    },
+    {
+      "label": "gsap",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L21",
       "_origin": "ast",
       "id": "package_dependencies_gsap",
       "community": 2,
@@ -2137,7 +2167,7 @@
       "label": "lenis",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L21",
+      "source_location": "L22",
       "_origin": "ast",
       "id": "package_dependencies_lenis",
       "community": 2,
@@ -2147,7 +2177,7 @@
       "label": "motion",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L22",
+      "source_location": "L23",
       "_origin": "ast",
       "id": "package_dependencies_motion",
       "community": 2,
@@ -2157,7 +2187,7 @@
       "label": "next",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L23",
+      "source_location": "L24",
       "_origin": "ast",
       "id": "package_dependencies_next",
       "community": 2,
@@ -2167,7 +2197,7 @@
       "label": "next-sanity",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L24",
+      "source_location": "L25",
       "_origin": "ast",
       "id": "package_dependencies_next_sanity",
       "community": 2,
@@ -2177,7 +2207,7 @@
       "label": "react",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L25",
+      "source_location": "L26",
       "_origin": "ast",
       "id": "package_dependencies_react",
       "community": 2,
@@ -2187,7 +2217,7 @@
       "label": "react-dom",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L26",
+      "source_location": "L27",
       "_origin": "ast",
       "id": "package_dependencies_react_dom",
       "community": 2,
@@ -2197,7 +2227,7 @@
       "label": "sanity",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L27",
+      "source_location": "L28",
       "_origin": "ast",
       "id": "package_dependencies_sanity",
       "community": 2,
@@ -2207,7 +2237,7 @@
       "label": "devDependencies",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L29",
+      "source_location": "L30",
       "_origin": "ast",
       "id": "package_devdependencies",
       "community": 2,
@@ -2217,7 +2247,7 @@
       "label": "@tailwindcss/postcss",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L30",
+      "source_location": "L31",
       "_origin": "ast",
       "id": "package_devdependencies_tailwindcss_postcss",
       "community": 2,
@@ -2227,7 +2257,7 @@
       "label": "@types/node",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L31",
+      "source_location": "L32",
       "_origin": "ast",
       "id": "package_devdependencies_types_node",
       "community": 2,
@@ -2237,7 +2267,7 @@
       "label": "@types/react",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L32",
+      "source_location": "L33",
       "_origin": "ast",
       "id": "package_devdependencies_types_react",
       "community": 2,
@@ -2247,7 +2277,7 @@
       "label": "@types/react-dom",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L33",
+      "source_location": "L34",
       "_origin": "ast",
       "id": "package_devdependencies_types_react_dom",
       "community": 2,
@@ -2257,7 +2287,7 @@
       "label": "eslint",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L34",
+      "source_location": "L35",
       "_origin": "ast",
       "id": "package_devdependencies_eslint",
       "community": 2,
@@ -2267,7 +2297,7 @@
       "label": "eslint-config-next",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L35",
+      "source_location": "L36",
       "_origin": "ast",
       "id": "package_devdependencies_eslint_config_next",
       "community": 2,
@@ -2277,7 +2307,7 @@
       "label": "typescript",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L36",
+      "source_location": "L37",
       "_origin": "ast",
       "id": "package_devdependencies_typescript",
       "community": 2,
@@ -3662,6 +3692,16 @@
       "weight": 1.0,
       "source": "app_api_quote_route_get",
       "target": "lib_hospitable_isconfigured"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/revalidate/route.ts",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "app_api_revalidate_route",
+      "target": "app_api_revalidate_route_post",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -7232,7 +7272,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "lib/sanity.ts",
-      "source_location": "L181",
+      "source_location": "L185",
       "weight": 1.0,
       "source": "lib_sanity",
       "target": "lib_sanity_getluxcontent",
@@ -7252,7 +7292,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "lib/sanity.ts",
-      "source_location": "L75",
+      "source_location": "L79",
       "weight": 1.0,
       "source": "lib_sanity",
       "target": "lib_sanity_luxarrivalcontent",
@@ -7262,7 +7302,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "lib/sanity.ts",
-      "source_location": "L102",
+      "source_location": "L106",
       "weight": 1.0,
       "source": "lib_sanity",
       "target": "lib_sanity_luxcardfield",
@@ -7272,7 +7312,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "lib/sanity.ts",
-      "source_location": "L104",
+      "source_location": "L108",
       "weight": 1.0,
       "source": "lib_sanity",
       "target": "lib_sanity_luxconciergecontent",
@@ -7282,7 +7322,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "lib/sanity.ts",
-      "source_location": "L120",
+      "source_location": "L124",
       "weight": 1.0,
       "source": "lib_sanity",
       "target": "lib_sanity_luxcontent",
@@ -7292,7 +7332,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "lib/sanity.ts",
-      "source_location": "L61",
+      "source_location": "L65",
       "weight": 1.0,
       "source": "lib_sanity",
       "target": "lib_sanity_luxcta",
@@ -7302,7 +7342,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "lib/sanity.ts",
-      "source_location": "L101",
+      "source_location": "L105",
       "weight": 1.0,
       "source": "lib_sanity",
       "target": "lib_sanity_luxdetail",
@@ -7312,7 +7352,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "lib/sanity.ts",
-      "source_location": "L81",
+      "source_location": "L85",
       "weight": 1.0,
       "source": "lib_sanity",
       "target": "lib_sanity_luxfilmcontent",
@@ -7322,7 +7362,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "lib/sanity.ts",
-      "source_location": "L63",
+      "source_location": "L67",
       "weight": 1.0,
       "source": "lib_sanity",
       "target": "lib_sanity_luxherocontent",
@@ -7332,7 +7372,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "lib/sanity.ts",
-      "source_location": "L90",
+      "source_location": "L94",
       "weight": 1.0,
       "source": "lib_sanity",
       "target": "lib_sanity_luxroom",
@@ -7342,7 +7382,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "lib/sanity.ts",
-      "source_location": "L97",
+      "source_location": "L101",
       "weight": 1.0,
       "source": "lib_sanity",
       "target": "lib_sanity_luxroomscontent",
@@ -7352,7 +7392,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "lib/sanity.ts",
-      "source_location": "L48",
+      "source_location": "L52",
       "weight": 1.0,
       "source": "lib_sanity",
       "target": "lib_sanity_urlfor",
@@ -7384,7 +7424,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L27",
+      "source_location": "L28",
       "weight": 1.0,
       "context": "import",
       "source": "package_dependencies_sanity",
@@ -7727,7 +7767,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L29",
+      "source_location": "L30",
       "weight": 1.0,
       "source": "package",
       "target": "package_devdependencies",
@@ -7847,7 +7887,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L20",
+      "source_location": "L21",
       "weight": 1.0,
       "source": "package_dependencies",
       "target": "package_dependencies_gsap",
@@ -7867,7 +7907,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L21",
+      "source_location": "L22",
       "weight": 1.0,
       "source": "package_dependencies",
       "target": "package_dependencies_lenis",
@@ -7877,7 +7917,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L22",
+      "source_location": "L23",
       "weight": 1.0,
       "source": "package_dependencies",
       "target": "package_dependencies_motion",
@@ -7887,7 +7927,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L23",
+      "source_location": "L24",
       "weight": 1.0,
       "source": "package_dependencies",
       "target": "package_dependencies_next",
@@ -7897,7 +7937,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L24",
+      "source_location": "L25",
       "weight": 1.0,
       "source": "package_dependencies",
       "target": "package_dependencies_next_sanity",
@@ -7927,7 +7967,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L25",
+      "source_location": "L26",
       "weight": 1.0,
       "source": "package_dependencies",
       "target": "package_dependencies_react",
@@ -7937,7 +7977,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L26",
+      "source_location": "L27",
       "weight": 1.0,
       "source": "package_dependencies",
       "target": "package_dependencies_react_dom",
@@ -7947,7 +7987,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L27",
+      "source_location": "L28",
       "weight": 1.0,
       "source": "package_dependencies",
       "target": "package_dependencies_sanity",
@@ -7977,10 +8017,10 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L34",
+      "source_location": "L20",
       "weight": 1.0,
-      "source": "package_devdependencies",
-      "target": "package_devdependencies_eslint",
+      "source": "package_dependencies",
+      "target": "package_dependencies_sanity_webhook",
       "confidence_score": 1.0
     },
     {
@@ -7990,17 +8030,17 @@
       "source_location": "L35",
       "weight": 1.0,
       "source": "package_devdependencies",
-      "target": "package_devdependencies_eslint_config_next",
+      "target": "package_devdependencies_eslint",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L30",
+      "source_location": "L36",
       "weight": 1.0,
       "source": "package_devdependencies",
-      "target": "package_devdependencies_tailwindcss_postcss",
+      "target": "package_devdependencies_eslint_config_next",
       "confidence_score": 1.0
     },
     {
@@ -8010,7 +8050,7 @@
       "source_location": "L31",
       "weight": 1.0,
       "source": "package_devdependencies",
-      "target": "package_devdependencies_types_node",
+      "target": "package_devdependencies_tailwindcss_postcss",
       "confidence_score": 1.0
     },
     {
@@ -8020,7 +8060,7 @@
       "source_location": "L32",
       "weight": 1.0,
       "source": "package_devdependencies",
-      "target": "package_devdependencies_types_react",
+      "target": "package_devdependencies_types_node",
       "confidence_score": 1.0
     },
     {
@@ -8030,6 +8070,16 @@
       "source_location": "L33",
       "weight": 1.0,
       "source": "package_devdependencies",
+      "target": "package_devdependencies_types_react",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L34",
+      "weight": 1.0,
+      "source": "package_devdependencies",
       "target": "package_devdependencies_types_react_dom",
       "confidence_score": 1.0
     },
@@ -8037,7 +8087,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L36",
+      "source_location": "L37",
       "weight": 1.0,
       "source": "package_devdependencies",
       "target": "package_devdependencies_typescript",
@@ -8947,5 +8997,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "27fc744e54b553875bae329b7bf10adc698421ac"
+  "built_at_commit": "0505000981410f068536ba9b5bcd1a7f36c5f321"
 }

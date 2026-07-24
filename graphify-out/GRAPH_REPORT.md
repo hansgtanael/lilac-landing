@@ -1,16 +1,16 @@
 # Graph Report - lilac-landing-v2  (2026-07-24)
 
 ## Corpus Check
-- 63 files · ~1,071,550 words
+- 64 files · ~1,071,809 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 318 nodes · 547 edges · 19 communities (16 shown, 3 thin omitted)
+- 321 nodes · 549 edges · 21 communities (18 shown, 3 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 1 edges (avg confidence: 0.5)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `27fc744e`
+- Built from commit: `05050009`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -46,21 +46,21 @@
 10. `POST()` - 7 edges
 
 ## Surprising Connections (you probably didn't know these)
+- `Arrival()` --calls--> `useReducedMotion()`  [EXTRACTED]
+  components/lux/Arrival.tsx → lib/useReducedMotion.ts
+- `LuxHero()` --calls--> `useReducedMotion()`  [EXTRACTED]
+  components/lux/LuxHero.tsx → lib/useReducedMotion.ts
 - `Home()` --calls--> `getSiteContent()`  [EXTRACTED]
   app/page.tsx → lib/site-content.ts
 - `StudioPage()` --calls--> `isSanityConfigured()`  [EXTRACTED]
   app/studio/[[...tool]]/page.tsx → lib/sanity.ts
 - `ParallaxPhoto()` --calls--> `useReducedMotion()`  [EXTRACTED]
   components/AboutEditorial.tsx → lib/useReducedMotion.ts
-- `Drift()` --calls--> `useReducedMotion()`  [EXTRACTED]
-  components/AboutScroll.tsx → lib/useReducedMotion.ts
-- `OutdoorsCarousel()` --calls--> `useReducedMotion()`  [EXTRACTED]
-  components/AboutScroll.tsx → lib/useReducedMotion.ts
 
 ## Import Cycles
 - 1-file cycle: `sanity/structure.ts -> sanity/structure.ts`
 
-## Communities (19 total, 3 thin omitted)
+## Communities (21 total, 3 thin omitted)
 
 ### Community 1 - "compilerOptions"
 Cohesion: 0.10
@@ -68,11 +68,11 @@ Nodes (19): compilerOptions, allowJs, esModuleInterop, incremental, isolatedModu
 
 ### Community 2 - "dependencies"
 Cohesion: 0.06
-Nodes (33): dependencies, gsap, @gsap/react, lenis, motion, next, next-sanity, @phosphor-icons/react (+25 more)
+Nodes (34): dependencies, gsap, @gsap/react, lenis, motion, next, next-sanity, @phosphor-icons/react (+26 more)
 
 ### Community 3 - "page.tsx"
-Cohesion: 0.07
-Nodes (44): AboutEditorial(), ParallaxPhoto(), AboutScroll(), Drift(), OUTDOORS, OutdoorsCarousel(), Amenities(), CountUp() (+36 more)
+Cohesion: 0.08
+Nodes (40): AboutEditorial(), ParallaxPhoto(), AboutScroll(), Drift(), OUTDOORS, OutdoorsCarousel(), Amenities(), CountUp() (+32 more)
 
 ### Community 4 - "Lilac Landing — Version 2 Design Direction"
 Cohesion: 0.11
@@ -87,16 +87,16 @@ Cohesion: 0.17
 Nodes (11): Content system (everything is CMS-driven), Elle's requests — see `ELLE-TASKS.md` (the working checklist), Figma (official MCP, authed as Hans), Gotchas, Lilac Landing — project handoff, /lux route (motion concept, kept), Open threads (priority order), Other sections (+3 more)
 
 ### Community 7 - "layout.tsx"
-Cohesion: 0.25
-Nodes (5): dmSans, fraunces, lora, metadata, nunito
+Cohesion: 0.22
+Nodes (6): dmSans, fraunces, lora, metadata, nunito, SmoothScroll()
 
 ### Community 9 - "next.config.ts"
 Cohesion: 0.40
 Nodes (4): COMMON_HEADERS, CSP, nextConfig, STUDIO_CSP
 
 ### Community 14 - "GalleryNoir.tsx"
-Cohesion: 0.09
-Nodes (22): LuxHome(), GalleryNoir(), FALLBACK, RoomsFilm(), FALLBACK, ScrollFilm(), getLuxContent(), LuxArrivalContent (+14 more)
+Cohesion: 0.08
+Nodes (24): LuxHome(), Arrival(), FALLBACK, ConciergeStay(), FALLBACK, FALLBACK, LuxHero(), FALLBACK (+16 more)
 
 ### Community 16 - "Elle's requests — master list"
 Cohesion: 0.22
@@ -112,14 +112,14 @@ Nodes (22): GET(), iso(), guardBodySize(), requireSameOrigin(), POST(), GET(), B
 
 ### Community 19 - "site-content.ts"
 Cohesion: 0.10
-Nodes (24): Home(), StudioPage(), Footer(), NavLink, PropertyPhoto, RoomEntry, site, StatEntry (+16 more)
+Nodes (25): Home(), StudioPage(), Footer(), NavLink, PropertyPhoto, RoomEntry, site, SiteContent (+17 more)
 
 ### Community 20 - "migrate-site.mjs"
 Cohesion: 0.25
 Nodes (10): assetCache, build(), client, content, imageRef(), isVideo(), key(), publicDir (+2 more)
 
 ## Knowledge Gaps
-- **142 isolated node(s):** `lora`, `fraunces`, `dmSans`, `nunito`, `metadata` (+137 more)
+- **143 isolated node(s):** `lora`, `fraunces`, `dmSans`, `nunito`, `metadata` (+138 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **3 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -127,16 +127,16 @@ Nodes (10): assetCache, build(), client, content, imageRef(), isVideo(), key(), 
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `sanity` connect `dependencies` to `GalleryNoir.tsx`?**
-  _High betweenness centrality (0.127) - this node is a cross-community bridge._
-- **Why does `useReducedMotion()` connect `page.tsx` to `content.ts`, `RangeCalendar.tsx`, `GalleryNoir.tsx`?**
-  _High betweenness centrality (0.120) - this node is a cross-community bridge._
+  _High betweenness centrality (0.129) - this node is a cross-community bridge._
+- **Why does `useReducedMotion()` connect `page.tsx` to `content.ts`, `RangeCalendar.tsx`, `GalleryNoir.tsx`, `layout.tsx`?**
+  _High betweenness centrality (0.119) - this node is a cross-community bridge._
 - **What connects `lora`, `fraunces`, `dmSans` to the rest of the system?**
-  _142 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _143 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `compilerOptions` be split into smaller, more focused modules?**
   _Cohesion score 0.1 - nodes in this community are weakly interconnected._
 - **Should `dependencies` be split into smaller, more focused modules?**
-  _Cohesion score 0.058823529411764705 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.05714285714285714 - nodes in this community are weakly interconnected._
 - **Should `page.tsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.06590151795631248 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07553143374038897 - nodes in this community are weakly interconnected._
 - **Should `Lilac Landing — Version 2 Design Direction` be split into smaller, more focused modules?**
   _Cohesion score 0.1111111111111111 - nodes in this community are weakly interconnected._

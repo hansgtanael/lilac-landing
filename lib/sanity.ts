@@ -29,7 +29,11 @@ export const client: SanityClient | null = isSanityConfigured()
       projectId,
       dataset,
       apiVersion,
-      useCdn: true,
+      // false: reads hit the live API, not Sanity's CDN. The pages are ISR
+      // (fetched only on regeneration, not per-visitor), so this costs nothing
+      // in practice, and it guarantees a webhook-triggered revalidation bakes
+      // the just-published content instead of a stale CDN copy.
+      useCdn: false,
       perspective: "published",
       // Only needed for private datasets or draft/preview reads. Server-only.
       token: process.env.SANITY_API_READ_TOKEN || undefined,
