@@ -22,7 +22,7 @@ import { useSiteContent } from "@/components/site-content";
 import type { SiteContent } from "@/lib/content";
 
 // Whole-house tour order (client-picked), one kitchen shot. Each becomes a
-// full-viewport panel in the horizontal strip. Content is edited through /cms
+// full-viewport panel in the horizontal strip. Content is edited through the Studio
 // and imported typed from lib/content; timing/zIndex math below derives from
 // ROOMS.length, so any count >= 2 works.
 

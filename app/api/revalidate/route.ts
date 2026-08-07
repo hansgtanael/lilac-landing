@@ -24,10 +24,9 @@ export async function POST(request: Request) {
     return Response.json({ error: "Invalid signature." }, { status: 401 });
   }
 
-  // The client edits the main site (siteContent); revalidate both public pages
-  // to be safe. Any published change refreshes them within seconds.
+  // The client edits the main site (siteContent), which is the only public
+  // page. Any published change refreshes it within seconds.
   revalidatePath("/");
-  revalidatePath("/lux");
 
   return Response.json({ revalidated: true });
 }

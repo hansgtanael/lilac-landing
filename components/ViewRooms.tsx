@@ -32,7 +32,7 @@ export default function ViewRooms() {
   const site = useSiteContent();
   const { about } = site.text;
   const [hovered, setHovered] = useState<number | null>(null);
-  // Clicking a room opens its photo popup (per-room `photos` from /cms).
+  // Clicking a room opens its photo popup (per-room `photos` from the Studio).
   const [openRoom, setOpenRoom] = useState<number | null>(null);
   // Portal target exists only after mount (SSR has no document).
   const [mounted, setMounted] = useState(false);
@@ -115,8 +115,11 @@ export default function ViewRooms() {
                 <span className="mt-2 block text-[clamp(0.7rem,1vw,0.95rem)] uppercase tracking-wide text-light/70">
                   {r.floor}
                 </span>
+                {/* mx-auto: the 26ch box is a block, so without it the box sits
+                    flush-left in the button and the centered text reads off-axis
+                    against the wider title above it. */}
                 <span
-                  className={`mt-4 block max-w-[26ch] text-sm font-normal normal-case not-italic text-light/90 md:text-base ${fade} ${
+                  className={`mx-auto mt-4 block max-w-[26ch] text-sm font-normal normal-case not-italic text-light/90 md:text-base ${fade} ${
                     hovered === i ? "opacity-100" : "opacity-0"
                   }`}
                 >

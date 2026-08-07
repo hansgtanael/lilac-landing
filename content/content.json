@@ -362,16 +362,37 @@
           "title": "King Bedroom",
           "floor": "Upstairs",
           "src": "/figma/pro-room-king.jpeg",
-          "alt": "King bedroom with en suite full bathroom",
-          "desc": "Upper floor retreat with full bath and lake views.",
+          "alt": "Upstairs king bedroom with barn door and lake views",
+          "desc": "Upper floor retreat with shared full bath and lake views.",
           "photos": [
             {
               "src": "/figma/pro-room-king.jpeg",
               "alt": "King bedroom with barn door and lake-view windows"
             },
             {
+              "src": "/figma/pro-room-primary.jpeg",
+              "alt": "King bedroom with a picture window over the water"
+            },
+            {
+              "src": "/figma/pro-room-primary-2.jpeg",
+              "alt": "King bedroom with walnut dresser and vaulted ceiling"
+            },
+            {
+              "src": "/figma/pro-bath-up.jpeg",
+              "alt": "Upstairs full bathroom with bathtub"
+            }
+          ]
+        },
+        {
+          "title": "Primary Bedroom",
+          "floor": "Ground Floor",
+          "src": "/figma/pro-room-king-2.jpeg",
+          "alt": "Primary bedroom on the ground floor",
+          "desc": "Ground floor retreat with en suite full bath.",
+          "photos": [
+            {
               "src": "/figma/pro-room-king-2.jpeg",
-              "alt": "King bedroom, ground floor"
+              "alt": "Primary king bedroom on the ground floor"
             },
             {
               "src": "/figma/pro-bath-king.jpeg",
@@ -379,28 +400,7 @@
             },
             {
               "src": "/figma/pro-bath-king-2.jpeg",
-              "alt": "En suite bathroom vanity"
-            }
-          ]
-        },
-        {
-          "title": "Primary Bedroom",
-          "floor": "Ground Floor",
-          "src": "/photos/warm/warm-08.jpg",
-          "alt": "King bedroom on the ground floor",
-          "desc": "Ground floor retreat with en suite full bath.",
-          "photos": [
-            {
-              "src": "/figma/pro-room-primary.jpeg",
-              "alt": "Primary king bedroom with giant picture window over the water"
-            },
-            {
-              "src": "/figma/pro-room-primary-2.jpeg",
-              "alt": "Primary king bedroom, upstairs"
-            },
-            {
-              "src": "/figma/pro-bath-up.jpeg",
-              "alt": "Upstairs full bathroom with bathtub"
+              "alt": "En suite bathroom vanity, opening into the bedroom"
             }
           ]
         },

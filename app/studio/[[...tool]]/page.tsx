@@ -8,8 +8,8 @@
  * IMPORTANT (deployment): the site's Content-Security-Policy in next.config.ts
  * (and public/_headers) is same-origin only. Before the embedded Studio can
  * talk to Sanity in the browser, that CSP must be widened to allow Sanity's
- * hosts (see the report / README notes). The /lux data read is server-side and
- * is unaffected by CSP.
+ * hosts (see the report / README notes). The home page's data read is
+ * server-side and is unaffected by CSP.
  */
 
 import { NextStudio } from "next-sanity/studio";
@@ -45,8 +45,8 @@ export default function StudioPage() {
             Set <code>NEXT_PUBLIC_SANITY_PROJECT_ID</code> (and{" "}
             <code>NEXT_PUBLIC_SANITY_DATASET</code>) in <code>.env.local</code>,
             then restart the dev server. The Studio will mount here once a
-            project id is present. Until then, the <code>/lux</code> page renders
-            its built-in content.
+            project id is present. Until then, the site renders its built-in
+            content from <code>content/content.json</code>.
           </p>
         </div>
       </main>

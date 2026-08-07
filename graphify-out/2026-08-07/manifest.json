@@ -70,13 +70,13 @@
     "semantic_hash": ""
   },
   "next.config.ts": {
-    "mtime": 1784888694.8123794,
-    "ast_hash": "e5b9c5a785d688467eeb13438b795a0c",
+    "mtime": 1784874150.9781795,
+    "ast_hash": "a57b296c2bb6cda21b2ff6d1fa3a047f",
     "semantic_hash": ""
   },
   "package.json": {
-    "mtime": 1785112741.034551,
-    "ast_hash": "2de528c12bd7476ac71cc6cef8556d23",
+    "mtime": 1784887995.4139504,
+    "ast_hash": "659b0d59ccd2d10a0ae1b69131c54cdc",
     "semantic_hash": ""
   },
   "postcss.config.mjs": {
@@ -105,8 +105,8 @@
     "semantic_hash": ""
   },
   "components/GalleryNoir.tsx": {
-    "mtime": 1785112800.518542,
-    "ast_hash": "c6b24e13899cfd5d73a65bb3caad5563",
+    "mtime": 1784886782.7494195,
+    "ast_hash": "b41dedb5a9a479333b59de0fa48c27a1",
     "semantic_hash": ""
   },
   "components/PropertyStrip.tsx": {
@@ -219,19 +219,49 @@
     "ast_hash": "cd131b2f6eb1777952ed38d2727df638",
     "semantic_hash": ""
   },
+  "app/lux/page.tsx": {
+    "mtime": 1784871874.5784864,
+    "ast_hash": "71bbc750cb3808f10fdfb2600f57ff72",
+    "semantic_hash": ""
+  },
   "components/SmoothScroll.tsx": {
     "mtime": 1784885863.4713736,
     "ast_hash": "a007858a32a989e0c881ec29f43fb604",
     "semantic_hash": ""
   },
+  "components/lux/Arrival.tsx": {
+    "mtime": 1784871924.6283712,
+    "ast_hash": "4ec11426da54783631c746de337fe1b6",
+    "semantic_hash": ""
+  },
+  "components/lux/ConciergeStay.tsx": {
+    "mtime": 1784872070.1311848,
+    "ast_hash": "9ba86598da45b53ef06038bcdfc34e8e",
+    "semantic_hash": ""
+  },
+  "components/lux/LuxHero.tsx": {
+    "mtime": 1784871907.33718,
+    "ast_hash": "8217eb61c94d3766cc57b8e2f4ba793d",
+    "semantic_hash": ""
+  },
+  "components/lux/RoomsFilm.tsx": {
+    "mtime": 1784872017.9239936,
+    "ast_hash": "d3b546facb403f91eeca62cdb4d8589e",
+    "semantic_hash": ""
+  },
+  "components/lux/ScrollFilm.tsx": {
+    "mtime": 1784871987.0568724,
+    "ast_hash": "e52dae57adfaa6ccea5a9a868adf1b5b",
+    "semantic_hash": ""
+  },
   "content/content.json": {
-    "mtime": 1785116029.2634096,
-    "ast_hash": "952af4e6af19360530f20314dcac86e6",
+    "mtime": 1784868505.167613,
+    "ast_hash": "4d1134adb2938c3c1e6304d400619884",
     "semantic_hash": ""
   },
   "lib/content.ts": {
-    "mtime": 1785112800.5223243,
-    "ast_hash": "71d80f5e35b6710d4a57c51724607df8",
+    "mtime": 1784839871.7487338,
+    "ast_hash": "eb8385bb60a31c1db244c564d4653ff0",
     "semantic_hash": ""
   },
   "ELLE-TASKS.md": {
@@ -255,8 +285,8 @@
     "semantic_hash": ""
   },
   "components/AboutEditorial.tsx": {
-    "mtime": 1785112800.5177722,
-    "ast_hash": "4e50da64d2c7e0ce9efd1be6c40531ae",
+    "mtime": 1784874673.598966,
+    "ast_hash": "aa4c5d7957bdd01aa585a4923b52e884",
     "semantic_hash": ""
   },
   "components/WaveEdge.tsx": {
@@ -305,8 +335,8 @@
     "semantic_hash": ""
   },
   "components/AboutScroll.tsx": {
-    "mtime": 1785112800.5204575,
-    "ast_hash": "3a35a2b6782157033263a57b7f8c10f1",
+    "mtime": 1784886754.927021,
+    "ast_hash": "c51b4cbca30853be85fe5923996c69ec",
     "semantic_hash": ""
   },
   "public/spaces-slider.html": {
@@ -325,8 +355,8 @@
     "semantic_hash": ""
   },
   "components/ViewRooms.tsx": {
-    "mtime": 1785116022.324666,
-    "ast_hash": "a7ad41ad704ef8aef11f2e0bafa91ea8",
+    "mtime": 1784874682.2141771,
+    "ast_hash": "abd26f52f8fdff2c5035a96eaa610d27",
     "semantic_hash": ""
   },
   "public/figma/pro-room-king.jpeg": {
@@ -650,8 +680,8 @@
     "semantic_hash": ""
   },
   "app/studio/[[...tool]]/page.tsx": {
-    "mtime": 1785112780.0404859,
-    "ast_hash": "0a8a63f92a39a949c3c96ea0c29b9367",
+    "mtime": 1784871842.0210328,
+    "ast_hash": "0647a77280f848b0c99a783bae604c8f",
     "semantic_hash": ""
   },
   "app/studio/layout.tsx": {
@@ -675,8 +705,8 @@
     "semantic_hash": ""
   },
   "lib/sanity.ts": {
-    "mtime": 1785112771.5577922,
-    "ast_hash": "756d7e8c1e20f45bbaf60606647e5110",
+    "mtime": 1784888054.5065086,
+    "ast_hash": "3e60a51e8a05e74afb69aa67b00743fd",
     "semantic_hash": ""
   },
   "sanity.config.ts": {
@@ -697,6 +727,11 @@
   "sanity/structure.ts": {
     "mtime": 1784885806.6949668,
     "ast_hash": "134e327aae93d669c00feb961d91b87b",
+    "semantic_hash": ""
+  },
+  "scripts/seed-lux.mjs": {
+    "mtime": 1784873246.4970722,
+    "ast_hash": "35303f40f0123346dd965d26a79ccf3d",
     "semantic_hash": ""
   },
   "components/site-content.tsx": {
@@ -725,8 +760,8 @@
     "semantic_hash": ""
   },
   "app/api/revalidate/route.ts": {
-    "mtime": 1785112742.598019,
-    "ast_hash": "de894ae85156ee88c78039abcffa1e28",
+    "mtime": 1784888080.6650884,
+    "ast_hash": "47a865ee7d52551412d4ab9f2389b940",
     "semantic_hash": ""
   }
 }

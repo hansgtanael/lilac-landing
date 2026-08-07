@@ -1,6 +1,6 @@
 import content from "@/content/content.json";
 
-/** Site content, edited through the local /cms studio and baked into the
+/** Site content, edited through the Sanity Studio at /studio and baked into the
  *  build. Components import `site` from here (never the JSON directly) so
  *  the shape stays typed in one place. The studio's API routes read/write
  *  content/content.json; the dev server hot-reloads this import on save. */
@@ -78,7 +78,7 @@ export type TextContent = {
       caption?: string[];
     }[];
     closing: string;
-    /** "View Our Rooms" hover row title (optional; /cms may omit). */
+    /** "View Our Rooms" hover row title (optional; the Studio may omit). */
     roomsTitle?: string;
     /** Continuous resting cover photo spanning the room columns. */
     roomsCover?: PropertyPhoto;

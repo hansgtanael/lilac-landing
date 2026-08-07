@@ -13,7 +13,7 @@ import ViewRooms from "@/components/ViewRooms";
  *  down/right and drifts up/left. Distance = speed·7 in vh (y) or vw (x).
  *
  *  All hooks live HERE, never inside the parent's render loops, so the rules
- *  of hooks hold no matter how many bands /cms adds. useTransform is called
+ *  of hooks hold no matter how many bands the content adds. useTransform is called
  *  unconditionally; the reduced-motion fallback is a static JSX branch. */
 function Drift({
   speed,
@@ -147,7 +147,7 @@ function OutdoorsCarousel() {
 export default function AboutScroll() {
   const site = useSiteContent();
   const { about } = site.text;
-  // The ghost breakout lines come from about.closing in /cms, split into
+  // The ghost breakout lines come from about.closing in the content, split into
   // sentences: first = the big 13vw line, second = the medium 5vw one. Quotes
   // and trailing periods stripped — uppercase ghost type reads wrong with them.
   const closingLines = about.closing

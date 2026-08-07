@@ -51,7 +51,7 @@ function ParallaxPhoto({
  *  (bleed / grid / overlap) and a small editorial CAPTION. After the last
  *  band comes the deep-lilac CLOSING line. All copy and photos come from
  *  `site.text.about` (CMS); a band may omit its feature (text-only) and its
- *  pair, and empty photo srcs are filtered so /cms edits never break. */
+ *  pair, and empty photo srcs are filtered so content edits never break. */
 export default function AboutEditorial() {
   const site = useSiteContent();
   const { about } = site.text;

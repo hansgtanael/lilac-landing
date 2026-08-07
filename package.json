@@ -8,7 +8,6 @@
     "build": "next build",
     "start": "next start -p 3017",
     "lint": "eslint",
-    "seed:lux": "node scripts/seed-lux.mjs",
     "migrate:site": "node scripts/migrate-site.mjs"
   },
   "dependencies": {
