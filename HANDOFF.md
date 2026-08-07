@@ -1,7 +1,7 @@
 # Lilac Landing — project handoff
 
 Paste-in brief for continuing this project in a fresh chat. Read this first.
-Updated 2026-07-14 (supersedes everything older; DIRECTION.md is historical).
+Updated 2026-08-07 (supersedes everything older; DIRECTION.md is historical).
 
 ## What it is
 
@@ -17,23 +17,39 @@ may lead to a job. Tone: warm, luxurious, photography-first.
   (site-wide smooth scroll via `components/SmoothScroll.tsx`, instance on
   `window.__lilacLenis`), Playfair Display italic (display) + DM Sans (body).
 - Dev server: preview config **`lilac-v2`** (`.claude/launch.json`), lands on
-  **port 3020** (3017 is often taken). Routes: `/` (site), `/cms` (studio),
-  `/lux` (motion concept), any page + `?edit=1` (in-place text editing).
-- **Live deploy is STALE**: https://lilaclanding.netlify.app was a manual
-  drag-drop of an old build (pre all corrections). Rebuild (`npm run build`)
-  and re-drop to publish. Not a git repo. No CLI/Git deploy configured.
+  **port 3020**. Routes: `/` (site), `/studio` (Sanity Studio), any page +
+  `?edit=1` (in-place text editing). `/cms` and `/lux` were REMOVED 2026-07-26.
+- **USE `npm run dev:preview`, NOT `npm run dev`.** `dev` and `start` are pinned
+  to port **3017**, which is NOT in Sanity's CORS allowlist — `/studio` is
+  CORS-blocked there. Only **3020** is allowlisted (verify any origin with
+  `curl -H "Origin: <o>" https://4tusk94y.api.sanity.io/v2026-05-04/check/cors`).
+- Git: **`hansgtanael/lilac-landing`**, branch `main` (HTTPS + keychain).
+- **Live: https://lilaclandingkeukalake.netlify.app** — Netlify site
+  `lilaclandingkeukalake`, Git-linked to the repo, auto-builds every push to
+  `main` via `@netlify/plugin-nextjs` (netlify.toml). The older `lilaclanding`
+  site is a DEAD manual drag-drop (404s, no runtime, blocked in Sanity CORS) —
+  ignore it. **`lilaclanding.com` has no DNS yet** and is not attached.
 
 ## Content system (everything is CMS-driven)
 
-- **`content/content.json`** = single source for ALL site copy + photos.
-  Typed access via `lib/content.ts` (`import { site } from "@/lib/content"`).
-  Shape: `house` (title/subtitle/rooms[]) · `property` (heading/tagline/photos[])
-  · `text` (nav/hero/amenities/experience/booking/footer — every string, plus
-  pricePerNight/cleaningFee/guestsMax as numbers driving real logic).
-- **`/cms`** = Framer-style local studio (sidebar collections, photo pickers,
-  cmd+S). APIs: GET/PUT `/api/content` (validator preserves the full text
-  tree), GET `/api/photos` (lists public/figma + public/photos). Dev-only
-  (403 in prod); edits write to disk and ship with the next deploy.
+- **SANITY IS THE LIVE SOURCE.** Cloud project **`4tusk94y`**, dataset
+  `production` (public), singleton doc `siteContent`. `lib/site-content.ts`
+  `getSiteContent()` fetches it server-side in an RSC and projects it into the
+  exact `SiteContent` shape components already consume. Elle edits it in the
+  embedded Studio at **`/studio`** (self-hosted SPA, `sanity.config.ts`).
+- **Edits publish WITHOUT a redeploy.** `app/page.tsx` sets `revalidate = 60`,
+  so Studio changes appear within ~60s on their own. A Sanity webhook →
+  `POST /api/revalidate` (HMAC-verified against `SANITY_REVALIDATE_SECRET`)
+  cuts that to ~2s. Verify the endpoint with an unsigned POST: **401
+  "Invalid signature" = configured**; 500 "not configured" = secret missing.
+- **`content/content.json`** = the FALLBACK only (and the source `migrate:site`
+  seeds from), used when Sanity is unconfigured/absent/errors. Typed via
+  `lib/content.ts`. Shape: `house` · `property` · `text`. It DRIFTS from Sanity —
+  as of 2026-08-07 `booking.rating` is 4.98 here but 5 in Sanity, and
+  `npm run migrate:site` (createOrReplace on the whole doc) would silently
+  revert that. Reconcile before ever re-running it.
+- `/cms` (the old Framer-style local studio + `/api/content`, `/api/photos`)
+  was REMOVED — Sanity Studio replaced it.
 - **`?edit=1`** = click-any-text preview editing; "Save edits" writes
   `content/text-edits.json` + clipboard. "Bake it in" = read that file, write
   the edits into content.json/components, then clear it.
@@ -158,12 +174,13 @@ Foundations page, ~9 components, publish-ready) — resume via
 figma:figma-generate-library skill. upload_assets recipe: call with nodeId →
 POST multipart to submitUrl.
 
-## /lux route (motion concept, kept)
+## /lux route — REMOVED 2026-07-26
 
-Cinematic direction demo: scroll-scrubbed ScrollFilm (video.currentTime driven
-by scroll — the slot for **Higgsfield slow-dolly clips** Hans wants to
-generate from listing photos; Higgsfield MCP connected, generation costs
-credits, ask first), Ken Burns rooms, concierge booking.
+Deleted on Hans's instruction (`app/lux/`, `components/lux/`, `seed-lux.mjs`,
+the `seed:lux` script, and the lux half of `lib/sanity.ts`). Recoverable from
+git history if the Higgsfield scroll-scrub idea is ever revived.
+`lib/sanity.ts` is now ONLY the shared connection layer — `isSanityConfigured()`,
+the null-safe `client`, and `urlFor()`.
 
 ## Gotchas
 
@@ -172,8 +189,11 @@ credits, ask first), Ken Burns rooms, concierge booking.
 - The Claude preview pane: ~800px wide by default (mobile variants render —
   resize to 1280×800), compositor screenshots lag/crop (verify via DOM),
   browser scroll restoration fights probes (`history.scrollRestoration`).
-- CMS sidebar buttons' textContent includes count badges ("Booking23") —
-  match with startsWith in tests.
+- Deleting a route leaves a stale `.next/types/validator.ts` (tsc errors on the
+  missing page module) AND a stale Turbopack dev chunk (ReferenceError → 500s)
+  even when the prod build is clean. Fix: `rm -rf .next/dev .next/types`, restart.
+- next/image: local srcs may NOT carry query strings, and the optimizer serves
+  stale output for an overwritten same-name file — cache-bust by RENAMING.
 - Gmail MCP cannot download attachments. Figma MCP may need re-auth.
 - Run `graphify update .` from inside lilac-landing-v2 after code changes;
   NEVER overwrite the root `Ridgestone CM/graphify-out` (whole-repo graph).
@@ -181,8 +201,16 @@ credits, ask first), Ken Burns rooms, concierge booking.
 
 ## Open threads (priority order)
 
-1. Elle's pending photos + her Jul 14 reply (she's waiting).
-2. Redeploy to Netlify — the live site still shows pre-correction content.
-3. Figma design-system build (paused; the client-handoff deliverable).
-4. Higgsfield clips for /lux ScrollFilm.
-5. Booking backend (Logify direction).
+1. **`lilaclanding.com` has NO DNS** — and `assets/qr/*` (printed for Elle's
+   physical sign) encodes that dead domain. Register/point DNS, attach it in
+   Netlify, then **add both apex and www to Sanity CORS** or `/studio` breaks
+   on the real domain. `metadataBase` already self-corrects via Netlify's `URL`.
+2. **Confirm Elle can log in** — she needs a Sanity account invited to project
+   `4tusk94y` with **Editor** role (manage.sanity.io → Members). This is the
+   whole point of the build and is unverified.
+3. Verify the Sanity webhook is delivering 200s (manage.sanity.io → API →
+   Webhooks → Delivery log). Silent failure mode: edits still publish in ~60s.
+4. Elle's pending photos + her Jul 14 reply (she's waiting).
+5. Reconcile `booking.rating` drift before ever running `migrate:site`.
+6. Figma design-system build (paused; the client-handoff deliverable).
+7. Booking backend (Logify direction).

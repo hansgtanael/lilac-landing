@@ -37,8 +37,21 @@ const nunito = Nunito({
   display: "swap",
 });
 
+// Canonical origin for canonical/OG URLs. Resolved rather than hardcoded so it
+// is never a lie: lilaclanding.com has no DNS yet, and hardcoding it pointed
+// every canonical + og:image at a domain that does not resolve.
+//   NEXT_PUBLIC_SITE_URL — explicit override, set it if you ever need to force one
+//   URL                  — injected by Netlify as the site's PRIMARY url, so this
+//                          self-corrects to lilaclanding.com the moment that
+//                          custom domain is attached. No code change needed.
+//   fallback             — local dev
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  process.env.URL ||
+  "http://localhost:3020";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://lilaclanding.com"),
+  metadataBase: new URL(siteUrl),
   title: "Lilac Landing | Keuka Lake Vacation Rental",
   description:
     "A gorgeous cozy lakehouse on Keuka Lake, NY. Sunset views, private dock, 3 bedrooms + Family Room, 8 guests. Book direct, no Airbnb fees.",
