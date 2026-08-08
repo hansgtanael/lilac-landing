@@ -64,6 +64,15 @@ const COMMON_HEADERS = [
 ];
 
 const nextConfig: NextConfig = {
+  // Self-hosting: emit .next/standalone — a self-contained server bundle that
+  // runs with `node .next/standalone/server.js` and needs no node_modules on
+  // the target machine. See DEPLOYMENT.md.
+  //
+  // Deliberately NOT set on Netlify: @netlify/plugin-nextjs manages its own
+  // output packaging, and forcing standalone underneath it is unsupported.
+  // Netlify sets NETLIFY=true during builds, so the hosted deploy keeps its
+  // current behaviour byte-for-byte while self-hosters get the bundle.
+  output: process.env.NETLIFY ? undefined : "standalone",
   images: {
     // Next 16 only serves qualities listed here (default is [75]); the hero
     // requests 90, so both are whitelisted.
