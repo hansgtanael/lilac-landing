@@ -18,8 +18,11 @@ import { schema } from "@/sanity/schemaTypes";
 import { structure } from "@/sanity/structure";
 
 export default defineConfig({
-  name: "lilac-lux",
-  title: "Lilac Landing — Lux",
+  // Client-facing: this title is the first thing Elle sees on the Studio login
+  // screen and in the workspace header. ("Lux" was a leftover from the deleted
+  // /lux prototype route and meant nothing to her.)
+  name: "lilac-landing",
+  title: "Lilac Landing",
   basePath: "/studio",
   projectId,
   dataset,
