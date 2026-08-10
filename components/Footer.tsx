@@ -1,4 +1,14 @@
+import Link from "next/link";
 import { site as staticSite, type SiteContent } from "@/lib/content";
+
+/** Policy routes. Hardcoded rather than CMS driven on purpose: these are
+ *  structural pages, not editable content, and a client should not be able to
+ *  unlink them by clearing a field. */
+const LEGAL_LINKS = [
+  { href: "/terms", label: "Terms of Use" },
+  { href: "/privacy", label: "Privacy Policy" },
+  { href: "/accessibility", label: "Accessibility" },
+] as const;
 
 /** Footer — deep charcoal close on the cream page, candlelit warmth:
  *  Playfair wordmark, quiet cream links, lilac contact accent.
@@ -51,8 +61,19 @@ export default function Footer({ content }: { content?: SiteContent }) {
         </nav>
       </div>
 
-      <div className="mx-auto mt-8 max-w-[1408px] border-t border-light-faded px-4 pt-8 text-xs tracking-[0.04em] text-light/30">
-        {footer.copyright}
+      <div className="mx-auto mt-8 flex max-w-[1408px] flex-col gap-4 border-t border-light-faded px-4 pt-8 text-xs tracking-[0.04em] text-light/30 md:flex-row md:items-center md:justify-between">
+        <p>{footer.copyright}</p>
+        <nav aria-label="Legal" className="flex flex-wrap gap-x-6 gap-y-2">
+          {LEGAL_LINKS.map(({ href, label }) => (
+            <Link
+              key={href}
+              href={href}
+              className="transition-colors duration-200 hover:text-light/70"
+            >
+              {label}
+            </Link>
+          ))}
+        </nav>
       </div>
     </footer>
   );
