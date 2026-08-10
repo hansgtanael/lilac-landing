@@ -146,7 +146,7 @@ export default function PropertyStrip() {
         transition={{ duration: 0.8, ease: EASE }}
         className="overflow-hidden pb-4"
       >
-        <div className="flex w-max animate-[marquee-x_var(--rail-speed,120s)_linear_infinite] motion-reduce:[animation-play-state:paused]">
+        <div className="flex w-max animate-[marquee-x_var(--rail-speed,100s)_linear_infinite] motion-reduce:[animation-play-state:paused]">
           {[...PHOTOS, ...PHOTOS].map((photo, idx) => {
             const i = idx % PHOTOS.length;
             return (

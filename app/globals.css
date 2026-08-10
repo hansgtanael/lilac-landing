@@ -143,7 +143,7 @@ html.lenis {
    the lift from washing mid-tones flat; saturation compensates for the slight
    desaturation any brightness multiply causes. */
 :root {
-  --photo-lift: 1.14;
+  --photo-lift: 1.15;
 }
 
 #about img,

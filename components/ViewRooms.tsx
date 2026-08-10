@@ -23,7 +23,7 @@ import { useSiteContent } from "@/components/site-content";
  *    1. three full-container room photos, each opacity 0 → 100 while its
  *       title is hovered/focused (slow 1200ms fade — no harsh reveal)
  *    2. column divider hairlines (non-interactive)
- *    3. mask, opacity var(--rooms-mask,0.32) at rest -> 0 while hovering
+ *    3. mask, opacity var(--rooms-mask,0.45) at rest -> 0 while hovering
  *    4. titles/desc + bottom wordmark (z-30, soft text-shadow)
  *
  *  Hover state is React state (a title's reveal targets a SIBLING layer, out
@@ -100,7 +100,7 @@ export default function ViewRooms() {
         <div
           aria-hidden
           className={`pointer-events-none absolute inset-0 z-20 bg-dark ${fade} ${
-            hovered === null ? "opacity-[var(--rooms-mask,0.32)]" : "opacity-0"
+            hovered === null ? "opacity-[var(--rooms-mask,0.45)]" : "opacity-0"
           }`}
         />
         {/* 4. titles — hover/focus the TEXT to reveal that room full-bleed */}
@@ -164,7 +164,7 @@ export default function ViewRooms() {
             className="relative block h-[36svh] min-h-[260px] w-full overflow-hidden text-left"
           >
             <Image src={r.src} alt={r.alt} fill sizes="100vw" className="object-cover" />
-            <div className="pointer-events-none absolute inset-0 bg-dark opacity-[var(--rooms-mask,0.02)]" />
+            <div className="pointer-events-none absolute inset-0 bg-dark opacity-[var(--rooms-mask,0.45)]" />
             <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
               <span className="font-display text-[2.4rem] font-light uppercase italic leading-none text-light/90">
                 {r.title}

@@ -83,22 +83,22 @@ export default function SpacingTuner() {
   // the mount-time writes are identity-safe:
   //   driftScale — damps every Drift parallax (--drift-scale, 0.3 baked)
   //   featureW   — band feature-photo column width (--about-feature-w, 40%)
-  //   roomsMask  — dim over the View Our Rooms RESTING COVER (--rooms-mask, 0.32 —
+  //   roomsMask  — dim over the View Our Rooms RESTING COVER (--rooms-mask, 0.45 —
   //                Hans's pick, baked 2026-07-23)
   //   roomsVh    — the rooms block's viewport share (--rooms-vh, 100svh)
   const [driftScale, setDriftScale] = useState(30);
   const [featureW, setFeatureW] = useState(45);
-  // MUST stay equal to the --rooms-mask fallback in ViewRooms.tsx (0.32), or
+  // MUST stay equal to the --rooms-mask fallback in ViewRooms.tsx (0.45), or
   // the "identity-safe" mount-time write below silently overrides it — the
   // effect runs even in production, where this component renders null.
-  const [roomsMask, setRoomsMask] = useState(32);
+  const [roomsMask, setRoomsMask] = useState(45);
   const [roomsVh, setRoomsVh] = useState(76);
   // Photo brightness lift (--photo-lift on :root, x100). MUST stay equal to
-  // the :root value in globals.css (1.14) — same identity-safe rule as above.
-  const [photoLift, setPhotoLift] = useState(114);
+  // the :root value in globals.css (1.15) — same identity-safe rule as above.
+  const [photoLift, setPhotoLift] = useState(115);
   // Marquee loop duration (seconds — LOWER is faster):
-  //   railSpeed — Gallery rail (--rail-speed on #property, 60s baked)
-  const [railSpeed, setRailSpeed] = useState(120);
+  //   railSpeed — Gallery rail (--rail-speed on #property, 100s baked)
+  const [railSpeed, setRailSpeed] = useState(100);
 
   // Persist only after a deliberate move — otherwise stale saves would shadow
   // the baked defaults. `dirty` tracks which section vars the user actually
