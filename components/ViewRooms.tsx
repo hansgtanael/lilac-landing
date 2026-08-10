@@ -7,10 +7,11 @@ import { useSiteContent } from "@/components/site-content";
 
 /** "View Our Rooms" — Bellavista full-viewport rooms treatment, v2 grammar:
  *  hovering (or focusing) a room TITLE fades that room's photo across the
- *  ENTIRE block, replacing the resting fluted-tile cover. A constant MASK
- *  dims the whole block (var --rooms-mask, tuned by SpacingTuner) — it never
- *  lifts, so the photo reads dimmed like the template. Small underlined
- *  "View Our Rooms" wordmark sits at the bottom of the visible viewport.
+ *  ENTIRE block, replacing the resting cover. The MASK (var --rooms-mask)
+ *  dims the RESTING COVER ONLY, so the titles and wordmark read cleanly
+ *  against it, then lifts as a room photo comes in so that photo shows at
+ *  full brightness. Small underlined "View Our Rooms" wordmark sits at the
+ *  bottom of the visible viewport.
  *
  *  The block is h-[calc(var(--rooms-vh,100svh)+240px)] and `isolate`: the
  *  height var is tunable (viewport share), the 240px overhang runs behind
@@ -22,7 +23,7 @@ import { useSiteContent } from "@/components/site-content";
  *    1. three full-container room photos, each opacity 0 → 100 while its
  *       title is hovered/focused (slow 1200ms fade — no harsh reveal)
  *    2. column divider hairlines (non-interactive)
- *    3. mask, opacity var(--rooms-mask,0.45), always on
+ *    3. mask, opacity var(--rooms-mask,0.32) at rest -> 0 while hovering
  *    4. titles/desc + bottom wordmark (z-30, soft text-shadow)
  *
  *  Hover state is React state (a title's reveal targets a SIBLING layer, out
@@ -91,10 +92,16 @@ export default function ViewRooms() {
           <div className="border-x border-light/20" />
           <div />
         </div>
-        {/* 3. constant mask — dims cover AND hovered photo alike */}
+        {/* 3. mask — dims the RESTING COVER so the titles and the wordmark read
+               cleanly against it, then lifts as a room photo fades in so that
+               photo shows at full brightness. Transitions on the same 1200ms
+               curve as the photo, so dim-out and fade-in move together rather
+               than stepping. */}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 z-20 bg-dark opacity-[var(--rooms-mask,0.02)]"
+          className={`pointer-events-none absolute inset-0 z-20 bg-dark ${fade} ${
+            hovered === null ? "opacity-[var(--rooms-mask,0.32)]" : "opacity-0"
+          }`}
         />
         {/* 4. titles — hover/focus the TEXT to reveal that room full-bleed */}
         <div className="absolute inset-0 z-30 grid grid-cols-3">
@@ -107,7 +114,13 @@ export default function ViewRooms() {
                 onFocus={() => setHovered(i)}
                 onBlur={() => setHovered(null)}
                 onClick={() => setOpenRoom(i)}
-                className="cursor-pointer outline-none [text-shadow:0_2px_16px_rgba(44,40,37,0.55)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-light/70"
+                /* Two-layer shadow: a tight dark edge for letterform contrast
+                   plus a wide soft halo that separates the text from whatever
+                   is behind it. Needed because the mask now lifts on hover, so
+                   these titles can land on a bright white bedroom wall with no
+                   dim behind them at all. Cheaper than re-dimming the photo,
+                   which is the thing we deliberately stopped doing. */
+                className="cursor-pointer outline-none [text-shadow:0_1px_3px_rgba(44,40,37,0.65),0_2px_28px_rgba(44,40,37,0.85)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-light/70"
               >
                 <span className="block font-display text-[clamp(1.5rem,2.4vw,2.75rem)] font-light uppercase italic leading-none text-light/90">
                   {r.title}
@@ -132,7 +145,7 @@ export default function ViewRooms() {
 
         {/* Bottom wordmark — small, underlined, above the wave-overlap zone. */}
         {about.roomsTitle && (
-          <p className="pointer-events-none absolute inset-x-0 bottom-[calc(240px+6svh)] z-30 text-center [text-shadow:0_2px_16px_rgba(44,40,37,0.55)]">
+          <p className="pointer-events-none absolute inset-x-0 bottom-[calc(240px+6svh)] z-30 text-center [text-shadow:0_1px_3px_rgba(44,40,37,0.65),0_2px_28px_rgba(44,40,37,0.85)]">
             <span className="inline-block border-b border-light/60 pb-2 text-[clamp(0.85rem,1.1vw,1.05rem)] uppercase tracking-[0.22em] text-light/90">
               {about.roomsTitle}
             </span>

@@ -83,13 +83,19 @@ export default function SpacingTuner() {
   // the mount-time writes are identity-safe:
   //   driftScale — damps every Drift parallax (--drift-scale, 0.3 baked)
   //   featureW   — band feature-photo column width (--about-feature-w, 40%)
-  //   roomsMask  — constant dim over View Our Rooms (--rooms-mask, 0.02 —
+  //   roomsMask  — dim over the View Our Rooms RESTING COVER (--rooms-mask, 0.32 —
   //                Hans's pick, baked 2026-07-23)
   //   roomsVh    — the rooms block's viewport share (--rooms-vh, 100svh)
   const [driftScale, setDriftScale] = useState(30);
   const [featureW, setFeatureW] = useState(45);
-  const [roomsMask, setRoomsMask] = useState(2);
+  // MUST stay equal to the --rooms-mask fallback in ViewRooms.tsx (0.32), or
+  // the "identity-safe" mount-time write below silently overrides it — the
+  // effect runs even in production, where this component renders null.
+  const [roomsMask, setRoomsMask] = useState(32);
   const [roomsVh, setRoomsVh] = useState(76);
+  // Photo brightness lift (--photo-lift on :root, x100). MUST stay equal to
+  // the :root value in globals.css (1.14) — same identity-safe rule as above.
+  const [photoLift, setPhotoLift] = useState(114);
   // Marquee loop duration (seconds — LOWER is faster):
   //   railSpeed — Gallery rail (--rail-speed on #property, 60s baked)
   const [railSpeed, setRailSpeed] = useState(120);
@@ -124,6 +130,7 @@ export default function SpacingTuner() {
           if (typeof s.featureW === "number") setFeatureW(s.featureW);
           if (typeof s.roomsMask === "number") setRoomsMask(s.roomsMask);
           if (typeof s.roomsVh === "number") setRoomsVh(s.roomsVh);
+          if (typeof s.photoLift === "number") setPhotoLift(s.photoLift);
           if (typeof s.railSpeed === "number") setRailSpeed(s.railSpeed);
           if (Array.isArray(s.dirty)) dirty.current = new Set(s.dirty);
           touched.current = true;
@@ -182,11 +189,16 @@ export default function SpacingTuner() {
     }
     // Rooms vars live on #view-rooms; written unconditionally (defaults ==
     // the class fallbacks, so the mount-time writes are identity-safe).
+    // NOTE: this effect runs in production too — the component only returns
+    // null further down, which does not stop hooks. So a default that drifts
+    // from its class fallback becomes a silent production style override.
     const rooms = document.getElementById("view-rooms");
     if (rooms) {
       rooms.style.setProperty("--rooms-mask", String(roomsMask / 100));
       rooms.style.setProperty("--rooms-vh", `${roomsVh}svh`);
     }
+    // Photo lift is global (every cream section), so it lives on :root.
+    root.style.setProperty("--photo-lift", String(photoLift / 100));
     if (touched.current) {
       try {
         localStorage.setItem(
@@ -210,6 +222,7 @@ export default function SpacingTuner() {
             featureW,
             roomsMask,
             roomsVh,
+            photoLift,
             railSpeed,
             dirty: [...dirty.current],
           }),
@@ -218,7 +231,7 @@ export default function SpacingTuner() {
         /* storage unavailable (private mode/quota) — sliders still work */
       }
     }
-  }, [top, bottom, band, introTop, labelGap, featureX, featureY, featureAr, labelSize, amenities, property, experience, book, driftScale, featureW, roomsMask, roomsVh, railSpeed]);
+  }, [top, bottom, band, introTop, labelGap, featureX, featureY, featureAr, labelSize, amenities, property, experience, book, driftScale, featureW, roomsMask, roomsVh, railSpeed, photoLift]);
 
   // About slider: mark touched (About vars are written unconditionally).
   const onAbout = (setter: (n: number) => void) => (n: number) => {
@@ -264,8 +277,11 @@ export default function SpacingTuner() {
           <Row label="Experience" value={experience} unit="px" min={0} max={200} step={4} onChange={onSection("--sp-experience-y", setExperience)} />
           <Row label="Book" value={book} unit="px" min={0} max={200} step={4} onChange={onSection("--sp-book-y", setBook)} />
 
+          <p className="mb-1 mt-5 text-[10px] uppercase tracking-[0.18em] text-light/40">Photos</p>
+          <Row label="Photo brightness" value={photoLift} unit="%" min={100} max={150} step={1} onChange={onAbout(setPhotoLift)} />
+
           <p className="mb-1 mt-5 text-[10px] uppercase tracking-[0.18em] text-light/40">Rooms</p>
-          <Row label="Mask" value={roomsMask} unit="%" min={0} max={80} step={1} onChange={onAbout(setRoomsMask)} />
+          <Row label="Cover dim (rest)" value={roomsMask} unit="%" min={0} max={80} step={1} onChange={onAbout(setRoomsMask)} />
           <Row label="Height" value={roomsVh} unit="svh" min={60} max={130} step={2} onChange={onAbout(setRoomsVh)} />
 
           <p className="mb-1 mt-5 text-[10px] uppercase tracking-[0.18em] text-light/40">Carousel (lower = faster)</p>

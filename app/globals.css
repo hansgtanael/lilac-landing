@@ -131,6 +131,30 @@ html.lenis {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
+/* Photo brightness lift.
+   Measured 2026-08-07: the cream page sits at ~239 luminance while the
+   photography averages 111-127, so photos read heavy against it even though
+   they are correctly exposed on their own. A small multiply closes the gap.
+
+   Scoped to the cream sections BY ID and deliberately NOT applied to the hero:
+   that is a sunset, and lifting it flattens exactly the mood it is there for.
+
+   Tunable via --photo-lift (1 = untouched). The paired contrast nudge stops
+   the lift from washing mid-tones flat; saturation compensates for the slight
+   desaturation any brightness multiply causes. */
+:root {
+  --photo-lift: 1.14;
+}
+
+#about img,
+#gallery img,
+#property img,
+#view-rooms img,
+#main-floor img,
+#booking img {
+  filter: brightness(var(--photo-lift)) contrast(1.02) saturate(1.03);
+}
+
 body {
   background: var(--_theme---background);
   color: var(--_theme---text);
