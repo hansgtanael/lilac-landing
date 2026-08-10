@@ -10,11 +10,19 @@
  *  `isConfigured()` is false and callers fall back to the site's static pricing
  *  and an open calendar, so the booking UI works before any credentials exist.
  *
- *  ENDPOINT NOTE: paths and response shapes below follow Hospitable's public API
- *  (https://developer.hospitable.com). Confirm them against the exact API
- *  version enabled on your account — they are all isolated here and in
- *  normalizeCalendar() so a shape change is a one-file edit. Parsing is
- *  defensive on purpose (optional chaining, tolerant of missing fields).
+ *  ENDPOINT NOTE: paths follow Hospitable's public API v2
+ *  (https://developer.hospitable.com). The calendar path was verified
+ *  2026-08-07; response SHAPES have not been exercised against a live account
+ *  (no token available at the time of writing), which is why normalizeCalendar()
+ *  is deliberately tolerant — price may be a number, {amount,currency}, or
+ *  nested under `pricing`, and availability may be a bool, an object, or a
+ *  status string. If a real account returns something else, that function is
+ *  the single place to adjust.
+ *
+ *  SCOPE: this client is READ-ONLY (calendar availability + pricing). Hospitable
+ *  v2 has no endpoint that accepts a cold booking enquiry from a website form —
+ *  messages require an existing `reservation_uuid` — so the booking form cannot
+ *  be delivered through Hospitable. See lib/inquiry.ts.
  */
 import "server-only";
 
@@ -130,9 +138,13 @@ function normalizeCalendar(rows: RawCalendarDay[]): CalendarResult {
 /** Fetch and normalize the property calendar for a date range (inclusive
  *  start, exclusive end — matching how nights are counted). */
 export async function getCalendar(start: string, end: string): Promise<CalendarResult> {
-  // Confirm this path/params against your API version (see ENDPOINT NOTE above).
+  // Verified 2026-08-07 against developer.hospitable.com: the calendar is keyed
+  // by PROPERTY uuid, not listing id — `/listings/{id}/calendar` (used here
+  // previously) 404s. Hospitable models one property as having many channel
+  // listings; pricing returned is the take-home price for the property.
+  // Dates are `start_date` / `end_date` in YYYY-MM-DD.
   const raw = await hospitableGet<{ data?: RawCalendarDay[] } | RawCalendarDay[]>(
-    `/listings/${PROPERTY_ID}/calendar`,
+    `/properties/${PROPERTY_ID}/calendar`,
     { start_date: start, end_date: end },
   );
   const rows = Array.isArray(raw) ? raw : (raw.data ?? []);

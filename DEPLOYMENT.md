@@ -240,6 +240,55 @@ webhook UI for non-200 responses.
 
 ---
 
+## 6b. Switch-on checklist (booking form + calendar)
+
+The code for both is deployed and dormant. Each switches itself on the moment
+its variables exist — no code change, no redeploy beyond the env save.
+
+### Booking form → email (do this first; the form errors until it is done)
+
+1. Create a free account at **resend.com**.
+2. Verify a sending domain (or use Resend's test domain to start).
+3. Add three variables — locally in `.env.local`, and on the host:
+
+```
+RESEND_API_KEY=re_xxxxxxxxxxxx
+INQUIRY_TO_EMAIL=elle@wearetrademark.com
+INQUIRY_FROM_EMAIL=bookings@lilaclanding.com
+```
+
+`INQUIRY_FROM_EMAIL` must be on the domain verified in step 2, or Resend
+rejects the send. `INQUIRY_TO_EMAIL` can be any inbox.
+
+**Verify:** submit the form. Success means an email arrives with the guest's
+address as reply-to. Until all three exist, the form returns a 502 telling the
+guest to email directly — deliberate, so no enquiry is ever silently lost.
+
+### Calendar → real availability (free route)
+
+1. **Airbnb**: Calendar → Availability → Connect calendars → Export → copy the link.
+2. **Vrbo**: Calendar → Import/Export → Export → copy the link.
+3. Add them comma-separated:
+
+```
+ICAL_FEEDS=https://www.airbnb.com/calendar/ical/XXXX.ics?s=YYYY,https://www.vrbo.com/icalendar/ZZZZ.ics
+```
+
+**Verify:** `curl https://<your-domain>/api/availability` should return
+`"source":"ical"` and a list of booked dates. Feeds refresh every 2-3 hours.
+
+Treat those URLs as secrets — unguessable, and they expose the booking pattern.
+
+### Later: paid Hospitable API instead
+
+If Elle upgrades to a paid Hospitable plan (the API is **not** on the free
+Essentials tier), add `HOSPITABLE_API_TOKEN` + `HOSPITABLE_PROPERTY_ID` and the
+site prefers it automatically — real-time availability plus live per-night
+pricing. `ICAL_FEEDS` can stay as a fallback. Note the token expires after one
+year; when it does the calendar quietly stops updating.
+
+---
+
 ## 7. Handoff checklist
 
 Everything below currently sits on the original developer's personal accounts.

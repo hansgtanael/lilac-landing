@@ -69,8 +69,16 @@ export async function POST(request: Request) {
       message,
     });
   } catch {
+    // Never tell the guest "try again" — the common cause is unconfigured mail
+    // delivery, which retrying cannot fix. Hand them the owner's address so the
+    // enquiry still has somewhere to go.
+    const fallback = site.text.footer.email;
     return Response.json(
-      { error: "We couldn't send your request. Please try again." },
+      {
+        error: fallback
+          ? `We couldn't send your request. Please email ${fallback} directly and we'll get right back to you.`
+          : "We couldn't send your request. Please try again shortly.",
+      },
       { status: 502 },
     );
   }

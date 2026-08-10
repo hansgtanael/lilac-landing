@@ -1,11 +1,18 @@
 import { getCalendar, isConfigured } from "@/lib/hospitable";
+import { getUnavailableDates, isIcalConfigured } from "@/lib/ical";
 import { validateRange, validateGuests } from "@/lib/booking";
 import { site } from "@/lib/content";
 
-// Builds a live price quote from Hospitable's per-night calendar pricing and
-// reports whether the requested nights are actually available. Falls back to
-// {configured:false} when the API isn't wired up, so the card uses its static
-// nightly rate. Node runtime (outbound fetch + env secret).
+// Builds a price quote for a requested range and reports whether those nights
+// are actually available.
+//
+//   - Hospitable configured: live per-night pricing AND availability.
+//   - iCal only (free path): availability YES, pricing NO — iCal carries no
+//     rates, so subtotalCents stays null and the card keeps its static math.
+//     Still worth answering: it stops a guest requesting dates already taken.
+//   - Neither: {configured:false}, card uses its static nightly rate.
+//
+// Node runtime (outbound fetch + env secret).
 export const runtime = "nodejs";
 
 const GUESTS_MAX = site.text.booking.guestsMax;
@@ -23,9 +30,31 @@ export async function GET(request: Request) {
     return Response.json({ error: "Guest count is out of range." }, { status: 400 });
   }
 
+  // Free path: no Hospitable, but iCal feeds can still answer "is it free?".
   if (!isConfigured()) {
+    if (!isIcalConfigured()) {
+      return Response.json(
+        { configured: false, nights: range.nights },
+        { headers: { "cache-control": "no-store" } },
+      );
+    }
+    const { unavailable, feedsOk, feedsTotal } = await getUnavailableDates(
+      range.checkIn,
+      range.checkOut,
+    );
+    const allFeedsDown = feedsTotal > 0 && feedsOk === 0;
     return Response.json(
-      { configured: false, nights: range.nights },
+      {
+        configured: true,
+        source: "ical",
+        // null (not true) when every feed failed — absence of data is not proof
+        // the nights are free, and claiming otherwise invites a double booking.
+        available: allFeedsDown ? null : unavailable.length === 0,
+        nights: range.nights,
+        subtotalCents: null, // iCal has no pricing; the card keeps static math
+        currency: null,
+        degraded: allFeedsDown,
+      },
       { headers: { "cache-control": "no-store" } },
     );
   }

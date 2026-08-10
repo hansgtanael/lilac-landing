@@ -1,9 +1,16 @@
 import { getCalendar, isConfigured } from "@/lib/hospitable";
+import { getUnavailableDates, isIcalConfigured } from "@/lib/ical";
 import { ISO_DATE_RE, parseISODate } from "@/lib/booking";
 
-// Proxies Hospitable's calendar so the booking calendar can gray out booked
-// nights. Secret token stays server-side; the client only ever sees a list of
-// unavailable date strings. Node runtime (outbound fetch + env secret).
+// Feeds the booking calendar the list of nights to gray out. Two sources, in
+// preference order:
+//
+//   1. Hospitable API  — real-time, also carries pricing. Needs a paid plan.
+//   2. iCal feeds      — free on every plan (Airbnb/Vrbo publish them), but
+//                        availability only and 2-3h stale.
+//
+// Whichever answers, the client only ever sees a list of date strings; feed
+// URLs and API tokens stay server-side. Node runtime (outbound fetch + env).
 export const runtime = "nodejs";
 
 const DAY_MS = 86_400_000;
@@ -16,9 +23,10 @@ function iso(d: Date): string {
 }
 
 export async function GET(request: Request) {
-  // Not wired up yet -> report it plainly and let the UI leave the calendar
-  // fully open. Never an error; the site must work before credentials exist.
-  if (!isConfigured()) {
+  // Neither source wired up -> report it plainly and let the UI leave the
+  // calendar fully open. Never an error; the site must work before any
+  // credentials or feed URLs exist.
+  if (!isConfigured() && !isIcalConfigured()) {
     return Response.json(
       { configured: false, unavailable: [], currency: null },
       { headers: { "cache-control": "no-store" } },
@@ -42,19 +50,39 @@ export async function GET(request: Request) {
     end = new Date(start.getTime() + MAX_SPAN_DAYS * DAY_MS);
   }
 
-  try {
-    const { days, currency } = await getCalendar(iso(start), iso(end));
-    const unavailable = days.filter((d) => !d.available).map((d) => d.date);
-    return Response.json(
-      { configured: true, unavailable, currency },
-      { headers: { "cache-control": "no-store" } },
-    );
-  } catch {
-    // Upstream hiccup -> fail open (calendar stays usable) rather than blocking
-    // the whole booking flow on Hospitable being reachable.
-    return Response.json(
-      { configured: true, unavailable: [], currency: null, degraded: true },
-      { headers: { "cache-control": "no-store" } },
-    );
+  // --- source 1: Hospitable (preferred — real-time, and carries pricing) ----
+  if (isConfigured()) {
+    try {
+      const { days, currency } = await getCalendar(iso(start), iso(end));
+      const unavailable = days.filter((d) => !d.available).map((d) => d.date);
+      return Response.json(
+        { configured: true, source: "hospitable", unavailable, currency },
+        { headers: { "cache-control": "no-store" } },
+      );
+    } catch {
+      // Fall through to iCal if it is configured, so one dead upstream does not
+      // black out the calendar. Otherwise fail OPEN below.
+      if (!isIcalConfigured()) {
+        return Response.json(
+          { configured: true, source: "hospitable", unavailable: [], currency: null, degraded: true },
+          { headers: { "cache-control": "no-store" } },
+        );
+      }
+    }
   }
+
+  // --- source 2: iCal feeds (free fallback) ---------------------------------
+  const { unavailable, feedsOk, feedsTotal } = await getUnavailableDates(iso(start), iso(end));
+  return Response.json(
+    {
+      configured: true,
+      source: "ical",
+      unavailable,
+      currency: null,
+      // Every feed failed -> the empty list means "unknown", not "all free".
+      // Surfaced so the UI can soften its wording rather than promise availability.
+      degraded: feedsTotal > 0 && feedsOk === 0,
+    },
+    { headers: { "cache-control": "no-store" } },
+  );
 }
