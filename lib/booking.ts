@@ -44,6 +44,42 @@ export function validateRange(checkIn: string, checkOut: string): RangeCheck {
   return { ok: true, nights, checkIn, checkOut };
 }
 
+/** Map of ISO date -> minimum nights required to START a stay that day.
+ *  Sourced from Hospitable's calendar (`min_stay`). A date absent from the map
+ *  carries no minimum. */
+export type MinStayMap = Record<string, number>;
+
+/** Minimum nights required for a stay beginning on `checkIn`. 1 = unconstrained.
+ *  The rule keys off the CHECK-IN date only, which is how Hospitable models it:
+ *  a 7-night minimum on the 11th does not constrain a stay starting the 12th. */
+export function minStayFor(checkIn: string, map?: MinStayMap): number {
+  const n = map?.[checkIn];
+  return typeof n === "number" && n > 1 ? n : 1;
+}
+
+export type MinStayCheck = { ok: true } | { ok: false; required: number; reason: string };
+
+/** Enforce the minimum-stay rule for a range.
+ *
+ *  Without this a guest can pick 3 nights on a date requiring 7, click through,
+ *  and be rejected by Hospitable at checkout — after entering card details. The
+ *  rejection is invisible to us, so the guest simply fails to book and Elle
+ *  hears about it as a support email, if at all.
+ *
+ *  Absent data means no constraint: the map is empty when the API is
+ *  unconfigured or when availability comes from iCal (which carries no
+ *  min-stay), and blocking every booking in that case would be far worse than
+ *  occasionally passing one Hospitable will catch itself. */
+export function validateMinStay(checkIn: string, nights: number, map?: MinStayMap): MinStayCheck {
+  const required = minStayFor(checkIn, map);
+  if (nights >= required) return { ok: true };
+  return {
+    ok: false,
+    required,
+    reason: `These dates need a minimum stay of ${required} nights.`,
+  };
+}
+
 /** Guests must be a whole number within 1..max. */
 export function validateGuests(guests: unknown, max: number): number | null {
   const g = typeof guests === "number" ? guests : Number(guests);

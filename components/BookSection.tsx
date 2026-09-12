@@ -7,7 +7,15 @@ import { EASE } from "@/lib/ease";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 import BookingCard from "@/components/BookingCard";
 import { useSiteContent } from "@/components/site-content";
-import { validateRange, validateGuests, isValidEmail } from "@/lib/booking";
+import {
+  validateRange,
+  validateGuests,
+  isValidEmail,
+  validateMinStay,
+  type MinStayMap,
+} from "@/lib/booking";
+import { isBookingWidgetConfigured } from "@/lib/bookingWidget";
+import BookingWidgetModal from "@/components/BookingWidgetModal";
 
 type Stage = "idle" | "form" | "sending" | "sent";
 
@@ -27,6 +35,11 @@ export default function BookSection() {
   // (open calendar) until availability loads, and stays empty if the API isn't
   // configured, so the UI works before any credentials exist.
   const [unavailable, setUnavailable] = useState<string[]>([]);
+  // Minimum nights per check-in date, same source as `unavailable`. Empty when
+  // unconfigured or on the iCal path, which means "no minimum known".
+  const [minStay, setMinStay] = useState<MinStayMap>({});
+  // Cheapest bookable night, for the card headline. Null = use the CMS rate.
+  const [priceFromCents, setPriceFromCents] = useState<number | null>(null);
 
   // Inquiry flow: card -> contact form -> sent.
   const [stage, setStage] = useState<Stage>("idle");
@@ -34,6 +47,9 @@ export default function BookSection() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState<string | null>(null);
+  // Hospitable checkout modal. Separate from `stage` because it is a parallel
+  // path, not another step in the enquiry flow.
+  const [widgetOpen, setWidgetOpen] = useState(false);
 
   // Pull booked dates once on mount. Fail open (leave the calendar fully
   // usable) on any error — availability is an enhancement, not a gate.
@@ -42,7 +58,10 @@ export default function BookSection() {
     fetch("/api/availability")
       .then((r) => (r.ok ? r.json() : null))
       .then((data) => {
-        if (alive && data && Array.isArray(data.unavailable)) setUnavailable(data.unavailable);
+        if (!alive || !data) return;
+        if (Array.isArray(data.unavailable)) setUnavailable(data.unavailable);
+        if (data.minStay && typeof data.minStay === "object") setMinStay(data.minStay);
+        if (typeof data.priceFromCents === "number") setPriceFromCents(data.priceFromCents);
       })
       .catch(() => {});
     return () => {
@@ -50,13 +69,29 @@ export default function BookSection() {
     };
   }, []);
 
-  const rangeValid = validateRange(checkIn, checkOut).ok;
+  const range = validateRange(checkIn, checkOut);
+  const rangeValid = range.ok;
   const guestsValid = validateGuests(guests, booking.guestsMax) !== null;
+  // Belt and braces: the calendar already makes a short check-out unclickable,
+  // but dates can also arrive from the chips, so re-check before either path.
+  const minStayCheck = range.ok
+    ? validateMinStay(checkIn, range.nights, minStay)
+    : ({ ok: true } as const);
 
-  // Reserve -> open the contact step (only when the structured inputs check out).
+  // Reserve -> hand off to Hospitable when the widget is configured, otherwise
+  // fall back to the email enquiry step. The same date/guest validation gates
+  // both paths, so a guest never reaches either with an invalid range.
   const openInquiry = () => {
     setError(null);
     if (!rangeValid || !guestsValid) return;
+    if (!minStayCheck.ok) {
+      setError(minStayCheck.reason);
+      return;
+    }
+    if (isBookingWidgetConfigured()) {
+      setWidgetOpen(true);
+      return;
+    }
     setStage("form");
   };
 
@@ -65,6 +100,7 @@ export default function BookSection() {
     if (!name.trim()) return setError("Please add your name.");
     if (!isValidEmail(email)) return setError("Please enter a valid email.");
     if (!rangeValid || !guestsValid) return setError("Please choose valid dates.");
+    if (!minStayCheck.ok) return setError(minStayCheck.reason);
 
     setStage("sending");
     try {
@@ -174,6 +210,8 @@ export default function BookSection() {
               checkOut={checkOut}
               guests={guests}
               unavailable={unavailable}
+              minStay={minStay}
+              priceFromCents={priceFromCents}
               onDatesChange={(ci, co) => {
                 setCheckIn(ci);
                 setCheckOut(co);
@@ -271,6 +309,21 @@ export default function BookSection() {
           )}
         </motion.div>
       </div>
+
+      {/* Hospitable checkout. Portals to <body>, so its position in this tree
+          is irrelevant — it lives here to keep the booking state it reads in
+          one place. Renders nothing unless configured AND open. */}
+      <BookingWidgetModal
+        open={widgetOpen}
+        onClose={() => setWidgetOpen(false)}
+        onEmailInstead={() => {
+          setWidgetOpen(false);
+          setStage("form");
+        }}
+        checkIn={checkIn}
+        checkOut={checkOut}
+        guests={guests}
+      />
     </section>
   );
 }

@@ -7,6 +7,8 @@ import { EASE } from "@/lib/ease";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 import RangeCalendar from "@/components/RangeCalendar";
 import { useSiteContent } from "@/components/site-content";
+import type { MinStayMap } from "@/lib/booking";
+import { isBookingWidgetConfigured } from "@/lib/bookingWidget";
 
 const fmt = (n: number) => `$${n.toLocaleString("en-US")}`;
 
@@ -32,6 +34,11 @@ type Props = {
   guests: string;
   /** Booked dates (ISO) from Hospitable — grayed out in the calendar. */
   unavailable?: string[];
+  /** ISO date -> minimum nights to start a stay that day. */
+  minStay?: MinStayMap;
+  /** Cheapest available night in the loaded window, in cents. Drives the
+   *  "from $X" headline; null falls back to the static CMS rate. */
+  priceFromCents?: number | null;
   onDatesChange: (checkIn: string, checkOut: string) => void;
   onGuestsChange: (guests: string) => void;
   onReserve: () => void;
@@ -43,6 +50,11 @@ type Quote = {
   configured: boolean;
   available: boolean | null;
   subtotalCents: number | null;
+  cleaningFeeCents: number | null;
+  taxCents: number | null;
+  totalCents: number | null;
+  totalExact: boolean;
+  degraded: boolean;
 };
 
 /** Booking card — Figma node 81:47: flat blue-deep card, check-in/check-out
@@ -53,6 +65,8 @@ export default function BookingCard({
   checkOut,
   guests,
   unavailable,
+  minStay,
+  priceFromCents = null,
   onDatesChange,
   onGuestsChange,
   onReserve,
@@ -94,6 +108,12 @@ export default function BookingCard({
             configured: Boolean(data.configured),
             available: data.available ?? null,
             subtotalCents: typeof data.subtotalCents === "number" ? data.subtotalCents : null,
+            cleaningFeeCents:
+              typeof data.cleaningFeeCents === "number" ? data.cleaningFeeCents : null,
+            taxCents: typeof data.taxCents === "number" ? data.taxCents : null,
+            totalCents: typeof data.totalCents === "number" ? data.totalCents : null,
+            totalExact: data.totalExact !== false,
+            degraded: data.degraded === true,
           });
         })
         .catch(() => {});
@@ -104,12 +124,46 @@ export default function BookingCard({
     };
   }, [checkIn, checkOut, guests, nights]);
 
-  // Live subtotal wins when Hospitable is configured and priced every night;
-  // otherwise fall back to the static nightly rate.
+  // Live figures win when Hospitable priced every night; otherwise fall back to
+  // the static CMS math. Cleaning and tax come from the property's own fee and
+  // tax config, not from content.json — the static $200 cleaning fee was $87
+  // under the real one, and taxes were missing entirely, which understated a
+  // real 3-night stay by about 18%.
   const liveStay =
     quote?.configured && quote.subtotalCents !== null ? quote.subtotalCents / 100 : null;
+  const liveCleaning =
+    quote?.configured && quote.cleaningFeeCents !== null ? quote.cleaningFeeCents / 100 : null;
+  const liveTax = quote?.configured && quote.taxCents !== null ? quote.taxCents / 100 : null;
+  const liveTotal = quote?.configured && quote.totalCents !== null ? quote.totalCents / 100 : null;
+
   const stay = liveStay ?? nights * NIGHTLY_RATE;
-  const total = stay + (nights > 0 ? CLEANING_FEE : 0);
+  const cleaning = liveCleaning ?? CLEANING_FEE;
+  const total = liveTotal ?? stay + (nights > 0 ? cleaning : 0);
+
+  /* -------- What this card is allowed to promise --------------------------
+   *
+   * A total is only trustworthy when it CAME from Hospitable: the CMS figures
+   * drift (cleaning was $200 against a real $287) and carry no tax at all, so
+   * static math understates a real stay by ~18%.
+   *
+   * The dangerous case is not "no data" — it is losing the API while a working
+   * checkout stays up. The card would keep rendering a confident static total
+   * and the widget would charge a different one seconds later. That happens on
+   * a plan downgrade, an expired token (they last a year), or any upstream
+   * outage, and nothing about the page would look wrong.
+   *
+   * So: quote an exact total only when it is live. If it is not, and a real
+   * checkout exists to charge the guest, show no total at all and let the
+   * checkout be the single source of truth. Only when there is no checkout —
+   * the email-enquiry flow, where a human quotes the price anyway — is the
+   * static estimate the useful answer.
+   * --------------------------------------------------------------------- */
+  const priceIsLive = liveTotal !== null;
+  const totalApprox = priceIsLive && quote?.totalExact === false;
+  // Read once: it is a build-time constant, not reactive state.
+  const hasCheckout = isBookingWidgetConfigured();
+  /** Defer to checkout rather than print a number we cannot stand behind. */
+  const deferPricing = !priceIsLive && hasCheckout && nights > 0;
   const soldOut = quote?.configured && quote.available === false;
 
   const fold = {
@@ -123,7 +177,20 @@ export default function BookingCard({
       {/* Price header */}
       <div className="flex items-baseline justify-between">
         <p className="text-dark">
-          <span className="text-xl font-medium">{fmt(NIGHTLY_RATE)}</span>
+          {/* Live rate when we have one. "from" is load-bearing: nightly
+              pricing is dynamic ($489-$574 here), so a single figure would be
+              wrong for most dates — and wrong LOW on peak dates, which is the
+              version a guest notices at checkout. */}
+          {priceFromCents !== null && liveStay === null ? (
+            <>
+              <span className="text-base text-dark/60">from </span>
+              <span className="text-xl font-medium">{fmt(Math.round(priceFromCents / 100))}</span>
+            </>
+          ) : liveStay !== null && nights > 0 ? (
+            <span className="text-xl font-medium">{fmt(Math.round(liveStay / nights))}</span>
+          ) : (
+            <span className="text-xl font-medium">{fmt(NIGHTLY_RATE)}</span>
+          )}
           <span className="ml-1 text-base text-dark/60">{booking.perNightLabel}</span>
         </p>
         <p className="flex items-center gap-1 text-base text-dark">
@@ -169,6 +236,7 @@ export default function BookingCard({
               className="overflow-hidden"
             >
               <RangeCalendar
+              minStay={minStay}
                 checkIn={checkIn}
                 checkOut={checkOut}
                 unavailable={unavailable}
@@ -226,6 +294,7 @@ export default function BookingCard({
             <div className="flex flex-col gap-3 text-base text-dark">
               <div className="flex justify-between">
                 <span>
+                  {deferPricing && "Estimated "}
                   {liveStay !== null ? (
                     <>
                       Stay &times; {nights} {nights === 1 ? "night" : "nights"}
@@ -239,17 +308,44 @@ export default function BookingCard({
                 </span>
                 <span>{fmt(stay)}</span>
               </div>
-              <div className="flex justify-between">
-                <span>{booking.cleaningFeeLabel}</span>
-                <span>{fmt(CLEANING_FEE)}</span>
-              </div>
-              <div className="flex justify-between">
-                <span>{booking.serviceFeeLabel}</span>
-                <span>$0</span>
-              </div>
+              {/* Static cleaning is known to drift from the real fee, so it is
+                  shown only when live or when nothing else will quote it. */}
+              {!deferPricing && (
+                <div className="flex justify-between">
+                  <span>{booking.cleaningFeeLabel}</span>
+                  <span>{fmt(cleaning)}</span>
+                </div>
+              )}
+              {liveTax !== null && liveTax > 0 && (
+                <div className="flex justify-between">
+                  <span>Taxes</span>
+                  <span>{fmt(liveTax)}</span>
+                </div>
+              )}
+              {!deferPricing && (
+                <div className="flex justify-between">
+                  <span>{booking.serviceFeeLabel}</span>
+                  <span>$0</span>
+                </div>
+              )}
               <div className="h-px w-full bg-dark/10" />
+              {deferPricing ? (
+                /* No total: cleaning and taxes are unknown right now, and the
+                   checkout is about to state the real figure. Printing a
+                   confident number here is the one thing that would make the
+                   two disagree in front of the guest. */
+                <p className="text-dark/55">
+                  Cleaning and taxes are calculated at checkout, where you&apos;ll see
+                  the final price before paying.
+                </p>
+              ) : (
               <div className="flex justify-between font-medium">
-                <span>{booking.totalLabel}</span>
+                <span>
+                  {booking.totalLabel}
+                  {totalApprox && (
+                    <span className="ml-1 font-normal text-dark/50">(estimated)</span>
+                  )}
+                </span>
                 {/* Re-keyed on change so the number slides in fresh. */}
                 <AnimatePresence mode="popLayout" initial={false}>
                   <motion.span
@@ -263,6 +359,7 @@ export default function BookingCard({
                   </motion.span>
                 </AnimatePresence>
               </div>
+              )}
             </div>
           </motion.div>
         )}

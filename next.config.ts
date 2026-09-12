@@ -16,6 +16,14 @@ const CSP = [
   "media-src 'self'",
   "font-src 'self' data:",
   `connect-src 'self'${dev ? " ws:" : ""}`,
+  // Hospitable direct-booking checkout, embedded as an iframe by
+  // components/BookingWidgetModal.tsx. frame-src is REQUIRED here: without it
+  // the directive falls back to `default-src 'self'` and the iframe renders
+  // blank with no visible error. Scoped to Hospitable only — their booking page
+  // is served from a subdomain, and the widget's own JS runs inside that frame,
+  // so no script-src or connect-src entry is needed on this origin.
+  // Must cover the host of NEXT_PUBLIC_HOSPITABLE_BOOKING_URL (lib/bookingWidget.ts).
+  "frame-src 'self' https://*.hospitable.com",
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",
@@ -42,6 +50,28 @@ const STUDIO_CSP = [
   "frame-ancestors 'none'",
 ].join("; ");
 
+// Exact origin of the Hospitable booking page, derived from the same variable
+// the client uses (lib/bookingWidget.ts) so the two can never disagree.
+//
+// Permissions-Policy needs this because its allowlist does NOT accept wildcard
+// origins the way CSP's frame-src does — `https://*.hospitable.com` is invalid
+// here and the whole directive would be dropped. Deriving the literal origin
+// avoids hardcoding a guess.
+//
+// Read at BUILD time: NEXT_PUBLIC_ values are inlined during the build, so this
+// variable must be set on the host before the deploy that should carry it, not
+// merely at runtime. An unset/malformed value leaves payment fully disabled,
+// which matches the widget also being off in that case.
+const BOOKING_ORIGIN = (() => {
+  const raw = process.env.NEXT_PUBLIC_HOSPITABLE_BOOKING_URL || "";
+  try {
+    const u = new URL(raw);
+    return u.protocol === "https:" ? u.origin : "";
+  } catch {
+    return "";
+  }
+})();
+
 // Non-CSP headers apply everywhere, including /studio.
 const COMMON_HEADERS = [
   { key: "X-Content-Type-Options", value: "nosniff" },
@@ -49,7 +79,14 @@ const COMMON_HEADERS = [
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
   {
     key: "Permissions-Policy",
-    value: "camera=(), microphone=(), geolocation=(), payment=()",
+    // payment: the checkout iframe needs the Payment Request API. `payment=()`
+    // disables it for every frame including embedded ones, so card entry can
+    // fail inside a widget that otherwise loads fine — a genuinely confusing
+    // failure. Delegated to the booking origin alone, and only when one is
+    // configured; the iframe's own allow="payment" grants the rest.
+    value: `camera=(), microphone=(), geolocation=(), payment=(${
+      BOOKING_ORIGIN ? `"${BOOKING_ORIGIN}"` : ""
+    })`,
   },
   // HSTS only means something over HTTPS — set it in production alone so a
   // local http://localhost session never caches a strict-transport rule.

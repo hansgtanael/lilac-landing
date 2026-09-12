@@ -11,13 +11,13 @@
  *  and an open calendar, so the booking UI works before any credentials exist.
  *
  *  ENDPOINT NOTE: paths follow Hospitable's public API v2
- *  (https://developer.hospitable.com). The calendar path was verified
- *  2026-08-07; response SHAPES have not been exercised against a live account
- *  (no token available at the time of writing), which is why normalizeCalendar()
- *  is deliberately tolerant — price may be a number, {amount,currency}, or
- *  nested under `pricing`, and availability may be a bool, an object, or a
- *  status string. If a real account returns something else, that function is
- *  the single place to adjust.
+ *  (https://developer.hospitable.com). Path verified 2026-08-07; response
+ *  SHAPES verified 2026-09-11 against this property's live account — see
+ *  RawCalendarDay for a real row. The earlier speculative typing was wrong in
+ *  three ways that each broke the integration outright (rows nested under
+ *  data.days, `status` an object not a string, `day` a weekday name), so treat
+ *  the documented shape as authoritative and the remaining tolerance in
+ *  normalizeCalendar() as version-insurance rather than guesswork.
  *
  *  SCOPE: this client is READ-ONLY (calendar availability + pricing). Hospitable
  *  v2 has no endpoint that accepts a cold booking enquiry from a website form —
@@ -44,6 +44,11 @@ export type CalendarDay = {
   /** Nightly price in minor units (cents) when Hospitable returns it, else null. */
   priceCents: number | null;
   currency: string | null;
+  /** Minimum nights required to START a stay on this date, when reported.
+   *  This property returns 3 and 7 depending on the date, so a guest can pick a
+   *  range the card accepts but Hospitable will refuse at checkout. Surfaced
+   *  here so the booking UI can enforce it; nothing consumes it yet. */
+  minStay: number | null;
 };
 
 export type CalendarResult = {
@@ -87,16 +92,42 @@ async function hospitableGet<T>(path: string, params: Record<string, string>): P
   }
 }
 
-/** Raw calendar row shape (subset we rely on). Kept loose on purpose. */
+/** Raw calendar row shape.
+ *
+ *  Verified 2026-09-11 against a live response for this property. An actual row:
+ *
+ *    { date: "2026-09-11", day: "FRIDAY", min_stay: 7, note: null,
+ *      closed_for_checkin: false, closed_for_checkout: false,
+ *      status: { reason: "BLOCKED", source: null,
+ *                source_type: "ADVANCED_NOTICE", available: false },
+ *      price: { amount: 48900, currency: "USD", formatted: "$489.00" } }
+ *
+ *  Two traps this shape sets, both of which the earlier speculative typing fell
+ *  into (see the git history of normalizeCalendar):
+ *    - `day` is a WEEKDAY NAME, not a date. Never fall back to it for `date`.
+ *    - `status` is an OBJECT, not a string. Calling string methods on it throws.
+ *
+ *  `amount` is in MINOR UNITS — 48900 alongside formatted "$489.00" — which is
+ *  what CalendarDay.priceCents expects, no conversion.
+ *
+ *  Alternative shapes below are kept optional for resilience across API
+ *  versions, but the verified shape is the one that is actually returned. */
 type RawCalendarDay = {
   date?: string;
+  /** Weekday name ("FRIDAY"). Deliberately unused — never a date. */
   day?: string;
+  min_stay?: number;
   available?: boolean;
-  status?: string;
+  status?: { available?: boolean; reason?: string } | string;
   availability?: { available?: boolean } | boolean;
   price?: { amount?: number; currency?: string } | number;
   pricing?: { price?: { amount?: number; currency?: string } };
 };
+
+/** Envelope returned by /properties/{uuid}/calendar. */
+type RawCalendarResponse =
+  | RawCalendarDay[]
+  | { data?: RawCalendarDay[] | { days?: RawCalendarDay[] } };
 
 /** Map Hospitable's calendar payload into our normalized shape. Isolated so an
  *  API-shape change is contained to this function. */
@@ -105,17 +136,25 @@ function normalizeCalendar(rows: RawCalendarDay[]): CalendarResult {
   const days: CalendarDay[] = [];
 
   for (const row of rows) {
-    const date = row.date ?? row.day;
+    // `date` only. NOT `row.date ?? row.day` — `day` is a weekday name
+    // ("FRIDAY"), so that fallback silently produced junk dates.
+    const date = row.date;
     if (!date) continue;
 
-    // `available` may live at the top level, under `availability`, or be
-    // implied by a status string.
+    // Verified shape puts this at `status.available`. The other branches are
+    // version-tolerance, kept in preference order; the string branch is guarded
+    // by a typeof check because `status` is an object here and calling
+    // .toLowerCase() on it throws.
     let available: boolean;
-    if (typeof row.available === "boolean") available = row.available;
+    if (typeof row.status === "object" && typeof row.status?.available === "boolean")
+      available = row.status.available;
+    else if (typeof row.available === "boolean") available = row.available;
     else if (typeof row.availability === "boolean") available = row.availability;
-    else if (typeof row.availability?.available === "boolean")
+    else if (typeof row.availability === "object" && typeof row.availability?.available === "boolean")
       available = row.availability.available;
-    else if (row.status) available = row.status.toLowerCase() === "available";
+    else if (typeof row.status === "string") available = row.status.toLowerCase() === "available";
+    // Unknown shape -> treat as bookable. Fails OPEN, matching every other
+    // availability path here: never invent a booking that does not exist.
     else available = true;
 
     // Price may be a number, a {amount,currency}, or nested under pricing.
@@ -129,7 +168,13 @@ function normalizeCalendar(rows: RawCalendarDay[]): CalendarResult {
           : null;
     if (priceObj?.currency && !currency) currency = priceObj.currency;
 
-    days.push({ date, available, priceCents, currency: priceObj?.currency ?? null });
+    days.push({
+      date,
+      available,
+      priceCents,
+      currency: priceObj?.currency ?? null,
+      minStay: typeof row.min_stay === "number" ? row.min_stay : null,
+    });
   }
 
   return { days, currency };
@@ -143,10 +188,142 @@ export async function getCalendar(start: string, end: string): Promise<CalendarR
   // previously) 404s. Hospitable models one property as having many channel
   // listings; pricing returned is the take-home price for the property.
   // Dates are `start_date` / `end_date` in YYYY-MM-DD.
-  const raw = await hospitableGet<{ data?: RawCalendarDay[] } | RawCalendarDay[]>(
+  const raw = await hospitableGet<RawCalendarResponse>(
     `/properties/${PROPERTY_ID}/calendar`,
     { start_date: start, end_date: end },
   );
-  const rows = Array.isArray(raw) ? raw : (raw.data ?? []);
+
+  // Verified 2026-09-11: the payload is
+  //   { data: { listing_id, provider, start_date, end_date, days: [...] } }
+  // so the rows are at `data.days`, NOT `data`. The previous `raw.data ?? []`
+  // handed normalizeCalendar an OBJECT, and `for...of` over it threw on every
+  // single call — the whole Hospitable path failed closed to `degraded` and
+  // silently fell through to iCal. Unwrap defensively: accept a bare array, a
+  // `{data: [...]}`, or the real `{data: {days: [...]}}`.
+  const payload: unknown = Array.isArray(raw) ? raw : raw?.data;
+  const rows: RawCalendarDay[] = Array.isArray(payload)
+    ? payload
+    : Array.isArray((payload as { days?: RawCalendarDay[] } | undefined)?.days)
+      ? ((payload as { days: RawCalendarDay[] }).days)
+      : [];
   return normalizeCalendar(rows);
+}
+
+/* ---------------------------------------------------------------------------
+ * Fees and taxes
+ *
+ * The calendar gives nightly rates only. Everything a guest is ALSO charged
+ * lives in two other endpoints, both verified 2026-09-11:
+ *
+ *   /properties/{uuid}/pricing  -> cleaning_fee and friends, in minor units
+ *   /properties/{uuid}/taxes    -> array of tax rules, per channel
+ *
+ * Without these the card understated a real 3-night stay by ~18% ($1,667 shown
+ * against $1,964 actually charged) — the guest would have seen one number on
+ * the card and a bigger one in the checkout modal seconds later.
+ * ------------------------------------------------------------------------- */
+
+/** A `{ default: { value: { amount } } }` fee block, flattened to cents.
+ *  `overrides.direct` wins when present: fees can differ per channel, and a
+ *  website booking is the `direct` channel. */
+function feeCents(block: RawFeeBlock | undefined): number {
+  const direct = block?.overrides?.direct;
+  const chosen = direct ?? block?.default;
+  const amount = chosen?.value?.amount;
+  return typeof amount === "number" ? amount : 0;
+}
+
+type RawFeeValue = { value?: { amount?: number }; calculation_method?: string };
+type RawFeeBlock = { default?: RawFeeValue; overrides?: { direct?: RawFeeValue | null } };
+
+export type PropertyPricing = {
+  currency: string | null;
+  /** Per-stay cleaning fee in cents. */
+  cleaningFeeCents: number;
+};
+
+export async function getPricing(): Promise<PropertyPricing> {
+  const raw = await hospitableGet<{ data?: RawPricing } | RawPricing>(
+    `/properties/${PROPERTY_ID}/pricing`,
+    {},
+  );
+  const p = (raw as { data?: RawPricing })?.data ?? (raw as RawPricing);
+  return {
+    currency: p?.currency ?? null,
+    cleaningFeeCents: feeCents(p?.cleaning_fee),
+  };
+}
+
+type RawPricing = { currency?: string; cleaning_fee?: RawFeeBlock };
+
+/** One tax rule, reduced to what a quote needs. */
+export type TaxRule = {
+  name: string;
+  /** Fractional rate (0.04 = 4%). Only percent rules are modelled. */
+  rate: number;
+  /** Which charge components this tax applies to. */
+  subjects: string[];
+  /** Rule does not apply to stays longer than this, when set. */
+  maxNights: number | null;
+};
+
+type RawTax = {
+  name?: string;
+  charge_type?: string;
+  value?: { value?: number };
+  subjects?: string[];
+  max_number_of_nights?: number | null;
+  is_active?: Record<string, boolean>;
+};
+
+/** Tax rules that apply to DIRECT bookings (the website channel).
+ *
+ *  Rules inactive for `direct` are dropped: this property has three 4% rules
+ *  active for direct and vrbo but NOT for Airbnb, because Airbnb remits those
+ *  itself. Applying an Airbnb-inactive rule here would overcharge. */
+export async function getTaxes(): Promise<TaxRule[]> {
+  const raw = await hospitableGet<{ data?: RawTax[] } | RawTax[]>(
+    `/properties/${PROPERTY_ID}/taxes`,
+    {},
+  );
+  const rows = Array.isArray(raw) ? raw : ((raw as { data?: RawTax[] })?.data ?? []);
+  return rows
+    .filter((t) => t.is_active?.direct === true && t.charge_type === "percent")
+    .map((t) => ({
+      name: t.name ?? "Tax",
+      rate: typeof t.value?.value === "number" ? t.value.value : 0,
+      subjects: Array.isArray(t.subjects) ? t.subjects : [],
+      maxNights: typeof t.max_number_of_nights === "number" ? t.max_number_of_nights : null,
+    }))
+    .filter((t) => t.rate > 0);
+}
+
+/** Total tax in cents for a stay.
+ *
+ *  Each rule is applied only to the components its `subjects` list names, so a
+ *  rule covering nightly-rate but not cleaning-fees is charged correctly rather
+ *  than on the whole subtotal.
+ *
+ *  Returns `exact: false` when a rule had to be skipped (a night cap exceeded),
+ *  so callers can present the figure as an estimate instead of a promise. */
+export function computeTaxCents(
+  rules: TaxRule[],
+  { nightlyCents, cleaningCents, nights }: { nightlyCents: number; cleaningCents: number; nights: number },
+): { taxCents: number; exact: boolean } {
+  let total = 0;
+  let exact = true;
+  for (const r of rules) {
+    if (r.maxNights !== null && nights > r.maxNights) {
+      // Cap exceeded: the rule's behaviour past its limit is not something we
+      // can infer, so skip it and flag the total as approximate rather than
+      // silently guessing in either direction.
+      exact = false;
+      continue;
+    }
+    let base = 0;
+    if (r.subjects.includes("nightly-rate")) base += nightlyCents;
+    if (r.subjects.includes("cleaning-fees")) base += cleaningCents;
+    total += Math.round(base * r.rate);
+  }
+  return { taxCents: total, exact };
 }

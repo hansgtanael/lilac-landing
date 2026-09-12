@@ -42,6 +42,7 @@ time. Publishing in the Studio makes changes public within ~60s on its own
 | `NEXT_PUBLIC_SANITY_DATASET` | yes | no | `production` |
 | `NEXT_PUBLIC_SANITY_API_VERSION` | yes | no | `2024-10-01` |
 | `NEXT_PUBLIC_SITE_URL` | self-host | no | Canonical origin for canonical/OG tags |
+| `NEXT_PUBLIC_HOSPITABLE_BOOKING_URL` | booking | no | Hospitable direct-booking page; turns on in-site checkout |
 | `SANITY_REVALIDATE_SECRET` | optional | **yes** | Enables instant publishing (§6) |
 | `SANITY_API_READ_TOKEN` | no | **yes** | Only if the dataset is made private |
 | `SANITY_API_WRITE_TOKEN` | no | **yes** | Only to run `npm run migrate:site` |
@@ -240,16 +241,90 @@ webhook UI for non-200 responses.
 
 ---
 
-## 6b. Switch-on checklist (booking form + calendar)
+## 6b. Switch-on checklist — booking (architecture "Option D")
 
-The code for both is deployed and dormant. Each switches itself on the moment
-its variables exist — no code change, no redeploy beyond the env save.
+The site takes bookings through Hospitable in two halves, deliberately split:
 
-### Booking form → email (do this first; the form errors until it is done)
+| Half | Owns | Powered by |
+| --- | --- | --- |
+| The **card** (`components/BookingCard.tsx`) | browsing, dates, guests, price display | Hospitable **API** |
+| The **checkout** (`components/BookingWidgetModal.tsx`) | payment, confirmation | Hospitable **widget**, in an iframe |
 
-1. Create a free account at **resend.com**.
-2. Verify a sending domain (or use Resend's test domain to start).
-3. Add three variables — locally in `.env.local`, and on the host:
+Why split: the card is the brand surface and stays ours, while the transaction
+happens inside Hospitable so a direct booking writes straight into their system
+and auto-blocks the Airbnb/Vrbo calendars. Nothing is reconciled by hand.
+
+Everything below is dormant code that switches itself on when its variables
+exist. No code change, no redeploy beyond the env save — EXCEPT the
+`NEXT_PUBLIC_` value, which is inlined at build time and therefore needs a
+rebuild (see §3).
+
+### 1. Checkout widget
+
+```
+NEXT_PUBLIC_HOSPITABLE_BOOKING_URL=https://booking.hospitable.com/<your-slug>
+```
+
+RESERVE then opens the widget in a modal, prefilled with the guest's dates and
+party size. Unset, RESERVE falls back to the email enquiry form — which is also
+always reachable from "Email instead" in the modal header, and appears
+automatically if the widget has not loaded within 12s.
+
+Two headers must allow the frame, and both are already configured in
+`next.config.ts`:
+
+- CSP `frame-src https://*.hospitable.com` — without it the iframe renders
+  **blank with no error at all**.
+- `Permissions-Policy: payment=(...)` — derived automatically from the URL
+  above. A bare `payment=()` disables card entry *inside* the frame even when
+  the widget itself loads fine.
+
+`public/_headers` mirrors the CSP but CANNOT derive the payment origin, so a
+static drop cannot take in-frame payment. The Netlify deploy uses
+`next.config.ts`, so this only affects drag-drop zips.
+
+### 2. Live availability + pricing
+
+```
+HOSPITABLE_API_TOKEN=...
+HOSPITABLE_PROPERTY_ID=...
+```
+
+Feeds `/api/availability` (grays out booked nights, minimum-stay rules, and the
+"from $X" headline rate) and `/api/quote` (the full charge breakdown). Three
+endpoints are read, all verified live 2026-09-11:
+
+| Endpoint | Supplies |
+| --- | --- |
+| `/properties/{uuid}/calendar` | per-night rate, availability, `min_stay` |
+| `/properties/{uuid}/pricing` | cleaning fee (and other per-stay fees) |
+| `/properties/{uuid}/taxes` | tax rules, filtered to `is_active.direct` |
+
+**The card's totals come from these, never from `content.json`.** The static
+values had drifted badly: cleaning was $200 against a real $287, and taxes (3 x
+4% = 12%) were missing entirely, understating a real 3-night stay by ~18%
+($1,667 shown against $1,964.48 charged). If the CMS numbers are edited they
+will no longer affect a booking where the API answers — by design, since the
+API is what Hospitable actually bills.
+
+Requires a paid plan — the API is **not** on the free Essentials tier. Verify:
+
+```bash
+curl -s https://<your-domain>/api/availability   # expect "source":"hospitable"
+```
+
+**Check the price units on the first real quote.** `lib/hospitable.ts` assumes
+the calendar returns minor units (cents). If a tier or API version returns
+major units instead, every quote is off by exactly 100x. `/api/quote` guards
+against this: a nightly rate more than 10x from the CMS `pricePerNight`
+is rejected, the card falls back to static math, and a line is logged naming
+the cause. If that line appears in the logs, fix the unit handling in
+`normalizeCalendar()` rather than widening the band.
+
+### 3. Email enquiries (the fallback path — still required)
+
+Option D does not retire the email route; it demotes it to a fallback, and one
+guests can still choose. Configure it or those enquiries 502:
 
 ```
 RESEND_API_KEY=re_xxxxxxxxxxxx
@@ -257,37 +332,17 @@ INQUIRY_TO_EMAIL=elle@wearetrademark.com
 INQUIRY_FROM_EMAIL=bookings@lilaclanding.com
 ```
 
-`INQUIRY_FROM_EMAIL` must be on the domain verified in step 2, or Resend
-rejects the send. `INQUIRY_TO_EMAIL` can be any inbox.
+`INQUIRY_FROM_EMAIL` must be on a domain verified at resend.com.
 
-**Verify:** submit the form. Success means an email arrives with the guest's
-address as reply-to. Until all three exist, the form returns a 502 telling the
-guest to email directly — deliberate, so no enquiry is ever silently lost.
-
-### Calendar → real availability (free route)
-
-1. **Airbnb**: Calendar → Availability → Connect calendars → Export → copy the link.
-2. **Vrbo**: Calendar → Import/Export → Export → copy the link.
-3. Add them comma-separated:
+### 4. Optional: iCal as a backup availability source
 
 ```
-ICAL_FEEDS=https://www.airbnb.com/calendar/ical/XXXX.ics?s=YYYY,https://www.vrbo.com/icalendar/ZZZZ.ics
+ICAL_FEEDS=https://www.airbnb.com/calendar/ical/XXXX.ics,https://www.vrbo.com/icalendar/ZZZZ.ics
 ```
 
-**Verify:** `curl https://<your-domain>/api/availability` should return
-`"source":"ical"` and a list of booked dates. Feeds refresh every 2-3 hours.
-
-Treat those URLs as secrets — unguessable, and they expose the booking pattern.
-
-### Later: paid Hospitable API instead
-
-If Elle upgrades to a paid Hospitable plan (the API is **not** on the free
-Essentials tier), add `HOSPITABLE_API_TOKEN` + `HOSPITABLE_PROPERTY_ID` and the
-site prefers it automatically — real-time availability plus live per-night
-pricing. `ICAL_FEEDS` can stay as a fallback. Note the token expires after one
-year; when it does the calendar quietly stops updating.
-
----
+Free on any plan and used automatically if the Hospitable API call fails, so one
+dead upstream never blacks out the calendar. Availability only — no pricing.
+Treat these URLs as secrets; they expose the booking pattern.
 
 ## 7. Handoff checklist
 
@@ -312,12 +367,12 @@ credentials — but the infrastructure is not yet transferred.
 
 ## 8. Known gaps
 
-**The booking form does not deliver anywhere.** `lib/inquiry.ts`
-`deliverInquiry()` only writes a `console.info` line. The route is live and
-fully validated in production, so a guest submits, sees a success message, and
-**the lead is lost** — it exists only in the server log. Wire a real transport
-(Resend/Postmark/SendGrid) or disable the form before launch. This is the most
-urgent item in this document.
+**The booking form needs its Resend variables set.** (Superseded 2026-09-11:
+this section previously said enquiries were silently discarded. They are not —
+`lib/inquiry.ts` delivers via Resend, and when unconfigured the route *refuses*
+the submission with a 502 telling the guest to email directly, so no lead is
+ever lost silently.) The remaining gap is that the three variables in §6b.3 are
+not set in production, so that refusal is what guests currently hit.
 
 **`content/content.json` drifts from Sanity.** It is only a fallback now, but
 it is also the source `npm run migrate:site` seeds *from* — and that command

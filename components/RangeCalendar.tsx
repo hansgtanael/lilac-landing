@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { CaretLeft, CaretRight } from "@phosphor-icons/react";
+import { minStayFor, type MinStayMap } from "@/lib/booking";
 
 type Props = {
   checkIn: string; // "YYYY-MM-DD" or ""
@@ -9,6 +10,8 @@ type Props = {
   onChange: (checkIn: string, checkOut: string) => void;
   /** Booked dates (ISO) to gray out — from Hospitable's calendar. */
   unavailable?: string[];
+  /** ISO date -> minimum nights to start a stay that day. Empty/absent = none. */
+  minStay?: MinStayMap;
 };
 
 const WEEKDAYS = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
@@ -38,12 +41,24 @@ function sameDay(a: Date | null, b: Date | null) {
 
 /** Range calendar rendered as a light input chip — cream surface, dark text,
  *  the strongest contrast block on the page (per the Figma booking card). */
-export default function RangeCalendar({ checkIn, checkOut, onChange, unavailable }: Props) {
+export default function RangeCalendar({ checkIn, checkOut, onChange, unavailable, minStay }: Props) {
   const ci = fromISO(checkIn);
   const co = fromISO(checkOut);
   const today = startOfDay(new Date());
   const [view, setView] = useState<Date>(() => ci ?? today);
   const booked = new Set(unavailable ?? []);
+
+  // Nights required once a check-in is chosen. While picking a check-out, every
+  // date that would land short of this is disabled, so the rule is expressed by
+  // what the guest CAN click rather than by an error after they commit.
+  const required = ci ? minStayFor(toISO(ci), minStay) : 1;
+  const pickingCheckOut = !!ci && !co;
+  /** Too short to satisfy the minimum for the selected check-in. */
+  const belowMin = (d: Date) =>
+    pickingCheckOut &&
+    required > 1 &&
+    d.getTime() > ci!.getTime() &&
+    Math.round((d.getTime() - ci!.getTime()) / DAY_MS) < required;
 
   const year = view.getFullYear();
   const month = view.getMonth();
@@ -56,6 +71,8 @@ export default function RangeCalendar({ checkIn, checkOut, onChange, unavailable
 
   const pick = (d: Date) => {
     if (d < today || booked.has(toISO(d))) return;
+    // Short check-outs are unclickable; earlier dates still restart the range.
+    if (belowMin(d)) return;
     // No range yet, or a complete range exists -> start fresh.
     if (!ci || (ci && co)) {
       onChange(toISO(d), "");
@@ -114,11 +131,12 @@ export default function RangeCalendar({ checkIn, checkOut, onChange, unavailable
           if (!d) return <div key={`e${i}`} />;
           const isPast = d < today;
           const isBooked = !isPast && booked.has(toISO(d));
+          const isShort = belowMin(d);
           const isEdge = sameDay(d, ci) || sameDay(d, co);
           const mid = between(d);
           const isStart = sameDay(d, ci) && !!co;
           const isEnd = sameDay(d, co);
-          const disabled = isPast || isBooked;
+          const disabled = isPast || isBooked || isShort;
 
           return (
             <div
@@ -135,14 +153,22 @@ export default function RangeCalendar({ checkIn, checkOut, onChange, unavailable
                 type="button"
                 disabled={disabled}
                 onClick={() => pick(d)}
-                aria-label={isBooked ? `${toISO(d)} (booked)` : toISO(d)}
+                aria-label={
+                  isBooked
+                    ? `${toISO(d)} (booked)`
+                    : isShort
+                      ? `${toISO(d)} (minimum stay ${required} nights)`
+                      : toISO(d)
+                }
                 className={[
                   "flex h-9 w-full items-center justify-center text-sm transition-colors",
                   isPast
                     ? "cursor-not-allowed text-dark/25"
                     : isBooked
                       ? "cursor-not-allowed text-dark/25 line-through"
-                      : isEdge
+                      : isShort
+                        ? "cursor-not-allowed text-dark/20"
+                        : isEdge
                         ? "bg-dark font-medium text-light"
                         : "text-dark hover:bg-dark/[0.08]",
                 ].join(" ")}
@@ -160,7 +186,9 @@ export default function RangeCalendar({ checkIn, checkOut, onChange, unavailable
           {ci
             ? co
               ? `${nights} night${nights === 1 ? "" : "s"}`
-              : "Select your check-out date"
+              : required > 1
+                ? `Select your check-out date · ${required}-night minimum`
+                : "Select your check-out date"
             : "Select your check-in date"}
         </span>
         {(ci || co) && (

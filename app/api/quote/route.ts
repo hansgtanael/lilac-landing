@@ -1,4 +1,4 @@
-import { getCalendar, isConfigured } from "@/lib/hospitable";
+import { getCalendar, getPricing, getTaxes, computeTaxCents, isConfigured } from "@/lib/hospitable";
 import { getUnavailableDates, isIcalConfigured } from "@/lib/ical";
 import { validateRange, validateGuests } from "@/lib/booking";
 import { site } from "@/lib/content";
@@ -16,6 +16,30 @@ import { site } from "@/lib/content";
 export const runtime = "nodejs";
 
 const GUESTS_MAX = site.text.booking.guestsMax;
+const STATIC_NIGHTLY = site.text.booking.pricePerNight;
+
+/** Guard against a price-unit mismatch.
+ *
+ *  lib/hospitable.ts assumes the API returns nightly price in MINOR units
+ *  (cents). If a future API version — or a different plan tier — returns a
+ *  major-unit decimal instead (550 meaning $550, not $5.50), every quote would
+ *  be off by exactly 100x, and the card would quote $5.50/night on a $550
+ *  property. A guest seeing that is a support incident at best and a
+ *  chargeback argument at worst.
+ *
+ *  So: sanity-check the API's average nightly rate against the rate the CMS
+ *  already holds. A 10x band is deliberately wide — real dynamic pricing swings
+ *  2-3x between off-season and peak, and legitimately should not be suppressed.
+ *  Only a unit error lands outside it.
+ *
+ *  Out of band -> drop the subtotal and let the card fall back to static math,
+ *  which is this route's existing answer to "we are not sure" everywhere else.
+ *  Never show a number we cannot stand behind. */
+function nightlyLooksSane(subtotalCents: number, nights: number): boolean {
+  if (nights <= 0 || STATIC_NIGHTLY <= 0) return false;
+  const apiNightly = subtotalCents / 100 / nights;
+  return apiNightly >= STATIC_NIGHTLY / 10 && apiNightly <= STATIC_NIGHTLY * 10;
+}
 
 export async function GET(request: Request) {
   const url = new URL(request.url);
@@ -60,22 +84,77 @@ export async function GET(request: Request) {
   }
 
   try {
-    const { days, currency } = await getCalendar(range.checkIn, range.checkOut);
+    // Three calls in parallel: the calendar carries nightly rates only, while
+    // the fee and tax config a guest is also charged live elsewhere. Fees and
+    // taxes change rarely but are fetched per request rather than cached, since
+    // quoting a stale fee is the exact failure this is meant to remove.
+    const [{ days, currency }, pricing, taxRules] = await Promise.all([
+      getCalendar(range.checkIn, range.checkOut),
+      getPricing(),
+      getTaxes(),
+    ]);
     // Nights are [checkIn, checkOut) — drop any checkout-day row the API returns.
     const nights = days.filter((d) => d.date >= range.checkIn && d.date < range.checkOut);
 
-    const available = nights.length > 0 && nights.every((d) => d.available);
+    // Minimum stay, enforced server-side as well as in the calendar: the UI
+    // rule can be bypassed by calling this route directly, and a quote that
+    // silently ignores it would report a bookable range Hospitable will refuse.
+    const checkInDay = nights.find((d) => d.date === range.checkIn);
+    const requiredNights =
+      typeof checkInDay?.minStay === "number" && checkInDay.minStay > 1 ? checkInDay.minStay : 1;
+    const meetsMinStay = range.nights >= requiredNights;
+
+    const available = nights.length > 0 && nights.every((d) => d.available) && meetsMinStay;
     const priced = nights.filter((d) => d.priceCents !== null);
     const subtotalCents = priced.reduce((sum, d) => sum + (d.priceCents ?? 0), 0);
+    // Every night priced AND the result plausible. Either check failing means
+    // the card shows its own static math instead of a suspect live total.
+    const trustSubtotal =
+      priced.length === range.nights && nightlyLooksSane(subtotalCents, range.nights);
+    if (priced.length === range.nights && !trustSubtotal) {
+      console.error(
+        `[quote] live pricing rejected: ${subtotalCents} cents over ${range.nights} night(s) ` +
+          `is implausible against the $${STATIC_NIGHTLY} CMS rate — check whether the ` +
+          `Hospitable calendar returns major units rather than cents (lib/hospitable.ts).`,
+      );
+    }
+
+    // Full charge breakdown, so the card can stop guessing. Only computed when
+    // the nightly subtotal is trustworthy — taxing a number we already refused
+    // to display would compound the error rather than fix it.
+    const cleaningFeeCents = trustSubtotal ? pricing.cleaningFeeCents : null;
+    const tax =
+      trustSubtotal && cleaningFeeCents !== null
+        ? computeTaxCents(taxRules, {
+            nightlyCents: subtotalCents,
+            cleaningCents: cleaningFeeCents,
+            nights: range.nights,
+          })
+        : null;
+    const totalCents =
+      trustSubtotal && cleaningFeeCents !== null && tax
+        ? subtotalCents + cleaningFeeCents + tax.taxCents
+        : null;
 
     return Response.json(
       {
         configured: true,
         available,
         nights: range.nights,
-        // Only report a subtotal when every night carried a price; otherwise
-        // the card keeps its static math rather than showing a wrong total.
-        subtotalCents: priced.length === range.nights ? subtotalCents : null,
+        cleaningFeeCents,
+        taxCents: tax?.taxCents ?? null,
+        totalCents,
+        // False when a tax rule was skipped (night cap). The card should say
+        // "estimated" rather than quote a figure it cannot stand behind.
+        totalExact: tax?.exact ?? false,
+        // Surfaced so the card can explain WHY a range is unavailable rather
+        // than just greying out the button.
+        minStayNights: requiredNights,
+        meetsMinStay,
+        // Only report a subtotal when every night carried a price AND that
+        // price is plausible; otherwise the card keeps its static math rather
+        // than showing a wrong total.
+        subtotalCents: trustSubtotal ? subtotalCents : null,
         currency: currency ?? "USD",
       },
       { headers: { "cache-control": "no-store" } },

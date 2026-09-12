@@ -28,7 +28,7 @@ export async function GET(request: Request) {
   // credentials or feed URLs exist.
   if (!isConfigured() && !isIcalConfigured()) {
     return Response.json(
-      { configured: false, unavailable: [], currency: null },
+      { configured: false, unavailable: [], currency: null, minStay: {}, priceFromCents: null },
       { headers: { "cache-control": "no-store" } },
     );
   }
@@ -55,8 +55,24 @@ export async function GET(request: Request) {
     try {
       const { days, currency } = await getCalendar(iso(start), iso(end));
       const unavailable = days.filter((d) => !d.available).map((d) => d.date);
+      // Minimum nights required to START a stay on each date. Only dates that
+      // actually constrain anything are sent (>1), keeping the payload small —
+      // this property returns a mix of 3 and 7. The UI treats a missing key as
+      // "no minimum", so omitting the 1s is lossless.
+      const minStay: Record<string, number> = {};
+      for (const d of days) {
+        if (typeof d.minStay === "number" && d.minStay > 1) minStay[d.date] = d.minStay;
+      }
+      // Cheapest bookable night in the window, for the card's "from $X" headline.
+      // Only AVAILABLE nights count: advertising a rate no one can actually
+      // book is the same broken promise as the static number this replaces.
+      const bookablePrices = days
+        .filter((d) => d.available && typeof d.priceCents === "number")
+        .map((d) => d.priceCents as number);
+      const priceFromCents = bookablePrices.length ? Math.min(...bookablePrices) : null;
+
       return Response.json(
-        { configured: true, source: "hospitable", unavailable, currency },
+        { configured: true, source: "hospitable", unavailable, currency, minStay, priceFromCents },
         { headers: { "cache-control": "no-store" } },
       );
     } catch {
@@ -64,7 +80,7 @@ export async function GET(request: Request) {
       // black out the calendar. Otherwise fail OPEN below.
       if (!isIcalConfigured()) {
         return Response.json(
-          { configured: true, source: "hospitable", unavailable: [], currency: null, degraded: true },
+          { configured: true, source: "hospitable", unavailable: [], currency: null, minStay: {}, priceFromCents: null, degraded: true },
           { headers: { "cache-control": "no-store" } },
         );
       }
@@ -79,6 +95,9 @@ export async function GET(request: Request) {
       source: "ical",
       unavailable,
       currency: null,
+      // iCal carries availability only — no min-stay rules or pricing exist.
+      minStay: {},
+      priceFromCents: null,
       // Every feed failed -> the empty list means "unknown", not "all free".
       // Surfaced so the UI can soften its wording rather than promise availability.
       degraded: feedsTotal > 0 && feedsOk === 0,
