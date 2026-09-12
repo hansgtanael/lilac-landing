@@ -1,7 +1,7 @@
 {
   "app/layout.tsx": {
-    "mtime": 1786137860.8317854,
-    "ast_hash": "995523da194c8b5d7dac8e72220a5b94",
+    "mtime": 1784876533.494089,
+    "ast_hash": "758efa902aa0045b269b7a237e7b9cab",
     "semantic_hash": ""
   },
   "app/page.tsx": {
@@ -15,8 +15,8 @@
     "semantic_hash": ""
   },
   "components/BookingCard.tsx": {
-    "mtime": 1789180296.3532546,
-    "ast_hash": "e489d593eabebd852e76d004b9066a90",
+    "mtime": 1784874784.5555453,
+    "ast_hash": "2406435d0daab97a597539c6963d8991",
     "semantic_hash": ""
   },
   "components/Experience.tsx": {
@@ -25,8 +25,8 @@
     "semantic_hash": ""
   },
   "components/Footer.tsx": {
-    "mtime": 1786342786.0705888,
-    "ast_hash": "8b043abc8dcf4ded1ff2fa15955ad1ef",
+    "mtime": 1784874984.5878112,
+    "ast_hash": "3239eb48f7e4e5772dab855b26d6eb55",
     "semantic_hash": ""
   },
   "components/Hero.tsx": {
@@ -45,8 +45,8 @@
     "semantic_hash": ""
   },
   "components/RangeCalendar.tsx": {
-    "mtime": 1789179255.7046556,
-    "ast_hash": "575f6493db7977e1300a488beef29f95",
+    "mtime": 1784871585.2477577,
+    "ast_hash": "3211995fa84aa254eed295f6b29b258d",
     "semantic_hash": ""
   },
   "components/ui/Bezel.tsx": {
@@ -70,8 +70,8 @@
     "semantic_hash": ""
   },
   "next.config.ts": {
-    "mtime": 1789177275.865879,
-    "ast_hash": "25fc8462a5c031f51beea29dc6092523",
+    "mtime": 1784888694.8123794,
+    "ast_hash": "e5b9c5a785d688467eeb13438b795a0c",
     "semantic_hash": ""
   },
   "package.json": {
@@ -100,8 +100,8 @@
     "semantic_hash": ""
   },
   "components/BookSection.tsx": {
-    "mtime": 1789179770.9268997,
-    "ast_hash": "39891e79f70f3281137fcbff0234888a",
+    "mtime": 1784886752.3253908,
+    "ast_hash": "5d1984a89cb17e87b3bd49ccc3d979e8",
     "semantic_hash": ""
   },
   "components/GalleryNoir.tsx": {
@@ -110,8 +110,8 @@
     "semantic_hash": ""
   },
   "components/PropertyStrip.tsx": {
-    "mtime": 1786339649.61247,
-    "ast_hash": "d610ccc488620cb49b768ec1ae815900",
+    "mtime": 1784874772.6915984,
+    "ast_hash": "068edb9f54e1b4767bd9f9b4f372e074",
     "semantic_hash": ""
   },
   "lib/utils.ts": {
@@ -200,8 +200,8 @@
     "semantic_hash": ""
   },
   "HANDOFF.md": {
-    "mtime": 1786137934.039036,
-    "ast_hash": "50a5297a6c77016c6641972b380d78d9",
+    "mtime": 1784168060.6347246,
+    "ast_hash": "66dc12d81aa38dd387fa8df7bfdf2aae",
     "semantic_hash": ""
   },
   "lib/flags.ts": {
@@ -320,13 +320,13 @@
     "semantic_hash": ""
   },
   "components/SpacingTuner.tsx": {
-    "mtime": 1786339649.6147442,
-    "ast_hash": "1c309de05aefb0ecf7d83a5fc6f0c977",
+    "mtime": 1784834215.5867577,
+    "ast_hash": "0943c1e738b53c008408e859bfb76882",
     "semantic_hash": ""
   },
   "components/ViewRooms.tsx": {
-    "mtime": 1786339649.6074455,
-    "ast_hash": "777bdbd3a70b212b5ea8e773374870bb",
+    "mtime": 1785116022.324666,
+    "ast_hash": "a7ad41ad704ef8aef11f2e0bafa91ea8",
     "semantic_hash": ""
   },
   "public/figma/pro-room-king.jpeg": {
@@ -635,18 +635,18 @@
     "semantic_hash": ""
   },
   "app/api/availability/route.ts": {
-    "mtime": 1789179720.78934,
-    "ast_hash": "b1dc2548ecc21e82432a3f5083e6ad67",
+    "mtime": 1784871374.4032881,
+    "ast_hash": "f535f29cc25ea41061aabbbf3caffe1a",
     "semantic_hash": ""
   },
   "app/api/inquiry/route.ts": {
-    "mtime": 1786335448.2098887,
-    "ast_hash": "3257b5bb158f730b3785f97f6edf544c",
+    "mtime": 1784871434.7679884,
+    "ast_hash": "47c3abfc922d29f83cca18ad412cca0d",
     "semantic_hash": ""
   },
   "app/api/quote/route.ts": {
-    "mtime": 1789179720.7874312,
-    "ast_hash": "8b96b345def9567312c0ad6f072b2216",
+    "mtime": 1784871391.9031205,
+    "ast_hash": "c52b23565d752edf615a0ffb157d6b31",
     "semantic_hash": ""
   },
   "app/studio/[[...tool]]/page.tsx": {
@@ -660,18 +660,18 @@
     "semantic_hash": ""
   },
   "lib/booking.ts": {
-    "mtime": 1789179237.3070698,
-    "ast_hash": "49d1b09725667f71f4a68c06e761e7d6",
+    "mtime": 1784871324.5926437,
+    "ast_hash": "2109486fc3ac7f796c14a1c98afc0d13",
     "semantic_hash": ""
   },
   "lib/hospitable.ts": {
-    "mtime": 1789179696.040693,
-    "ast_hash": "0a7d3a63b48c36a50365e2289e19f0ca",
+    "mtime": 1784871300.0137317,
+    "ast_hash": "a2f223e68c9d7606f88235637900a730",
     "semantic_hash": ""
   },
   "lib/inquiry.ts": {
-    "mtime": 1786335418.8896165,
-    "ast_hash": "92e20d32519d76f60a17af120bc17e9e",
+    "mtime": 1784871420.164439,
+    "ast_hash": "0749aeb9635d5ff3daa068bc7a561141",
     "semantic_hash": ""
   },
   "lib/sanity.ts": {
@@ -680,8 +680,8 @@
     "semantic_hash": ""
   },
   "sanity.config.ts": {
-    "mtime": 1786218216.756181,
-    "ast_hash": "5699a1a219fbbfba8660e0e991008aeb",
+    "mtime": 1784885825.1307385,
+    "ast_hash": "9293372de291da889f73c3e8c0110ccb",
     "semantic_hash": ""
   },
   "sanity/env.ts": {
@@ -727,46 +727,6 @@
   "app/api/revalidate/route.ts": {
     "mtime": 1785112742.598019,
     "ast_hash": "de894ae85156ee88c78039abcffa1e28",
-    "semantic_hash": ""
-  },
-  "app/accessibility/page.tsx": {
-    "mtime": 1786342771.7356274,
-    "ast_hash": "bebb0ee857a5a211b50801e58ae28364",
-    "semantic_hash": ""
-  },
-  "app/privacy/page.tsx": {
-    "mtime": 1786342721.1449087,
-    "ast_hash": "7a0e1eedd78e60a414e1335142c02bc3",
-    "semantic_hash": ""
-  },
-  "app/terms/page.tsx": {
-    "mtime": 1786342746.2394369,
-    "ast_hash": "987409fca82ebb8efab264e11b3e034b",
-    "semantic_hash": ""
-  },
-  "components/BookingWidgetModal.tsx": {
-    "mtime": 1789177602.9912722,
-    "ast_hash": "c29ab83357fef79b8187809ae8483872",
-    "semantic_hash": ""
-  },
-  "components/LegalPage.tsx": {
-    "mtime": 1786342694.0383961,
-    "ast_hash": "ecb36a8243e8e662d20e42f4d384bf59",
-    "semantic_hash": ""
-  },
-  "lib/bookingWidget.ts": {
-    "mtime": 1789177204.4676838,
-    "ast_hash": "3338d7a003773ab4b56b4d992b5ca64a",
-    "semantic_hash": ""
-  },
-  "lib/ical.ts": {
-    "mtime": 1786335273.9669995,
-    "ast_hash": "c3d102bb926eb4838c04d1214d254be7",
-    "semantic_hash": ""
-  },
-  "DEPLOYMENT.md": {
-    "mtime": 1789179845.1093702,
-    "ast_hash": "006bdac66b4e12d3f89f2a247cc40a62",
     "semantic_hash": ""
   }
 }

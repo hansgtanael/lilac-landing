@@ -346,18 +346,32 @@ export default function BookingCard({
                     <span className="ml-1 font-normal text-dark/50">(estimated)</span>
                   )}
                 </span>
-                {/* Re-keyed on change so the number slides in fresh. */}
-                <AnimatePresence mode="popLayout" initial={false}>
-                  <motion.span
-                    key={total}
-                    initial={reduce ? { opacity: 1 } : { opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={reduce ? { opacity: 0 } : { opacity: 0, y: -8 }}
-                    transition={{ duration: 0.3, ease: EASE }}
-                  >
-                    {fmt(total)}
-                  </motion.span>
-                </AnimatePresence>
+                {/* Re-keyed on change so the number slides in fresh.
+                 *
+                 * CORRECTNESS BEFORE MOTION: this deliberately animates only
+                 * position, never opacity, and uses no AnimatePresence.
+                 *
+                 * The previous version faded a new value in from opacity 0
+                 * while the old one sat at opacity 1. If that transition did
+                 * not run — a backgrounded tab pauses requestAnimationFrame,
+                 * which is exactly what happens in a hidden preview — the
+                 * STALE total stayed fully visible and the correct one was
+                 * invisible on top of it. For a price, that is the worst
+                 * possible failure: the guest reads a number we already know
+                 * is wrong. An exiting sibling also meant both totals existed
+                 * in the DOM at once, which screen readers announced.
+                 *
+                 * Now the correct figure paints at full opacity on its first
+                 * frame and the animation is pure decoration: if it never
+                 * runs, the number is simply already in place. */}
+                <motion.span
+                  key={total}
+                  initial={reduce ? false : { y: 6 }}
+                  animate={{ y: 0 }}
+                  transition={{ duration: 0.25, ease: EASE }}
+                >
+                  {fmt(total)}
+                </motion.span>
               </div>
               )}
             </div>

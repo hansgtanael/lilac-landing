@@ -4,36 +4,6 @@
   "graph": {},
   "nodes": [
     {
-      "label": "page.tsx",
-      "file_type": "code",
-      "source_file": "app/accessibility/page.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "app_accessibility_page",
-      "community": 19,
-      "norm_label": "page.tsx"
-    },
-    {
-      "label": "metadata",
-      "file_type": "code",
-      "source_file": "app/accessibility/page.tsx",
-      "source_location": "L5",
-      "_origin": "ast",
-      "id": "app_accessibility_page_metadata",
-      "community": 19,
-      "norm_label": "metadata"
-    },
-    {
-      "label": "AccessibilityPage()",
-      "file_type": "code",
-      "source_file": "app/accessibility/page.tsx",
-      "source_location": "L15",
-      "_origin": "ast",
-      "id": "app_accessibility_page_accessibilitypage",
-      "community": 19,
-      "norm_label": "accessibilitypage()"
-    },
-    {
       "label": "route.ts",
       "file_type": "code",
       "source_file": "app/api/availability/route.ts",
@@ -47,7 +17,7 @@
       "label": "iso()",
       "file_type": "code",
       "source_file": "app/api/availability/route.ts",
-      "source_location": "L19",
+      "source_location": "L12",
       "_origin": "ast",
       "id": "app_api_availability_route_iso",
       "community": 18,
@@ -57,7 +27,7 @@
       "label": "GET()",
       "file_type": "code",
       "source_file": "app/api/availability/route.ts",
-      "source_location": "L25",
+      "source_location": "L18",
       "_origin": "ast",
       "id": "app_api_availability_route_get",
       "community": 18,
@@ -70,7 +40,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_api_guard",
-      "community": 5,
+      "community": 18,
       "norm_label": "guard.ts"
     },
     {
@@ -80,7 +50,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "app_api_guard_requiresameorigin",
-      "community": 5,
+      "community": 18,
       "norm_label": "requiresameorigin()"
     },
     {
@@ -90,7 +60,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "app_api_guard_guardbodysize",
-      "community": 5,
+      "community": 18,
       "norm_label": "guardbodysize()"
     },
     {
@@ -100,7 +70,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_api_inquiry_route",
-      "community": 5,
+      "community": 18,
       "norm_label": "route.ts"
     },
     {
@@ -110,7 +80,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "app_api_inquiry_route_post",
-      "community": 5,
+      "community": 18,
       "norm_label": "post()"
     },
     {
@@ -124,20 +94,10 @@
       "norm_label": "route.ts"
     },
     {
-      "label": "nightlyLooksSane()",
-      "file_type": "code",
-      "source_file": "app/api/quote/route.ts",
-      "source_location": "L38",
-      "_origin": "ast",
-      "id": "app_api_quote_route_nightlylookssane",
-      "community": 18,
-      "norm_label": "nightlylookssane()"
-    },
-    {
       "label": "GET()",
       "file_type": "code",
       "source_file": "app/api/quote/route.ts",
-      "source_location": "L44",
+      "source_location": "L13",
       "_origin": "ast",
       "id": "app_api_quote_route_get",
       "community": 18,
@@ -217,7 +177,7 @@
       "label": "metadata",
       "file_type": "code",
       "source_file": "app/layout.tsx",
-      "source_location": "L53",
+      "source_location": "L40",
       "_origin": "ast",
       "id": "app_layout_metadata",
       "community": 7,
@@ -227,7 +187,7 @@
       "label": "RootLayout()",
       "file_type": "code",
       "source_file": "app/layout.tsx",
-      "source_location": "L67",
+      "source_location": "L54",
       "_origin": "ast",
       "id": "app_layout_rootlayout",
       "community": 7,
@@ -240,7 +200,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_page",
-      "community": 3,
+      "community": 19,
       "norm_label": "page.tsx"
     },
     {
@@ -250,38 +210,8 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "app_page_home",
-      "community": 3,
+      "community": 19,
       "norm_label": "home()"
-    },
-    {
-      "label": "page.tsx",
-      "file_type": "code",
-      "source_file": "app/privacy/page.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "app_privacy_page",
-      "community": 19,
-      "norm_label": "page.tsx"
-    },
-    {
-      "label": "metadata",
-      "file_type": "code",
-      "source_file": "app/privacy/page.tsx",
-      "source_location": "L5",
-      "_origin": "ast",
-      "id": "app_privacy_page_metadata",
-      "community": 19,
-      "norm_label": "metadata"
-    },
-    {
-      "label": "PrivacyPage()",
-      "file_type": "code",
-      "source_file": "app/privacy/page.tsx",
-      "source_location": "L16",
-      "_origin": "ast",
-      "id": "app_privacy_page_privacypage",
-      "community": 19,
-      "norm_label": "privacypage()"
     },
     {
       "label": "page.tsx",
@@ -332,36 +262,6 @@
       "id": "app_studio_layout_studiolayout",
       "community": 13,
       "norm_label": "studiolayout()"
-    },
-    {
-      "label": "page.tsx",
-      "file_type": "code",
-      "source_file": "app/terms/page.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "app_terms_page",
-      "community": 19,
-      "norm_label": "page.tsx"
-    },
-    {
-      "label": "metadata",
-      "file_type": "code",
-      "source_file": "app/terms/page.tsx",
-      "source_location": "L5",
-      "_origin": "ast",
-      "id": "app_terms_page_metadata",
-      "community": 19,
-      "norm_label": "metadata"
-    },
-    {
-      "label": "TermsPage()",
-      "file_type": "code",
-      "source_file": "app/terms/page.tsx",
-      "source_location": "L16",
-      "_origin": "ast",
-      "id": "app_terms_page_termspage",
-      "community": 19,
-      "norm_label": "termspage()"
     },
     {
       "label": "AboutEditorial.tsx",
@@ -510,27 +410,27 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_booksection",
-      "community": 5,
+      "community": 3,
       "norm_label": "booksection.tsx"
     },
     {
       "label": "Stage",
       "file_type": "code",
       "source_file": "components/BookSection.tsx",
-      "source_location": "L20",
+      "source_location": "L12",
       "_origin": "ast",
       "id": "components_booksection_stage",
-      "community": 5,
+      "community": 3,
       "norm_label": "stage"
     },
     {
       "label": "BookSection()",
       "file_type": "code",
       "source_file": "components/BookSection.tsx",
-      "source_location": "L26",
+      "source_location": "L18",
       "_origin": "ast",
       "id": "components_booksection_booksection",
-      "community": 5,
+      "community": 18,
       "norm_label": "booksection()"
     },
     {
@@ -540,98 +440,68 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_bookingcard",
-      "community": 15,
+      "community": 5,
       "norm_label": "bookingcard.tsx"
     },
     {
       "label": "fmt()",
       "file_type": "code",
       "source_file": "components/BookingCard.tsx",
-      "source_location": "L13",
+      "source_location": "L11",
       "_origin": "ast",
       "id": "components_bookingcard_fmt",
-      "community": 15,
+      "community": 5,
       "norm_label": "fmt()"
     },
     {
       "label": "MONTHS",
       "file_type": "code",
       "source_file": "components/BookingCard.tsx",
-      "source_location": "L15",
+      "source_location": "L13",
       "_origin": "ast",
       "id": "components_bookingcard_months",
-      "community": 15,
+      "community": 5,
       "norm_label": "months"
     },
     {
       "label": "nightsBetween()",
       "file_type": "code",
       "source_file": "components/BookingCard.tsx",
-      "source_location": "L20",
+      "source_location": "L18",
       "_origin": "ast",
       "id": "components_bookingcard_nightsbetween",
-      "community": 15,
+      "community": 5,
       "norm_label": "nightsbetween()"
     },
     {
       "label": "Props",
       "file_type": "code",
       "source_file": "components/BookingCard.tsx",
-      "source_location": "L31",
+      "source_location": "L29",
       "_origin": "ast",
       "id": "components_bookingcard_props",
-      "community": 15,
+      "community": 5,
       "norm_label": "props"
     },
     {
       "label": "Quote",
       "file_type": "code",
       "source_file": "components/BookingCard.tsx",
-      "source_location": "L49",
+      "source_location": "L42",
       "_origin": "ast",
       "id": "components_bookingcard_quote",
-      "community": 15,
+      "community": 5,
       "norm_label": "quote"
     },
     {
       "label": "BookingCard()",
       "file_type": "code",
       "source_file": "components/BookingCard.tsx",
-      "source_location": "L63",
+      "source_location": "L51",
       "_origin": "ast",
       "id": "components_bookingcard_bookingcard",
-      "community": 15,
+      "community": 5,
       "norm_label": "bookingcard()"
-    },
-    {
-      "label": "BookingWidgetModal.tsx",
-      "file_type": "code",
-      "source_file": "components/BookingWidgetModal.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "components_bookingwidgetmodal",
-      "community": 15,
-      "norm_label": "bookingwidgetmodal.tsx"
-    },
-    {
-      "label": "Props",
-      "file_type": "code",
-      "source_file": "components/BookingWidgetModal.tsx",
-      "source_location": "L7",
-      "_origin": "ast",
-      "id": "components_bookingwidgetmodal_props",
-      "community": 15,
-      "norm_label": "props"
-    },
-    {
-      "label": "BookingWidgetModal()",
-      "file_type": "code",
-      "source_file": "components/BookingWidgetModal.tsx",
-      "source_location": "L35",
-      "_origin": "ast",
-      "id": "components_bookingwidgetmodal_bookingwidgetmodal",
-      "community": 15,
-      "norm_label": "bookingwidgetmodal()"
     },
     {
       "label": "Experience.tsx",
@@ -674,20 +544,10 @@
       "norm_label": "footer.tsx"
     },
     {
-      "label": "LEGAL_LINKS",
-      "file_type": "code",
-      "source_file": "components/Footer.tsx",
-      "source_location": "L7",
-      "_origin": "ast",
-      "id": "components_footer_legal_links",
-      "community": 19,
-      "norm_label": "legal_links"
-    },
-    {
       "label": "Footer()",
       "file_type": "code",
       "source_file": "components/Footer.tsx",
-      "source_location": "L19",
+      "source_location": "L9",
       "_origin": "ast",
       "id": "components_footer_footer",
       "community": 19,
@@ -824,26 +684,6 @@
       "norm_label": "hero()"
     },
     {
-      "label": "LegalPage.tsx",
-      "file_type": "code",
-      "source_file": "components/LegalPage.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "components_legalpage",
-      "community": 19,
-      "norm_label": "legalpage.tsx"
-    },
-    {
-      "label": "LegalPage()",
-      "file_type": "code",
-      "source_file": "components/LegalPage.tsx",
-      "source_location": "L13",
-      "_origin": "ast",
-      "id": "components_legalpage_legalpage",
-      "community": 19,
-      "norm_label": "legalpage()"
-    },
-    {
       "label": "Loader.tsx",
       "file_type": "code",
       "source_file": "components/Loader.tsx",
@@ -947,7 +787,7 @@
       "label": "Props",
       "file_type": "code",
       "source_file": "components/RangeCalendar.tsx",
-      "source_location": "L7",
+      "source_location": "L6",
       "_origin": "ast",
       "id": "components_rangecalendar_props",
       "community": 5,
@@ -957,7 +797,7 @@
       "label": "WEEKDAYS",
       "file_type": "code",
       "source_file": "components/RangeCalendar.tsx",
-      "source_location": "L17",
+      "source_location": "L14",
       "_origin": "ast",
       "id": "components_rangecalendar_weekdays",
       "community": 5,
@@ -967,7 +807,7 @@
       "label": "MONTHS",
       "file_type": "code",
       "source_file": "components/RangeCalendar.tsx",
-      "source_location": "L18",
+      "source_location": "L15",
       "_origin": "ast",
       "id": "components_rangecalendar_months",
       "community": 5,
@@ -977,7 +817,7 @@
       "label": "toISO()",
       "file_type": "code",
       "source_file": "components/RangeCalendar.tsx",
-      "source_location": "L25",
+      "source_location": "L22",
       "_origin": "ast",
       "id": "components_rangecalendar_toiso",
       "community": 5,
@@ -987,7 +827,7 @@
       "label": "fromISO()",
       "file_type": "code",
       "source_file": "components/RangeCalendar.tsx",
-      "source_location": "L30",
+      "source_location": "L27",
       "_origin": "ast",
       "id": "components_rangecalendar_fromiso",
       "community": 5,
@@ -997,7 +837,7 @@
       "label": "startOfDay()",
       "file_type": "code",
       "source_file": "components/RangeCalendar.tsx",
-      "source_location": "L35",
+      "source_location": "L32",
       "_origin": "ast",
       "id": "components_rangecalendar_startofday",
       "community": 5,
@@ -1007,7 +847,7 @@
       "label": "sameDay()",
       "file_type": "code",
       "source_file": "components/RangeCalendar.tsx",
-      "source_location": "L38",
+      "source_location": "L35",
       "_origin": "ast",
       "id": "components_rangecalendar_sameday",
       "community": 5,
@@ -1017,7 +857,7 @@
       "label": "RangeCalendar()",
       "file_type": "code",
       "source_file": "components/RangeCalendar.tsx",
-      "source_location": "L44",
+      "source_location": "L41",
       "_origin": "ast",
       "id": "components_rangecalendar_rangecalendar",
       "community": 5,
@@ -1050,7 +890,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_spacingtuner",
-      "community": 17,
+      "community": 19,
       "norm_label": "spacingtuner.tsx"
     },
     {
@@ -1060,7 +900,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "components_spacingtuner_row",
-      "community": 17,
+      "community": 19,
       "norm_label": "row()"
     },
     {
@@ -1070,7 +910,7 @@
       "source_location": "L56",
       "_origin": "ast",
       "id": "components_spacingtuner_spacingtuner",
-      "community": 17,
+      "community": 19,
       "norm_label": "spacingtuner()"
     },
     {
@@ -1087,7 +927,7 @@
       "label": "ViewRooms()",
       "file_type": "code",
       "source_file": "components/ViewRooms.tsx",
-      "source_location": "L32",
+      "source_location": "L31",
       "_origin": "ast",
       "id": "components_viewrooms_viewrooms",
       "community": 3,
@@ -1100,7 +940,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_waveedge",
-      "community": 3,
+      "community": 19,
       "norm_label": "waveedge.tsx"
     },
     {
@@ -1110,7 +950,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "components_waveedge_usesectionprogress",
-      "community": 3,
+      "community": 19,
       "norm_label": "usesectionprogress()"
     },
     {
@@ -1120,7 +960,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "components_waveedge_usedrift",
-      "community": 3,
+      "community": 19,
       "norm_label": "usedrift()"
     },
     {
@@ -1130,7 +970,7 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "components_waveedge_wavelip",
-      "community": 3,
+      "community": 19,
       "norm_label": "wavelip()"
     },
     {
@@ -1140,7 +980,7 @@
       "source_location": "L56",
       "_origin": "ast",
       "id": "components_waveedge_wavehills",
-      "community": 3,
+      "community": 19,
       "norm_label": "wavehills()"
     },
     {
@@ -1190,7 +1030,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "components_site_content_sitecontentprovider",
-      "community": 3,
+      "community": 19,
       "norm_label": "sitecontentprovider()"
     },
     {
@@ -1250,7 +1090,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_booking",
-      "community": 5,
+      "community": 18,
       "norm_label": "booking.ts"
     },
     {
@@ -1270,7 +1110,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "lib_booking_rangecheck",
-      "community": 5,
+      "community": 18,
       "norm_label": "rangecheck"
     },
     {
@@ -1280,118 +1120,28 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "lib_booking_validaterange",
-      "community": 5,
+      "community": 18,
       "norm_label": "validaterange()"
-    },
-    {
-      "label": "MinStayMap",
-      "file_type": "code",
-      "source_file": "lib/booking.ts",
-      "source_location": "L50",
-      "_origin": "ast",
-      "id": "lib_booking_minstaymap",
-      "community": 5,
-      "norm_label": "minstaymap"
-    },
-    {
-      "label": "minStayFor()",
-      "file_type": "code",
-      "source_file": "lib/booking.ts",
-      "source_location": "L55",
-      "_origin": "ast",
-      "id": "lib_booking_minstayfor",
-      "community": 5,
-      "norm_label": "minstayfor()"
-    },
-    {
-      "label": "MinStayCheck",
-      "file_type": "code",
-      "source_file": "lib/booking.ts",
-      "source_location": "L60",
-      "_origin": "ast",
-      "id": "lib_booking_minstaycheck",
-      "community": 5,
-      "norm_label": "minstaycheck"
-    },
-    {
-      "label": "validateMinStay()",
-      "file_type": "code",
-      "source_file": "lib/booking.ts",
-      "source_location": "L73",
-      "_origin": "ast",
-      "id": "lib_booking_validateminstay",
-      "community": 5,
-      "norm_label": "validateminstay()"
     },
     {
       "label": "validateGuests()",
       "file_type": "code",
       "source_file": "lib/booking.ts",
-      "source_location": "L84",
+      "source_location": "L48",
       "_origin": "ast",
       "id": "lib_booking_validateguests",
-      "community": 5,
+      "community": 18,
       "norm_label": "validateguests()"
     },
     {
       "label": "isValidEmail()",
       "file_type": "code",
       "source_file": "lib/booking.ts",
-      "source_location": "L90",
-      "_origin": "ast",
-      "id": "lib_booking_isvalidemail",
-      "community": 5,
-      "norm_label": "isvalidemail()"
-    },
-    {
-      "label": "bookingWidget.ts",
-      "file_type": "code",
-      "source_file": "lib/bookingWidget.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "lib_bookingwidget",
-      "community": 15,
-      "norm_label": "bookingwidget.ts"
-    },
-    {
-      "label": "isBookingWidgetConfigured()",
-      "file_type": "code",
-      "source_file": "lib/bookingWidget.ts",
-      "source_location": "L30",
-      "_origin": "ast",
-      "id": "lib_bookingwidget_isbookingwidgetconfigured",
-      "community": 15,
-      "norm_label": "isbookingwidgetconfigured()"
-    },
-    {
-      "label": "Prefill",
-      "file_type": "code",
-      "source_file": "lib/bookingWidget.ts",
-      "source_location": "L39",
-      "_origin": "ast",
-      "id": "lib_bookingwidget_prefill",
-      "community": 15,
-      "norm_label": "prefill"
-    },
-    {
-      "label": "buildBookingUrl()",
-      "file_type": "code",
-      "source_file": "lib/bookingWidget.ts",
       "source_location": "L54",
       "_origin": "ast",
-      "id": "lib_bookingwidget_buildbookingurl",
-      "community": 15,
-      "norm_label": "buildbookingurl()"
-    },
-    {
-      "label": "bookingWidgetOrigin()",
-      "file_type": "code",
-      "source_file": "lib/bookingWidget.ts",
-      "source_location": "L67",
-      "_origin": "ast",
-      "id": "lib_bookingwidget_bookingwidgetorigin",
-      "community": 15,
-      "norm_label": "bookingwidgetorigin()"
+      "id": "lib_booking_isvalidemail",
+      "community": 18,
+      "norm_label": "isvalidemail()"
     },
     {
       "label": "content.ts",
@@ -1470,7 +1220,7 @@
       "source_location": "L138",
       "_origin": "ast",
       "id": "lib_content_sitecontent",
-      "community": 19,
+      "community": 3,
       "norm_label": "sitecontent"
     },
     {
@@ -1527,7 +1277,7 @@
       "label": "isConfigured()",
       "file_type": "code",
       "source_file": "lib/hospitable.ts",
-      "source_location": "L36",
+      "source_location": "L28",
       "_origin": "ast",
       "id": "lib_hospitable_isconfigured",
       "community": 18,
@@ -1537,7 +1287,7 @@
       "label": "CalendarDay",
       "file_type": "code",
       "source_file": "lib/hospitable.ts",
-      "source_location": "L41",
+      "source_location": "L33",
       "_origin": "ast",
       "id": "lib_hospitable_calendarday",
       "community": 18,
@@ -1547,7 +1297,7 @@
       "label": "CalendarResult",
       "file_type": "code",
       "source_file": "lib/hospitable.ts",
-      "source_location": "L54",
+      "source_location": "L41",
       "_origin": "ast",
       "id": "lib_hospitable_calendarresult",
       "community": 18,
@@ -1557,7 +1307,7 @@
       "label": "HospitableError",
       "file_type": "code",
       "source_file": "lib/hospitable.ts",
-      "source_location": "L60",
+      "source_location": "L47",
       "_origin": "ast",
       "id": "lib_hospitable_hospitableerror",
       "community": 18,
@@ -1567,7 +1317,7 @@
       "label": "hospitableGet()",
       "file_type": "code",
       "source_file": "lib/hospitable.ts",
-      "source_location": "L63",
+      "source_location": "L50",
       "_origin": "ast",
       "id": "lib_hospitable_hospitableget",
       "community": 18,
@@ -1577,27 +1327,17 @@
       "label": "RawCalendarDay",
       "file_type": "code",
       "source_file": "lib/hospitable.ts",
-      "source_location": "L115",
+      "source_location": "L83",
       "_origin": "ast",
       "id": "lib_hospitable_rawcalendarday",
       "community": 18,
       "norm_label": "rawcalendarday"
     },
     {
-      "label": "RawCalendarResponse",
-      "file_type": "code",
-      "source_file": "lib/hospitable.ts",
-      "source_location": "L128",
-      "_origin": "ast",
-      "id": "lib_hospitable_rawcalendarresponse",
-      "community": 18,
-      "norm_label": "rawcalendarresponse"
-    },
-    {
       "label": "normalizeCalendar()",
       "file_type": "code",
       "source_file": "lib/hospitable.ts",
-      "source_location": "L134",
+      "source_location": "L95",
       "_origin": "ast",
       "id": "lib_hospitable_normalizecalendar",
       "community": 18,
@@ -1607,221 +1347,11 @@
       "label": "getCalendar()",
       "file_type": "code",
       "source_file": "lib/hospitable.ts",
-      "source_location": "L185",
+      "source_location": "L132",
       "_origin": "ast",
       "id": "lib_hospitable_getcalendar",
       "community": 18,
       "norm_label": "getcalendar()"
-    },
-    {
-      "label": "feeCents()",
-      "file_type": "code",
-      "source_file": "lib/hospitable.ts",
-      "source_location": "L229",
-      "_origin": "ast",
-      "id": "lib_hospitable_feecents",
-      "community": 18,
-      "norm_label": "feecents()"
-    },
-    {
-      "label": "RawFeeValue",
-      "file_type": "code",
-      "source_file": "lib/hospitable.ts",
-      "source_location": "L236",
-      "_origin": "ast",
-      "id": "lib_hospitable_rawfeevalue",
-      "community": 18,
-      "norm_label": "rawfeevalue"
-    },
-    {
-      "label": "RawFeeBlock",
-      "file_type": "code",
-      "source_file": "lib/hospitable.ts",
-      "source_location": "L237",
-      "_origin": "ast",
-      "id": "lib_hospitable_rawfeeblock",
-      "community": 18,
-      "norm_label": "rawfeeblock"
-    },
-    {
-      "label": "PropertyPricing",
-      "file_type": "code",
-      "source_file": "lib/hospitable.ts",
-      "source_location": "L239",
-      "_origin": "ast",
-      "id": "lib_hospitable_propertypricing",
-      "community": 18,
-      "norm_label": "propertypricing"
-    },
-    {
-      "label": "getPricing()",
-      "file_type": "code",
-      "source_file": "lib/hospitable.ts",
-      "source_location": "L245",
-      "_origin": "ast",
-      "id": "lib_hospitable_getpricing",
-      "community": 18,
-      "norm_label": "getpricing()"
-    },
-    {
-      "label": "RawPricing",
-      "file_type": "code",
-      "source_file": "lib/hospitable.ts",
-      "source_location": "L257",
-      "_origin": "ast",
-      "id": "lib_hospitable_rawpricing",
-      "community": 18,
-      "norm_label": "rawpricing"
-    },
-    {
-      "label": "TaxRule",
-      "file_type": "code",
-      "source_file": "lib/hospitable.ts",
-      "source_location": "L260",
-      "_origin": "ast",
-      "id": "lib_hospitable_taxrule",
-      "community": 18,
-      "norm_label": "taxrule"
-    },
-    {
-      "label": "RawTax",
-      "file_type": "code",
-      "source_file": "lib/hospitable.ts",
-      "source_location": "L270",
-      "_origin": "ast",
-      "id": "lib_hospitable_rawtax",
-      "community": 18,
-      "norm_label": "rawtax"
-    },
-    {
-      "label": "getTaxes()",
-      "file_type": "code",
-      "source_file": "lib/hospitable.ts",
-      "source_location": "L284",
-      "_origin": "ast",
-      "id": "lib_hospitable_gettaxes",
-      "community": 18,
-      "norm_label": "gettaxes()"
-    },
-    {
-      "label": "computeTaxCents()",
-      "file_type": "code",
-      "source_file": "lib/hospitable.ts",
-      "source_location": "L309",
-      "_origin": "ast",
-      "id": "lib_hospitable_computetaxcents",
-      "community": 18,
-      "norm_label": "computetaxcents()"
-    },
-    {
-      "label": "ical.ts",
-      "file_type": "code",
-      "source_file": "lib/ical.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "lib_ical",
-      "community": 18,
-      "norm_label": "ical.ts"
-    },
-    {
-      "label": "FEEDS",
-      "file_type": "code",
-      "source_file": "lib/ical.ts",
-      "source_location": "L25",
-      "_origin": "ast",
-      "id": "lib_ical_feeds",
-      "community": 18,
-      "norm_label": "feeds"
-    },
-    {
-      "label": "isIcalConfigured()",
-      "file_type": "code",
-      "source_file": "lib/ical.ts",
-      "source_location": "L34",
-      "_origin": "ast",
-      "id": "lib_ical_isicalconfigured",
-      "community": 18,
-      "norm_label": "isicalconfigured()"
-    },
-    {
-      "label": "unfold()",
-      "file_type": "code",
-      "source_file": "lib/ical.ts",
-      "source_location": "L41",
-      "_origin": "ast",
-      "id": "lib_ical_unfold",
-      "community": 18,
-      "norm_label": "unfold()"
-    },
-    {
-      "label": "parseIcalDate()",
-      "file_type": "code",
-      "source_file": "lib/ical.ts",
-      "source_location": "L55",
-      "_origin": "ast",
-      "id": "lib_ical_parseicaldate",
-      "community": 18,
-      "norm_label": "parseicaldate()"
-    },
-    {
-      "label": "isoUTC()",
-      "file_type": "code",
-      "source_file": "lib/ical.ts",
-      "source_location": "L64",
-      "_origin": "ast",
-      "id": "lib_ical_isoutc",
-      "community": 18,
-      "norm_label": "isoutc()"
-    },
-    {
-      "label": "bookedNightsFromFeed()",
-      "file_type": "code",
-      "source_file": "lib/ical.ts",
-      "source_location": "L77",
-      "_origin": "ast",
-      "id": "lib_ical_bookednightsfromfeed",
-      "community": 18,
-      "norm_label": "bookednightsfromfeed()"
-    },
-    {
-      "label": "fetchFeed()",
-      "file_type": "code",
-      "source_file": "lib/ical.ts",
-      "source_location": "L121",
-      "_origin": "ast",
-      "id": "lib_ical_fetchfeed",
-      "community": 18,
-      "norm_label": "fetchfeed()"
-    },
-    {
-      "label": "IcalResult",
-      "file_type": "code",
-      "source_file": "lib/ical.ts",
-      "source_location": "L144",
-      "_origin": "ast",
-      "id": "lib_ical_icalresult",
-      "community": 18,
-      "norm_label": "icalresult"
-    },
-    {
-      "label": "getUnavailableDates()",
-      "file_type": "code",
-      "source_file": "lib/ical.ts",
-      "source_location": "L155",
-      "_origin": "ast",
-      "id": "lib_ical_getunavailabledates",
-      "community": 18,
-      "norm_label": "getunavailabledates()"
-    },
-    {
-      "label": "__testing",
-      "file_type": "code",
-      "source_file": "lib/ical.ts",
-      "source_location": "L178",
-      "_origin": "ast",
-      "id": "lib_ical_testing",
-      "community": 18,
-      "norm_label": "__testing"
     },
     {
       "label": "inquiry.ts",
@@ -1830,68 +1360,28 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_inquiry",
-      "community": 5,
+      "community": 18,
       "norm_label": "inquiry.ts"
     },
     {
       "label": "Inquiry",
       "file_type": "code",
       "source_file": "lib/inquiry.ts",
-      "source_location": "L23",
+      "source_location": "L16",
       "_origin": "ast",
       "id": "lib_inquiry_inquiry",
-      "community": 5,
+      "community": 18,
       "norm_label": "inquiry"
-    },
-    {
-      "label": "isInquiryDeliveryConfigured()",
-      "file_type": "code",
-      "source_file": "lib/inquiry.ts",
-      "source_location": "L40",
-      "_origin": "ast",
-      "id": "lib_inquiry_isinquirydeliveryconfigured",
-      "community": 5,
-      "norm_label": "isinquirydeliveryconfigured()"
-    },
-    {
-      "label": "esc()",
-      "file_type": "code",
-      "source_file": "lib/inquiry.ts",
-      "source_location": "L47",
-      "_origin": "ast",
-      "id": "lib_inquiry_esc",
-      "community": 5,
-      "norm_label": "esc()"
-    },
-    {
-      "label": "buildBody()",
-      "file_type": "code",
-      "source_file": "lib/inquiry.ts",
-      "source_location": "L55",
-      "_origin": "ast",
-      "id": "lib_inquiry_buildbody",
-      "community": 5,
-      "norm_label": "buildbody()"
     },
     {
       "label": "deliverInquiry()",
       "file_type": "code",
       "source_file": "lib/inquiry.ts",
-      "source_location": "L90",
+      "source_location": "L28",
       "_origin": "ast",
       "id": "lib_inquiry_deliverinquiry",
-      "community": 5,
+      "community": 18,
       "norm_label": "deliverinquiry()"
-    },
-    {
-      "label": "__testing",
-      "file_type": "code",
-      "source_file": "lib/inquiry.ts",
-      "source_location": "L137",
-      "_origin": "ast",
-      "id": "lib_inquiry_testing",
-      "community": 5,
-      "norm_label": "__testing"
     },
     {
       "label": "sanity.ts",
@@ -2050,7 +1540,7 @@
       "source_location": "L316",
       "_origin": "ast",
       "id": "lib_site_content_getsitecontent",
-      "community": 3,
+      "community": 19,
       "norm_label": "getsitecontent()"
     },
     {
@@ -2137,27 +1627,17 @@
       "label": "STUDIO_CSP",
       "file_type": "code",
       "source_file": "next.config.ts",
-      "source_location": "L39",
+      "source_location": "L31",
       "_origin": "ast",
       "id": "next_config_studio_csp",
       "community": 9,
       "norm_label": "studio_csp"
     },
     {
-      "label": "BOOKING_ORIGIN",
-      "file_type": "code",
-      "source_file": "next.config.ts",
-      "source_location": "L65",
-      "_origin": "ast",
-      "id": "next_config_booking_origin",
-      "community": 9,
-      "norm_label": "booking_origin"
-    },
-    {
       "label": "COMMON_HEADERS",
       "file_type": "code",
       "source_file": "next.config.ts",
-      "source_location": "L76",
+      "source_location": "L46",
       "_origin": "ast",
       "id": "next_config_common_headers",
       "community": 9,
@@ -2167,7 +1647,7 @@
       "label": "nextConfig",
       "file_type": "code",
       "source_file": "next.config.ts",
-      "source_location": "L103",
+      "source_location": "L66",
       "_origin": "ast",
       "id": "next_config_nextconfig",
       "community": 9,
@@ -2179,8 +1659,8 @@
       "source_file": "package.json",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_json",
-      "community": 1,
+      "id": "package",
+      "community": 2,
       "norm_label": "package.json"
     },
     {
@@ -2189,8 +1669,8 @@
       "source_file": "package.json",
       "source_location": "L2",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_name",
-      "community": 1,
+      "id": "package_name",
+      "community": 2,
       "norm_label": "name"
     },
     {
@@ -2199,8 +1679,8 @@
       "source_file": "package.json",
       "source_location": "L3",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_version",
-      "community": 1,
+      "id": "package_version",
+      "community": 2,
       "norm_label": "version"
     },
     {
@@ -2209,8 +1689,8 @@
       "source_file": "package.json",
       "source_location": "L4",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_private",
-      "community": 1,
+      "id": "package_private",
+      "community": 2,
       "norm_label": "private"
     },
     {
@@ -2219,8 +1699,8 @@
       "source_file": "package.json",
       "source_location": "L5",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_scripts",
-      "community": 1,
+      "id": "package_scripts",
+      "community": 2,
       "norm_label": "scripts"
     },
     {
@@ -2229,8 +1709,8 @@
       "source_file": "package.json",
       "source_location": "L6",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_scripts_dev",
-      "community": 1,
+      "id": "package_scripts_dev",
+      "community": 2,
       "norm_label": "dev"
     },
     {
@@ -2239,8 +1719,8 @@
       "source_file": "package.json",
       "source_location": "L7",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_scripts_dev_preview",
-      "community": 1,
+      "id": "package_scripts_dev_preview",
+      "community": 2,
       "norm_label": "dev:preview"
     },
     {
@@ -2249,8 +1729,8 @@
       "source_file": "package.json",
       "source_location": "L8",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_scripts_build",
-      "community": 1,
+      "id": "package_scripts_build",
+      "community": 2,
       "norm_label": "build"
     },
     {
@@ -2259,8 +1739,8 @@
       "source_file": "package.json",
       "source_location": "L9",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_scripts_start",
-      "community": 1,
+      "id": "package_scripts_start",
+      "community": 2,
       "norm_label": "start"
     },
     {
@@ -2269,8 +1749,8 @@
       "source_file": "package.json",
       "source_location": "L10",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_scripts_lint",
-      "community": 1,
+      "id": "package_scripts_lint",
+      "community": 2,
       "norm_label": "lint"
     },
     {
@@ -2279,8 +1759,8 @@
       "source_file": "package.json",
       "source_location": "L11",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_scripts_migrate_site",
-      "community": 1,
+      "id": "package_scripts_migrate_site",
+      "community": 2,
       "norm_label": "migrate:site"
     },
     {
@@ -2289,8 +1769,8 @@
       "source_file": "package.json",
       "source_location": "L13",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_dependencies",
-      "community": 1,
+      "id": "package_dependencies",
+      "community": 8,
       "norm_label": "dependencies"
     },
     {
@@ -2299,8 +1779,8 @@
       "source_file": "package.json",
       "source_location": "L14",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_dependencies_gsap_react",
-      "community": 1,
+      "id": "package_dependencies_gsap_react",
+      "community": 8,
       "norm_label": "@gsap/react"
     },
     {
@@ -2309,8 +1789,8 @@
       "source_file": "package.json",
       "source_location": "L15",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_dependencies_phosphor_icons_react",
-      "community": 1,
+      "id": "package_dependencies_phosphor_icons_react",
+      "community": 8,
       "norm_label": "@phosphor-icons/react"
     },
     {
@@ -2319,8 +1799,8 @@
       "source_file": "package.json",
       "source_location": "L16",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_dependencies_portabletext_react",
-      "community": 1,
+      "id": "package_dependencies_portabletext_react",
+      "community": 8,
       "norm_label": "@portabletext/react"
     },
     {
@@ -2329,8 +1809,8 @@
       "source_file": "package.json",
       "source_location": "L17",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_dependencies_sanity_image_url",
-      "community": 1,
+      "id": "package_dependencies_sanity_image_url",
+      "community": 8,
       "norm_label": "@sanity/image-url"
     },
     {
@@ -2339,8 +1819,8 @@
       "source_file": "package.json",
       "source_location": "L18",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_dependencies_sanity_vision",
-      "community": 1,
+      "id": "package_dependencies_sanity_vision",
+      "community": 8,
       "norm_label": "@sanity/vision"
     },
     {
@@ -2349,8 +1829,8 @@
       "source_file": "package.json",
       "source_location": "L19",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_dependencies_sanity_webhook",
-      "community": 1,
+      "id": "package_dependencies_sanity_webhook",
+      "community": 8,
       "norm_label": "@sanity/webhook"
     },
     {
@@ -2359,8 +1839,8 @@
       "source_file": "package.json",
       "source_location": "L20",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_dependencies_gsap",
-      "community": 1,
+      "id": "package_dependencies_gsap",
+      "community": 8,
       "norm_label": "gsap"
     },
     {
@@ -2369,8 +1849,8 @@
       "source_file": "package.json",
       "source_location": "L21",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_dependencies_lenis",
-      "community": 1,
+      "id": "package_dependencies_lenis",
+      "community": 8,
       "norm_label": "lenis"
     },
     {
@@ -2379,8 +1859,8 @@
       "source_file": "package.json",
       "source_location": "L22",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_dependencies_motion",
-      "community": 1,
+      "id": "package_dependencies_motion",
+      "community": 8,
       "norm_label": "motion"
     },
     {
@@ -2389,8 +1869,8 @@
       "source_file": "package.json",
       "source_location": "L23",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_dependencies_next",
-      "community": 1,
+      "id": "package_dependencies_next",
+      "community": 8,
       "norm_label": "next"
     },
     {
@@ -2399,8 +1879,8 @@
       "source_file": "package.json",
       "source_location": "L24",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_dependencies_next_sanity",
-      "community": 1,
+      "id": "package_dependencies_next_sanity",
+      "community": 8,
       "norm_label": "next-sanity"
     },
     {
@@ -2409,8 +1889,8 @@
       "source_file": "package.json",
       "source_location": "L25",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_dependencies_react",
-      "community": 1,
+      "id": "package_dependencies_react",
+      "community": 8,
       "norm_label": "react"
     },
     {
@@ -2419,8 +1899,8 @@
       "source_file": "package.json",
       "source_location": "L26",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_dependencies_react_dom",
-      "community": 1,
+      "id": "package_dependencies_react_dom",
+      "community": 8,
       "norm_label": "react-dom"
     },
     {
@@ -2429,7 +1909,7 @@
       "source_file": "package.json",
       "source_location": "L27",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_dependencies_sanity",
+      "id": "package_dependencies_sanity",
       "community": 14,
       "norm_label": "sanity"
     },
@@ -2439,8 +1919,8 @@
       "source_file": "package.json",
       "source_location": "L29",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_devdependencies",
-      "community": 1,
+      "id": "package_devdependencies",
+      "community": 2,
       "norm_label": "devdependencies"
     },
     {
@@ -2449,8 +1929,8 @@
       "source_file": "package.json",
       "source_location": "L30",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_devdependencies_tailwindcss_postcss",
-      "community": 1,
+      "id": "package_devdependencies_tailwindcss_postcss",
+      "community": 2,
       "norm_label": "@tailwindcss/postcss"
     },
     {
@@ -2459,8 +1939,8 @@
       "source_file": "package.json",
       "source_location": "L31",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_devdependencies_types_node",
-      "community": 1,
+      "id": "package_devdependencies_types_node",
+      "community": 2,
       "norm_label": "@types/node"
     },
     {
@@ -2469,8 +1949,8 @@
       "source_file": "package.json",
       "source_location": "L32",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_devdependencies_types_react",
-      "community": 1,
+      "id": "package_devdependencies_types_react",
+      "community": 2,
       "norm_label": "@types/react"
     },
     {
@@ -2479,8 +1959,8 @@
       "source_file": "package.json",
       "source_location": "L33",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_devdependencies_types_react_dom",
-      "community": 1,
+      "id": "package_devdependencies_types_react_dom",
+      "community": 2,
       "norm_label": "@types/react-dom"
     },
     {
@@ -2489,8 +1969,8 @@
       "source_file": "package.json",
       "source_location": "L34",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_devdependencies_eslint",
-      "community": 1,
+      "id": "package_devdependencies_eslint",
+      "community": 2,
       "norm_label": "eslint"
     },
     {
@@ -2499,8 +1979,8 @@
       "source_file": "package.json",
       "source_location": "L35",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_devdependencies_eslint_config_next",
-      "community": 1,
+      "id": "package_devdependencies_eslint_config_next",
+      "community": 2,
       "norm_label": "eslint-config-next"
     },
     {
@@ -2509,8 +1989,8 @@
       "source_file": "package.json",
       "source_location": "L36",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_devdependencies_typescript",
-      "community": 1,
+      "id": "package_devdependencies_typescript",
+      "community": 2,
       "norm_label": "typescript"
     },
     {
@@ -2759,8 +2239,8 @@
       "source_file": "tsconfig.json",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_json",
-      "community": 4,
+      "id": "tsconfig",
+      "community": 1,
       "norm_label": "tsconfig.json"
     },
     {
@@ -2769,8 +2249,8 @@
       "source_file": "tsconfig.json",
       "source_location": "L2",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_compileroptions",
-      "community": 4,
+      "id": "tsconfig_compileroptions",
+      "community": 1,
       "norm_label": "compileroptions"
     },
     {
@@ -2779,8 +2259,8 @@
       "source_file": "tsconfig.json",
       "source_location": "L3",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_compileroptions_target",
-      "community": 4,
+      "id": "tsconfig_compileroptions_target",
+      "community": 1,
       "norm_label": "target"
     },
     {
@@ -2789,8 +2269,8 @@
       "source_file": "tsconfig.json",
       "source_location": "L4",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_compileroptions_lib",
-      "community": 4,
+      "id": "tsconfig_compileroptions_lib",
+      "community": 1,
       "norm_label": "lib"
     },
     {
@@ -2799,8 +2279,8 @@
       "source_file": "tsconfig.json",
       "source_location": "L5",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_compileroptions_allowjs",
-      "community": 4,
+      "id": "tsconfig_compileroptions_allowjs",
+      "community": 1,
       "norm_label": "allowjs"
     },
     {
@@ -2809,8 +2289,8 @@
       "source_file": "tsconfig.json",
       "source_location": "L6",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_compileroptions_skiplibcheck",
-      "community": 4,
+      "id": "tsconfig_compileroptions_skiplibcheck",
+      "community": 1,
       "norm_label": "skiplibcheck"
     },
     {
@@ -2819,8 +2299,8 @@
       "source_file": "tsconfig.json",
       "source_location": "L7",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_compileroptions_strict",
-      "community": 4,
+      "id": "tsconfig_compileroptions_strict",
+      "community": 1,
       "norm_label": "strict"
     },
     {
@@ -2829,8 +2309,8 @@
       "source_file": "tsconfig.json",
       "source_location": "L8",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_compileroptions_noemit",
-      "community": 4,
+      "id": "tsconfig_compileroptions_noemit",
+      "community": 1,
       "norm_label": "noemit"
     },
     {
@@ -2839,8 +2319,8 @@
       "source_file": "tsconfig.json",
       "source_location": "L9",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_compileroptions_esmoduleinterop",
-      "community": 4,
+      "id": "tsconfig_compileroptions_esmoduleinterop",
+      "community": 1,
       "norm_label": "esmoduleinterop"
     },
     {
@@ -2849,8 +2329,8 @@
       "source_file": "tsconfig.json",
       "source_location": "L10",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_compileroptions_module",
-      "community": 4,
+      "id": "tsconfig_compileroptions_module",
+      "community": 1,
       "norm_label": "module"
     },
     {
@@ -2859,8 +2339,8 @@
       "source_file": "tsconfig.json",
       "source_location": "L11",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_compileroptions_moduleresolution",
-      "community": 4,
+      "id": "tsconfig_compileroptions_moduleresolution",
+      "community": 1,
       "norm_label": "moduleresolution"
     },
     {
@@ -2869,8 +2349,8 @@
       "source_file": "tsconfig.json",
       "source_location": "L12",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_compileroptions_resolvejsonmodule",
-      "community": 4,
+      "id": "tsconfig_compileroptions_resolvejsonmodule",
+      "community": 1,
       "norm_label": "resolvejsonmodule"
     },
     {
@@ -2879,8 +2359,8 @@
       "source_file": "tsconfig.json",
       "source_location": "L13",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_compileroptions_isolatedmodules",
-      "community": 4,
+      "id": "tsconfig_compileroptions_isolatedmodules",
+      "community": 1,
       "norm_label": "isolatedmodules"
     },
     {
@@ -2889,8 +2369,8 @@
       "source_file": "tsconfig.json",
       "source_location": "L14",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_compileroptions_jsx",
-      "community": 4,
+      "id": "tsconfig_compileroptions_jsx",
+      "community": 1,
       "norm_label": "jsx"
     },
     {
@@ -2899,8 +2379,8 @@
       "source_file": "tsconfig.json",
       "source_location": "L15",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_compileroptions_incremental",
-      "community": 4,
+      "id": "tsconfig_compileroptions_incremental",
+      "community": 1,
       "norm_label": "incremental"
     },
     {
@@ -2909,8 +2389,8 @@
       "source_file": "tsconfig.json",
       "source_location": "L16",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_compileroptions_plugins",
-      "community": 4,
+      "id": "tsconfig_compileroptions_plugins",
+      "community": 1,
       "norm_label": "plugins"
     },
     {
@@ -2919,8 +2399,8 @@
       "source_file": "tsconfig.json",
       "source_location": "L21",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_compileroptions_paths",
-      "community": 4,
+      "id": "tsconfig_compileroptions_paths",
+      "community": 1,
       "norm_label": "paths"
     },
     {
@@ -2929,8 +2409,8 @@
       "source_file": "tsconfig.json",
       "source_location": "L22",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_paths",
-      "community": 4,
+      "id": "tsconfig_paths",
+      "community": 1,
       "norm_label": "@/*"
     },
     {
@@ -2939,8 +2419,8 @@
       "source_file": "tsconfig.json",
       "source_location": "L25",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_include",
-      "community": 4,
+      "id": "tsconfig_include",
+      "community": 1,
       "norm_label": "include"
     },
     {
@@ -2949,249 +2429,9 @@
       "source_file": "tsconfig.json",
       "source_location": "L33",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_exclude",
-      "community": 4,
+      "id": "tsconfig_exclude",
+      "community": 1,
       "norm_label": "exclude"
-    },
-    {
-      "label": "DEPLOYMENT.md",
-      "file_type": "document",
-      "source_file": "DEPLOYMENT.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "deployment",
-      "community": 2,
-      "norm_label": "deployment.md"
-    },
-    {
-      "label": "Lilac Landing \u2014 deployment & handoff",
-      "file_type": "document",
-      "source_file": "DEPLOYMENT.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "deployment_lilac_landing_deployment_handoff",
-      "community": 2,
-      "norm_label": "lilac landing \u2014 deployment & handoff"
-    },
-    {
-      "label": "1. What this is",
-      "file_type": "document",
-      "source_file": "DEPLOYMENT.md",
-      "source_location": "L8",
-      "_origin": "ast",
-      "id": "deployment_1_what_this_is",
-      "community": 2,
-      "norm_label": "1. what this is"
-    },
-    {
-      "label": "2. Requirements",
-      "file_type": "document",
-      "source_file": "DEPLOYMENT.md",
-      "source_location": "L28",
-      "_origin": "ast",
-      "id": "deployment_2_requirements",
-      "community": 2,
-      "norm_label": "2. requirements"
-    },
-    {
-      "label": "3. Environment variables",
-      "file_type": "document",
-      "source_file": "DEPLOYMENT.md",
-      "source_location": "L37",
-      "_origin": "ast",
-      "id": "deployment_3_environment_variables",
-      "community": 2,
-      "norm_label": "3. environment variables"
-    },
-    {
-      "label": "About `NEXT_PUBLIC_SITE_URL`",
-      "file_type": "document",
-      "source_file": "DEPLOYMENT.md",
-      "source_location": "L55",
-      "_origin": "ast",
-      "id": "deployment_about_next_public_site_url",
-      "community": 2,
-      "norm_label": "about `next_public_site_url`"
-    },
-    {
-      "label": "4. Local development",
-      "file_type": "document",
-      "source_file": "DEPLOYMENT.md",
-      "source_location": "L70",
-      "_origin": "ast",
-      "id": "deployment_4_local_development",
-      "community": 2,
-      "norm_label": "4. local development"
-    },
-    {
-      "label": "5. Hosting",
-      "file_type": "document",
-      "source_file": "DEPLOYMENT.md",
-      "source_location": "L90",
-      "_origin": "ast",
-      "id": "deployment_5_hosting",
-      "community": 2,
-      "norm_label": "5. hosting"
-    },
-    {
-      "label": "Option A \u2014 Netlify (current)",
-      "file_type": "document",
-      "source_file": "DEPLOYMENT.md",
-      "source_location": "L92",
-      "_origin": "ast",
-      "id": "deployment_option_a_netlify_current",
-      "community": 2,
-      "norm_label": "option a \u2014 netlify (current)"
-    },
-    {
-      "label": "Option B \u2014 self-hosting",
-      "file_type": "document",
-      "source_file": "DEPLOYMENT.md",
-      "source_location": "L103",
-      "_origin": "ast",
-      "id": "deployment_option_b_self_hosting",
-      "community": 2,
-      "norm_label": "option b \u2014 self-hosting"
-    },
-    {
-      "label": "systemd unit",
-      "file_type": "document",
-      "source_file": "DEPLOYMENT.md",
-      "source_location": "L139",
-      "_origin": "ast",
-      "id": "deployment_systemd_unit",
-      "community": 2,
-      "norm_label": "systemd unit"
-    },
-    {
-      "label": "nginx reverse proxy",
-      "file_type": "document",
-      "source_file": "DEPLOYMENT.md",
-      "source_location": "L164",
-      "_origin": "ast",
-      "id": "deployment_nginx_reverse_proxy",
-      "community": 2,
-      "norm_label": "nginx reverse proxy"
-    },
-    {
-      "label": "Self-hosting checklist",
-      "file_type": "document",
-      "source_file": "DEPLOYMENT.md",
-      "source_location": "L191",
-      "_origin": "ast",
-      "id": "deployment_self_hosting_checklist",
-      "community": 2,
-      "norm_label": "self-hosting checklist"
-    },
-    {
-      "label": "6. Sanity configuration",
-      "file_type": "document",
-      "source_file": "DEPLOYMENT.md",
-      "source_location": "L202",
-      "_origin": "ast",
-      "id": "deployment_6_sanity_configuration",
-      "community": 2,
-      "norm_label": "6. sanity configuration"
-    },
-    {
-      "label": "CORS (required)",
-      "file_type": "document",
-      "source_file": "DEPLOYMENT.md",
-      "source_location": "L204",
-      "_origin": "ast",
-      "id": "deployment_cors_required",
-      "community": 2,
-      "norm_label": "cors (required)"
-    },
-    {
-      "label": "Instant publishing (optional)",
-      "file_type": "document",
-      "source_file": "DEPLOYMENT.md",
-      "source_location": "L216",
-      "_origin": "ast",
-      "id": "deployment_instant_publishing_optional",
-      "community": 2,
-      "norm_label": "instant publishing (optional)"
-    },
-    {
-      "label": "6b. Switch-on checklist \u2014 booking (architecture \"Option D\")",
-      "file_type": "document",
-      "source_file": "DEPLOYMENT.md",
-      "source_location": "L244",
-      "_origin": "ast",
-      "id": "deployment_6b_switch_on_checklist_booking_architecture_option_d",
-      "community": 2,
-      "norm_label": "6b. switch-on checklist \u2014 booking (architecture \"option d\")"
-    },
-    {
-      "label": "1. Checkout widget",
-      "file_type": "document",
-      "source_file": "DEPLOYMENT.md",
-      "source_location": "L262",
-      "_origin": "ast",
-      "id": "deployment_1_checkout_widget",
-      "community": 2,
-      "norm_label": "1. checkout widget"
-    },
-    {
-      "label": "2. Live availability + pricing",
-      "file_type": "document",
-      "source_file": "DEPLOYMENT.md",
-      "source_location": "L286",
-      "_origin": "ast",
-      "id": "deployment_2_live_availability_pricing",
-      "community": 2,
-      "norm_label": "2. live availability + pricing"
-    },
-    {
-      "label": "3. Email enquiries (the fallback path \u2014 still required)",
-      "file_type": "document",
-      "source_file": "DEPLOYMENT.md",
-      "source_location": "L324",
-      "_origin": "ast",
-      "id": "deployment_3_email_enquiries_the_fallback_path_still_required",
-      "community": 2,
-      "norm_label": "3. email enquiries (the fallback path \u2014 still required)"
-    },
-    {
-      "label": "4. Optional: iCal as a backup availability source",
-      "file_type": "document",
-      "source_file": "DEPLOYMENT.md",
-      "source_location": "L337",
-      "_origin": "ast",
-      "id": "deployment_4_optional_ical_as_a_backup_availability_source",
-      "community": 2,
-      "norm_label": "4. optional: ical as a backup availability source"
-    },
-    {
-      "label": "7. Handoff checklist",
-      "file_type": "document",
-      "source_file": "DEPLOYMENT.md",
-      "source_location": "L347",
-      "_origin": "ast",
-      "id": "deployment_7_handoff_checklist",
-      "community": 2,
-      "norm_label": "7. handoff checklist"
-    },
-    {
-      "label": "8. Known gaps",
-      "file_type": "document",
-      "source_file": "DEPLOYMENT.md",
-      "source_location": "L368",
-      "_origin": "ast",
-      "id": "deployment_8_known_gaps",
-      "community": 2,
-      "norm_label": "8. known gaps"
-    },
-    {
-      "label": "9. Troubleshooting",
-      "file_type": "document",
-      "source_file": "DEPLOYMENT.md",
-      "source_location": "L390",
-      "_origin": "ast",
-      "id": "deployment_9_troubleshooting",
-      "community": 2,
-      "norm_label": "9. troubleshooting"
     },
     {
       "label": "DIRECTION.md",
@@ -3199,8 +2439,8 @@
       "source_file": "DIRECTION.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_md",
-      "community": 8,
+      "id": "direction",
+      "community": 4,
       "norm_label": "direction.md"
     },
     {
@@ -3209,8 +2449,8 @@
       "source_file": "DIRECTION.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_lilac_landing_version_2_design_direction",
-      "community": 8,
+      "id": "direction_lilac_landing_version_2_design_direction",
+      "community": 4,
       "norm_label": "lilac landing \u2014 version 2 design direction"
     },
     {
@@ -3219,8 +2459,8 @@
       "source_file": "DIRECTION.md",
       "source_location": "L9",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_1_what_v2_is",
-      "community": 8,
+      "id": "direction_1_what_v2_is",
+      "community": 4,
       "norm_label": "1. what v2 is"
     },
     {
@@ -3229,8 +2469,8 @@
       "source_file": "DIRECTION.md",
       "source_location": "L24",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_2_design_tokens_mirror_of_the_figma_variable_collections",
-      "community": 8,
+      "id": "direction_2_design_tokens_mirror_of_the_figma_variable_collections",
+      "community": 4,
       "norm_label": "2. design tokens (mirror of the figma variable collections)"
     },
     {
@@ -3239,8 +2479,8 @@
       "source_file": "DIRECTION.md",
       "source_location": "L28",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_color_lilac_landing_lavender_blue_palette",
-      "community": 8,
+      "id": "direction_color_lilac_landing_lavender_blue_palette",
+      "community": 4,
       "norm_label": "color \u2014 \"lilac landing lavender & blue\" palette"
     },
     {
@@ -3249,8 +2489,8 @@
       "source_file": "DIRECTION.md",
       "source_location": "L44",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_typography",
-      "community": 8,
+      "id": "direction_typography",
+      "community": 4,
       "norm_label": "typography"
     },
     {
@@ -3259,8 +2499,8 @@
       "source_file": "DIRECTION.md",
       "source_location": "L52",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_spacing_radius_borders",
-      "community": 8,
+      "id": "direction_spacing_radius_borders",
+      "community": 4,
       "norm_label": "spacing, radius, borders"
     },
     {
@@ -3269,8 +2509,8 @@
       "source_file": "DIRECTION.md",
       "source_location": "L62",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_3_page_architecture_from_figma_desktop_18_2",
-      "community": 8,
+      "id": "direction_3_page_architecture_from_figma_desktop_18_2",
+      "community": 4,
       "norm_label": "3. page architecture (from figma desktop `18:2`)"
     },
     {
@@ -3279,8 +2519,8 @@
       "source_file": "DIRECTION.md",
       "source_location": "L76",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_4_signature_components",
-      "community": 8,
+      "id": "direction_4_signature_components",
+      "community": 4,
       "norm_label": "4. signature components"
     },
     {
@@ -3289,8 +2529,8 @@
       "source_file": "DIRECTION.md",
       "source_location": "L86",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_5_motion_language",
-      "community": 8,
+      "id": "direction_5_motion_language",
+      "community": 4,
       "norm_label": "5. motion language"
     },
     {
@@ -3299,8 +2539,8 @@
       "source_file": "DIRECTION.md",
       "source_location": "L100",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_6_build_notes",
-      "community": 8,
+      "id": "direction_6_build_notes",
+      "community": 4,
       "norm_label": "6. build notes"
     },
     {
@@ -3309,8 +2549,8 @@
       "source_file": "DIRECTION.md",
       "source_location": "L107",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_7_open_questions",
-      "community": 8,
+      "id": "direction_7_open_questions",
+      "community": 4,
       "norm_label": "7. open questions"
     },
     {
@@ -3319,8 +2559,8 @@
       "source_file": "DIRECTION.md",
       "source_location": "L116",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_8_reconciliation_notes_figma_pull_2026_07_03",
-      "community": 8,
+      "id": "direction_8_reconciliation_notes_figma_pull_2026_07_03",
+      "community": 4,
       "norm_label": "8. reconciliation notes \u2014 figma pull, 2026-07-03"
     },
     {
@@ -3329,8 +2569,8 @@
       "source_file": "DIRECTION.md",
       "source_location": "L134",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_9_exact_frame_build_2026_07_03_user_request",
-      "community": 8,
+      "id": "direction_9_exact_frame_build_2026_07_03_user_request",
+      "community": 4,
       "norm_label": "9. exact-frame build \u2014 2026-07-03 (user request)"
     },
     {
@@ -3339,8 +2579,8 @@
       "source_file": "DIRECTION.md",
       "source_location": "L147",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_10_arc_redesign_2026_07_04_user_request",
-      "community": 8,
+      "id": "direction_10_arc_redesign_2026_07_04_user_request",
+      "community": 4,
       "norm_label": "10. arc redesign \u2014 2026-07-04 (user request)"
     },
     {
@@ -3349,8 +2589,8 @@
       "source_file": "DIRECTION.md",
       "source_location": "L160",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_11_merged_direction_2026_07_04_user_decided_via_q_a",
-      "community": 8,
+      "id": "direction_11_merged_direction_2026_07_04_user_decided_via_q_a",
+      "community": 4,
       "norm_label": "11. merged direction \u2014 2026-07-04 (user-decided via q&a)"
     },
     {
@@ -3359,8 +2599,8 @@
       "source_file": "DIRECTION.md",
       "source_location": "L177",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_12_revert_to_pre_arc_version_2026_07_04_user_request",
-      "community": 8,
+      "id": "direction_12_revert_to_pre_arc_version_2026_07_04_user_request",
+      "community": 4,
       "norm_label": "12. revert to pre-arc version \u2014 2026-07-04 (user request)"
     },
     {
@@ -3369,8 +2609,8 @@
       "source_file": "DIRECTION.md",
       "source_location": "L185",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_13_client_brand_brief_applied_2026_07_04_source_of_truth_for_visuals",
-      "community": 8,
+      "id": "direction_13_client_brand_brief_applied_2026_07_04_source_of_truth_for_visuals",
+      "community": 4,
       "norm_label": "13. client brand brief applied \u2014 2026-07-04 (source of truth for visuals)"
     },
     {
@@ -3379,7 +2619,7 @@
       "source_file": "ELLE-TASKS.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_elle_tasks_md",
+      "id": "elle_tasks",
       "community": 16,
       "norm_label": "elle-tasks.md"
     },
@@ -3389,7 +2629,7 @@
       "source_file": "ELLE-TASKS.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_elle_tasks_elle_s_requests_master_list",
+      "id": "elle_tasks_elle_s_requests_master_list",
       "community": 16,
       "norm_label": "elle's requests \u2014 master list"
     },
@@ -3399,7 +2639,7 @@
       "source_file": "ELLE-TASKS.md",
       "source_location": "L6",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_elle_tasks_1_revisions_comments_for_lilac_landing_jul_9",
+      "id": "elle_tasks_1_revisions_comments_for_lilac_landing_jul_9",
       "community": 16,
       "norm_label": "1. revisions/comments for lilac landing (jul 9)"
     },
@@ -3409,7 +2649,7 @@
       "source_file": "ELLE-TASKS.md",
       "source_location": "L18",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_elle_tasks_2_qr_code_please_jul_10_jul_13_follow_up",
+      "id": "elle_tasks_2_qr_code_please_jul_10_jul_13_follow_up",
       "community": 16,
       "norm_label": "2. qr code please (jul 10 + jul 13 follow-up)"
     },
@@ -3419,7 +2659,7 @@
       "source_file": "ELLE-TASKS.md",
       "source_location": "L27",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_elle_tasks_3_a_sunny_pic_of_the_street_entrance_jul_12",
+      "id": "elle_tasks_3_a_sunny_pic_of_the_street_entrance_jul_12",
       "community": 16,
       "norm_label": "3. a sunny pic of the street entrance (jul 12)"
     },
@@ -3429,7 +2669,7 @@
       "source_file": "ELLE-TASKS.md",
       "source_location": "L31",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_elle_tasks_4_long_description_jul_13",
+      "id": "elle_tasks_4_long_description_jul_13",
       "community": 16,
       "norm_label": "4. long description (jul 13)"
     },
@@ -3439,7 +2679,7 @@
       "source_file": "ELLE-TASKS.md",
       "source_location": "L38",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_elle_tasks_5_pics_from_contractor_jul_14_unread_until_today",
+      "id": "elle_tasks_5_pics_from_contractor_jul_14_unread_until_today",
       "community": 16,
       "norm_label": "5. pics from contractor! (jul 14 - unread until today)"
     },
@@ -3449,7 +2689,7 @@
       "source_file": "ELLE-TASKS.md",
       "source_location": "L45",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_elle_tasks_6_gallery_caption_plan_from_jul_9_applied_jul_14",
+      "id": "elle_tasks_6_gallery_caption_plan_from_jul_9_applied_jul_14",
       "community": 16,
       "norm_label": "6. gallery caption plan (from jul 9, applied jul 14)"
     },
@@ -3459,7 +2699,7 @@
       "source_file": "ELLE-TASKS.md",
       "source_location": "L50",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_elle_tasks_full_long_description_for_placement_decision",
+      "id": "elle_tasks_full_long_description_for_placement_decision",
       "community": 16,
       "norm_label": "full long description (for placement decision)"
     },
@@ -3507,7 +2747,7 @@
       "label": "Content system (everything is CMS-driven)",
       "file_type": "document",
       "source_file": "HANDOFF.md",
-      "source_location": "L33",
+      "source_location": "L26",
       "_origin": "ast",
       "id": "handoff_content_system_everything_is_cms_driven",
       "community": 6,
@@ -3517,7 +2757,7 @@
       "label": "\"The House\" section (GalleryNoir.tsx) \u2014 current motion design",
       "file_type": "document",
       "source_file": "HANDOFF.md",
-      "source_location": "L58",
+      "source_location": "L42",
       "_origin": "ast",
       "id": "handoff_the_house_section_gallerynoir_tsx_current_motion_design",
       "community": 6,
@@ -3527,7 +2767,7 @@
       "label": "Other sections",
       "file_type": "document",
       "source_file": "HANDOFF.md",
-      "source_location": "L93",
+      "source_location": "L77",
       "_origin": "ast",
       "id": "handoff_other_sections",
       "community": 6,
@@ -3537,7 +2777,7 @@
       "label": "Elle's requests \u2014 see `ELLE-TASKS.md` (the working checklist)",
       "file_type": "document",
       "source_file": "HANDOFF.md",
-      "source_location": "L156",
+      "source_location": "L140",
       "_origin": "ast",
       "id": "handoff_elle_s_requests_see_elle_tasks_md_the_working_checklist",
       "community": 6,
@@ -3547,27 +2787,27 @@
       "label": "Figma (official MCP, authed as Hans)",
       "file_type": "document",
       "source_file": "HANDOFF.md",
-      "source_location": "L167",
+      "source_location": "L151",
       "_origin": "ast",
       "id": "handoff_figma_official_mcp_authed_as_hans",
       "community": 6,
       "norm_label": "figma (official mcp, authed as hans)"
     },
     {
-      "label": "/lux route \u2014 REMOVED 2026-07-26",
+      "label": "/lux route (motion concept, kept)",
       "file_type": "document",
       "source_file": "HANDOFF.md",
-      "source_location": "L177",
+      "source_location": "L161",
       "_origin": "ast",
-      "id": "handoff_lux_route_removed_2026_07_26",
+      "id": "handoff_lux_route_motion_concept_kept",
       "community": 6,
-      "norm_label": "/lux route \u2014 removed 2026-07-26"
+      "norm_label": "/lux route (motion concept, kept)"
     },
     {
       "label": "Gotchas",
       "file_type": "document",
       "source_file": "HANDOFF.md",
-      "source_location": "L185",
+      "source_location": "L168",
       "_origin": "ast",
       "id": "handoff_gotchas",
       "community": 6,
@@ -3577,7 +2817,7 @@
       "label": "Open threads (priority order)",
       "file_type": "document",
       "source_file": "HANDOFF.md",
-      "source_location": "L202",
+      "source_location": "L182",
       "_origin": "ast",
       "id": "handoff_open_threads_priority_order",
       "community": 6,
@@ -3589,8 +2829,8 @@
       "source_file": "README.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_readme_md",
-      "community": 21,
+      "id": "readme",
+      "community": 15,
       "norm_label": "readme.md"
     },
     {
@@ -3599,8 +2839,8 @@
       "source_file": "README.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_readme_lilac_landing",
-      "community": 21,
+      "id": "readme_lilac_landing",
+      "community": 15,
       "norm_label": "lilac-landing"
     },
     {
@@ -3609,8 +2849,8 @@
       "source_file": "README.md",
       "source_location": "L2",
       "_origin": "ast",
-      "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_readme_lilac_landing_2",
-      "community": 21,
+      "id": "readme_lilac_landing_2",
+      "community": 15,
       "norm_label": "lilac-landing"
     }
   ],
@@ -3618,72 +2858,8 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "app/accessibility/page.tsx",
-      "source_location": "L15",
-      "weight": 1.0,
-      "source": "app_accessibility_page",
-      "target": "app_accessibility_page_accessibilitypage",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app/accessibility/page.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "source": "app_accessibility_page",
-      "target": "app_accessibility_page_metadata",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/accessibility/page.tsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "source": "app_accessibility_page",
-      "target": "components_legalpage",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/accessibility/page.tsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "source": "app_accessibility_page",
-      "target": "components_legalpage_legalpage",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/accessibility/page.tsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "source": "app_accessibility_page",
-      "target": "lib_content",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/accessibility/page.tsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "source": "app_accessibility_page",
-      "target": "lib_content_site",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "app/api/availability/route.ts",
-      "source_location": "L25",
+      "source_location": "L18",
       "weight": 1.0,
       "source": "app_api_availability_route",
       "target": "app_api_availability_route_get",
@@ -3693,7 +2869,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/api/availability/route.ts",
-      "source_location": "L19",
+      "source_location": "L12",
       "weight": 1.0,
       "source": "app_api_availability_route",
       "target": "app_api_availability_route_iso",
@@ -3704,7 +2880,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/api/availability/route.ts",
-      "source_location": "L3",
+      "source_location": "L2",
       "weight": 1.0,
       "source": "app_api_availability_route",
       "target": "lib_booking",
@@ -3715,7 +2891,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/api/availability/route.ts",
-      "source_location": "L3",
+      "source_location": "L2",
       "weight": 1.0,
       "source": "app_api_availability_route",
       "target": "lib_booking_parseisodate",
@@ -3755,44 +2931,11 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/api/availability/route.ts",
-      "source_location": "L2",
-      "weight": 1.0,
-      "source": "app_api_availability_route",
-      "target": "lib_ical",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/api/availability/route.ts",
-      "source_location": "L2",
-      "weight": 1.0,
-      "source": "app_api_availability_route",
-      "target": "lib_ical_getunavailabledates",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/api/availability/route.ts",
-      "source_location": "L2",
-      "weight": 1.0,
-      "source": "app_api_availability_route",
-      "target": "lib_ical_isicalconfigured",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "app/api/availability/route.ts",
-      "source_location": "L56",
+      "source_location": "L46",
       "weight": 1.0,
       "source": "app_api_availability_route_get",
       "target": "app_api_availability_route_iso",
@@ -3804,7 +2947,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/api/availability/route.ts",
-      "source_location": "L44",
+      "source_location": "L36",
       "weight": 1.0,
       "source": "app_api_availability_route_get",
       "target": "lib_booking_parseisodate"
@@ -3815,7 +2958,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/api/availability/route.ts",
-      "source_location": "L56",
+      "source_location": "L46",
       "weight": 1.0,
       "source": "app_api_availability_route_get",
       "target": "lib_hospitable_getcalendar"
@@ -3826,32 +2969,10 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/api/availability/route.ts",
-      "source_location": "L29",
+      "source_location": "L21",
       "weight": 1.0,
       "source": "app_api_availability_route_get",
       "target": "lib_hospitable_isconfigured"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "app/api/availability/route.ts",
-      "source_location": "L91",
-      "weight": 1.0,
-      "source": "app_api_availability_route_get",
-      "target": "lib_ical_getunavailabledates"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "app/api/availability/route.ts",
-      "source_location": "L29",
-      "weight": 1.0,
-      "source": "app_api_availability_route_get",
-      "target": "lib_ical_isicalconfigured"
     },
     {
       "relation": "contains",
@@ -4074,20 +3195,10 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/api/quote/route.ts",
-      "source_location": "L44",
+      "source_location": "L13",
       "weight": 1.0,
       "source": "app_api_quote_route",
       "target": "app_api_quote_route_get",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app/api/quote/route.ts",
-      "source_location": "L38",
-      "weight": 1.0,
-      "source": "app_api_quote_route",
-      "target": "app_api_quote_route_nightlylookssane",
       "confidence_score": 1.0
     },
     {
@@ -4095,7 +3206,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/api/quote/route.ts",
-      "source_location": "L3",
+      "source_location": "L2",
       "weight": 1.0,
       "source": "app_api_quote_route",
       "target": "lib_booking",
@@ -4106,7 +3217,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/api/quote/route.ts",
-      "source_location": "L3",
+      "source_location": "L2",
       "weight": 1.0,
       "source": "app_api_quote_route",
       "target": "lib_booking_validateguests",
@@ -4117,7 +3228,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/api/quote/route.ts",
-      "source_location": "L3",
+      "source_location": "L2",
       "weight": 1.0,
       "source": "app_api_quote_route",
       "target": "lib_booking_validaterange",
@@ -4128,7 +3239,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/api/quote/route.ts",
-      "source_location": "L4",
+      "source_location": "L3",
       "weight": 1.0,
       "source": "app_api_quote_route",
       "target": "lib_content",
@@ -4139,7 +3250,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/api/quote/route.ts",
-      "source_location": "L4",
+      "source_location": "L3",
       "weight": 1.0,
       "source": "app_api_quote_route",
       "target": "lib_content_site",
@@ -4164,40 +3275,7 @@
       "source_location": "L1",
       "weight": 1.0,
       "source": "app_api_quote_route",
-      "target": "lib_hospitable_computetaxcents",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/api/quote/route.ts",
-      "source_location": "L1",
-      "weight": 1.0,
-      "source": "app_api_quote_route",
       "target": "lib_hospitable_getcalendar",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/api/quote/route.ts",
-      "source_location": "L1",
-      "weight": 1.0,
-      "source": "app_api_quote_route",
-      "target": "lib_hospitable_getpricing",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/api/quote/route.ts",
-      "source_location": "L1",
-      "weight": 1.0,
-      "source": "app_api_quote_route",
-      "target": "lib_hospitable_gettaxes",
       "confidence_score": 1.0
     },
     {
@@ -4212,56 +3290,12 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/api/quote/route.ts",
-      "source_location": "L2",
-      "weight": 1.0,
-      "source": "app_api_quote_route",
-      "target": "lib_ical",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/api/quote/route.ts",
-      "source_location": "L2",
-      "weight": 1.0,
-      "source": "app_api_quote_route",
-      "target": "lib_ical_getunavailabledates",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/api/quote/route.ts",
-      "source_location": "L2",
-      "weight": 1.0,
-      "source": "app_api_quote_route",
-      "target": "lib_ical_isicalconfigured",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "app/api/quote/route.ts",
-      "source_location": "L113",
-      "weight": 1.0,
-      "source": "app_api_quote_route_get",
-      "target": "app_api_quote_route_nightlylookssane",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/api/quote/route.ts",
-      "source_location": "L53",
+      "source_location": "L22",
       "weight": 1.0,
       "source": "app_api_quote_route_get",
       "target": "lib_booking_validateguests"
@@ -4272,7 +3306,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/api/quote/route.ts",
-      "source_location": "L51",
+      "source_location": "L20",
       "weight": 1.0,
       "source": "app_api_quote_route_get",
       "target": "lib_booking_validaterange"
@@ -4283,18 +3317,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/api/quote/route.ts",
-      "source_location": "L128",
-      "weight": 1.0,
-      "source": "app_api_quote_route_get",
-      "target": "lib_hospitable_computetaxcents"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "app/api/quote/route.ts",
-      "source_location": "L92",
+      "source_location": "L34",
       "weight": 1.0,
       "source": "app_api_quote_route_get",
       "target": "lib_hospitable_getcalendar"
@@ -4305,54 +3328,10 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/api/quote/route.ts",
-      "source_location": "L93",
-      "weight": 1.0,
-      "source": "app_api_quote_route_get",
-      "target": "lib_hospitable_getpricing"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "app/api/quote/route.ts",
-      "source_location": "L94",
-      "weight": 1.0,
-      "source": "app_api_quote_route_get",
-      "target": "lib_hospitable_gettaxes"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "app/api/quote/route.ts",
-      "source_location": "L58",
+      "source_location": "L26",
       "weight": 1.0,
       "source": "app_api_quote_route_get",
       "target": "lib_hospitable_isconfigured"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "app/api/quote/route.ts",
-      "source_location": "L65",
-      "weight": 1.0,
-      "source": "app_api_quote_route_get",
-      "target": "lib_ical_getunavailabledates"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "app/api/quote/route.ts",
-      "source_location": "L59",
-      "weight": 1.0,
-      "source": "app_api_quote_route_get",
-      "target": "lib_ical_isicalconfigured"
     },
     {
       "relation": "contains",
@@ -4398,7 +3377,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/layout.tsx",
-      "source_location": "L53",
+      "source_location": "L40",
       "weight": 1.0,
       "source": "app_layout",
       "target": "app_layout_metadata",
@@ -4418,7 +3397,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/layout.tsx",
-      "source_location": "L67",
+      "source_location": "L54",
       "weight": 1.0,
       "source": "app_layout",
       "target": "app_layout_rootlayout",
@@ -4690,70 +3669,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "app/privacy/page.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "source": "app_privacy_page",
-      "target": "app_privacy_page_metadata",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app/privacy/page.tsx",
-      "source_location": "L16",
-      "weight": 1.0,
-      "source": "app_privacy_page",
-      "target": "app_privacy_page_privacypage",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/privacy/page.tsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "source": "app_privacy_page",
-      "target": "components_legalpage",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/privacy/page.tsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "source": "app_privacy_page",
-      "target": "components_legalpage_legalpage",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/privacy/page.tsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "source": "app_privacy_page",
-      "target": "lib_content",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/privacy/page.tsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "source": "app_privacy_page",
-      "target": "lib_content_site",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "app/studio/[[...tool]]/page.tsx",
       "source_location": "L25",
       "weight": 1.0,
@@ -4823,70 +3738,6 @@
       "weight": 1.0,
       "source": "app_studio_layout",
       "target": "app_studio_layout_studiolayout",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app/terms/page.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "source": "app_terms_page",
-      "target": "app_terms_page_metadata",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app/terms/page.tsx",
-      "source_location": "L16",
-      "weight": 1.0,
-      "source": "app_terms_page",
-      "target": "app_terms_page_termspage",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/terms/page.tsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "source": "app_terms_page",
-      "target": "components_legalpage",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/terms/page.tsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "source": "app_terms_page",
-      "target": "components_legalpage_legalpage",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/terms/page.tsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "source": "app_terms_page",
-      "target": "lib_content",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/terms/page.tsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "source": "app_terms_page",
-      "target": "lib_content_site",
       "confidence_score": 1.0
     },
     {
@@ -5297,21 +4148,10 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/BookSection.tsx",
-      "source_location": "L18",
-      "weight": 1.0,
-      "source": "components_booksection",
-      "target": "components_bookingwidgetmodal",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components/BookSection.tsx",
-      "source_location": "L26",
+      "source_location": "L18",
       "weight": 1.0,
       "source": "components_booksection",
       "target": "components_booksection_booksection",
@@ -5321,7 +4161,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components/BookSection.tsx",
-      "source_location": "L20",
+      "source_location": "L12",
       "weight": 1.0,
       "source": "components_booksection",
       "target": "components_booksection_stage",
@@ -5379,17 +4219,6 @@
       "source_location": "L10",
       "weight": 1.0,
       "source": "components_booksection",
-      "target": "lib_booking_minstaymap",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/BookSection.tsx",
-      "source_location": "L10",
-      "weight": 1.0,
-      "source": "components_booksection",
       "target": "lib_booking_validateguests",
       "confidence_score": 1.0
     },
@@ -5401,40 +4230,7 @@
       "source_location": "L10",
       "weight": 1.0,
       "source": "components_booksection",
-      "target": "lib_booking_validateminstay",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/BookSection.tsx",
-      "source_location": "L10",
-      "weight": 1.0,
-      "source": "components_booksection",
       "target": "lib_booking_validaterange",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/BookSection.tsx",
-      "source_location": "L17",
-      "weight": 1.0,
-      "source": "components_booksection",
-      "target": "lib_bookingwidget",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/BookSection.tsx",
-      "source_location": "L17",
-      "weight": 1.0,
-      "source": "components_booksection",
-      "target": "lib_bookingwidget_isbookingwidgetconfigured",
       "confidence_score": 1.0
     },
     {
@@ -5487,7 +4283,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "components/BookSection.tsx",
-      "source_location": "L27",
+      "source_location": "L19",
       "weight": 1.0,
       "source": "components_booksection_booksection",
       "target": "components_site_content_usesitecontent"
@@ -5498,7 +4294,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "components/BookSection.tsx",
-      "source_location": "L74",
+      "source_location": "L54",
       "weight": 1.0,
       "source": "components_booksection_booksection",
       "target": "lib_booking_validateguests"
@@ -5509,18 +4305,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "components/BookSection.tsx",
-      "source_location": "L78",
-      "weight": 1.0,
-      "source": "components_booksection_booksection",
-      "target": "lib_booking_validateminstay"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "components/BookSection.tsx",
-      "source_location": "L72",
+      "source_location": "L53",
       "weight": 1.0,
       "source": "components_booksection_booksection",
       "target": "lib_booking_validaterange"
@@ -5531,7 +4316,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "components/BookSection.tsx",
-      "source_location": "L29",
+      "source_location": "L21",
       "weight": 1.0,
       "source": "components_booksection_booksection",
       "target": "lib_usereducedmotion_usereducedmotion"
@@ -5540,7 +4325,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components/BookingCard.tsx",
-      "source_location": "L63",
+      "source_location": "L51",
       "weight": 1.0,
       "source": "components_bookingcard",
       "target": "components_bookingcard_bookingcard",
@@ -5550,7 +4335,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components/BookingCard.tsx",
-      "source_location": "L13",
+      "source_location": "L11",
       "weight": 1.0,
       "source": "components_bookingcard",
       "target": "components_bookingcard_fmt",
@@ -5560,7 +4345,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components/BookingCard.tsx",
-      "source_location": "L15",
+      "source_location": "L13",
       "weight": 1.0,
       "source": "components_bookingcard",
       "target": "components_bookingcard_months",
@@ -5570,7 +4355,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components/BookingCard.tsx",
-      "source_location": "L20",
+      "source_location": "L18",
       "weight": 1.0,
       "source": "components_bookingcard",
       "target": "components_bookingcard_nightsbetween",
@@ -5580,7 +4365,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components/BookingCard.tsx",
-      "source_location": "L31",
+      "source_location": "L29",
       "weight": 1.0,
       "source": "components_bookingcard",
       "target": "components_bookingcard_props",
@@ -5590,7 +4375,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components/BookingCard.tsx",
-      "source_location": "L49",
+      "source_location": "L42",
       "weight": 1.0,
       "source": "components_bookingcard",
       "target": "components_bookingcard_quote",
@@ -5634,50 +4419,6 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "components/BookingCard.tsx",
-      "source_location": "L10",
-      "weight": 1.0,
-      "source": "components_bookingcard",
-      "target": "lib_booking",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/BookingCard.tsx",
-      "source_location": "L10",
-      "weight": 1.0,
-      "source": "components_bookingcard",
-      "target": "lib_booking_minstaymap",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/BookingCard.tsx",
-      "source_location": "L11",
-      "weight": 1.0,
-      "source": "components_bookingcard",
-      "target": "lib_bookingwidget",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/BookingCard.tsx",
-      "source_location": "L11",
-      "weight": 1.0,
-      "source": "components_bookingcard",
-      "target": "lib_bookingwidget_isbookingwidgetconfigured",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/BookingCard.tsx",
       "source_location": "L6",
       "weight": 1.0,
       "source": "components_bookingcard",
@@ -5722,7 +4463,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "components/BookingCard.tsx",
-      "source_location": "L187",
+      "source_location": "L126",
       "weight": 1.0,
       "source": "components_bookingcard_bookingcard",
       "target": "components_bookingcard_fmt",
@@ -5733,7 +4474,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "components/BookingCard.tsx",
-      "source_location": "L90",
+      "source_location": "L76",
       "weight": 1.0,
       "source": "components_bookingcard_bookingcard",
       "target": "components_bookingcard_nightsbetween",
@@ -5745,7 +4486,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "components/BookingCard.tsx",
-      "source_location": "L74",
+      "source_location": "L60",
       "weight": 1.0,
       "source": "components_bookingcard_bookingcard",
       "target": "components_site_content_usesitecontent"
@@ -5756,74 +4497,10 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "components/BookingCard.tsx",
-      "source_location": "L164",
-      "weight": 1.0,
-      "source": "components_bookingcard_bookingcard",
-      "target": "lib_bookingwidget_isbookingwidgetconfigured"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "components/BookingCard.tsx",
-      "source_location": "L85",
+      "source_location": "L71",
       "weight": 1.0,
       "source": "components_bookingcard_bookingcard",
       "target": "lib_usereducedmotion_usereducedmotion"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "components/BookingWidgetModal.tsx",
-      "source_location": "L35",
-      "weight": 1.0,
-      "source": "components_bookingwidgetmodal",
-      "target": "components_bookingwidgetmodal_bookingwidgetmodal",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "components/BookingWidgetModal.tsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "source": "components_bookingwidgetmodal",
-      "target": "components_bookingwidgetmodal_props",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/BookingWidgetModal.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "source": "components_bookingwidgetmodal",
-      "target": "lib_bookingwidget",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/BookingWidgetModal.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "source": "components_bookingwidgetmodal",
-      "target": "lib_bookingwidget_buildbookingurl",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "components/BookingWidgetModal.tsx",
-      "source_location": "L90",
-      "weight": 1.0,
-      "source": "components_bookingwidgetmodal_bookingwidgetmodal",
-      "target": "lib_bookingwidget_buildbookingurl"
     },
     {
       "relation": "contains",
@@ -5959,20 +4636,10 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components/Footer.tsx",
-      "source_location": "L19",
+      "source_location": "L9",
       "weight": 1.0,
       "source": "components_footer",
       "target": "components_footer_footer",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "components/Footer.tsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "source": "components_footer",
-      "target": "components_footer_legal_links",
       "confidence_score": 1.0
     },
     {
@@ -5980,7 +4647,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "components/Footer.tsx",
-      "source_location": "L2",
+      "source_location": "L1",
       "weight": 1.0,
       "source": "components_footer",
       "target": "lib_content",
@@ -5991,7 +4658,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "components/Footer.tsx",
-      "source_location": "L2",
+      "source_location": "L1",
       "weight": 1.0,
       "source": "components_footer",
       "target": "lib_content_site",
@@ -6002,32 +4669,10 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "components/Footer.tsx",
-      "source_location": "L2",
+      "source_location": "L1",
       "weight": 1.0,
       "source": "components_footer",
       "target": "lib_content_sitecontent",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/LegalPage.tsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "source": "components_legalpage",
-      "target": "components_footer",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/LegalPage.tsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "source": "components_legalpage",
-      "target": "components_footer_footer",
       "confidence_score": 1.0
     },
     {
@@ -6407,16 +5052,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "components/LegalPage.tsx",
-      "source_location": "L13",
-      "weight": 1.0,
-      "source": "components_legalpage",
-      "target": "components_legalpage_legalpage",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "components/Loader.tsx",
       "source_location": "L13",
       "weight": 1.0,
@@ -6709,7 +5344,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components/RangeCalendar.tsx",
-      "source_location": "L30",
+      "source_location": "L27",
       "weight": 1.0,
       "source": "components_rangecalendar",
       "target": "components_rangecalendar_fromiso",
@@ -6719,7 +5354,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components/RangeCalendar.tsx",
-      "source_location": "L18",
+      "source_location": "L15",
       "weight": 1.0,
       "source": "components_rangecalendar",
       "target": "components_rangecalendar_months",
@@ -6729,7 +5364,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components/RangeCalendar.tsx",
-      "source_location": "L7",
+      "source_location": "L6",
       "weight": 1.0,
       "source": "components_rangecalendar",
       "target": "components_rangecalendar_props",
@@ -6739,7 +5374,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components/RangeCalendar.tsx",
-      "source_location": "L44",
+      "source_location": "L41",
       "weight": 1.0,
       "source": "components_rangecalendar",
       "target": "components_rangecalendar_rangecalendar",
@@ -6749,7 +5384,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components/RangeCalendar.tsx",
-      "source_location": "L38",
+      "source_location": "L35",
       "weight": 1.0,
       "source": "components_rangecalendar",
       "target": "components_rangecalendar_sameday",
@@ -6759,7 +5394,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components/RangeCalendar.tsx",
-      "source_location": "L35",
+      "source_location": "L32",
       "weight": 1.0,
       "source": "components_rangecalendar",
       "target": "components_rangecalendar_startofday",
@@ -6769,7 +5404,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components/RangeCalendar.tsx",
-      "source_location": "L25",
+      "source_location": "L22",
       "weight": 1.0,
       "source": "components_rangecalendar",
       "target": "components_rangecalendar_toiso",
@@ -6779,62 +5414,18 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components/RangeCalendar.tsx",
-      "source_location": "L17",
+      "source_location": "L14",
       "weight": 1.0,
       "source": "components_rangecalendar",
       "target": "components_rangecalendar_weekdays",
       "confidence_score": 1.0
     },
     {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/RangeCalendar.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "source": "components_rangecalendar",
-      "target": "lib_booking",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/RangeCalendar.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "source": "components_rangecalendar",
-      "target": "lib_booking_minstayfor",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/RangeCalendar.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "source": "components_rangecalendar",
-      "target": "lib_booking_minstaymap",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "components/RangeCalendar.tsx",
-      "source_location": "L54",
-      "weight": 1.0,
-      "source": "components_rangecalendar_rangecalendar",
-      "target": "components_rangecalendar_toiso",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "components/RangeCalendar.tsx",
-      "source_location": "L45",
+      "source_location": "L42",
       "weight": 1.0,
       "source": "components_rangecalendar_rangecalendar",
       "target": "components_rangecalendar_fromiso",
@@ -6845,22 +5436,11 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "components/RangeCalendar.tsx",
-      "source_location": "L47",
+      "source_location": "L44",
       "weight": 1.0,
       "source": "components_rangecalendar_rangecalendar",
       "target": "components_rangecalendar_startofday",
       "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "components/RangeCalendar.tsx",
-      "source_location": "L54",
-      "weight": 1.0,
-      "source": "components_rangecalendar_rangecalendar",
-      "target": "lib_booking_minstayfor"
     },
     {
       "relation": "contains",
@@ -6951,7 +5531,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components/ViewRooms.tsx",
-      "source_location": "L32",
+      "source_location": "L31",
       "weight": 1.0,
       "source": "components_viewrooms",
       "target": "components_viewrooms_viewrooms",
@@ -6963,7 +5543,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "components/ViewRooms.tsx",
-      "source_location": "L33",
+      "source_location": "L32",
       "weight": 1.0,
       "source": "components_viewrooms_viewrooms",
       "target": "components_site_content_usesitecontent"
@@ -7270,40 +5850,10 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "lib/booking.ts",
-      "source_location": "L90",
+      "source_location": "L54",
       "weight": 1.0,
       "source": "lib_booking",
       "target": "lib_booking_isvalidemail",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/booking.ts",
-      "source_location": "L60",
-      "weight": 1.0,
-      "source": "lib_booking",
-      "target": "lib_booking_minstaycheck",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/booking.ts",
-      "source_location": "L55",
-      "weight": 1.0,
-      "source": "lib_booking",
-      "target": "lib_booking_minstayfor",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/booking.ts",
-      "source_location": "L50",
-      "weight": 1.0,
-      "source": "lib_booking",
-      "target": "lib_booking_minstaymap",
       "confidence_score": 1.0
     },
     {
@@ -7330,20 +5880,10 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "lib/booking.ts",
-      "source_location": "L84",
+      "source_location": "L48",
       "weight": 1.0,
       "source": "lib_booking",
       "target": "lib_booking_validateguests",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/booking.ts",
-      "source_location": "L73",
-      "weight": 1.0,
-      "source": "lib_booking",
-      "target": "lib_booking_validateminstay",
       "confidence_score": 1.0
     },
     {
@@ -7365,79 +5905,6 @@
       "weight": 1.0,
       "source": "lib_booking_validaterange",
       "target": "lib_booking_parseisodate",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/booking.ts",
-      "source_location": "L74",
-      "weight": 1.0,
-      "source": "lib_booking_validateminstay",
-      "target": "lib_booking_minstayfor",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/bookingWidget.ts",
-      "source_location": "L67",
-      "weight": 1.0,
-      "source": "lib_bookingwidget",
-      "target": "lib_bookingwidget_bookingwidgetorigin",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/bookingWidget.ts",
-      "source_location": "L54",
-      "weight": 1.0,
-      "source": "lib_bookingwidget",
-      "target": "lib_bookingwidget_buildbookingurl",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/bookingWidget.ts",
-      "source_location": "L30",
-      "weight": 1.0,
-      "source": "lib_bookingwidget",
-      "target": "lib_bookingwidget_isbookingwidgetconfigured",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/bookingWidget.ts",
-      "source_location": "L39",
-      "weight": 1.0,
-      "source": "lib_bookingwidget",
-      "target": "lib_bookingwidget_prefill",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/bookingWidget.ts",
-      "source_location": "L68",
-      "weight": 1.0,
-      "source": "lib_bookingwidget_bookingwidgetorigin",
-      "target": "lib_bookingwidget_isbookingwidgetconfigured",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/bookingWidget.ts",
-      "source_location": "L55",
-      "weight": 1.0,
-      "source": "lib_bookingwidget_buildbookingurl",
-      "target": "lib_bookingwidget_isbookingwidgetconfigured",
       "confidence_score": 1.0
     },
     {
@@ -7589,7 +6056,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "lib/hospitable.ts",
-      "source_location": "L41",
+      "source_location": "L33",
       "weight": 1.0,
       "source": "lib_hospitable",
       "target": "lib_hospitable_calendarday",
@@ -7599,7 +6066,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "lib/hospitable.ts",
-      "source_location": "L54",
+      "source_location": "L41",
       "weight": 1.0,
       "source": "lib_hospitable",
       "target": "lib_hospitable_calendarresult",
@@ -7609,27 +6076,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "lib/hospitable.ts",
-      "source_location": "L309",
-      "weight": 1.0,
-      "source": "lib_hospitable",
-      "target": "lib_hospitable_computetaxcents",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/hospitable.ts",
-      "source_location": "L229",
-      "weight": 1.0,
-      "source": "lib_hospitable",
-      "target": "lib_hospitable_feecents",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/hospitable.ts",
-      "source_location": "L185",
+      "source_location": "L132",
       "weight": 1.0,
       "source": "lib_hospitable",
       "target": "lib_hospitable_getcalendar",
@@ -7639,27 +6086,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "lib/hospitable.ts",
-      "source_location": "L245",
-      "weight": 1.0,
-      "source": "lib_hospitable",
-      "target": "lib_hospitable_getpricing",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/hospitable.ts",
-      "source_location": "L284",
-      "weight": 1.0,
-      "source": "lib_hospitable",
-      "target": "lib_hospitable_gettaxes",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/hospitable.ts",
-      "source_location": "L60",
+      "source_location": "L47",
       "weight": 1.0,
       "source": "lib_hospitable",
       "target": "lib_hospitable_hospitableerror",
@@ -7669,7 +6096,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "lib/hospitable.ts",
-      "source_location": "L63",
+      "source_location": "L50",
       "weight": 1.0,
       "source": "lib_hospitable",
       "target": "lib_hospitable_hospitableget",
@@ -7679,7 +6106,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "lib/hospitable.ts",
-      "source_location": "L36",
+      "source_location": "L28",
       "weight": 1.0,
       "source": "lib_hospitable",
       "target": "lib_hospitable_isconfigured",
@@ -7689,7 +6116,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "lib/hospitable.ts",
-      "source_location": "L134",
+      "source_location": "L95",
       "weight": 1.0,
       "source": "lib_hospitable",
       "target": "lib_hospitable_normalizecalendar",
@@ -7699,344 +6126,41 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "lib/hospitable.ts",
-      "source_location": "L239",
-      "weight": 1.0,
-      "source": "lib_hospitable",
-      "target": "lib_hospitable_propertypricing",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/hospitable.ts",
-      "source_location": "L115",
+      "source_location": "L83",
       "weight": 1.0,
       "source": "lib_hospitable",
       "target": "lib_hospitable_rawcalendarday",
       "confidence_score": 1.0
     },
     {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/hospitable.ts",
-      "source_location": "L128",
-      "weight": 1.0,
-      "source": "lib_hospitable",
-      "target": "lib_hospitable_rawcalendarresponse",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/hospitable.ts",
-      "source_location": "L237",
-      "weight": 1.0,
-      "source": "lib_hospitable",
-      "target": "lib_hospitable_rawfeeblock",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/hospitable.ts",
-      "source_location": "L236",
-      "weight": 1.0,
-      "source": "lib_hospitable",
-      "target": "lib_hospitable_rawfeevalue",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/hospitable.ts",
-      "source_location": "L257",
-      "weight": 1.0,
-      "source": "lib_hospitable",
-      "target": "lib_hospitable_rawpricing",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/hospitable.ts",
-      "source_location": "L270",
-      "weight": 1.0,
-      "source": "lib_hospitable",
-      "target": "lib_hospitable_rawtax",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/hospitable.ts",
-      "source_location": "L260",
-      "weight": 1.0,
-      "source": "lib_hospitable",
-      "target": "lib_hospitable_taxrule",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "lib/hospitable.ts",
-      "source_location": "L209",
+      "source_location": "L139",
       "weight": 1.0,
       "source": "lib_hospitable_getcalendar",
       "target": "lib_hospitable_normalizecalendar",
       "confidence_score": 1.0
     },
     {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/hospitable.ts",
-      "source_location": "L253",
-      "weight": 1.0,
-      "source": "lib_hospitable_getpricing",
-      "target": "lib_hospitable_feecents",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "indirect_call",
-      "confidence": "INFERRED",
-      "source_file": "lib/ical.ts",
-      "source_location": "L178",
-      "weight": 1.0,
-      "context": "collection",
-      "source": "lib_ical",
-      "target": "lib_ical_bookednightsfromfeed",
-      "confidence_score": 0.5
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/ical.ts",
-      "source_location": "L25",
-      "weight": 1.0,
-      "source": "lib_ical",
-      "target": "lib_ical_feeds",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/ical.ts",
-      "source_location": "L121",
-      "weight": 1.0,
-      "source": "lib_ical",
-      "target": "lib_ical_fetchfeed",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/ical.ts",
-      "source_location": "L155",
-      "weight": 1.0,
-      "source": "lib_ical",
-      "target": "lib_ical_getunavailabledates",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/ical.ts",
-      "source_location": "L144",
-      "weight": 1.0,
-      "source": "lib_ical",
-      "target": "lib_ical_icalresult",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/ical.ts",
-      "source_location": "L34",
-      "weight": 1.0,
-      "source": "lib_ical",
-      "target": "lib_ical_isicalconfigured",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/ical.ts",
-      "source_location": "L64",
-      "weight": 1.0,
-      "source": "lib_ical",
-      "target": "lib_ical_isoutc",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "indirect_call",
-      "confidence": "INFERRED",
-      "source_file": "lib/ical.ts",
-      "source_location": "L178",
-      "weight": 1.0,
-      "context": "collection",
-      "source": "lib_ical",
-      "target": "lib_ical_parseicaldate",
-      "confidence_score": 0.5
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/ical.ts",
-      "source_location": "L178",
-      "weight": 1.0,
-      "source": "lib_ical",
-      "target": "lib_ical_testing",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "indirect_call",
-      "confidence": "INFERRED",
-      "source_file": "lib/ical.ts",
-      "source_location": "L178",
-      "weight": 1.0,
-      "context": "collection",
-      "source": "lib_ical",
-      "target": "lib_ical_unfold",
-      "confidence_score": 0.5
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/ical.ts",
-      "source_location": "L78",
-      "weight": 1.0,
-      "source": "lib_ical_bookednightsfromfeed",
-      "target": "lib_ical_unfold",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/ical.ts",
-      "source_location": "L111",
-      "weight": 1.0,
-      "source": "lib_ical_bookednightsfromfeed",
-      "target": "lib_ical_parseicaldate",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/ical.ts",
-      "source_location": "L96",
-      "weight": 1.0,
-      "source": "lib_ical_bookednightsfromfeed",
-      "target": "lib_ical_isoutc",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/ical.ts",
-      "source_location": "L135",
-      "weight": 1.0,
-      "source": "lib_ical_fetchfeed",
-      "target": "lib_ical_bookednightsfromfeed",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "indirect_call",
-      "context": "argument",
-      "confidence": "INFERRED",
-      "source_file": "lib/ical.ts",
-      "source_location": "L158",
-      "weight": 1.0,
-      "source": "lib_ical_getunavailabledates",
-      "target": "lib_ical_fetchfeed",
-      "confidence_score": 0.5
-    },
-    {
-      "relation": "indirect_call",
-      "confidence": "INFERRED",
-      "source_file": "lib/inquiry.ts",
-      "source_location": "L137",
-      "weight": 1.0,
-      "context": "collection",
-      "source": "lib_inquiry",
-      "target": "lib_inquiry_buildbody",
-      "confidence_score": 0.5
-    },
-    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "lib/inquiry.ts",
-      "source_location": "L90",
+      "source_location": "L28",
       "weight": 1.0,
       "source": "lib_inquiry",
       "target": "lib_inquiry_deliverinquiry",
       "confidence_score": 1.0
     },
     {
-      "relation": "indirect_call",
-      "confidence": "INFERRED",
-      "source_file": "lib/inquiry.ts",
-      "source_location": "L137",
-      "weight": 1.0,
-      "context": "collection",
-      "source": "lib_inquiry",
-      "target": "lib_inquiry_esc",
-      "confidence_score": 0.5
-    },
-    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "lib/inquiry.ts",
-      "source_location": "L23",
+      "source_location": "L16",
       "weight": 1.0,
       "source": "lib_inquiry",
       "target": "lib_inquiry_inquiry",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/inquiry.ts",
-      "source_location": "L40",
-      "weight": 1.0,
-      "source": "lib_inquiry",
-      "target": "lib_inquiry_isinquirydeliveryconfigured",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/inquiry.ts",
-      "source_location": "L137",
-      "weight": 1.0,
-      "source": "lib_inquiry",
-      "target": "lib_inquiry_testing",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/inquiry.ts",
-      "source_location": "L91",
-      "weight": 1.0,
-      "source": "lib_inquiry_deliverinquiry",
-      "target": "lib_inquiry_isinquirydeliveryconfigured",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/inquiry.ts",
-      "source_location": "L99",
-      "weight": 1.0,
-      "source": "lib_inquiry_deliverinquiry",
-      "target": "lib_inquiry_buildbody",
       "confidence_score": 1.0
     },
     {
@@ -8082,6 +6206,17 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L27",
+      "weight": 1.0,
+      "context": "import",
+      "source": "package_dependencies_sanity",
+      "target": "lib_sanity",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -8111,17 +6246,6 @@
       "source_location": "L1",
       "weight": 1.0,
       "source": "sanity_schematypes_sitecontent",
-      "target": "lib_sanity",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L27",
-      "weight": 1.0,
-      "context": "import",
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_dependencies_sanity",
       "target": "lib_sanity",
       "confidence_score": 1.0
     },
@@ -8378,17 +6502,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "next.config.ts",
-      "source_location": "L65",
-      "weight": 1.0,
-      "source": "next_config",
-      "target": "next_config_booking_origin",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "next.config.ts",
-      "source_location": "L76",
+      "source_location": "L46",
       "weight": 1.0,
       "source": "next_config",
       "target": "next_config_common_headers",
@@ -8408,7 +6522,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "next.config.ts",
-      "source_location": "L103",
+      "source_location": "L66",
       "weight": 1.0,
       "source": "next_config",
       "target": "next_config_nextconfig",
@@ -8418,7 +6532,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "next.config.ts",
-      "source_location": "L39",
+      "source_location": "L31",
       "weight": 1.0,
       "source": "next_config",
       "target": "next_config_studio_csp",
@@ -8430,8 +6544,8 @@
       "source_file": "package.json",
       "source_location": "L13",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_json",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_dependencies",
+      "source": "package",
+      "target": "package_dependencies",
       "confidence_score": 1.0
     },
     {
@@ -8440,8 +6554,8 @@
       "source_file": "package.json",
       "source_location": "L29",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_json",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_devdependencies",
+      "source": "package",
+      "target": "package_devdependencies",
       "confidence_score": 1.0
     },
     {
@@ -8450,8 +6564,8 @@
       "source_file": "package.json",
       "source_location": "L2",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_json",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_name",
+      "source": "package",
+      "target": "package_name",
       "confidence_score": 1.0
     },
     {
@@ -8460,8 +6574,8 @@
       "source_file": "package.json",
       "source_location": "L4",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_json",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_private",
+      "source": "package",
+      "target": "package_private",
       "confidence_score": 1.0
     },
     {
@@ -8470,8 +6584,8 @@
       "source_file": "package.json",
       "source_location": "L5",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_json",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_scripts",
+      "source": "package",
+      "target": "package_scripts",
       "confidence_score": 1.0
     },
     {
@@ -8480,8 +6594,8 @@
       "source_file": "package.json",
       "source_location": "L3",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_json",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_version",
+      "source": "package",
+      "target": "package_version",
       "confidence_score": 1.0
     },
     {
@@ -8490,8 +6604,8 @@
       "source_file": "package.json",
       "source_location": "L8",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_scripts",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_scripts_build",
+      "source": "package_scripts",
+      "target": "package_scripts_build",
       "confidence_score": 1.0
     },
     {
@@ -8500,8 +6614,8 @@
       "source_file": "package.json",
       "source_location": "L6",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_scripts",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_scripts_dev",
+      "source": "package_scripts",
+      "target": "package_scripts_dev",
       "confidence_score": 1.0
     },
     {
@@ -8510,8 +6624,8 @@
       "source_file": "package.json",
       "source_location": "L7",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_scripts",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_scripts_dev_preview",
+      "source": "package_scripts",
+      "target": "package_scripts_dev_preview",
       "confidence_score": 1.0
     },
     {
@@ -8520,8 +6634,8 @@
       "source_file": "package.json",
       "source_location": "L10",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_scripts",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_scripts_lint",
+      "source": "package_scripts",
+      "target": "package_scripts_lint",
       "confidence_score": 1.0
     },
     {
@@ -8530,8 +6644,8 @@
       "source_file": "package.json",
       "source_location": "L11",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_scripts",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_scripts_migrate_site",
+      "source": "package_scripts",
+      "target": "package_scripts_migrate_site",
       "confidence_score": 1.0
     },
     {
@@ -8540,8 +6654,8 @@
       "source_file": "package.json",
       "source_location": "L9",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_scripts",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_scripts_start",
+      "source": "package_scripts",
+      "target": "package_scripts_start",
       "confidence_score": 1.0
     },
     {
@@ -8550,8 +6664,8 @@
       "source_file": "package.json",
       "source_location": "L20",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_dependencies",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_dependencies_gsap",
+      "source": "package_dependencies",
+      "target": "package_dependencies_gsap",
       "confidence_score": 1.0
     },
     {
@@ -8560,8 +6674,8 @@
       "source_file": "package.json",
       "source_location": "L14",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_dependencies",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_dependencies_gsap_react",
+      "source": "package_dependencies",
+      "target": "package_dependencies_gsap_react",
       "confidence_score": 1.0
     },
     {
@@ -8570,8 +6684,8 @@
       "source_file": "package.json",
       "source_location": "L21",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_dependencies",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_dependencies_lenis",
+      "source": "package_dependencies",
+      "target": "package_dependencies_lenis",
       "confidence_score": 1.0
     },
     {
@@ -8580,8 +6694,8 @@
       "source_file": "package.json",
       "source_location": "L22",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_dependencies",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_dependencies_motion",
+      "source": "package_dependencies",
+      "target": "package_dependencies_motion",
       "confidence_score": 1.0
     },
     {
@@ -8590,8 +6704,8 @@
       "source_file": "package.json",
       "source_location": "L23",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_dependencies",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_dependencies_next",
+      "source": "package_dependencies",
+      "target": "package_dependencies_next",
       "confidence_score": 1.0
     },
     {
@@ -8600,8 +6714,8 @@
       "source_file": "package.json",
       "source_location": "L24",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_dependencies",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_dependencies_next_sanity",
+      "source": "package_dependencies",
+      "target": "package_dependencies_next_sanity",
       "confidence_score": 1.0
     },
     {
@@ -8610,8 +6724,8 @@
       "source_file": "package.json",
       "source_location": "L15",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_dependencies",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_dependencies_phosphor_icons_react",
+      "source": "package_dependencies",
+      "target": "package_dependencies_phosphor_icons_react",
       "confidence_score": 1.0
     },
     {
@@ -8620,8 +6734,8 @@
       "source_file": "package.json",
       "source_location": "L16",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_dependencies",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_dependencies_portabletext_react",
+      "source": "package_dependencies",
+      "target": "package_dependencies_portabletext_react",
       "confidence_score": 1.0
     },
     {
@@ -8630,8 +6744,8 @@
       "source_file": "package.json",
       "source_location": "L25",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_dependencies",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_dependencies_react",
+      "source": "package_dependencies",
+      "target": "package_dependencies_react",
       "confidence_score": 1.0
     },
     {
@@ -8640,8 +6754,8 @@
       "source_file": "package.json",
       "source_location": "L26",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_dependencies",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_dependencies_react_dom",
+      "source": "package_dependencies",
+      "target": "package_dependencies_react_dom",
       "confidence_score": 1.0
     },
     {
@@ -8650,8 +6764,8 @@
       "source_file": "package.json",
       "source_location": "L27",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_dependencies",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_dependencies_sanity",
+      "source": "package_dependencies",
+      "target": "package_dependencies_sanity",
       "confidence_score": 1.0
     },
     {
@@ -8660,8 +6774,8 @@
       "source_file": "package.json",
       "source_location": "L17",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_dependencies",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_dependencies_sanity_image_url",
+      "source": "package_dependencies",
+      "target": "package_dependencies_sanity_image_url",
       "confidence_score": 1.0
     },
     {
@@ -8670,8 +6784,8 @@
       "source_file": "package.json",
       "source_location": "L18",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_dependencies",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_dependencies_sanity_vision",
+      "source": "package_dependencies",
+      "target": "package_dependencies_sanity_vision",
       "confidence_score": 1.0
     },
     {
@@ -8680,8 +6794,8 @@
       "source_file": "package.json",
       "source_location": "L19",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_dependencies",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_dependencies_sanity_webhook",
+      "source": "package_dependencies",
+      "target": "package_dependencies_sanity_webhook",
       "confidence_score": 1.0
     },
     {
@@ -8690,8 +6804,8 @@
       "source_file": "package.json",
       "source_location": "L34",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_devdependencies",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_devdependencies_eslint",
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_eslint",
       "confidence_score": 1.0
     },
     {
@@ -8700,8 +6814,8 @@
       "source_file": "package.json",
       "source_location": "L35",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_devdependencies",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_devdependencies_eslint_config_next",
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_eslint_config_next",
       "confidence_score": 1.0
     },
     {
@@ -8710,8 +6824,8 @@
       "source_file": "package.json",
       "source_location": "L30",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_devdependencies",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_devdependencies_tailwindcss_postcss",
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_tailwindcss_postcss",
       "confidence_score": 1.0
     },
     {
@@ -8720,8 +6834,8 @@
       "source_file": "package.json",
       "source_location": "L31",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_devdependencies",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_devdependencies_types_node",
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_types_node",
       "confidence_score": 1.0
     },
     {
@@ -8730,8 +6844,8 @@
       "source_file": "package.json",
       "source_location": "L32",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_devdependencies",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_devdependencies_types_react",
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_types_react",
       "confidence_score": 1.0
     },
     {
@@ -8740,8 +6854,8 @@
       "source_file": "package.json",
       "source_location": "L33",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_devdependencies",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_devdependencies_types_react_dom",
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_types_react_dom",
       "confidence_score": 1.0
     },
     {
@@ -8750,8 +6864,8 @@
       "source_file": "package.json",
       "source_location": "L36",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_devdependencies",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_devdependencies_typescript",
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_typescript",
       "confidence_score": 1.0
     },
     {
@@ -9062,8 +7176,8 @@
       "source_file": "tsconfig.json",
       "source_location": "L2",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_json",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_compileroptions",
+      "source": "tsconfig",
+      "target": "tsconfig_compileroptions",
       "confidence_score": 1.0
     },
     {
@@ -9072,8 +7186,8 @@
       "source_file": "tsconfig.json",
       "source_location": "L33",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_json",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_exclude",
+      "source": "tsconfig",
+      "target": "tsconfig_exclude",
       "confidence_score": 1.0
     },
     {
@@ -9082,8 +7196,8 @@
       "source_file": "tsconfig.json",
       "source_location": "L25",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_json",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_include",
+      "source": "tsconfig",
+      "target": "tsconfig_include",
       "confidence_score": 1.0
     },
     {
@@ -9092,8 +7206,8 @@
       "source_file": "tsconfig.json",
       "source_location": "L5",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_compileroptions",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_compileroptions_allowjs",
+      "source": "tsconfig_compileroptions",
+      "target": "tsconfig_compileroptions_allowjs",
       "confidence_score": 1.0
     },
     {
@@ -9102,8 +7216,8 @@
       "source_file": "tsconfig.json",
       "source_location": "L9",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_compileroptions",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_compileroptions_esmoduleinterop",
+      "source": "tsconfig_compileroptions",
+      "target": "tsconfig_compileroptions_esmoduleinterop",
       "confidence_score": 1.0
     },
     {
@@ -9112,8 +7226,8 @@
       "source_file": "tsconfig.json",
       "source_location": "L15",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_compileroptions",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_compileroptions_incremental",
+      "source": "tsconfig_compileroptions",
+      "target": "tsconfig_compileroptions_incremental",
       "confidence_score": 1.0
     },
     {
@@ -9122,8 +7236,8 @@
       "source_file": "tsconfig.json",
       "source_location": "L13",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_compileroptions",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_compileroptions_isolatedmodules",
+      "source": "tsconfig_compileroptions",
+      "target": "tsconfig_compileroptions_isolatedmodules",
       "confidence_score": 1.0
     },
     {
@@ -9132,8 +7246,8 @@
       "source_file": "tsconfig.json",
       "source_location": "L14",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_compileroptions",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_compileroptions_jsx",
+      "source": "tsconfig_compileroptions",
+      "target": "tsconfig_compileroptions_jsx",
       "confidence_score": 1.0
     },
     {
@@ -9142,8 +7256,8 @@
       "source_file": "tsconfig.json",
       "source_location": "L4",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_compileroptions",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_compileroptions_lib",
+      "source": "tsconfig_compileroptions",
+      "target": "tsconfig_compileroptions_lib",
       "confidence_score": 1.0
     },
     {
@@ -9152,8 +7266,8 @@
       "source_file": "tsconfig.json",
       "source_location": "L10",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_compileroptions",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_compileroptions_module",
+      "source": "tsconfig_compileroptions",
+      "target": "tsconfig_compileroptions_module",
       "confidence_score": 1.0
     },
     {
@@ -9162,8 +7276,8 @@
       "source_file": "tsconfig.json",
       "source_location": "L11",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_compileroptions",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_compileroptions_moduleresolution",
+      "source": "tsconfig_compileroptions",
+      "target": "tsconfig_compileroptions_moduleresolution",
       "confidence_score": 1.0
     },
     {
@@ -9172,8 +7286,8 @@
       "source_file": "tsconfig.json",
       "source_location": "L8",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_compileroptions",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_compileroptions_noemit",
+      "source": "tsconfig_compileroptions",
+      "target": "tsconfig_compileroptions_noemit",
       "confidence_score": 1.0
     },
     {
@@ -9182,8 +7296,8 @@
       "source_file": "tsconfig.json",
       "source_location": "L21",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_compileroptions",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_compileroptions_paths",
+      "source": "tsconfig_compileroptions",
+      "target": "tsconfig_compileroptions_paths",
       "confidence_score": 1.0
     },
     {
@@ -9192,8 +7306,8 @@
       "source_file": "tsconfig.json",
       "source_location": "L16",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_compileroptions",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_compileroptions_plugins",
+      "source": "tsconfig_compileroptions",
+      "target": "tsconfig_compileroptions_plugins",
       "confidence_score": 1.0
     },
     {
@@ -9202,8 +7316,8 @@
       "source_file": "tsconfig.json",
       "source_location": "L12",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_compileroptions",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_compileroptions_resolvejsonmodule",
+      "source": "tsconfig_compileroptions",
+      "target": "tsconfig_compileroptions_resolvejsonmodule",
       "confidence_score": 1.0
     },
     {
@@ -9212,8 +7326,8 @@
       "source_file": "tsconfig.json",
       "source_location": "L6",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_compileroptions",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_compileroptions_skiplibcheck",
+      "source": "tsconfig_compileroptions",
+      "target": "tsconfig_compileroptions_skiplibcheck",
       "confidence_score": 1.0
     },
     {
@@ -9222,8 +7336,8 @@
       "source_file": "tsconfig.json",
       "source_location": "L7",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_compileroptions",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_compileroptions_strict",
+      "source": "tsconfig_compileroptions",
+      "target": "tsconfig_compileroptions_strict",
       "confidence_score": 1.0
     },
     {
@@ -9232,8 +7346,8 @@
       "source_file": "tsconfig.json",
       "source_location": "L3",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_compileroptions",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_compileroptions_target",
+      "source": "tsconfig_compileroptions",
+      "target": "tsconfig_compileroptions_target",
       "confidence_score": 1.0
     },
     {
@@ -9242,238 +7356,8 @@
       "source_file": "tsconfig.json",
       "source_location": "L22",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_compileroptions_paths",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_tsconfig_paths",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "DEPLOYMENT.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "source": "deployment",
-      "target": "deployment_lilac_landing_deployment_handoff",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "DEPLOYMENT.md",
-      "source_location": "L8",
-      "weight": 1.0,
-      "source": "deployment_lilac_landing_deployment_handoff",
-      "target": "deployment_1_what_this_is",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "DEPLOYMENT.md",
-      "source_location": "L28",
-      "weight": 1.0,
-      "source": "deployment_lilac_landing_deployment_handoff",
-      "target": "deployment_2_requirements",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "DEPLOYMENT.md",
-      "source_location": "L37",
-      "weight": 1.0,
-      "source": "deployment_lilac_landing_deployment_handoff",
-      "target": "deployment_3_environment_variables",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "DEPLOYMENT.md",
-      "source_location": "L70",
-      "weight": 1.0,
-      "source": "deployment_lilac_landing_deployment_handoff",
-      "target": "deployment_4_local_development",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "DEPLOYMENT.md",
-      "source_location": "L90",
-      "weight": 1.0,
-      "source": "deployment_lilac_landing_deployment_handoff",
-      "target": "deployment_5_hosting",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "DEPLOYMENT.md",
-      "source_location": "L202",
-      "weight": 1.0,
-      "source": "deployment_lilac_landing_deployment_handoff",
-      "target": "deployment_6_sanity_configuration",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "DEPLOYMENT.md",
-      "source_location": "L244",
-      "weight": 1.0,
-      "source": "deployment_lilac_landing_deployment_handoff",
-      "target": "deployment_6b_switch_on_checklist_booking_architecture_option_d",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "DEPLOYMENT.md",
-      "source_location": "L347",
-      "weight": 1.0,
-      "source": "deployment_lilac_landing_deployment_handoff",
-      "target": "deployment_7_handoff_checklist",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "DEPLOYMENT.md",
-      "source_location": "L368",
-      "weight": 1.0,
-      "source": "deployment_lilac_landing_deployment_handoff",
-      "target": "deployment_8_known_gaps",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "DEPLOYMENT.md",
-      "source_location": "L390",
-      "weight": 1.0,
-      "source": "deployment_lilac_landing_deployment_handoff",
-      "target": "deployment_9_troubleshooting",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "DEPLOYMENT.md",
-      "source_location": "L55",
-      "weight": 1.0,
-      "source": "deployment_3_environment_variables",
-      "target": "deployment_about_next_public_site_url",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "DEPLOYMENT.md",
-      "source_location": "L92",
-      "weight": 1.0,
-      "source": "deployment_5_hosting",
-      "target": "deployment_option_a_netlify_current",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "DEPLOYMENT.md",
-      "source_location": "L103",
-      "weight": 1.0,
-      "source": "deployment_5_hosting",
-      "target": "deployment_option_b_self_hosting",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "DEPLOYMENT.md",
-      "source_location": "L164",
-      "weight": 1.0,
-      "source": "deployment_option_b_self_hosting",
-      "target": "deployment_nginx_reverse_proxy",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "DEPLOYMENT.md",
-      "source_location": "L191",
-      "weight": 1.0,
-      "source": "deployment_option_b_self_hosting",
-      "target": "deployment_self_hosting_checklist",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "DEPLOYMENT.md",
-      "source_location": "L139",
-      "weight": 1.0,
-      "source": "deployment_option_b_self_hosting",
-      "target": "deployment_systemd_unit",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "DEPLOYMENT.md",
-      "source_location": "L204",
-      "weight": 1.0,
-      "source": "deployment_6_sanity_configuration",
-      "target": "deployment_cors_required",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "DEPLOYMENT.md",
-      "source_location": "L216",
-      "weight": 1.0,
-      "source": "deployment_6_sanity_configuration",
-      "target": "deployment_instant_publishing_optional",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "DEPLOYMENT.md",
-      "source_location": "L262",
-      "weight": 1.0,
-      "source": "deployment_6b_switch_on_checklist_booking_architecture_option_d",
-      "target": "deployment_1_checkout_widget",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "DEPLOYMENT.md",
-      "source_location": "L286",
-      "weight": 1.0,
-      "source": "deployment_6b_switch_on_checklist_booking_architecture_option_d",
-      "target": "deployment_2_live_availability_pricing",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "DEPLOYMENT.md",
-      "source_location": "L324",
-      "weight": 1.0,
-      "source": "deployment_6b_switch_on_checklist_booking_architecture_option_d",
-      "target": "deployment_3_email_enquiries_the_fallback_path_still_required",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "DEPLOYMENT.md",
-      "source_location": "L337",
-      "weight": 1.0,
-      "source": "deployment_6b_switch_on_checklist_booking_architecture_option_d",
-      "target": "deployment_4_optional_ical_as_a_backup_availability_source",
+      "source": "tsconfig_compileroptions_paths",
+      "target": "tsconfig_paths",
       "confidence_score": 1.0
     },
     {
@@ -9482,8 +7366,8 @@
       "source_file": "DIRECTION.md",
       "source_location": "L1",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_md",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_lilac_landing_version_2_design_direction",
+      "source": "direction",
+      "target": "direction_lilac_landing_version_2_design_direction",
       "confidence_score": 1.0
     },
     {
@@ -9492,8 +7376,8 @@
       "source_file": "DIRECTION.md",
       "source_location": "L147",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_lilac_landing_version_2_design_direction",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_10_arc_redesign_2026_07_04_user_request",
+      "source": "direction_lilac_landing_version_2_design_direction",
+      "target": "direction_10_arc_redesign_2026_07_04_user_request",
       "confidence_score": 1.0
     },
     {
@@ -9502,8 +7386,8 @@
       "source_file": "DIRECTION.md",
       "source_location": "L160",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_lilac_landing_version_2_design_direction",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_11_merged_direction_2026_07_04_user_decided_via_q_a",
+      "source": "direction_lilac_landing_version_2_design_direction",
+      "target": "direction_11_merged_direction_2026_07_04_user_decided_via_q_a",
       "confidence_score": 1.0
     },
     {
@@ -9512,8 +7396,8 @@
       "source_file": "DIRECTION.md",
       "source_location": "L177",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_lilac_landing_version_2_design_direction",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_12_revert_to_pre_arc_version_2026_07_04_user_request",
+      "source": "direction_lilac_landing_version_2_design_direction",
+      "target": "direction_12_revert_to_pre_arc_version_2026_07_04_user_request",
       "confidence_score": 1.0
     },
     {
@@ -9522,8 +7406,8 @@
       "source_file": "DIRECTION.md",
       "source_location": "L185",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_lilac_landing_version_2_design_direction",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_13_client_brand_brief_applied_2026_07_04_source_of_truth_for_visuals",
+      "source": "direction_lilac_landing_version_2_design_direction",
+      "target": "direction_13_client_brand_brief_applied_2026_07_04_source_of_truth_for_visuals",
       "confidence_score": 1.0
     },
     {
@@ -9532,8 +7416,8 @@
       "source_file": "DIRECTION.md",
       "source_location": "L9",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_lilac_landing_version_2_design_direction",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_1_what_v2_is",
+      "source": "direction_lilac_landing_version_2_design_direction",
+      "target": "direction_1_what_v2_is",
       "confidence_score": 1.0
     },
     {
@@ -9542,8 +7426,8 @@
       "source_file": "DIRECTION.md",
       "source_location": "L24",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_lilac_landing_version_2_design_direction",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_2_design_tokens_mirror_of_the_figma_variable_collections",
+      "source": "direction_lilac_landing_version_2_design_direction",
+      "target": "direction_2_design_tokens_mirror_of_the_figma_variable_collections",
       "confidence_score": 1.0
     },
     {
@@ -9552,8 +7436,8 @@
       "source_file": "DIRECTION.md",
       "source_location": "L62",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_lilac_landing_version_2_design_direction",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_3_page_architecture_from_figma_desktop_18_2",
+      "source": "direction_lilac_landing_version_2_design_direction",
+      "target": "direction_3_page_architecture_from_figma_desktop_18_2",
       "confidence_score": 1.0
     },
     {
@@ -9562,8 +7446,8 @@
       "source_file": "DIRECTION.md",
       "source_location": "L76",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_lilac_landing_version_2_design_direction",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_4_signature_components",
+      "source": "direction_lilac_landing_version_2_design_direction",
+      "target": "direction_4_signature_components",
       "confidence_score": 1.0
     },
     {
@@ -9572,8 +7456,8 @@
       "source_file": "DIRECTION.md",
       "source_location": "L86",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_lilac_landing_version_2_design_direction",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_5_motion_language",
+      "source": "direction_lilac_landing_version_2_design_direction",
+      "target": "direction_5_motion_language",
       "confidence_score": 1.0
     },
     {
@@ -9582,8 +7466,8 @@
       "source_file": "DIRECTION.md",
       "source_location": "L100",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_lilac_landing_version_2_design_direction",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_6_build_notes",
+      "source": "direction_lilac_landing_version_2_design_direction",
+      "target": "direction_6_build_notes",
       "confidence_score": 1.0
     },
     {
@@ -9592,8 +7476,8 @@
       "source_file": "DIRECTION.md",
       "source_location": "L107",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_lilac_landing_version_2_design_direction",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_7_open_questions",
+      "source": "direction_lilac_landing_version_2_design_direction",
+      "target": "direction_7_open_questions",
       "confidence_score": 1.0
     },
     {
@@ -9602,8 +7486,8 @@
       "source_file": "DIRECTION.md",
       "source_location": "L116",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_lilac_landing_version_2_design_direction",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_8_reconciliation_notes_figma_pull_2026_07_03",
+      "source": "direction_lilac_landing_version_2_design_direction",
+      "target": "direction_8_reconciliation_notes_figma_pull_2026_07_03",
       "confidence_score": 1.0
     },
     {
@@ -9612,8 +7496,8 @@
       "source_file": "DIRECTION.md",
       "source_location": "L134",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_lilac_landing_version_2_design_direction",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_9_exact_frame_build_2026_07_03_user_request",
+      "source": "direction_lilac_landing_version_2_design_direction",
+      "target": "direction_9_exact_frame_build_2026_07_03_user_request",
       "confidence_score": 1.0
     },
     {
@@ -9622,8 +7506,8 @@
       "source_file": "DIRECTION.md",
       "source_location": "L28",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_2_design_tokens_mirror_of_the_figma_variable_collections",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_color_lilac_landing_lavender_blue_palette",
+      "source": "direction_2_design_tokens_mirror_of_the_figma_variable_collections",
+      "target": "direction_color_lilac_landing_lavender_blue_palette",
       "confidence_score": 1.0
     },
     {
@@ -9632,8 +7516,8 @@
       "source_file": "DIRECTION.md",
       "source_location": "L52",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_2_design_tokens_mirror_of_the_figma_variable_collections",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_spacing_radius_borders",
+      "source": "direction_2_design_tokens_mirror_of_the_figma_variable_collections",
+      "target": "direction_spacing_radius_borders",
       "confidence_score": 1.0
     },
     {
@@ -9642,8 +7526,8 @@
       "source_file": "DIRECTION.md",
       "source_location": "L44",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_2_design_tokens_mirror_of_the_figma_variable_collections",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_direction_typography",
+      "source": "direction_2_design_tokens_mirror_of_the_figma_variable_collections",
+      "target": "direction_typography",
       "confidence_score": 1.0
     },
     {
@@ -9652,8 +7536,8 @@
       "source_file": "ELLE-TASKS.md",
       "source_location": "L1",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_elle_tasks_md",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_elle_tasks_elle_s_requests_master_list",
+      "source": "elle_tasks",
+      "target": "elle_tasks_elle_s_requests_master_list",
       "confidence_score": 1.0
     },
     {
@@ -9662,8 +7546,8 @@
       "source_file": "ELLE-TASKS.md",
       "source_location": "L6",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_elle_tasks_elle_s_requests_master_list",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_elle_tasks_1_revisions_comments_for_lilac_landing_jul_9",
+      "source": "elle_tasks_elle_s_requests_master_list",
+      "target": "elle_tasks_1_revisions_comments_for_lilac_landing_jul_9",
       "confidence_score": 1.0
     },
     {
@@ -9672,8 +7556,8 @@
       "source_file": "ELLE-TASKS.md",
       "source_location": "L18",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_elle_tasks_elle_s_requests_master_list",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_elle_tasks_2_qr_code_please_jul_10_jul_13_follow_up",
+      "source": "elle_tasks_elle_s_requests_master_list",
+      "target": "elle_tasks_2_qr_code_please_jul_10_jul_13_follow_up",
       "confidence_score": 1.0
     },
     {
@@ -9682,8 +7566,8 @@
       "source_file": "ELLE-TASKS.md",
       "source_location": "L27",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_elle_tasks_elle_s_requests_master_list",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_elle_tasks_3_a_sunny_pic_of_the_street_entrance_jul_12",
+      "source": "elle_tasks_elle_s_requests_master_list",
+      "target": "elle_tasks_3_a_sunny_pic_of_the_street_entrance_jul_12",
       "confidence_score": 1.0
     },
     {
@@ -9692,8 +7576,8 @@
       "source_file": "ELLE-TASKS.md",
       "source_location": "L31",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_elle_tasks_elle_s_requests_master_list",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_elle_tasks_4_long_description_jul_13",
+      "source": "elle_tasks_elle_s_requests_master_list",
+      "target": "elle_tasks_4_long_description_jul_13",
       "confidence_score": 1.0
     },
     {
@@ -9702,8 +7586,8 @@
       "source_file": "ELLE-TASKS.md",
       "source_location": "L38",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_elle_tasks_elle_s_requests_master_list",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_elle_tasks_5_pics_from_contractor_jul_14_unread_until_today",
+      "source": "elle_tasks_elle_s_requests_master_list",
+      "target": "elle_tasks_5_pics_from_contractor_jul_14_unread_until_today",
       "confidence_score": 1.0
     },
     {
@@ -9712,8 +7596,8 @@
       "source_file": "ELLE-TASKS.md",
       "source_location": "L45",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_elle_tasks_elle_s_requests_master_list",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_elle_tasks_6_gallery_caption_plan_from_jul_9_applied_jul_14",
+      "source": "elle_tasks_elle_s_requests_master_list",
+      "target": "elle_tasks_6_gallery_caption_plan_from_jul_9_applied_jul_14",
       "confidence_score": 1.0
     },
     {
@@ -9722,8 +7606,8 @@
       "source_file": "ELLE-TASKS.md",
       "source_location": "L50",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_elle_tasks_elle_s_requests_master_list",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_elle_tasks_full_long_description_for_placement_decision",
+      "source": "elle_tasks_elle_s_requests_master_list",
+      "target": "elle_tasks_full_long_description_for_placement_decision",
       "confidence_score": 1.0
     },
     {
@@ -9740,7 +7624,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "HANDOFF.md",
-      "source_location": "L33",
+      "source_location": "L26",
       "weight": 1.0,
       "source": "handoff_lilac_landing_project_handoff",
       "target": "handoff_content_system_everything_is_cms_driven",
@@ -9750,7 +7634,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "HANDOFF.md",
-      "source_location": "L156",
+      "source_location": "L140",
       "weight": 1.0,
       "source": "handoff_lilac_landing_project_handoff",
       "target": "handoff_elle_s_requests_see_elle_tasks_md_the_working_checklist",
@@ -9760,7 +7644,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "HANDOFF.md",
-      "source_location": "L167",
+      "source_location": "L151",
       "weight": 1.0,
       "source": "handoff_lilac_landing_project_handoff",
       "target": "handoff_figma_official_mcp_authed_as_hans",
@@ -9770,7 +7654,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "HANDOFF.md",
-      "source_location": "L185",
+      "source_location": "L168",
       "weight": 1.0,
       "source": "handoff_lilac_landing_project_handoff",
       "target": "handoff_gotchas",
@@ -9780,17 +7664,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "HANDOFF.md",
-      "source_location": "L177",
+      "source_location": "L161",
       "weight": 1.0,
       "source": "handoff_lilac_landing_project_handoff",
-      "target": "handoff_lux_route_removed_2026_07_26",
+      "target": "handoff_lux_route_motion_concept_kept",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "HANDOFF.md",
-      "source_location": "L202",
+      "source_location": "L182",
       "weight": 1.0,
       "source": "handoff_lilac_landing_project_handoff",
       "target": "handoff_open_threads_priority_order",
@@ -9800,7 +7684,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "HANDOFF.md",
-      "source_location": "L93",
+      "source_location": "L77",
       "weight": 1.0,
       "source": "handoff_lilac_landing_project_handoff",
       "target": "handoff_other_sections",
@@ -9810,7 +7694,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "HANDOFF.md",
-      "source_location": "L58",
+      "source_location": "L42",
       "weight": 1.0,
       "source": "handoff_lilac_landing_project_handoff",
       "target": "handoff_the_house_section_gallerynoir_tsx_current_motion_design",
@@ -9842,8 +7726,8 @@
       "source_file": "README.md",
       "source_location": "L1",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_readme_md",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_readme_lilac_landing",
+      "source": "readme",
+      "target": "readme_lilac_landing",
       "confidence_score": 1.0
     },
     {
@@ -9852,11 +7736,11 @@
       "source_file": "README.md",
       "source_location": "L2",
       "weight": 1.0,
-      "source": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_readme_md",
-      "target": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_readme_lilac_landing_2",
+      "source": "readme",
+      "target": "readme_lilac_landing_2",
       "confidence_score": 1.0
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "a7401ab980b9ef947661ab38a83cd5d9fc5d19a7"
+  "built_at_commit": "2f916b470803eff29eca39e756210d947ee3acb5"
 }
