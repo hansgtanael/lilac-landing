@@ -1,16 +1,16 @@
-# Graph Report - lilac-landing-v2  (2026-09-24)
+# Graph Report - lilac-landing-v2  (2026-09-11)
 
 ## Corpus Check
-- 68 files · ~1,079,184 words
+- 65 files · ~1,078,858 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 366 nodes · 599 edges · 22 communities (19 shown, 3 thin omitted)
+- 361 nodes · 594 edges · 22 communities (19 shown, 3 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 7 edges (avg confidence: 0.5)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `8c13f580`
+- Built from commit: `a7401ab9`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -73,7 +73,7 @@ Nodes (23): 1. Checkout widget, 1. What this is, 2. Live availability + pricing,
 
 ### Community 3 - "page.tsx"
 Cohesion: 0.08
-Nodes (38): AboutEditorial(), ParallaxPhoto(), AboutScroll(), Drift(), OUTDOORS, OutdoorsCarousel(), Amenities(), CountUp() (+30 more)
+Nodes (40): Home(), AboutEditorial(), ParallaxPhoto(), AboutScroll(), Drift(), OUTDOORS, OutdoorsCarousel(), Amenities() (+32 more)
 
 ### Community 4 - "Lilac Landing — Version 2 Design Direction"
 Cohesion: 0.10
@@ -88,7 +88,7 @@ Cohesion: 0.17
 Nodes (11): Content system (everything is CMS-driven), Elle's requests — see `ELLE-TASKS.md` (the working checklist), Figma (official MCP, authed as Hans), Gotchas, Lilac Landing — project handoff, /lux route — REMOVED 2026-07-26, Open threads (priority order), Other sections (+3 more)
 
 ### Community 7 - "layout.tsx"
-Cohesion: 0.15
+Cohesion: 0.25
 Nodes (5): dmSans, fraunces, lora, metadata, nunito
 
 ### Community 8 - "SpacingTuner.tsx"
@@ -100,8 +100,8 @@ Cohesion: 0.33
 Nodes (5): BOOKING_ORIGIN, COMMON_HEADERS, CSP, nextConfig, STUDIO_CSP
 
 ### Community 14 - "GalleryNoir.tsx"
-Cohesion: 0.11
-Nodes (22): Home(), StudioPage(), isSanityConfigured(), urlFor(), getSiteContent(), imgUrl(), RawAboutRoom, RawAboutSection (+14 more)
+Cohesion: 0.21
+Nodes (8): StudioPage(), isSanityConfigured(), schema, schemaTypes, siteContent, titleSubFields, structure(), sanity
 
 ### Community 15 - "README.md"
 Cohesion: 0.21
@@ -116,8 +116,8 @@ Cohesion: 0.10
 Nodes (33): GET(), iso(), GET(), nightlyLooksSane(), parseISODate(), CalendarDay, CalendarResult, computeTaxCents() (+25 more)
 
 ### Community 19 - "site-content.ts"
-Cohesion: 0.13
-Nodes (14): metadata, metadata, metadata, Footer(), LEGAL_LINKS, LegalPage(), NavLink, PropertyPhoto (+6 more)
+Cohesion: 0.09
+Nodes (26): metadata, metadata, metadata, Footer(), LEGAL_LINKS, LegalPage(), NavLink, PropertyPhoto (+18 more)
 
 ### Community 20 - "migrate-site.mjs"
 Cohesion: 0.25
@@ -132,11 +132,11 @@ Nodes (10): assetCache, build(), client, content, imageRef(), isVideo(), key(), 
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `dependencies` connect `compilerOptions` to `GalleryNoir.tsx`?**
-  _High betweenness centrality (0.110) - this node is a cross-community bridge._
+  _High betweenness centrality (0.111) - this node is a cross-community bridge._
 - **Why does `sanity` connect `GalleryNoir.tsx` to `compilerOptions`?**
-  _High betweenness centrality (0.108) - this node is a cross-community bridge._
-- **Why does `useReducedMotion()` connect `page.tsx` to `RangeCalendar.tsx`, `README.md`?**
-  _High betweenness centrality (0.067) - this node is a cross-community bridge._
+  _High betweenness centrality (0.109) - this node is a cross-community bridge._
+- **Why does `site` connect `site-content.ts` to `content.ts`, `page.tsx`, `RangeCalendar.tsx`?**
+  _High betweenness centrality (0.060) - this node is a cross-community bridge._
 - **What connects `metadata`, `lora`, `fraunces` to the rest of the system?**
   _166 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `compilerOptions` be split into smaller, more focused modules?**
@@ -144,4 +144,4 @@ _Questions this graph is uniquely positioned to answer:_
 - **Should `dependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.08333333333333333 - nodes in this community are weakly interconnected._
 - **Should `page.tsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.08038914490527393 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07692307692307693 - nodes in this community are weakly interconnected._

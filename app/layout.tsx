@@ -3,6 +3,8 @@ import { Lora, Fraunces, DM_Sans, Nunito } from "next/font/google";
 import "./globals.css";
 import { DISPLAY_FONT } from "@/lib/flags";
 import SmoothScroll from "@/components/SmoothScroll";
+// Canonical origin for canonical/OG URLs — shared with robots.ts and sitemap.ts.
+import { siteUrl } from "@/lib/site-url";
 
 const lora = Lora({
   subsets: ["latin"],
@@ -36,19 +38,6 @@ const nunito = Nunito({
   variable: "--font-nunito",
   display: "swap",
 });
-
-// Canonical origin for canonical/OG URLs. Resolved rather than hardcoded so it
-// is never a lie: lilaclanding.com has no DNS yet, and hardcoding it pointed
-// every canonical + og:image at a domain that does not resolve.
-//   NEXT_PUBLIC_SITE_URL — explicit override, set it if you ever need to force one
-//   URL                  — injected by Netlify as the site's PRIMARY url, so this
-//                          self-corrects to lilaclanding.com the moment that
-//                          custom domain is attached. No code change needed.
-//   fallback             — local dev
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ||
-  process.env.URL ||
-  "http://localhost:3020";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
