@@ -177,7 +177,7 @@
       "label": "lora",
       "file_type": "code",
       "source_file": "app/layout.tsx",
-      "source_location": "L9",
+      "source_location": "L11",
       "_origin": "ast",
       "id": "app_layout_lora",
       "community": 7,
@@ -187,7 +187,7 @@
       "label": "fraunces",
       "file_type": "code",
       "source_file": "app/layout.tsx",
-      "source_location": "L18",
+      "source_location": "L20",
       "_origin": "ast",
       "id": "app_layout_fraunces",
       "community": 7,
@@ -197,7 +197,7 @@
       "label": "dmSans",
       "file_type": "code",
       "source_file": "app/layout.tsx",
-      "source_location": "L26",
+      "source_location": "L28",
       "_origin": "ast",
       "id": "app_layout_dmsans",
       "community": 7,
@@ -207,7 +207,7 @@
       "label": "nunito",
       "file_type": "code",
       "source_file": "app/layout.tsx",
-      "source_location": "L35",
+      "source_location": "L37",
       "_origin": "ast",
       "id": "app_layout_nunito",
       "community": 7,
@@ -217,7 +217,7 @@
       "label": "metadata",
       "file_type": "code",
       "source_file": "app/layout.tsx",
-      "source_location": "L42",
+      "source_location": "L44",
       "_origin": "ast",
       "id": "app_layout_metadata",
       "community": 7,
@@ -227,7 +227,7 @@
       "label": "RootLayout()",
       "file_type": "code",
       "source_file": "app/layout.tsx",
-      "source_location": "L56",
+      "source_location": "L58",
       "_origin": "ast",
       "id": "app_layout_rootlayout",
       "community": 7,
@@ -544,13 +544,33 @@
       "norm_label": "amenities()"
     },
     {
+      "label": "Analytics.tsx",
+      "file_type": "code",
+      "source_file": "components/Analytics.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "components_analytics",
+      "community": 7,
+      "norm_label": "analytics.tsx"
+    },
+    {
+      "label": "Analytics()",
+      "file_type": "code",
+      "source_file": "components/Analytics.tsx",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "components_analytics_analytics",
+      "community": 7,
+      "norm_label": "analytics()"
+    },
+    {
       "label": "BookSection.tsx",
       "file_type": "code",
       "source_file": "components/BookSection.tsx",
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_booksection",
-      "community": 5,
+      "community": 18,
       "norm_label": "booksection.tsx"
     },
     {
@@ -560,7 +580,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "components_booksection_stage",
-      "community": 5,
+      "community": 18,
       "norm_label": "stage"
     },
     {
@@ -570,7 +590,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "components_booksection_booksection",
-      "community": 5,
+      "community": 18,
       "norm_label": "booksection()"
     },
     {
@@ -980,7 +1000,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_rangecalendar",
-      "community": 5,
+      "community": 15,
       "norm_label": "rangecalendar.tsx"
     },
     {
@@ -990,7 +1010,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "components_rangecalendar_props",
-      "community": 5,
+      "community": 15,
       "norm_label": "props"
     },
     {
@@ -1000,7 +1020,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "components_rangecalendar_weekdays",
-      "community": 5,
+      "community": 15,
       "norm_label": "weekdays"
     },
     {
@@ -1010,7 +1030,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "components_rangecalendar_months",
-      "community": 5,
+      "community": 15,
       "norm_label": "months"
     },
     {
@@ -1020,7 +1040,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "components_rangecalendar_toiso",
-      "community": 5,
+      "community": 15,
       "norm_label": "toiso()"
     },
     {
@@ -1030,7 +1050,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "components_rangecalendar_fromiso",
-      "community": 5,
+      "community": 15,
       "norm_label": "fromiso()"
     },
     {
@@ -1040,7 +1060,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "components_rangecalendar_startofday",
-      "community": 5,
+      "community": 15,
       "norm_label": "startofday()"
     },
     {
@@ -1050,7 +1070,7 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "components_rangecalendar_sameday",
-      "community": 5,
+      "community": 15,
       "norm_label": "sameday()"
     },
     {
@@ -1060,7 +1080,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "components_rangecalendar_rangecalendar",
-      "community": 5,
+      "community": 15,
       "norm_label": "rangecalendar()"
     },
     {
@@ -1284,13 +1304,63 @@
       "norm_label": "eyebrow()"
     },
     {
+      "label": "analytics.ts",
+      "file_type": "code",
+      "source_file": "lib/analytics.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "lib_analytics",
+      "community": 7,
+      "norm_label": "analytics.ts"
+    },
+    {
+      "label": "isAnalyticsConfigured()",
+      "file_type": "code",
+      "source_file": "lib/analytics.ts",
+      "source_location": "L32",
+      "_origin": "ast",
+      "id": "lib_analytics_isanalyticsconfigured",
+      "community": 7,
+      "norm_label": "isanalyticsconfigured()"
+    },
+    {
+      "label": "analyticsId()",
+      "file_type": "code",
+      "source_file": "lib/analytics.ts",
+      "source_location": "L36",
+      "_origin": "ast",
+      "id": "lib_analytics_analyticsid",
+      "community": 7,
+      "norm_label": "analyticsid()"
+    },
+    {
+      "label": "GA_CONNECT_HOSTS",
+      "file_type": "code",
+      "source_file": "lib/analytics.ts",
+      "source_location": "L43",
+      "_origin": "ast",
+      "id": "lib_analytics_ga_connect_hosts",
+      "community": 7,
+      "norm_label": "ga_connect_hosts"
+    },
+    {
+      "label": "GA_LINKER_DOMAINS",
+      "file_type": "code",
+      "source_file": "lib/analytics.ts",
+      "source_location": "L68",
+      "_origin": "ast",
+      "id": "lib_analytics_ga_linker_domains",
+      "community": 7,
+      "norm_label": "ga_linker_domains"
+    },
+    {
       "label": "booking.ts",
       "file_type": "code",
       "source_file": "lib/booking.ts",
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_booking",
-      "community": 5,
+      "community": 18,
       "norm_label": "booking.ts"
     },
     {
@@ -1310,7 +1380,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "lib_booking_rangecheck",
-      "community": 5,
+      "community": 18,
       "norm_label": "rangecheck"
     },
     {
@@ -1320,7 +1390,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "lib_booking_validaterange",
-      "community": 5,
+      "community": 18,
       "norm_label": "validaterange()"
     },
     {
@@ -1330,7 +1400,7 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "lib_booking_minstaymap",
-      "community": 5,
+      "community": 18,
       "norm_label": "minstaymap"
     },
     {
@@ -1340,7 +1410,7 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "lib_booking_minstayfor",
-      "community": 5,
+      "community": 15,
       "norm_label": "minstayfor()"
     },
     {
@@ -1350,7 +1420,7 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "lib_booking_minstaycheck",
-      "community": 5,
+      "community": 18,
       "norm_label": "minstaycheck"
     },
     {
@@ -1360,7 +1430,7 @@
       "source_location": "L73",
       "_origin": "ast",
       "id": "lib_booking_validateminstay",
-      "community": 5,
+      "community": 18,
       "norm_label": "validateminstay()"
     },
     {
@@ -1370,7 +1440,7 @@
       "source_location": "L84",
       "_origin": "ast",
       "id": "lib_booking_validateguests",
-      "community": 5,
+      "community": 18,
       "norm_label": "validateguests()"
     },
     {
@@ -2170,57 +2240,67 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "next_config",
-      "community": 9,
+      "community": 7,
       "norm_label": "next.config.ts"
+    },
+    {
+      "label": "ga",
+      "file_type": "code",
+      "source_file": "next.config.ts",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "next_config_ga",
+      "community": 7,
+      "norm_label": "ga"
     },
     {
       "label": "CSP",
       "file_type": "code",
       "source_file": "next.config.ts",
-      "source_location": "L10",
+      "source_location": "L30",
       "_origin": "ast",
       "id": "next_config_csp",
-      "community": 9,
+      "community": 7,
       "norm_label": "csp"
     },
     {
       "label": "STUDIO_CSP",
       "file_type": "code",
       "source_file": "next.config.ts",
-      "source_location": "L39",
+      "source_location": "L59",
       "_origin": "ast",
       "id": "next_config_studio_csp",
-      "community": 9,
+      "community": 7,
       "norm_label": "studio_csp"
     },
     {
       "label": "BOOKING_ORIGIN",
       "file_type": "code",
       "source_file": "next.config.ts",
-      "source_location": "L65",
+      "source_location": "L85",
       "_origin": "ast",
       "id": "next_config_booking_origin",
-      "community": 9,
+      "community": 7,
       "norm_label": "booking_origin"
     },
     {
       "label": "COMMON_HEADERS",
       "file_type": "code",
       "source_file": "next.config.ts",
-      "source_location": "L76",
+      "source_location": "L96",
       "_origin": "ast",
       "id": "next_config_common_headers",
-      "community": 9,
+      "community": 7,
       "norm_label": "common_headers"
     },
     {
       "label": "nextConfig",
       "file_type": "code",
       "source_file": "next.config.ts",
-      "source_location": "L103",
+      "source_location": "L123",
       "_origin": "ast",
       "id": "next_config_nextconfig",
-      "community": 9,
+      "community": 7,
       "norm_label": "nextconfig"
     },
     {
@@ -2480,7 +2560,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_dependencies_sanity",
-      "community": 14,
+      "community": 1,
       "norm_label": "sanity"
     },
     {
@@ -4299,7 +4379,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "app/api/quote/route.ts",
-      "source_location": "L113",
+      "source_location": "L134",
       "weight": 1.0,
       "source": "app_api_quote_route_get",
       "target": "app_api_quote_route_nightlylookssane",
@@ -4333,7 +4413,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/api/quote/route.ts",
-      "source_location": "L128",
+      "source_location": "L149",
       "weight": 1.0,
       "source": "app_api_quote_route_get",
       "target": "lib_hospitable_computetaxcents"
@@ -4344,7 +4424,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/api/quote/route.ts",
-      "source_location": "L92",
+      "source_location": "L113",
       "weight": 1.0,
       "source": "app_api_quote_route_get",
       "target": "lib_hospitable_getcalendar"
@@ -4355,7 +4435,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/api/quote/route.ts",
-      "source_location": "L93",
+      "source_location": "L114",
       "weight": 1.0,
       "source": "app_api_quote_route_get",
       "target": "lib_hospitable_getpricing"
@@ -4366,7 +4446,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/api/quote/route.ts",
-      "source_location": "L94",
+      "source_location": "L115",
       "weight": 1.0,
       "source": "app_api_quote_route_get",
       "target": "lib_hospitable_gettaxes"
@@ -4377,7 +4457,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/api/quote/route.ts",
-      "source_location": "L58",
+      "source_location": "L79",
       "weight": 1.0,
       "source": "app_api_quote_route_get",
       "target": "lib_hospitable_isconfigured"
@@ -4388,7 +4468,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/api/quote/route.ts",
-      "source_location": "L65",
+      "source_location": "L86",
       "weight": 1.0,
       "source": "app_api_quote_route_get",
       "target": "lib_ical_getunavailabledates"
@@ -4399,7 +4479,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/api/quote/route.ts",
-      "source_location": "L59",
+      "source_location": "L80",
       "weight": 1.0,
       "source": "app_api_quote_route_get",
       "target": "lib_ical_isicalconfigured"
@@ -4418,7 +4498,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/layout.tsx",
-      "source_location": "L26",
+      "source_location": "L28",
       "weight": 1.0,
       "source": "app_layout",
       "target": "app_layout_dmsans",
@@ -4428,7 +4508,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/layout.tsx",
-      "source_location": "L18",
+      "source_location": "L20",
       "weight": 1.0,
       "source": "app_layout",
       "target": "app_layout_fraunces",
@@ -4438,7 +4518,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/layout.tsx",
-      "source_location": "L9",
+      "source_location": "L11",
       "weight": 1.0,
       "source": "app_layout",
       "target": "app_layout_lora",
@@ -4448,7 +4528,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/layout.tsx",
-      "source_location": "L42",
+      "source_location": "L44",
       "weight": 1.0,
       "source": "app_layout",
       "target": "app_layout_metadata",
@@ -4458,7 +4538,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/layout.tsx",
-      "source_location": "L35",
+      "source_location": "L37",
       "weight": 1.0,
       "source": "app_layout",
       "target": "app_layout_nunito",
@@ -4468,10 +4548,32 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/layout.tsx",
-      "source_location": "L56",
+      "source_location": "L58",
       "weight": 1.0,
       "source": "app_layout",
       "target": "app_layout_rootlayout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/layout.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "app_layout",
+      "target": "components_analytics",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/layout.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "app_layout",
+      "target": "components_analytics_analytics",
       "confidence_score": 1.0
     },
     {
@@ -5387,6 +5489,82 @@
       "weight": 1.0,
       "source": "components_amenities_amenities",
       "target": "lib_usereducedmotion_usereducedmotion"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/Analytics.tsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "components_analytics",
+      "target": "components_analytics_analytics",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/Analytics.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "components_analytics",
+      "target": "lib_analytics",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/Analytics.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "components_analytics",
+      "target": "lib_analytics_analyticsid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/Analytics.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "components_analytics",
+      "target": "lib_analytics_ga_linker_domains",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/Analytics.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "components_analytics",
+      "target": "lib_analytics_isanalyticsconfigured",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/Analytics.tsx",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "components_analytics_analytics",
+      "target": "lib_analytics_analyticsid"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/Analytics.tsx",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "components_analytics_analytics",
+      "target": "lib_analytics_isanalyticsconfigured"
     },
     {
       "relation": "imports_from",
@@ -7372,6 +7550,90 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "lib/analytics.ts",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "lib_analytics",
+      "target": "lib_analytics_analyticsid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/analytics.ts",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "lib_analytics",
+      "target": "lib_analytics_ga_connect_hosts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/analytics.ts",
+      "source_location": "L68",
+      "weight": 1.0,
+      "source": "lib_analytics",
+      "target": "lib_analytics_ga_linker_domains",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/analytics.ts",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "lib_analytics",
+      "target": "lib_analytics_isanalyticsconfigured",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "next.config.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "next_config",
+      "target": "lib_analytics",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/analytics.ts",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "lib_analytics_analyticsid",
+      "target": "lib_analytics_isanalyticsconfigured",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "next.config.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "next_config",
+      "target": "lib_analytics_isanalyticsconfigured",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "next.config.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "next_config",
+      "target": "lib_analytics_ga_connect_hosts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "lib/booking.ts",
       "source_location": "L90",
       "weight": 1.0,
@@ -8481,7 +8743,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "next.config.ts",
-      "source_location": "L65",
+      "source_location": "L85",
       "weight": 1.0,
       "source": "next_config",
       "target": "next_config_booking_origin",
@@ -8491,7 +8753,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "next.config.ts",
-      "source_location": "L76",
+      "source_location": "L96",
       "weight": 1.0,
       "source": "next_config",
       "target": "next_config_common_headers",
@@ -8501,7 +8763,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "next.config.ts",
-      "source_location": "L10",
+      "source_location": "L30",
       "weight": 1.0,
       "source": "next_config",
       "target": "next_config_csp",
@@ -8511,7 +8773,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "next.config.ts",
-      "source_location": "L103",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "next_config",
+      "target": "next_config_ga",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "next.config.ts",
+      "source_location": "L123",
       "weight": 1.0,
       "source": "next_config",
       "target": "next_config_nextconfig",
@@ -8521,7 +8793,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "next.config.ts",
-      "source_location": "L39",
+      "source_location": "L59",
       "weight": 1.0,
       "source": "next_config",
       "target": "next_config_studio_csp",
@@ -9961,5 +10233,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "8c13f580026c5c1433b8fdead45b5913a67b7daa"
+  "built_at_commit": "c430f198535cef119201ad47dcea311c69060fb6"
 }

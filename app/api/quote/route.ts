@@ -54,6 +54,27 @@ export async function GET(request: Request) {
     return Response.json({ error: "Guest count is out of range." }, { status: 400 });
   }
 
+  // QUOTE VOLUME — the one booking-intent signal this site owns outright.
+  //
+  // Everything downstream of RESERVE happens inside Hospitable's iframe and is
+  // invisible here, so without this line the funnel has no denominator: a month
+  // with two bookings reads identically whether forty people priced a stay or
+  // four did. That ratio is what diagnoses the funnel; the booking count alone
+  // never can.
+  //
+  // Server-side and therefore ad-blocker-proof, costs no third-party request,
+  // sets no cookie and needs no consent — it is a log line, not tracking. It
+  // deliberately records no IP, no name and no email. Dates and party size
+  // describe the STAY, not the person, and cannot identify a guest.
+  //
+  // Grep the Netlify function logs for "[quote]" to count them.
+  console.log(
+    `[quote] nights=${range.nights} guests=${guestsParam} ` +
+      `checkIn=${range.checkIn} leadDays=${Math.round(
+        (Date.parse(range.checkIn) - Date.now()) / 86_400_000,
+      )}`,
+  );
+
   // Free path: no Hospitable, but iCal feeds can still answer "is it free?".
   if (!isConfigured()) {
     if (!isIcalConfigured()) {

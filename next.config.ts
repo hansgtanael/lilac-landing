@@ -1,6 +1,26 @@
 import type { NextConfig } from "next";
+import {
+  isAnalyticsConfigured,
+  GA_SCRIPT_HOST,
+  GA_CONNECT_HOSTS,
+} from "./lib/analytics";
 
 const dev = process.env.NODE_ENV !== "production";
+
+// GA4 hosts, folded into the CSP ONLY when a measurement ID is configured
+// (lib/analytics.ts). An unmeasured deploy therefore keeps the tighter
+// policy rather than carrying a permanent hole for a tag it never loads.
+//
+// Both directives are required and they fail differently. Missing
+// script-src blocks gtag.js outright (visible in the console). Missing
+// connect-src lets the tag load and run while every beacon is blocked — no
+// error the page surfaces, and a GA4 dashboard reading zero, which is
+// indistinguishable from nobody visiting. Never add one without the other.
+const ga = isAnalyticsConfigured();
+const gaScript = ga ? ` ${GA_SCRIPT_HOST}` : "";
+const gaConnect = ga ? ` ${GA_CONNECT_HOSTS.join(" ")}` : "";
+// GA4 falls back to a pixel when a beacon cannot be sent.
+const gaImg = ga ? " https://*.google-analytics.com https://www.googletagmanager.com" : "";
 
 // PUBLIC-SITE CSP. Everything the site loads is same-origin (self-hosted fonts,
 // photos, videos); inline script/style allowances cover Next's hydration
@@ -9,13 +29,13 @@ const dev = process.env.NODE_ENV !== "production";
 // the same policy on static Netlify deploys where headers() doesn't run.
 const CSP = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline'${dev ? " 'unsafe-eval'" : ""}`,
+  `script-src 'self' 'unsafe-inline'${dev ? " 'unsafe-eval'" : ""}${gaScript}`,
   "style-src 'self' 'unsafe-inline'",
   // cdn.sanity.io: client-managed photos are served from Sanity's image CDN.
-  "img-src 'self' data: blob: https://cdn.sanity.io",
+  `img-src 'self' data: blob: https://cdn.sanity.io${gaImg}`,
   "media-src 'self'",
   "font-src 'self' data:",
-  `connect-src 'self'${dev ? " ws:" : ""}`,
+  `connect-src 'self'${dev ? " ws:" : ""}${gaConnect}`,
   // Hospitable direct-booking checkout, embedded as an iframe by
   // components/BookingWidgetModal.tsx. frame-src is REQUIRED here: without it
   // the directive falls back to `default-src 'self'` and the iframe renders

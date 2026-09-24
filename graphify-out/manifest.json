@@ -1,7 +1,7 @@
 {
   "app/layout.tsx": {
-    "mtime": 1790253207.3229268,
-    "ast_hash": "3816cdc2311bd856c06625290b85e11f",
+    "mtime": 1790253754.0427494,
+    "ast_hash": "76e07a80aa54d7744378be9483a2f707",
     "semantic_hash": ""
   },
   "app/page.tsx": {
@@ -70,8 +70,8 @@
     "semantic_hash": ""
   },
   "next.config.ts": {
-    "mtime": 1789177275.865879,
-    "ast_hash": "25fc8462a5c031f51beea29dc6092523",
+    "mtime": 1790253768.225224,
+    "ast_hash": "74acb119bbebf33e0a00c5586d729322",
     "semantic_hash": ""
   },
   "package.json": {
@@ -645,8 +645,8 @@
     "semantic_hash": ""
   },
   "app/api/quote/route.ts": {
-    "mtime": 1789179720.7874312,
-    "ast_hash": "8b96b345def9567312c0ad6f072b2216",
+    "mtime": 1790253779.7760534,
+    "ast_hash": "1159b4d214acdf69f2783abdeefad0df",
     "semantic_hash": ""
   },
   "app/studio/[[...tool]]/page.tsx": {
@@ -782,6 +782,16 @@
   "lib/site-url.ts": {
     "mtime": 1790253188.455239,
     "ast_hash": "8f233cb3db45ec21563cb99c325a213f",
+    "semantic_hash": ""
+  },
+  "components/Analytics.tsx": {
+    "mtime": 1790253744.3528435,
+    "ast_hash": "42b33fd4b8ab946c253bcb9d44fad0bc",
+    "semantic_hash": ""
+  },
+  "lib/analytics.ts": {
+    "mtime": 1790253726.4748855,
+    "ast_hash": "2dab41eb302aabf3043ae6d5d0210801",
     "semantic_hash": ""
   }
 }

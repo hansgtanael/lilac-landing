@@ -5,6 +5,10 @@
 # delegates it to the Hospitable booking origin, which it derives from an env
 # var — something this static file cannot do. A static drop therefore cannot
 # take in-frame card payment. The Netlify deploy uses next.config.ts, not this.
+#
+# Likewise the GA4 hosts: next.config.ts adds them to script-src/connect-src
+# only when NEXT_PUBLIC_GA_ID is set, which a static file cannot condition on.
+# A static drop therefore cannot report analytics either.
 /*
   Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://cdn.sanity.io; media-src 'self'; font-src 'self' data:; connect-src 'self'; frame-src 'self' https://*.hospitable.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'
   X-Content-Type-Options: nosniff

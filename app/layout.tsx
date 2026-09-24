@@ -5,6 +5,8 @@ import { DISPLAY_FONT } from "@/lib/flags";
 import SmoothScroll from "@/components/SmoothScroll";
 // Canonical origin for canonical/OG URLs — shared with robots.ts and sitemap.ts.
 import { siteUrl } from "@/lib/site-url";
+// GA4 tag — renders nothing until NEXT_PUBLIC_GA_ID is set.
+import Analytics from "@/components/Analytics";
 
 const lora = Lora({
   subsets: ["latin"],
@@ -71,6 +73,7 @@ export default function RootLayout({
       <body className="antialiased">
         <SmoothScroll />
         {children}
+        <Analytics />
       </body>
     </html>
   );
