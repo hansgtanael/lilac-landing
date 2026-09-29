@@ -104,6 +104,47 @@ function OutdoorsCarousel() {
   const [anim, setAnim] = useState(true);
   const pages = Math.ceil(OUTDOORS.length / 2);
 
+  /* WHY THESE ARE PRELOADED.
+   *
+   * next/image lazy-loads by default, and lazy means "when it intersects the
+   * viewport". Only the first two tiles ever do: the rest sit outside the
+   * viewport HORIZONTALLY inside an overflow-hidden track, which never counts
+   * as intersecting no matter how far the page is scrolled. So each pair only
+   * began downloading at the moment it slid into place, and the guest watched
+   * an empty box fill in after every transition.
+   *
+   * Eager-loading all six from the start would be the obvious fix and the
+   * wrong one: this section is far down the page, and six full-bleed photos
+   * competing with the hero video would cost the first paint to fix a
+   * problem nobody has yet.
+   *
+   * So they warm when the section is about to arrive. 300px of rootMargin
+   * gives the fetch a head start on the scroll, and by the time the first
+   * transition fires (three seconds of dwell later) every photo is decoded
+   * and in cache. The observer disconnects after one hit; this only ever
+   * needs to happen once. */
+  const trackRef = useRef<HTMLDivElement | null>(null);
+  const [warm, setWarm] = useState(false);
+  useEffect(() => {
+    const el = trackRef.current;
+    if (!el || warm) return;
+    if (typeof IntersectionObserver === "undefined") {
+      setWarm(true); // no observer support -> just load them
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setWarm(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: "300px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [warm]);
+
   useEffect(() => {
     if (reduce) return;
     const id = setInterval(() => setPage((p) => p + 1), DWELL_MS + SLIDE_MS);
@@ -123,7 +164,7 @@ function OutdoorsCarousel() {
 
   const slides = [...OUTDOORS, ...OUTDOORS.slice(0, 2)];
   return (
-    <div className="-mx-6 mt-12 overflow-hidden md:-mx-12 md:mt-[7.25rem]">
+    <div ref={trackRef} className="-mx-6 mt-12 overflow-hidden md:-mx-12 md:mt-[7.25rem]">
       <div
         className={`flex ${anim ? "transition-transform duration-[450ms] ease-luxe motion-reduce:transition-none" : ""}`}
         style={{ transform: `translateX(-${page * 100}%)` }}
@@ -131,7 +172,14 @@ function OutdoorsCarousel() {
         {slides.map((p, i) => (
           <div key={`${p.src}-${i}`} className="w-1/2 flex-none px-[3px] md:px-1">
             <div className="relative h-[34vh] min-h-[240px] overflow-hidden md:h-[45vh]">
-              <Image src={p.src} alt={p.alt} fill sizes="50vw" className="object-cover" />
+              <Image
+                src={p.src}
+                alt={p.alt}
+                fill
+                sizes="50vw"
+                loading={warm ? "eager" : "lazy"}
+                className="object-cover"
+              />
             </div>
           </div>
         ))}
