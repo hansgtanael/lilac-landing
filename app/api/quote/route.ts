@@ -1,6 +1,6 @@
 import { getCalendar, getPricing, getTaxes, computeTaxCents, isConfigured } from "@/lib/hospitable";
 import { getUnavailableDates, isIcalConfigured } from "@/lib/ical";
-import { validateRange, validateGuests } from "@/lib/booking";
+import { validateRange, validateGuests, DEFAULT_MAX_GUESTS } from "@/lib/booking";
 import { site } from "@/lib/content";
 
 // Builds a price quote for a requested range and reports whether those nights
@@ -15,7 +15,10 @@ import { site } from "@/lib/content";
 // Node runtime (outbound fetch + env secret).
 export const runtime = "nodejs";
 
-const GUESTS_MAX = site.text.booking.guestsMax;
+// Anti-abuse bound only. Hospitable owns real capacity and refuses an
+// over-capacity booking at checkout; this just rejects absurd input when
+// the API cannot be asked.
+const GUESTS_MAX = DEFAULT_MAX_GUESTS;
 /** Order-of-magnitude reference for the unit guard below — NOT a price.
  *
  *  This used to read the CMS nightly rate, but pricing has moved wholly to

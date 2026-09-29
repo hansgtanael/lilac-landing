@@ -12,6 +12,7 @@ import {
   validateGuests,
   isValidEmail,
   validateMinStay,
+  DEFAULT_MAX_GUESTS,
   type MinStayMap,
 } from "@/lib/booking";
 import { isBookingWidgetConfigured } from "@/lib/bookingWidget";
@@ -61,6 +62,9 @@ export default function BookSection({ inquiryConfigured }: Props) {
   const [minStay, setMinStay] = useState<MinStayMap>({});
   // Cheapest bookable night, for the card headline. Null = use the CMS rate.
   const [priceFromCents, setPriceFromCents] = useState<number | null>(null);
+  // Sleeps-how-many, straight from Hospitable. The constant is only the value
+  // used while that request is in flight or after it fails — not a setting.
+  const [guestsMax, setGuestsMax] = useState<number>(DEFAULT_MAX_GUESTS);
 
   // Inquiry flow: card -> contact form -> sent.
   const [stage, setStage] = useState<Stage>("idle");
@@ -83,6 +87,7 @@ export default function BookSection({ inquiryConfigured }: Props) {
         if (Array.isArray(data.unavailable)) setUnavailable(data.unavailable);
         if (data.minStay && typeof data.minStay === "object") setMinStay(data.minStay);
         if (typeof data.priceFromCents === "number") setPriceFromCents(data.priceFromCents);
+        if (typeof data.guestsMax === "number" && data.guestsMax > 0) setGuestsMax(data.guestsMax);
       })
       .catch(() => {});
     return () => {
@@ -100,7 +105,7 @@ export default function BookSection({ inquiryConfigured }: Props) {
 
   const range = validateRange(checkIn, checkOut);
   const rangeValid = range.ok;
-  const guestsValid = validateGuests(guests, booking.guestsMax) !== null;
+  const guestsValid = validateGuests(guests, guestsMax) !== null;
   // Belt and braces: the calendar already makes a short check-out unclickable,
   // but dates can also arrive from the chips, so re-check before either path.
   const minStayCheck = range.ok
@@ -245,6 +250,7 @@ export default function BookSection({ inquiryConfigured }: Props) {
               unavailable={unavailable}
               minStay={minStay}
               priceFromCents={priceFromCents}
+              guestsMax={guestsMax}
               onDatesChange={(ci, co) => {
                 setCheckIn(ci);
                 setCheckOut(co);
@@ -404,7 +410,12 @@ export default function BookSection({ inquiryConfigured }: Props) {
         onClose={() => setWidgetOpen(false)}
         onEmailInstead={() => {
           setWidgetOpen(false);
-          setStage("form");
+          // Same three-tier rule as RESERVE. This used to jump straight to the
+          // form, which meant a stalled checkout with no mail delivery landed
+          // the guest on a form that 502s — the exact dead end the fallback
+          // exists to prevent, reachable only when checkout was ALREADY
+          // failing.
+          setStage(inquiryConfigured ? "form" : "contact");
         }}
         checkIn={checkIn}
         checkOut={checkOut}

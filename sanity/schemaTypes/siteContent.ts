@@ -436,12 +436,9 @@ export const siteContent = defineType({
             // with the till - it already had: this field said $200 cleaning
             // against a real $287, and carried no tax at all, understating a
             // real stay by about 18%. Change prices in Hospitable.
-            defineField({
-              name: "guestsMax",
-              title: "Max guests",
-              type: "number",
-              description: "Drives the guests <select> length + the max-guests note.",
-            }),
+            // Max guests is not edited here either: Hospitable holds the
+            // property's capacity and is what refuses an over-capacity booking,
+            // so a copy in the Studio could only ever be the wrong one.
             defineField({ name: "rating", title: "Rating", type: "string" }),
             defineField({ name: "perNightLabel", title: "Per-night label", type: "string" }),
             defineField({ name: "checkInLabel", title: "Check-in label", type: "string" }),

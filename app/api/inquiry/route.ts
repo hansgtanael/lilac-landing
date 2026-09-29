@@ -1,5 +1,5 @@
 import { requireSameOrigin, guardBodySize } from "@/app/api/guard";
-import { validateRange, validateGuests, isValidEmail } from "@/lib/booking";
+import { validateRange, validateGuests, isValidEmail, DEFAULT_MAX_GUESTS } from "@/lib/booking";
 import { deliverInquiry } from "@/lib/inquiry";
 import { site } from "@/lib/content";
 
@@ -7,7 +7,8 @@ import { site } from "@/lib/content";
 // server-side, and hands it to the pluggable delivery step. Node runtime.
 export const runtime = "nodejs";
 
-const GUESTS_MAX = site.text.booking.guestsMax;
+// See the note in app/api/quote/route.ts — bound, not setting.
+const GUESTS_MAX = DEFAULT_MAX_GUESTS;
 const MAX_BODY = 8_192;
 const MAX_NAME = 120;
 const MAX_MESSAGE = 2_000;

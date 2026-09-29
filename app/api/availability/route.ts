@@ -1,4 +1,4 @@
-import { getCalendar, isConfigured } from "@/lib/hospitable";
+import { getCalendar, getCapacity, isConfigured } from "@/lib/hospitable";
 import { getUnavailableDates, isIcalConfigured } from "@/lib/ical";
 import { ISO_DATE_RE, parseISODate } from "@/lib/booking";
 
@@ -28,7 +28,7 @@ export async function GET(request: Request) {
   // credentials or feed URLs exist.
   if (!isConfigured() && !isIcalConfigured()) {
     return Response.json(
-      { configured: false, unavailable: [], currency: null, minStay: {}, priceFromCents: null },
+      { configured: false, unavailable: [], currency: null, minStay: {}, priceFromCents: null, guestsMax: null },
       { headers: { "cache-control": "no-store" } },
     );
   }
@@ -53,7 +53,13 @@ export async function GET(request: Request) {
   // --- source 1: Hospitable (preferred — real-time, and carries pricing) ----
   if (isConfigured()) {
     try {
-      const { days, currency } = await getCalendar(iso(start), iso(end));
+      // Capacity rides along with the calendar: both are property facts the
+      // booking card needs before a guest touches anything, and one request
+      // pair on mount beats two round trips.
+      const [{ days, currency }, capacity] = await Promise.all([
+        getCalendar(iso(start), iso(end)),
+        getCapacity(),
+      ]);
       const unavailable = days.filter((d) => !d.available).map((d) => d.date);
       // Minimum nights required to START a stay on each date. Only dates that
       // actually constrain anything are sent (>1), keeping the payload small —
@@ -72,7 +78,15 @@ export async function GET(request: Request) {
       const priceFromCents = bookablePrices.length ? Math.min(...bookablePrices) : null;
 
       return Response.json(
-        { configured: true, source: "hospitable", unavailable, currency, minStay, priceFromCents },
+        {
+          configured: true,
+          source: "hospitable",
+          unavailable,
+          currency,
+          minStay,
+          priceFromCents,
+          guestsMax: capacity.maxGuests,
+        },
         { headers: { "cache-control": "no-store" } },
       );
     } catch {
@@ -80,7 +94,16 @@ export async function GET(request: Request) {
       // black out the calendar. Otherwise fail OPEN below.
       if (!isIcalConfigured()) {
         return Response.json(
-          { configured: true, source: "hospitable", unavailable: [], currency: null, minStay: {}, priceFromCents: null, degraded: true },
+          {
+            configured: true,
+            source: "hospitable",
+            unavailable: [],
+            currency: null,
+            minStay: {},
+            priceFromCents: null,
+            guestsMax: null,
+            degraded: true,
+          },
           { headers: { "cache-control": "no-store" } },
         );
       }
@@ -95,9 +118,11 @@ export async function GET(request: Request) {
       source: "ical",
       unavailable,
       currency: null,
-      // iCal carries availability only — no min-stay rules or pricing exist.
+      // iCal carries availability only — no min-stay rules, pricing or
+      // capacity exist in a calendar feed.
       minStay: {},
       priceFromCents: null,
+      guestsMax: null,
       // Every feed failed -> the empty list means "unknown", not "all free".
       // Surfaced so the UI can soften its wording rather than promise availability.
       degraded: feedsTotal > 0 && feedsOk === 0,

@@ -1,3 +1,11 @@
+/** Guest-selector length when Hospitable cannot be reached.
+ *
+ *  NOT an editable setting and not a second source of truth: Hospitable owns
+ *  capacity (lib/hospitable.ts getCapacity). This exists only so the selector
+ *  has some length during an outage instead of rendering empty, and so
+ *  server-side validation still has a bound when the API is unreachable. */
+export const DEFAULT_MAX_GUESTS = 8;
+
 /** Pure booking-input validators shared by the client booking form and the
  *  server API routes, so both enforce identical rules (no client/server drift).
  *  No server-only imports here — safe to use in Client Components. */

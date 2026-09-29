@@ -15,8 +15,8 @@
     "semantic_hash": ""
   },
   "components/BookingCard.tsx": {
-    "mtime": 1790650865.028771,
-    "ast_hash": "dfa2235cdf40fa959db26529787aa625",
+    "mtime": 1790651626.6275353,
+    "ast_hash": "8e403f0fae6af91fe035cf7133a94a5d",
     "semantic_hash": ""
   },
   "components/Experience.tsx": {
@@ -100,8 +100,8 @@
     "semantic_hash": ""
   },
   "components/BookSection.tsx": {
-    "mtime": 1790650865.0304534,
-    "ast_hash": "073c8445617b78a1a77e26d0f848f561",
+    "mtime": 1790651613.5182023,
+    "ast_hash": "5576c31706e1b1d6d0e1c8710bf377e5",
     "semantic_hash": ""
   },
   "components/GalleryNoir.tsx": {
@@ -225,13 +225,13 @@
     "semantic_hash": ""
   },
   "content/content.json": {
-    "mtime": 1790650595.6919043,
-    "ast_hash": "9e15be68b99b474791e0753c361fc6ba",
+    "mtime": 1790651639.2195797,
+    "ast_hash": "3dd384edf52fe472db86d20c95acfb7f",
     "semantic_hash": ""
   },
   "lib/content.ts": {
-    "mtime": 1790650604.575145,
-    "ast_hash": "df6080602a8558fcbb822ad825478651",
+    "mtime": 1790651639.2198832,
+    "ast_hash": "572fa78142416f7fa3459d6f922b49db",
     "semantic_hash": ""
   },
   "ELLE-TASKS.md": {
@@ -635,18 +635,18 @@
     "semantic_hash": ""
   },
   "app/api/availability/route.ts": {
-    "mtime": 1789179720.78934,
-    "ast_hash": "b1dc2548ecc21e82432a3f5083e6ad67",
+    "mtime": 1790651599.4644525,
+    "ast_hash": "044ae6d1817ca7b2287cf61952d62d0e",
     "semantic_hash": ""
   },
   "app/api/inquiry/route.ts": {
-    "mtime": 1786335448.2098887,
-    "ast_hash": "3257b5bb158f730b3785f97f6edf544c",
+    "mtime": 1790651639.2143588,
+    "ast_hash": "63d2e27ba3ac2b6f05369603bc8a6955",
     "semantic_hash": ""
   },
   "app/api/quote/route.ts": {
-    "mtime": 1790650622.9210274,
-    "ast_hash": "4c14f200624b4b889424f852b29e9d9d",
+    "mtime": 1790651639.2140045,
+    "ast_hash": "ff468e1848b140c3002bb14cf4403960",
     "semantic_hash": ""
   },
   "app/studio/[[...tool]]/page.tsx": {
@@ -660,13 +660,13 @@
     "semantic_hash": ""
   },
   "lib/booking.ts": {
-    "mtime": 1789179237.3070698,
-    "ast_hash": "49d1b09725667f71f4a68c06e761e7d6",
+    "mtime": 1790651570.288831,
+    "ast_hash": "187f514bfb06697992cc854ed2e250f5",
     "semantic_hash": ""
   },
   "lib/hospitable.ts": {
-    "mtime": 1789179696.040693,
-    "ast_hash": "0a7d3a63b48c36a50365e2289e19f0ca",
+    "mtime": 1790651570.2875047,
+    "ast_hash": "7956af42b669493324fb09334934007b",
     "semantic_hash": ""
   },
   "lib/inquiry.ts": {
@@ -705,13 +705,13 @@
     "semantic_hash": ""
   },
   "lib/site-content.ts": {
-    "mtime": 1790650604.576763,
-    "ast_hash": "b343e52e8291d221c38397bb5f7cea67",
+    "mtime": 1790651639.2204418,
+    "ast_hash": "0c62b25439687d02326bd3d61710ea1d",
     "semantic_hash": ""
   },
   "sanity/schemaTypes/siteContent.ts": {
-    "mtime": 1790650595.6750445,
-    "ast_hash": "6f045ae0dfd2e43e0096cac3c4668ad9",
+    "mtime": 1790651639.2147596,
+    "ast_hash": "6280b8ff05cff511c5f3bdde500c9e12",
     "semantic_hash": ""
   },
   "scripts/migrate-site.mjs": {
@@ -740,8 +740,8 @@
     "semantic_hash": ""
   },
   "app/terms/page.tsx": {
-    "mtime": 1786342746.2394369,
-    "ast_hash": "987409fca82ebb8efab264e11b3e034b",
+    "mtime": 1790651649.8662982,
+    "ast_hash": "5019bcfab28bf8f98be389319abe21d1",
     "semantic_hash": ""
   },
   "components/BookingWidgetModal.tsx": {

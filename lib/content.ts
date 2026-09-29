@@ -104,8 +104,6 @@ export type TextContent = {
     sentBody: string;
     // No nightly rate or cleaning fee here on purpose: pricing is Hospitable's,
     // resolved per request. See the note in sanity/schemaTypes/siteContent.ts.
-    /** Drives the guests <select> length + the max-guests note. */
-    guestsMax: number;
     rating: string;
     perNightLabel: string;
     checkInLabel: string;

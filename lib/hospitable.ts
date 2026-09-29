@@ -256,6 +256,31 @@ export async function getPricing(): Promise<PropertyPricing> {
 
 type RawPricing = { currency?: string; cleaning_fee?: RawFeeBlock };
 
+/** The property's own capacity, as Hospitable holds it.
+ *
+ *  Max guests used to live in the CMS, which made it a second editable copy of
+ *  a fact Hospitable already owns — and Hospitable is what refuses an
+ *  over-capacity booking at checkout, so the CMS copy could only ever be the
+ *  one that was wrong. Elle changes the sleeping arrangements in one place now.
+ *
+ *  Null on any failure; callers fall back to DEFAULT_MAX_GUESTS so the guest
+ *  selector is never empty during an outage. */
+export async function getCapacity(): Promise<{ maxGuests: number | null }> {
+  try {
+    const raw = await hospitableGet<{ data?: RawProperty } | RawProperty>(
+      `/properties/${PROPERTY_ID}`,
+      {},
+    );
+    const d = (raw as { data?: RawProperty })?.data ?? (raw as RawProperty);
+    const max = d?.capacity?.max;
+    return { maxGuests: typeof max === "number" && max > 0 ? Math.floor(max) : null };
+  } catch {
+    return { maxGuests: null };
+  }
+}
+
+type RawProperty = { capacity?: { max?: number } };
+
 /** One tax rule, reduced to what a quote needs. */
 export type TaxRule = {
   name: string;

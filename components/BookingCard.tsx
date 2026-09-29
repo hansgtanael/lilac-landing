@@ -52,6 +52,8 @@ type Props = {
   /** Cheapest available night in the loaded window, in cents. Drives the
    *  "from $X" headline; null falls back to the static CMS rate. */
   priceFromCents?: number | null;
+  /** Max guests, from Hospitable via /api/availability. */
+  guestsMax: number;
   onDatesChange: (checkIn: string, checkOut: string) => void;
   onGuestsChange: (guests: string) => void;
   onReserve: () => void;
@@ -80,6 +82,7 @@ export default function BookingCard({
   unavailable,
   minStay,
   priceFromCents = null,
+  guestsMax,
   onDatesChange,
   onGuestsChange,
   onReserve,
@@ -274,14 +277,14 @@ export default function BookingCard({
             onChange={(e) => onGuestsChange(e.target.value)}
             className="w-full bg-transparent text-base text-dark outline-none"
           >
-            {Array.from({ length: booking.guestsMax }, (_, i) => i + 1).map((n) => (
+            {Array.from({ length: guestsMax }, (_, i) => i + 1).map((n) => (
               <option key={n} value={String(n)}>
                 {n} {n === 1 ? "Guest" : "Guests"}
               </option>
             ))}
           </select>
           <p className="text-xs leading-[1.33] text-dark/60">
-            {booking.guestsMaxNote.replace("{n}", String(booking.guestsMax))}
+            {booking.guestsMaxNote.replace("{n}", String(guestsMax))}
           </p>
         </div>
       </div>

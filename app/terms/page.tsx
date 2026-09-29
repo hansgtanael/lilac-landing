@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import LegalPage from "@/components/LegalPage";
 import { site } from "@/lib/content";
+import { DEFAULT_MAX_GUESTS } from "@/lib/booking";
 
 export const metadata: Metadata = {
   title: "Terms of Use | Lilac Landing",
@@ -11,7 +12,10 @@ export const metadata: Metadata = {
 export const dynamic = "force-static";
 
 const EMAIL = site.text.footer.email;
-const GUESTS_MAX = site.text.booking.guestsMax;
+// The Terms page is prerendered, so it cannot ask Hospitable per request.
+// The stated occupancy is the documented figure; Hospitable enforces the
+// real one at checkout.
+const GUESTS_MAX = DEFAULT_MAX_GUESTS;
 
 export default function TermsPage() {
   return (
