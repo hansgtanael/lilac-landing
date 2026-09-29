@@ -136,6 +136,8 @@ export default function PropertyStrip() {
 
       {/* Auto-rotating photo rail — the set is doubled and marquees −50% on a
           linear infinite loop (--rail-speed, SpacingTuner "Gallery speed").
+          170s, slowed from 100s: at the old pace the photos slid past faster
+          than a guest could actually look at one.
           Per-tile mr (not container gap) keeps the two halves exactly equal so
           the seam never shows. Any tile still opens the lightbox; widths
           alternate on the BASE index so both halves match. */}
@@ -146,7 +148,7 @@ export default function PropertyStrip() {
         transition={{ duration: 0.8, ease: EASE }}
         className="overflow-hidden pb-4"
       >
-        <div className="flex w-max animate-[marquee-x_var(--rail-speed,100s)_linear_infinite] motion-reduce:[animation-play-state:paused]">
+        <div className="flex w-max animate-[marquee-x_var(--rail-speed,170s)_linear_infinite] motion-reduce:[animation-play-state:paused]">
           {[...PHOTOS, ...PHOTOS].map((photo, idx) => {
             const i = idx % PHOTOS.length;
             return (

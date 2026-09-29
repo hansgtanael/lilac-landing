@@ -504,30 +504,20 @@
       "norm_label": "amenities.tsx"
     },
     {
-      "label": "ICON_RULES",
+      "label": "ICONS",
       "file_type": "code",
       "source_file": "components/Amenities.tsx",
-      "source_location": "L50",
+      "source_location": "L29",
       "_origin": "ast",
-      "id": "components_amenities_icon_rules",
+      "id": "components_amenities_icons",
       "community": 3,
-      "norm_label": "icon_rules"
-    },
-    {
-      "label": "iconFor()",
-      "file_type": "code",
-      "source_file": "components/Amenities.tsx",
-      "source_location": "L71",
-      "_origin": "ast",
-      "id": "components_amenities_iconfor",
-      "community": 3,
-      "norm_label": "iconfor()"
+      "norm_label": "icons"
     },
     {
       "label": "decimalsOf()",
       "file_type": "code",
       "source_file": "components/Amenities.tsx",
-      "source_location": "L78",
+      "source_location": "L44",
       "_origin": "ast",
       "id": "components_amenities_decimalsof",
       "community": 3,
@@ -537,7 +527,7 @@
       "label": "CountUp()",
       "file_type": "code",
       "source_file": "components/Amenities.tsx",
-      "source_location": "L85",
+      "source_location": "L51",
       "_origin": "ast",
       "id": "components_amenities_countup",
       "community": 3,
@@ -547,7 +537,7 @@
       "label": "Amenities()",
       "file_type": "code",
       "source_file": "components/Amenities.tsx",
-      "source_location": "L103",
+      "source_location": "L69",
       "_origin": "ast",
       "id": "components_amenities_amenities",
       "community": 3,
@@ -630,7 +620,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_bookingcard",
-      "community": 22,
+      "community": 3,
       "norm_label": "bookingcard.tsx"
     },
     {
@@ -640,7 +630,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "components_bookingcard_fmt",
-      "community": 22,
+      "community": 3,
       "norm_label": "fmt()"
     },
     {
@@ -650,7 +640,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "components_bookingcard_months",
-      "community": 22,
+      "community": 3,
       "norm_label": "months"
     },
     {
@@ -660,7 +650,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "components_bookingcard_nightsbetween",
-      "community": 22,
+      "community": 3,
       "norm_label": "nightsbetween()"
     },
     {
@@ -670,7 +660,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "components_bookingcard_props",
-      "community": 22,
+      "community": 3,
       "norm_label": "props"
     },
     {
@@ -680,7 +670,7 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "components_bookingcard_quote",
-      "community": 22,
+      "community": 3,
       "norm_label": "quote"
     },
     {
@@ -690,7 +680,7 @@
       "source_location": "L82",
       "_origin": "ast",
       "id": "components_bookingcard_bookingcard",
-      "community": 22,
+      "community": 3,
       "norm_label": "bookingcard()"
     },
     {
@@ -1460,7 +1450,7 @@
       "source_location": "L58",
       "_origin": "ast",
       "id": "lib_booking_minstaymap",
-      "community": 22,
+      "community": 15,
       "norm_label": "minstaymap"
     },
     {
@@ -2700,7 +2690,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "users_hans_desktop_ridgestone_cm_lilac_landing_v2_package_dependencies_sanity",
-      "community": 1,
+      "community": 14,
       "norm_label": "sanity"
     },
     {
@@ -5029,7 +5019,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/page.tsx",
-      "source_location": "L71",
+      "source_location": "L66",
       "weight": 1.0,
       "source": "app_page_home",
       "target": "lib_inquiry_isinquirydeliveryconfigured"
@@ -5561,7 +5551,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components/Amenities.tsx",
-      "source_location": "L103",
+      "source_location": "L69",
       "weight": 1.0,
       "source": "components_amenities",
       "target": "components_amenities_amenities",
@@ -5571,7 +5561,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components/Amenities.tsx",
-      "source_location": "L85",
+      "source_location": "L51",
       "weight": 1.0,
       "source": "components_amenities",
       "target": "components_amenities_countup",
@@ -5581,7 +5571,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components/Amenities.tsx",
-      "source_location": "L78",
+      "source_location": "L44",
       "weight": 1.0,
       "source": "components_amenities",
       "target": "components_amenities_decimalsof",
@@ -5591,20 +5581,10 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components/Amenities.tsx",
-      "source_location": "L50",
+      "source_location": "L29",
       "weight": 1.0,
       "source": "components_amenities",
-      "target": "components_amenities_icon_rules",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "components/Amenities.tsx",
-      "source_location": "L71",
-      "weight": 1.0,
-      "source": "components_amenities",
-      "target": "components_amenities_iconfor",
+      "target": "components_amenities_icons",
       "confidence_score": 1.0
     },
     {
@@ -5612,7 +5592,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "components/Amenities.tsx",
-      "source_location": "L32",
+      "source_location": "L25",
       "weight": 1.0,
       "source": "components_amenities",
       "target": "components_site_content",
@@ -5623,7 +5603,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "components/Amenities.tsx",
-      "source_location": "L32",
+      "source_location": "L25",
       "weight": 1.0,
       "source": "components_amenities",
       "target": "components_site_content_usesitecontent",
@@ -5634,7 +5614,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "components/Amenities.tsx",
-      "source_location": "L30",
+      "source_location": "L23",
       "weight": 1.0,
       "source": "components_amenities",
       "target": "lib_ease",
@@ -5645,7 +5625,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "components/Amenities.tsx",
-      "source_location": "L30",
+      "source_location": "L23",
       "weight": 1.0,
       "source": "components_amenities",
       "target": "lib_ease_ease",
@@ -5656,7 +5636,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "components/Amenities.tsx",
-      "source_location": "L31",
+      "source_location": "L24",
       "weight": 1.0,
       "source": "components_amenities",
       "target": "lib_usereducedmotion",
@@ -5667,7 +5647,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "components/Amenities.tsx",
-      "source_location": "L31",
+      "source_location": "L24",
       "weight": 1.0,
       "source": "components_amenities",
       "target": "lib_usereducedmotion_usereducedmotion",
@@ -5678,7 +5658,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "components/Amenities.tsx",
-      "source_location": "L86",
+      "source_location": "L52",
       "weight": 1.0,
       "source": "components_amenities_countup",
       "target": "lib_usereducedmotion_usereducedmotion",
@@ -5690,7 +5670,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "components/Amenities.tsx",
-      "source_location": "L104",
+      "source_location": "L70",
       "weight": 1.0,
       "source": "components_amenities_amenities",
       "target": "components_site_content_usesitecontent"
@@ -5701,7 +5681,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "components/Amenities.tsx",
-      "source_location": "L106",
+      "source_location": "L72",
       "weight": 1.0,
       "source": "components_amenities_amenities",
       "target": "lib_usereducedmotion_usereducedmotion"
@@ -10735,5 +10715,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "d1d24082bf0ed6e410b0b94f8a709caadd49b2c9"
+  "built_at_commit": "0a4ae3990e902dc3a25a45d99281d116af2d5325"
 }

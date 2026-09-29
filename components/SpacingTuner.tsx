@@ -97,8 +97,8 @@ export default function SpacingTuner() {
   // the :root value in globals.css (1.15) — same identity-safe rule as above.
   const [photoLift, setPhotoLift] = useState(115);
   // Marquee loop duration (seconds — LOWER is faster):
-  //   railSpeed — Gallery rail (--rail-speed on #property, 100s baked)
-  const [railSpeed, setRailSpeed] = useState(100);
+  //   railSpeed — Gallery rail (--rail-speed on #property, 170s baked)
+  const [railSpeed, setRailSpeed] = useState(170);
 
   // Persist only after a deliberate move — otherwise stale saves would shadow
   // the baked defaults. `dirty` tracks which section vars the user actually

@@ -10,34 +10,68 @@ import {
 } from "motion/react";
 import {
   Waves,
-  Umbrella,
+  Binoculars,
   ForkKnife,
   WifiHigh,
   Car,
   Fire,
+  Campfire,
+  Lightning,
+  Boat,
+  WashingMachine,
+  Bed,
   Key,
   Bathtub,
   Fish,
   Tree,
+  Umbrella,
+  type Icon as PhosphorIcon,
 } from "@phosphor-icons/react";
 import { EASE } from "@/lib/ease";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 import { useSiteContent } from "@/components/site-content";
 
-// In-code icon set — amenity labels come from content and map onto these by
-// index, cycling back to the start if the content list runs longer.
-const ICONS = [
-  Waves,
-  Umbrella,
-  ForkKnife,
-  WifiHigh,
-  Car,
-  Fire,
-  Key,
-  Bathtub,
-  Fish,
-  Tree,
+/* Amenity icons, chosen by what the label SAYS.
+ *
+ * These used to be picked by position — ICONS[i % ICONS.length] — against a
+ * list of ten icons and fifteen amenities. So the last five wrapped around and
+ * got whatever happened to be at the front: the wood-burning fireplace showed
+ * waves, heating and A/C an umbrella, the kayaks a knife and fork. Worse, the
+ * list is CMS-editable, so Elle reordering or inserting one amenity silently
+ * reassigned the icon on every item after it.
+ *
+ * Matching on the label instead means an amenity carries its icon wherever it
+ * moves in the list, and a new one picks up a sensible icon on its own.
+ * Keywords rather than exact strings, so rewording "Two kayaks + life vests"
+ * does not break it.
+ *
+ * Order matters: the first rule that matches wins, so narrower terms sit above
+ * broader ones — "lake view" must be tested before "lake". */
+const ICON_RULES: [RegExp, PhosphorIcon][] = [
+  [/lake view|view of the lake/i, Binoculars],
+  [/fireplace|wood.?burn/i, Campfire],
+  [/heat|a\/c|air con|hvac/i, Lightning],
+  [/kayak|life vest|canoe|paddle/i, Boat],
+  [/laundry|washer|dryer/i, WashingMachine],
+  [/sofa bed|sleeper|bed\b/i, Bed],
+  [/kitchen|cook/i, ForkKnife],
+  [/wifi|internet/i, WifiHigh],
+  [/parking|car/i, Car],
+  [/grill|bbq|barbecue/i, Fire],
+  [/keypad|check.?in|lock|key/i, Key],
+  [/bath|shower/i, Bathtub],
+  [/fish/i, Fish],
+  [/outdoor|yard|deck|patio|seating/i, Tree],
+  [/beach|umbrella|shade/i, Umbrella],
+  [/lake|water|dock|swim/i, Waves],
 ];
+
+/** Falls back to Waves — this is a lake house, so water is the safe guess for
+ *  anything unrecognised, and never looks absurd the way a wrapped index did. */
+function iconFor(label: string): PhosphorIcon {
+  for (const [pattern, Icon] of ICON_RULES) if (pattern.test(label)) return Icon;
+  return Waves;
+}
 
 /** Decimal places a value should render with, derived from the number itself
  *  (2.5 -> 1, 8 -> 0) so the count-up matches the content precision. */
@@ -124,7 +158,7 @@ export default function Amenities() {
           className="mt-14 grid grid-cols-2 gap-x-8 gap-y-8 border-t border-dark/10 pt-12 sm:grid-cols-3 lg:grid-cols-5"
         >
           {amenities.items.map((label, i) => {
-            const Icon = ICONS[i % ICONS.length];
+            const Icon = iconFor(label);
             return (
               <motion.li
                 key={label}
@@ -142,13 +176,10 @@ export default function Amenities() {
           })}
         </motion.ul>
 
-        <motion.p
-          {...fade}
-          transition={{ duration: 0.7, ease: EASE, delay: 0.1 }}
-          className="mt-12 max-w-[52ch] text-sm leading-relaxed text-dark/60"
-        >
-          {amenities.note}
-        </motion.p>
+        {/* The closing note ("Lower East Lake Road is a quiet residential
+            street...") is deliberately not rendered. The field still exists in
+            the CMS, so restoring it is this block coming back — nothing was
+            deleted from Elle's content. */}
       </div>
     </section>
   );
