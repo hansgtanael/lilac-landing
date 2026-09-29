@@ -54,6 +54,9 @@ type Props = {
   priceFromCents?: number | null;
   /** Max guests, from Hospitable via /api/availability. */
   guestsMax: number;
+  /** Dates Hospitable refuses as an arrival / departure day. */
+  closedForCheckin?: string[];
+  closedForCheckout?: string[];
   onDatesChange: (checkIn: string, checkOut: string) => void;
   onGuestsChange: (guests: string) => void;
   onReserve: () => void;
@@ -83,6 +86,8 @@ export default function BookingCard({
   minStay,
   priceFromCents = null,
   guestsMax,
+  closedForCheckin,
+  closedForCheckout,
   onDatesChange,
   onGuestsChange,
   onReserve,
@@ -257,7 +262,9 @@ export default function BookingCard({
               className="overflow-hidden"
             >
               <RangeCalendar
-              minStay={minStay}
+                minStay={minStay}
+                closedForCheckin={closedForCheckin}
+                closedForCheckout={closedForCheckout}
                 checkIn={checkIn}
                 checkOut={checkOut}
                 unavailable={unavailable}

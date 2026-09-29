@@ -132,12 +132,30 @@ export async function GET(request: Request) {
     // Minimum stay, enforced server-side as well as in the calendar: the UI
     // rule can be bypassed by calling this route directly, and a quote that
     // silently ignores it would report a bookable range Hospitable will refuse.
+    // Arrival/departure day rules, enforced here as well as in the calendar.
+    // The UI rule can be bypassed by calling this route directly, and — more
+    // to the point — a quote that ignores it reports a bookable, fully priced
+    // stay that Hospitable refuses the instant the guest presses Reserve.
+    // That is exactly how a $4,155.20 Sunday-to-Sunday week got quoted for a
+    // Saturday-to-Saturday property.
+    const arrivalDay = days.find((d) => d.date === range.checkIn);
+    const departureDay = days.find((d) => d.date === range.checkOut);
+    const arrivalAllowed = !arrivalDay?.closedForCheckin;
+    // A missing checkout row means the window did not reach it; absence is not
+    // proof of a restriction, so it fails open like every other unknown here.
+    const departureAllowed = !departureDay?.closedForCheckout;
+
     const checkInDay = nights.find((d) => d.date === range.checkIn);
     const requiredNights =
       typeof checkInDay?.minStay === "number" && checkInDay.minStay > 1 ? checkInDay.minStay : 1;
     const meetsMinStay = range.nights >= requiredNights;
 
-    const available = nights.length > 0 && nights.every((d) => d.available) && meetsMinStay;
+    const available =
+      nights.length > 0 &&
+      nights.every((d) => d.available) &&
+      meetsMinStay &&
+      arrivalAllowed &&
+      departureAllowed;
     const priced = nights.filter((d) => d.priceCents !== null);
     const subtotalCents = priced.reduce((sum, d) => sum + (d.priceCents ?? 0), 0);
     // Every night priced AND the result plausible. Either check failing means
@@ -185,6 +203,9 @@ export async function GET(request: Request) {
         // than just greying out the button.
         minStayNights: requiredNights,
         meetsMinStay,
+        // Surfaced so the card can say WHY rather than just refusing.
+        arrivalAllowed,
+        departureAllowed,
         // Only report a subtotal when every night carried a price AND that
         // price is plausible; otherwise the card keeps its static math rather
         // than showing a wrong total.

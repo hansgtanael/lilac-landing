@@ -12,6 +12,13 @@ type Props = {
   unavailable?: string[];
   /** ISO date -> minimum nights to start a stay that day. Empty/absent = none. */
   minStay?: MinStayMap;
+  /** Dates Hospitable will not accept as an arrival day, and as a departure
+   *  day. This property is Saturday-to-Saturday, so these cover nearly every
+   *  date. Without them the calendar accepts a range, prices it in full, and
+   *  Hospitable rejects it at checkout with "unavailable for check-in" —
+   *  after the guest has already committed. */
+  closedForCheckin?: string[];
+  closedForCheckout?: string[];
 };
 
 const WEEKDAYS = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
@@ -41,18 +48,36 @@ function sameDay(a: Date | null, b: Date | null) {
 
 /** Range calendar rendered as a light input chip — cream surface, dark text,
  *  the strongest contrast block on the page (per the Figma booking card). */
-export default function RangeCalendar({ checkIn, checkOut, onChange, unavailable, minStay }: Props) {
+export default function RangeCalendar({
+  checkIn,
+  checkOut,
+  onChange,
+  unavailable,
+  minStay,
+  closedForCheckin,
+  closedForCheckout,
+}: Props) {
   const ci = fromISO(checkIn);
   const co = fromISO(checkOut);
   const today = startOfDay(new Date());
   const [view, setView] = useState<Date>(() => ci ?? today);
   const booked = new Set(unavailable ?? []);
+  const noArrival = new Set(closedForCheckin ?? []);
+  const noDeparture = new Set(closedForCheckout ?? []);
 
   // Nights required once a check-in is chosen. While picking a check-out, every
   // date that would land short of this is disabled, so the rule is expressed by
   // what the guest CAN click rather than by an error after they commit.
   const required = ci ? minStayFor(toISO(ci), minStay) : 1;
   const pickingCheckOut = !!ci && !co;
+
+  /** A date the guest cannot use for the half of the range they are choosing.
+   *  Arrival and departure are restricted separately, so the same date can be
+   *  a legal check-out and an illegal check-in. */
+  const wrongDayForStep = (d: Date) => {
+    const key = toISO(d);
+    return pickingCheckOut ? noDeparture.has(key) : noArrival.has(key);
+  };
   /** Too short to satisfy the minimum for the selected check-in. */
   const belowMin = (d: Date) =>
     pickingCheckOut &&
@@ -73,6 +98,7 @@ export default function RangeCalendar({ checkIn, checkOut, onChange, unavailable
     if (d < today || booked.has(toISO(d))) return;
     // Short check-outs are unclickable; earlier dates still restart the range.
     if (belowMin(d)) return;
+    if (wrongDayForStep(d)) return;
     // No range yet, or a complete range exists -> start fresh.
     if (!ci || (ci && co)) {
       onChange(toISO(d), "");
@@ -136,7 +162,8 @@ export default function RangeCalendar({ checkIn, checkOut, onChange, unavailable
           const mid = between(d);
           const isStart = sameDay(d, ci) && !!co;
           const isEnd = sameDay(d, co);
-          const disabled = isPast || isBooked || isShort;
+          const isWrongDay = !isPast && !isBooked && wrongDayForStep(d);
+          const disabled = isPast || isBooked || isShort || isWrongDay;
 
           return (
             <div

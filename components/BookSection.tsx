@@ -65,6 +65,9 @@ export default function BookSection({ inquiryConfigured }: Props) {
   // Sleeps-how-many, straight from Hospitable. The constant is only the value
   // used while that request is in flight or after it fails — not a setting.
   const [guestsMax, setGuestsMax] = useState<number>(DEFAULT_MAX_GUESTS);
+  // Arrival/departure day rules (this property is Saturday-to-Saturday).
+  const [closedForCheckin, setClosedForCheckin] = useState<string[]>([]);
+  const [closedForCheckout, setClosedForCheckout] = useState<string[]>([]);
 
   // Inquiry flow: card -> contact form -> sent.
   const [stage, setStage] = useState<Stage>("idle");
@@ -88,6 +91,8 @@ export default function BookSection({ inquiryConfigured }: Props) {
         if (data.minStay && typeof data.minStay === "object") setMinStay(data.minStay);
         if (typeof data.priceFromCents === "number") setPriceFromCents(data.priceFromCents);
         if (typeof data.guestsMax === "number" && data.guestsMax > 0) setGuestsMax(data.guestsMax);
+        if (Array.isArray(data.closedForCheckin)) setClosedForCheckin(data.closedForCheckin);
+        if (Array.isArray(data.closedForCheckout)) setClosedForCheckout(data.closedForCheckout);
       })
       .catch(() => {});
     return () => {
@@ -251,6 +256,8 @@ export default function BookSection({ inquiryConfigured }: Props) {
               minStay={minStay}
               priceFromCents={priceFromCents}
               guestsMax={guestsMax}
+              closedForCheckin={closedForCheckin}
+              closedForCheckout={closedForCheckout}
               onDatesChange={(ci, co) => {
                 setCheckIn(ci);
                 setCheckOut(co);

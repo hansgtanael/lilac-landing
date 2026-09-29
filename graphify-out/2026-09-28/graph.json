@@ -250,7 +250,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "app_page_home",
-      "community": 14,
+      "community": 3,
       "norm_label": "home()"
     },
     {
@@ -570,7 +570,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_booksection",
-      "community": 3,
+      "community": 22,
       "norm_label": "booksection.tsx"
     },
     {
@@ -580,7 +580,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "components_booksection_stage",
-      "community": 3,
+      "community": 22,
       "norm_label": "stage"
     },
     {
@@ -590,7 +590,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "components_booksection_props",
-      "community": 3,
+      "community": 22,
       "norm_label": "props"
     },
     {
@@ -600,7 +600,7 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "components_booksection_nightsfrom",
-      "community": 3,
+      "community": 22,
       "norm_label": "nightsfrom()"
     },
     {
@@ -610,7 +610,7 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "components_booksection_booksection",
-      "community": 3,
+      "community": 22,
       "norm_label": "booksection()"
     },
     {
@@ -620,7 +620,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_bookingcard",
-      "community": 15,
+      "community": 3,
       "norm_label": "bookingcard.tsx"
     },
     {
@@ -630,7 +630,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "components_bookingcard_fmt",
-      "community": 15,
+      "community": 3,
       "norm_label": "fmt()"
     },
     {
@@ -640,7 +640,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "components_bookingcard_months",
-      "community": 15,
+      "community": 3,
       "norm_label": "months"
     },
     {
@@ -650,7 +650,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "components_bookingcard_nightsbetween",
-      "community": 15,
+      "community": 3,
       "norm_label": "nightsbetween()"
     },
     {
@@ -660,7 +660,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "components_bookingcard_props",
-      "community": 15,
+      "community": 3,
       "norm_label": "props"
     },
     {
@@ -670,7 +670,7 @@
       "source_location": "L64",
       "_origin": "ast",
       "id": "components_bookingcard_quote",
-      "community": 15,
+      "community": 3,
       "norm_label": "quote"
     },
     {
@@ -680,7 +680,7 @@
       "source_location": "L78",
       "_origin": "ast",
       "id": "components_bookingcard_bookingcard",
-      "community": 15,
+      "community": 3,
       "norm_label": "bookingcard()"
     },
     {
@@ -690,7 +690,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_bookingwidgetmodal",
-      "community": 15,
+      "community": 22,
       "norm_label": "bookingwidgetmodal.tsx"
     },
     {
@@ -700,7 +700,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "components_bookingwidgetmodal_props",
-      "community": 15,
+      "community": 22,
       "norm_label": "props"
     },
     {
@@ -710,7 +710,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "components_bookingwidgetmodal_bookingwidgetmodal",
-      "community": 15,
+      "community": 22,
       "norm_label": "bookingwidgetmodal()"
     },
     {
@@ -1110,7 +1110,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_smoothscroll",
-      "community": 3,
+      "community": 7,
       "norm_label": "smoothscroll.tsx"
     },
     {
@@ -1120,7 +1120,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "components_smoothscroll_smoothscroll",
-      "community": 3,
+      "community": 7,
       "norm_label": "smoothscroll()"
     },
     {
@@ -1130,7 +1130,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_spacingtuner",
-      "community": 17,
+      "community": 3,
       "norm_label": "spacingtuner.tsx"
     },
     {
@@ -1140,7 +1140,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "components_spacingtuner_row",
-      "community": 17,
+      "community": 3,
       "norm_label": "row()"
     },
     {
@@ -1150,7 +1150,7 @@
       "source_location": "L56",
       "_origin": "ast",
       "id": "components_spacingtuner_spacingtuner",
-      "community": 17,
+      "community": 3,
       "norm_label": "spacingtuner()"
     },
     {
@@ -1450,7 +1450,7 @@
       "source_location": "L81",
       "_origin": "ast",
       "id": "lib_booking_validateminstay",
-      "community": 3,
+      "community": 22,
       "norm_label": "validateminstay()"
     },
     {
@@ -1480,7 +1480,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_bookingwidget",
-      "community": 15,
+      "community": 22,
       "norm_label": "bookingwidget.ts"
     },
     {
@@ -1490,37 +1490,47 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "lib_bookingwidget_isbookingwidgetconfigured",
-      "community": 15,
+      "community": 22,
       "norm_label": "isbookingwidgetconfigured()"
+    },
+    {
+      "label": "PASSTHROUGH",
+      "file_type": "code",
+      "source_file": "lib/bookingWidget.ts",
+      "source_location": "L51",
+      "_origin": "ast",
+      "id": "lib_bookingwidget_passthrough",
+      "community": 22,
+      "norm_label": "passthrough"
     },
     {
       "label": "Prefill",
       "file_type": "code",
       "source_file": "lib/bookingWidget.ts",
-      "source_location": "L39",
+      "source_location": "L61",
       "_origin": "ast",
       "id": "lib_bookingwidget_prefill",
-      "community": 15,
+      "community": 22,
       "norm_label": "prefill"
     },
     {
       "label": "buildBookingUrl()",
       "file_type": "code",
       "source_file": "lib/bookingWidget.ts",
-      "source_location": "L54",
+      "source_location": "L76",
       "_origin": "ast",
       "id": "lib_bookingwidget_buildbookingurl",
-      "community": 15,
+      "community": 22,
       "norm_label": "buildbookingurl()"
     },
     {
       "label": "bookingWidgetOrigin()",
       "file_type": "code",
       "source_file": "lib/bookingWidget.ts",
-      "source_location": "L67",
+      "source_location": "L99",
       "_origin": "ast",
       "id": "lib_bookingwidget_bookingwidgetorigin",
-      "community": 15,
+      "community": 22,
       "norm_label": "bookingwidgetorigin()"
     },
     {
@@ -2120,7 +2130,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "lib_sanity_urlfor",
-      "community": 14,
+      "community": 19,
       "norm_label": "urlfor()"
     },
     {
@@ -2130,7 +2140,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_site_content",
-      "community": 14,
+      "community": 19,
       "norm_label": "site-content.ts"
     },
     {
@@ -2140,7 +2150,7 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "lib_site_content_rawimage",
-      "community": 14,
+      "community": 19,
       "norm_label": "rawimage"
     },
     {
@@ -2150,7 +2160,7 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "lib_site_content_rawphoto",
-      "community": 14,
+      "community": 19,
       "norm_label": "rawphoto"
     },
     {
@@ -2160,7 +2170,7 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "lib_site_content_rawhouseroom",
-      "community": 14,
+      "community": 19,
       "norm_label": "rawhouseroom"
     },
     {
@@ -2170,7 +2180,7 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "lib_site_content_rawtitlesub",
-      "community": 14,
+      "community": 19,
       "norm_label": "rawtitlesub"
     },
     {
@@ -2180,7 +2190,7 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "lib_site_content_rawaboutsection",
-      "community": 14,
+      "community": 19,
       "norm_label": "rawaboutsection"
     },
     {
@@ -2190,7 +2200,7 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "lib_site_content_rawaboutroom",
-      "community": 14,
+      "community": 19,
       "norm_label": "rawaboutroom"
     },
     {
@@ -2200,7 +2210,7 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "lib_site_content_rawsitecontent",
-      "community": 14,
+      "community": 19,
       "norm_label": "rawsitecontent"
     },
     {
@@ -2210,7 +2220,7 @@
       "source_location": "L147",
       "_origin": "ast",
       "id": "lib_site_content_imgurl",
-      "community": 14,
+      "community": 19,
       "norm_label": "imgurl()"
     },
     {
@@ -2220,7 +2230,7 @@
       "source_location": "L153",
       "_origin": "ast",
       "id": "lib_site_content_tophoto",
-      "community": 14,
+      "community": 19,
       "norm_label": "tophoto()"
     },
     {
@@ -2230,7 +2240,7 @@
       "source_location": "L160",
       "_origin": "ast",
       "id": "lib_site_content_toroomentry",
-      "community": 14,
+      "community": 19,
       "norm_label": "toroomentry()"
     },
     {
@@ -2240,7 +2250,7 @@
       "source_location": "L175",
       "_origin": "ast",
       "id": "lib_site_content_resolve",
-      "community": 14,
+      "community": 19,
       "norm_label": "resolve()"
     },
     {
@@ -2250,7 +2260,7 @@
       "source_location": "L310",
       "_origin": "ast",
       "id": "lib_site_content_getsitecontent",
-      "community": 14,
+      "community": 3,
       "norm_label": "getsitecontent()"
     },
     {
@@ -7989,7 +7999,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "lib/bookingWidget.ts",
-      "source_location": "L67",
+      "source_location": "L99",
       "weight": 1.0,
       "source": "lib_bookingwidget",
       "target": "lib_bookingwidget_bookingwidgetorigin",
@@ -7999,7 +8009,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "lib/bookingWidget.ts",
-      "source_location": "L54",
+      "source_location": "L76",
       "weight": 1.0,
       "source": "lib_bookingwidget",
       "target": "lib_bookingwidget_buildbookingurl",
@@ -8019,7 +8029,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "lib/bookingWidget.ts",
-      "source_location": "L39",
+      "source_location": "L51",
+      "weight": 1.0,
+      "source": "lib_bookingwidget",
+      "target": "lib_bookingwidget_passthrough",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/bookingWidget.ts",
+      "source_location": "L61",
       "weight": 1.0,
       "source": "lib_bookingwidget",
       "target": "lib_bookingwidget_prefill",
@@ -8030,7 +8050,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "lib/bookingWidget.ts",
-      "source_location": "L68",
+      "source_location": "L100",
       "weight": 1.0,
       "source": "lib_bookingwidget_bookingwidgetorigin",
       "target": "lib_bookingwidget_isbookingwidgetconfigured",
@@ -8041,11 +8061,22 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "lib/bookingWidget.ts",
-      "source_location": "L55",
+      "source_location": "L77",
       "weight": 1.0,
       "source": "lib_bookingwidget_buildbookingurl",
       "target": "lib_bookingwidget_isbookingwidgetconfigured",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "indirect_call",
+      "context": "argument",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "lib/bookingWidget.ts",
+      "source_location": "L88",
+      "weight": 1.0,
+      "source": "lib_bookingwidget_buildbookingurl",
+      "target": "scripts_migrate_site_key"
     },
     {
       "relation": "contains",
@@ -10568,5 +10599,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "1930a1be8231ab5be6eee7e00309c8025cccb64e"
+  "built_at_commit": "e889964256cd1b708b23921c624ffc9f69ff789d"
 }

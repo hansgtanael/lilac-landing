@@ -28,7 +28,16 @@ export async function GET(request: Request) {
   // credentials or feed URLs exist.
   if (!isConfigured() && !isIcalConfigured()) {
     return Response.json(
-      { configured: false, unavailable: [], currency: null, minStay: {}, priceFromCents: null, guestsMax: null },
+      {
+        configured: false,
+        unavailable: [],
+        currency: null,
+        minStay: {},
+        priceFromCents: null,
+        guestsMax: null,
+        closedForCheckin: [],
+        closedForCheckout: [],
+      },
       { headers: { "cache-control": "no-store" } },
     );
   }
@@ -77,6 +86,14 @@ export async function GET(request: Request) {
         .map((d) => d.priceCents as number);
       const priceFromCents = bookablePrices.length ? Math.min(...bookablePrices) : null;
 
+      // Arrival/departure day rules. This property is Saturday-to-Saturday, so
+      // most dates are closed to both. Sent as two date lists rather than a
+      // weekday rule because the restriction is per-date in the API and can
+      // differ across a season — deriving "Saturdays only" from a sample would
+      // be a guess that breaks the week it stops being true.
+      const closedForCheckin = days.filter((d) => d.closedForCheckin).map((d) => d.date);
+      const closedForCheckout = days.filter((d) => d.closedForCheckout).map((d) => d.date);
+
       return Response.json(
         {
           configured: true,
@@ -86,6 +103,8 @@ export async function GET(request: Request) {
           minStay,
           priceFromCents,
           guestsMax: capacity.maxGuests,
+          closedForCheckin,
+          closedForCheckout,
         },
         { headers: { "cache-control": "no-store" } },
       );
@@ -102,6 +121,8 @@ export async function GET(request: Request) {
             minStay: {},
             priceFromCents: null,
             guestsMax: null,
+            closedForCheckin: [],
+            closedForCheckout: [],
             degraded: true,
           },
           { headers: { "cache-control": "no-store" } },
@@ -123,6 +144,9 @@ export async function GET(request: Request) {
       minStay: {},
       priceFromCents: null,
       guestsMax: null,
+      // iCal feeds carry no arrival-day rules.
+      closedForCheckin: [],
+      closedForCheckout: [],
       // Every feed failed -> the empty list means "unknown", not "all free".
       // Surfaced so the UI can soften its wording rather than promise availability.
       degraded: feedsTotal > 0 && feedsOk === 0,

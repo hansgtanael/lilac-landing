@@ -45,10 +45,18 @@ export type CalendarDay = {
   priceCents: number | null;
   currency: string | null;
   /** Minimum nights required to START a stay on this date, when reported.
-   *  This property returns 3 and 7 depending on the date, so a guest can pick a
-   *  range the card accepts but Hospitable will refuse at checkout. Surfaced
-   *  here so the booking UI can enforce it; nothing consumes it yet. */
+   *  This property returns 3, 4 and 7 depending on the date, so a guest can
+   *  pick a range the card accepts but Hospitable will refuse at checkout. */
   minStay: number | null;
+  /** Arrival/departure day rules. THIS PROPERTY IS SATURDAY-TO-SATURDAY:
+   *  every day carries closed_for_checkin/checkout true except Saturdays.
+   *
+   *  Ignoring these is not cosmetic. The card quoted $4,155.20 for a
+   *  Sunday-to-Sunday week that Hospitable refuses outright — a full,
+   *  confident price for a stay that cannot exist, discovered by the guest
+   *  only after they pressed Reserve. */
+  closedForCheckin: boolean;
+  closedForCheckout: boolean;
 };
 
 export type CalendarResult = {
@@ -119,6 +127,8 @@ type RawCalendarDay = {
   min_stay?: number;
   available?: boolean;
   status?: { available?: boolean; reason?: string } | string;
+  closed_for_checkin?: boolean;
+  closed_for_checkout?: boolean;
   availability?: { available?: boolean } | boolean;
   price?: { amount?: number; currency?: string } | number;
   pricing?: { price?: { amount?: number; currency?: string } };
@@ -174,6 +184,10 @@ function normalizeCalendar(rows: RawCalendarDay[]): CalendarResult {
       priceCents,
       currency: priceObj?.currency ?? null,
       minStay: typeof row.min_stay === "number" ? row.min_stay : null,
+      // Fail OPEN on an unknown shape, like `available` above: a missing flag
+      // must never invent a restriction that locks the calendar.
+      closedForCheckin: row.closed_for_checkin === true,
+      closedForCheckout: row.closed_for_checkout === true,
     });
   }
 
