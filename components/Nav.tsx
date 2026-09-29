@@ -193,21 +193,10 @@ export default function Nav() {
                   </motion.button>
                 ))}
 
-                {/* The booking CTA, last and styled as the only filled thing in
-                    the panel — the one action among a list of destinations. */}
-                <motion.button
-                  onClick={() => handleNav("#reserve")}
-                  className="mt-4 flex h-12 items-center justify-center rounded-full bg-brand px-8 font-helvetica text-[14px] font-bold uppercase tracking-[0.08em] text-dark transition-colors duration-300 ease-luxe hover:bg-brand-dark active:scale-[0.98]"
-                  initial={reduce ? { opacity: 1, x: 0 } : { opacity: 0, x: 18 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{
-                    duration: 0.4,
-                    ease: EASE,
-                    delay: reduce ? 0 : 0.12 + LINKS.length * 0.05,
-                  }}
-                >
-                  {nav.cta}
-                </motion.button>
+                {/* No booking CTA here. The hero already carries one, and
+                    "Availability" above remaps to #reserve (HREF_REMAP), so the
+                    calendar is still one tap from this menu — a second button
+                    saying the same thing only split the emphasis. */}
               </div>
             </motion.div>
           </>
