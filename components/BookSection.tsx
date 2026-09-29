@@ -247,9 +247,33 @@ export default function BookSection({ inquiryConfigured }: Props) {
               <p className="text-base text-dark/60">{booking.sentBody}</p>
             </div>
           ) : stage === "idle" ? (
-            <BookingWidget
-              onEmailInstead={() => setStage(inquiryConfigured ? "form" : "contact")}
-            />
+            <div className="flex flex-col gap-5">
+              {/* Rate headline. Lives out here rather than inside the frame
+                  because the widget only reveals a price once dates are
+                  chosen, and a page whose job is to sell a week should say
+                  what one costs before asking for anything.
+
+                  "from" is load-bearing: nightly pricing is dynamic here
+                  ($489-$574 across the year), so a single figure would be
+                  wrong for most dates — and wrong LOW on peak dates, which is
+                  the version a guest notices at checkout.
+
+                  Rendered only when Hospitable actually returned a rate. There
+                  is no static fallback to print, by design: a made-up number
+                  is the one thing this must never show. */}
+              {priceFromCents !== null && (
+                <p className="text-dark">
+                  <span className="text-base text-dark/60">from </span>
+                  <span className="text-2xl font-medium">
+                    ${Math.round(priceFromCents / 100).toLocaleString("en-US")}
+                  </span>
+                  <span className="ml-1 text-base text-dark/60">{booking.perNightLabel}</span>
+                </p>
+              )}
+              <BookingWidget
+                onEmailInstead={() => setStage(inquiryConfigured ? "form" : "contact")}
+              />
+            </div>
           ) : stage === "contact" ? (
             /* The floor. Nothing here depends on a key, a domain or a server:
                a mailto link with the dates already filled in cannot be
