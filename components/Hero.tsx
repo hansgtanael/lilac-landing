@@ -132,9 +132,15 @@ export default function Hero() {
             transition={{ duration: 0.9, ease: EASE, delay: delay(3) }}
           >
             {/* Primary — lilac pill, navy label, hairline ring, nested icon
-                circle that nudges on hover; hover inverts to cream. */}
+                circle that nudges on hover; hover inverts to cream.
+                
+                Lands on #reserve, not #booking. This is the Book Direct CTA
+                now, and a button that says "Book Now" should put the calendar
+                under the guest's cursor — #booking is the top of the section,
+                which is a lake photo they then have to scroll past. Nav's own
+                booking links already remap the same way (Nav.tsx HREF_REMAP). */}
             <button
-              onClick={() => scrollTo("#booking")}
+              onClick={() => scrollTo("#reserve")}
               className="group flex h-[42px] items-center gap-2 rounded-full border border-white/30 bg-brand px-5 text-base font-semibold tracking-[0.04em] text-dark transition-colors duration-[400ms] ease-luxe hover:bg-light active:scale-[0.98]"
             >
               {hero.ctaPrimary}

@@ -60,13 +60,13 @@ export default async function Home() {
           <div className="pointer-events-none relative -mt-[140px] md:-mt-[240px]">
             <WaveHills />
           </div>
-          {/* Experience and Amenities swapped (Hans, 2026-09-29): the quote
-              and highlights now land straight after the wave divider, and the
-              amenity checklist sits after the photo rail — detail reads better
-              once someone has already seen the place. Both sections are
+          {/* Order set by Hans, 2026-09-29: photos, then the story, then the
+              checklist. A Closer Look leads because the place sells itself
+              before any copy does; the amenity list lands last, where detail
+              reads better once someone has already seen it. All three are
               bg-linen, so the colour run through this zone is unchanged. */}
-          <Experience />
           <PropertyStrip />
+          <Experience />
           <Amenities />
           <BookSection inquiryConfigured={isInquiryDeliveryConfigured()} />
         </div>
