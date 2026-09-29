@@ -483,7 +483,7 @@
     "booking": {
       "lakeLabel": "THE LAKE",
       "heading": "Book Now",
-      "body": "The same house and the same dates, without the service fee Airbnb and Vrbo add at checkout — on a week here, that runs into the hundreds. Booking direct also means you reach us rather than a support queue, so questions about the dock, the kayaks or an early arrival get answered by the people who own the place. The price below includes cleaning and taxes, so what you see is what you pay.",
+      "body": "Our lowest rate is on this page. Airbnb and Vrbo take a commission on every booking, and we would rather hand that back to you than to them — so the same house, on the same dates, costs less booked here than anywhere you will find us listed.\n\nYou are also dealing with us directly. Questions about the dock, the kayaks, or arriving a little early reach the people who own the house rather than a support queue. The price below includes cleaning and taxes, so what you see is what you pay.",
       "features": [
         {
           "title": "Lakefront",
@@ -499,7 +499,7 @@
         }
       ],
       "policyTitle": "Direct Booking Policy",
-      "policyBody": "Booking direct keeps the platform commission out of your total and puts you in touch with the owners. Your dates are held the moment you confirm.",
+      "policyBody": "Booking direct keeps the listing platforms' commission out of your total. Your dates are held the moment you confirm.",
       "sentTitle": "We’ll be in touch soon.",
       "sentBody": "Your dates are noted. Watch your inbox for a reply.",
       "rating": "4.98",
