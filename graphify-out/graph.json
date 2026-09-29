@@ -6394,7 +6394,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "components/BookingWidget.tsx",
-      "source_location": "L89",
+      "source_location": "L92",
       "weight": 1.0,
       "source": "components_bookingwidget_bookingwidget",
       "target": "lib_bookingwidget_buildbookingurl"
@@ -6405,7 +6405,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "components/BookingWidget.tsx",
-      "source_location": "L84",
+      "source_location": "L87",
       "weight": 1.0,
       "source": "components_bookingwidget_bookingwidget",
       "target": "lib_bookingwidget_isbookingwidgetconfigured"
@@ -10715,5 +10715,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "408552e9d131894b706c02bf7353f0e0ea1ca6db"
+  "built_at_commit": "cbd7f9d785bd2ec4f761e02d6355844795707b31"
 }

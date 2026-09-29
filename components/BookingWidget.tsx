@@ -69,7 +69,10 @@ export default function BookingWidget({ onEmailInstead }: Props) {
             : NaN;
       if (!Number.isFinite(raw)) return;
 
-      setHeight(Math.min(MAX_HEIGHT, Math.max(MIN_HEIGHT, Math.round(raw))));
+      // +2px: the reported height and the rendered height can disagree by a
+      // sub-pixel after layout rounding, and one stray pixel is all it takes
+      // for the frame to decide it needs a scrollbar.
+      setHeight(Math.min(MAX_HEIGHT, Math.max(MIN_HEIGHT, Math.round(raw) + 2)));
       setReady(true);
     };
 
@@ -116,6 +119,13 @@ export default function BookingWidget({ onEmailInstead }: Props) {
           src={src}
           title="Check availability and book"
           className="h-full w-full border-0"
+          /* No scrollbar inside the frame, ever. The widget reports its own
+             content height as it changes (see the message listener above), so
+             the frame is already as tall as what it holds — a scrollbar here
+             would only ever be chrome for a pixel of rounding, and a panel
+             that scrolls inside a page that also scrolls is miserable to use
+             on a trackpad. */
+          scrolling="no"
           /* payment: Hospitable takes card details in-frame. The site-wide
              Permissions-Policy in next.config.ts must also allow payment, or
              this has nothing to delegate and the card field silently refuses
