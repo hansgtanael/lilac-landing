@@ -102,9 +102,8 @@ export type TextContent = {
     policyBody: string;
     sentTitle: string;
     sentBody: string;
-    /** Drives the price header + fee breakdown math. */
-    pricePerNight: number;
-    cleaningFee: number;
+    // No nightly rate or cleaning fee here on purpose: pricing is Hospitable's,
+    // resolved per request. See the note in sanity/schemaTypes/siteContent.ts.
     /** Drives the guests <select> length + the max-guests note. */
     guestsMax: number;
     rating: string;

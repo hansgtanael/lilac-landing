@@ -10,7 +10,20 @@ import { useSiteContent } from "@/components/site-content";
 import type { MinStayMap } from "@/lib/booking";
 import { isBookingWidgetConfigured } from "@/lib/bookingWidget";
 
-const fmt = (n: number) => `$${n.toLocaleString("en-US")}`;
+/** Money, always. Whole dollars print bare ($3,423) but anything with cents
+ *  prints both digits ($445.20, never "$445.2").
+ *
+ *  This only began to matter when pricing moved wholly to Hospitable: the old
+ *  static figures were whole dollars, so the missing digit never showed. Live
+ *  taxes are not, and "$4,155.2" on a total reads as a typo on exactly the
+ *  number a guest scrutinises hardest. */
+const fmt = (n: number) => {
+  const cents = Math.round(n * 100) % 100;
+  return `$${n.toLocaleString("en-US", {
+    minimumFractionDigits: cents === 0 ? 0 : 2,
+    maximumFractionDigits: 2,
+  })}`;
+};
 
 const MONTHS = [
   "January", "February", "March", "April", "May", "June",
@@ -73,8 +86,6 @@ export default function BookingCard({
 }: Props) {
   const site = useSiteContent();
   const { booking } = site.text;
-  const NIGHTLY_RATE = booking.pricePerNight;
-  const CLEANING_FEE = booking.cleaningFee;
 
   /** "2026-06-12" -> "June 12, 2026" (parsed as local date, not UTC). */
   const fmtDate = (iso: string): string => {
@@ -136,34 +147,36 @@ export default function BookingCard({
   const liveTax = quote?.configured && quote.taxCents !== null ? quote.taxCents / 100 : null;
   const liveTotal = quote?.configured && quote.totalCents !== null ? quote.totalCents / 100 : null;
 
-  const stay = liveStay ?? nights * NIGHTLY_RATE;
-  const cleaning = liveCleaning ?? CLEANING_FEE;
-  const total = liveTotal ?? stay + (nights > 0 ? cleaning : 0);
+  // Live or nothing. There is no second set of numbers to fall back on any
+  // more, and that is the point: the card can no longer quote a figure that
+  // Hospitable would not charge.
+  const stay = liveStay;
+  const cleaning = liveCleaning;
+  const total = liveTotal;
 
   /* -------- What this card is allowed to promise --------------------------
    *
-   * A total is only trustworthy when it CAME from Hospitable: the CMS figures
-   * drift (cleaning was $200 against a real $287) and carry no tax at all, so
-   * static math understates a real stay by ~18%.
+   * Hospitable is now the only source of a price, so the rule is simple:
+   * a number appears here when it came from Hospitable, and otherwise no
+   * number appears at all.
    *
-   * The dangerous case is not "no data" — it is losing the API while a working
-   * checkout stays up. The card would keep rendering a confident static total
-   * and the widget would charge a different one seconds later. That happens on
-   * a plan downgrade, an expired token (they last a year), or any upstream
-   * outage, and nothing about the page would look wrong.
+   * The failure this prevents is not "no data" — an empty card is obviously
+   * empty. It is a confident WRONG total: the API drops out (plan downgrade,
+   * expired token, upstream outage) while checkout stays up, the card quotes
+   * from some second source, and the widget charges something different
+   * seconds later. Nothing about the page would look broken. The guest would
+   * simply be lied to, then corrected at the moment they reach for a card.
    *
-   * So: quote an exact total only when it is live. If it is not, and a real
-   * checkout exists to charge the guest, show no total at all and let the
-   * checkout be the single source of truth. Only when there is no checkout —
-   * the email-enquiry flow, where a human quotes the price anyway — is the
-   * static estimate the useful answer.
+   * Deleting the second source is what makes that unreachable rather than
+   * merely unlikely.
    * --------------------------------------------------------------------- */
   const priceIsLive = liveTotal !== null;
   const totalApprox = priceIsLive && quote?.totalExact === false;
   // Read once: it is a build-time constant, not reactive state.
   const hasCheckout = isBookingWidgetConfigured();
-  /** Defer to checkout rather than print a number we cannot stand behind. */
-  const deferPricing = !priceIsLive && hasCheckout && nights > 0;
+  /** Dates are chosen but no live price exists. Say where the price comes from
+   *  instead of printing one, whether or not checkout is wired up. */
+  const deferPricing = !priceIsLive && nights > 0;
   const soldOut = quote?.configured && quote.available === false;
 
   const fold = {
@@ -176,23 +189,28 @@ export default function BookingCard({
     <div className="flex flex-col gap-6 border border-dark/10 bg-linen p-8 shadow-[0_20px_45px_rgba(44,40,37,0.1)]">
       {/* Price header */}
       <div className="flex items-baseline justify-between">
-        <p className="text-dark">
-          {/* Live rate when we have one. "from" is load-bearing: nightly
-              pricing is dynamic ($489-$574 here), so a single figure would be
-              wrong for most dates — and wrong LOW on peak dates, which is the
-              version a guest notices at checkout. */}
-          {priceFromCents !== null && liveStay === null ? (
-            <>
-              <span className="text-base text-dark/60">from </span>
-              <span className="text-xl font-medium">{fmt(Math.round(priceFromCents / 100))}</span>
-            </>
-          ) : liveStay !== null && nights > 0 ? (
+        {/* A rate appears only when Hospitable supplied one. "from" is
+            load-bearing on the headline: nightly pricing is dynamic
+            ($489-$574 here), so a single figure would be wrong for most dates
+            — and wrong LOW on peak dates, which is the version a guest
+            notices at checkout.
+
+            With no live figure there is nothing honest to print, so the card
+            says where the price comes from instead of inventing one. */}
+        {liveStay !== null && nights > 0 ? (
+          <p className="text-dark">
             <span className="text-xl font-medium">{fmt(Math.round(liveStay / nights))}</span>
-          ) : (
-            <span className="text-xl font-medium">{fmt(NIGHTLY_RATE)}</span>
-          )}
-          <span className="ml-1 text-base text-dark/60">{booking.perNightLabel}</span>
-        </p>
+            <span className="ml-1 text-base text-dark/60">{booking.perNightLabel}</span>
+          </p>
+        ) : priceFromCents !== null ? (
+          <p className="text-dark">
+            <span className="text-base text-dark/60">from </span>
+            <span className="text-xl font-medium">{fmt(Math.round(priceFromCents / 100))}</span>
+            <span className="ml-1 text-base text-dark/60">{booking.perNightLabel}</span>
+          </p>
+        ) : (
+          <p className="text-base text-dark/60">Choose dates for pricing</p>
+        )}
         <p className="flex items-center gap-1 text-base text-dark">
           <Star weight="fill" size={14} className="text-brand-deep" />
           {booking.rating}
@@ -292,87 +310,77 @@ export default function BookingCard({
             className="-mt-2 overflow-hidden"
           >
             <div className="flex flex-col gap-3 text-base text-dark">
-              <div className="flex justify-between">
-                <span>
-                  {deferPricing && "Estimated "}
-                  {liveStay !== null ? (
-                    <>
-                      Stay &times; {nights} {nights === 1 ? "night" : "nights"}
-                    </>
-                  ) : (
-                    <>
-                      {fmt(NIGHTLY_RATE)} &times; {nights}{" "}
-                      {nights === 1 ? "night" : "nights"}
-                    </>
-                  )}
-                </span>
-                <span>{fmt(stay)}</span>
-              </div>
-              {/* Static cleaning is known to drift from the real fee, so it is
-                  shown only when live or when nothing else will quote it. */}
-              {!deferPricing && (
-                <div className="flex justify-between">
-                  <span>{booking.cleaningFeeLabel}</span>
-                  <span>{fmt(cleaning)}</span>
-                </div>
-              )}
-              {liveTax !== null && liveTax > 0 && (
-                <div className="flex justify-between">
-                  <span>Taxes</span>
-                  <span>{fmt(liveTax)}</span>
-                </div>
-              )}
-              {!deferPricing && (
-                <div className="flex justify-between">
-                  <span>{booking.serviceFeeLabel}</span>
-                  <span>$0</span>
-                </div>
-              )}
-              <div className="h-px w-full bg-dark/10" />
               {deferPricing ? (
-                /* No total: cleaning and taxes are unknown right now, and the
-                   checkout is about to state the real figure. Printing a
-                   confident number here is the one thing that would make the
-                   two disagree in front of the guest. */
+                /* No live quote for these dates. Every figure below would have
+                   to be invented, so none of them is shown — the guest is told
+                   where the real number comes from instead. */
                 <p className="text-dark/55">
-                  Cleaning and taxes are calculated at checkout, where you&apos;ll see
-                  the final price before paying.
+                  {hasCheckout
+                    ? "Your exact price, including cleaning and taxes, is shown at checkout before you pay."
+                    : "We'll confirm the exact price, including cleaning and taxes, when we reply."}
                 </p>
               ) : (
-              <div className="flex justify-between font-medium">
-                <span>
-                  {booking.totalLabel}
-                  {totalApprox && (
-                    <span className="ml-1 font-normal text-dark/50">(estimated)</span>
+                <>
+                  <div className="flex justify-between">
+                    <span>
+                      Stay &times; {nights} {nights === 1 ? "night" : "nights"}
+                    </span>
+                    <span>{fmt(stay as number)}</span>
+                  </div>
+                  {cleaning !== null && (
+                    <div className="flex justify-between">
+                      <span>{booking.cleaningFeeLabel}</span>
+                      <span>{fmt(cleaning)}</span>
+                    </div>
                   )}
-                </span>
-                {/* Re-keyed on change so the number slides in fresh.
-                 *
-                 * CORRECTNESS BEFORE MOTION: this deliberately animates only
-                 * position, never opacity, and uses no AnimatePresence.
-                 *
-                 * The previous version faded a new value in from opacity 0
-                 * while the old one sat at opacity 1. If that transition did
-                 * not run — a backgrounded tab pauses requestAnimationFrame,
-                 * which is exactly what happens in a hidden preview — the
-                 * STALE total stayed fully visible and the correct one was
-                 * invisible on top of it. For a price, that is the worst
-                 * possible failure: the guest reads a number we already know
-                 * is wrong. An exiting sibling also meant both totals existed
-                 * in the DOM at once, which screen readers announced.
-                 *
-                 * Now the correct figure paints at full opacity on its first
-                 * frame and the animation is pure decoration: if it never
-                 * runs, the number is simply already in place. */}
-                <motion.span
-                  key={total}
-                  initial={reduce ? false : { y: 6 }}
-                  animate={{ y: 0 }}
-                  transition={{ duration: 0.25, ease: EASE }}
-                >
-                  {fmt(total)}
-                </motion.span>
-              </div>
+                  {liveTax !== null && liveTax > 0 && (
+                    <div className="flex justify-between">
+                      <span>Taxes</span>
+                      <span>{fmt(liveTax)}</span>
+                    </div>
+                  )}
+                  {/* Always $0 and always shown: booking direct rather than
+                      through Airbnb is the whole pitch, and this is the line
+                      that proves it. */}
+                  <div className="flex justify-between">
+                    <span>{booking.serviceFeeLabel}</span>
+                    <span>$0</span>
+                  </div>
+                  <div className="h-px w-full bg-dark/10" />
+                  <div className="flex justify-between font-medium">
+                    <span>
+                      {booking.totalLabel}
+                      {totalApprox && (
+                        <span className="ml-1 font-normal text-dark/50">(estimated)</span>
+                      )}
+                    </span>
+                    {/* Re-keyed on change so the number slides in fresh.
+                     *
+                     * CORRECTNESS BEFORE MOTION: this deliberately animates
+                     * only position, never opacity, and uses no
+                     * AnimatePresence.
+                     *
+                     * A previous version faded a new value in from opacity 0
+                     * while the old one sat at opacity 1. If that transition
+                     * did not run — a backgrounded tab pauses
+                     * requestAnimationFrame, which is exactly what happens in
+                     * a hidden preview — the STALE total stayed fully visible
+                     * and the correct one was invisible on top of it. For a
+                     * price that is the worst possible failure: the guest
+                     * reads a number we already know is wrong.
+                     *
+                     * Now the correct figure paints at full opacity on its
+                     * first frame and the animation is pure decoration. */}
+                    <motion.span
+                      key={total as number}
+                      initial={reduce ? false : { y: 6 }}
+                      animate={{ y: 0 }}
+                      transition={{ duration: 0.25, ease: EASE }}
+                    >
+                      {fmt(total as number)}
+                    </motion.span>
+                  </div>
+                </>
               )}
             </div>
           </motion.div>

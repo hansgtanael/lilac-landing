@@ -429,13 +429,13 @@ export const siteContent = defineType({
             defineField({ name: "policyBody", title: "Policy body", type: "text", rows: 3 }),
             defineField({ name: "sentTitle", title: "Sent title", type: "string" }),
             defineField({ name: "sentBody", title: "Sent body", type: "text", rows: 2 }),
-            defineField({
-              name: "pricePerNight",
-              title: "Price per night",
-              type: "number",
-              description: "Drives the price header + fee breakdown math.",
-            }),
-            defineField({ name: "cleaningFee", title: "Cleaning fee", type: "number" }),
+            // PRICING IS NOT EDITED HERE. Nightly rates, the cleaning fee and
+            // taxes come from Hospitable at request time (lib/hospitable.ts),
+            // because Hospitable is what actually charges the guest. A second,
+            // editable copy of those numbers could only ever drift out of step
+            // with the till - it already had: this field said $200 cleaning
+            // against a real $287, and carried no tax at all, understating a
+            // real stay by about 18%. Change prices in Hospitable.
             defineField({
               name: "guestsMax",
               title: "Max guests",

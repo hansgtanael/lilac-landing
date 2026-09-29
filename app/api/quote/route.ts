@@ -16,7 +16,14 @@ import { site } from "@/lib/content";
 export const runtime = "nodejs";
 
 const GUESTS_MAX = site.text.booking.guestsMax;
-const STATIC_NIGHTLY = site.text.booking.pricePerNight;
+/** Order-of-magnitude reference for the unit guard below — NOT a price.
+ *
+ *  This used to read the CMS nightly rate, but pricing has moved wholly to
+ *  Hospitable, and a guard that reads an editable field is a guard someone can
+ *  switch off by mistake: a typo in the Studio would silently widen or narrow
+ *  the band that protects every quote. A constant in code cannot be edited by
+ *  accident, and it only ever needs to be within ~10x of reality. */
+const EXPECTED_NIGHTLY_USD = 500;
 
 /** Guard against a price-unit mismatch.
  *
@@ -36,9 +43,11 @@ const STATIC_NIGHTLY = site.text.booking.pricePerNight;
  *  which is this route's existing answer to "we are not sure" everywhere else.
  *  Never show a number we cannot stand behind. */
 function nightlyLooksSane(subtotalCents: number, nights: number): boolean {
-  if (nights <= 0 || STATIC_NIGHTLY <= 0) return false;
+  if (nights <= 0) return false;
   const apiNightly = subtotalCents / 100 / nights;
-  return apiNightly >= STATIC_NIGHTLY / 10 && apiNightly <= STATIC_NIGHTLY * 10;
+  return (
+    apiNightly >= EXPECTED_NIGHTLY_USD / 10 && apiNightly <= EXPECTED_NIGHTLY_USD * 10
+  );
 }
 
 export async function GET(request: Request) {
@@ -135,7 +144,8 @@ export async function GET(request: Request) {
     if (priced.length === range.nights && !trustSubtotal) {
       console.error(
         `[quote] live pricing rejected: ${subtotalCents} cents over ${range.nights} night(s) ` +
-          `is implausible against the $${STATIC_NIGHTLY} CMS rate — check whether the ` +
+          `is implausible against the ~$${EXPECTED_NIGHTLY_USD}/night this property ` +
+          `charges — check whether the ` +
           `Hospitable calendar returns major units rather than cents (lib/hospitable.ts).`,
       );
     }

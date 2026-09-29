@@ -12,6 +12,9 @@ import Footer from "@/components/Footer";
 import SpacingTuner from "@/components/SpacingTuner";
 import { SiteContentProvider } from "@/components/site-content";
 import { getSiteContent } from "@/lib/site-content";
+// Server-only: decides whether the booking section may offer an enquiry form
+// at all, rather than one that would 502 on submit.
+import { isInquiryDeliveryConfigured } from "@/lib/inquiry";
 
 // Pre-Arc composition restored (2026-07-04): the navy Figma-based section
 // order, with the client's real photos and all scroll effects kept.
@@ -60,7 +63,7 @@ export default async function Home() {
           <Amenities />
           <PropertyStrip />
           <Experience />
-          <BookSection />
+          <BookSection inquiryConfigured={isInquiryDeliveryConfigured()} />
         </div>
       </main>
       <Footer content={site} />

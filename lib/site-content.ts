@@ -107,8 +107,6 @@ type RawSiteContent = {
       policyBody?: string;
       sentTitle?: string;
       sentBody?: string;
-      pricePerNight?: number;
-      cleaningFee?: number;
       guestsMax?: number;
       rating?: string;
       perNightLabel?: string;
@@ -276,8 +274,6 @@ function resolve(doc: RawSiteContent): SiteContent {
         policyBody: booking.policyBody ?? "",
         sentTitle: booking.sentTitle ?? "",
         sentBody: booking.sentBody ?? "",
-        pricePerNight: booking.pricePerNight ?? 0,
-        cleaningFee: booking.cleaningFee ?? 0,
         guestsMax: booking.guestsMax ?? 0,
         rating: booking.rating ?? "",
         perNightLabel: booking.perNightLabel ?? "",

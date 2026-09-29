@@ -16,14 +16,35 @@ import {
 } from "@/lib/booking";
 import { isBookingWidgetConfigured } from "@/lib/bookingWidget";
 import BookingWidgetModal from "@/components/BookingWidgetModal";
+import { buildMailto, prettyDate } from "@/lib/contact";
 
-type Stage = "idle" | "form" | "sending" | "sent";
+/** "contact" is the floor: no checkout, no working mail delivery, so the guest
+ *  is handed the owner's address with their dates already written out. It is
+ *  reachable when nothing is configured at all, which is precisely when the
+ *  other two stages would dead-end. */
+type Stage = "idle" | "form" | "sending" | "sent" | "contact";
+
+type Props = {
+  /** Whether /api/inquiry can actually deliver mail (Resend configured).
+   *  Resolved on the server — lib/inquiry is server-only — and passed down, so
+   *  the client never offers a form it already knows will fail. */
+  inquiryConfigured: boolean;
+};
 
 /** Booking section — Figma node 81:4 ("04-book"): full-width lake image with
  *  "THE LAKE" header, then a two-column block — centered property summary
  *  (eyebrow, Playfair title, copy, policy note) left, live booking card
  *  right. */
-export default function BookSection() {
+/** Whole nights between two ISO dates; 0 when either is missing or invalid. */
+function nightsFrom(checkIn: string, checkOut: string): number {
+  if (!checkIn || !checkOut) return 0;
+  const a = Date.parse(checkIn);
+  const b = Date.parse(checkOut);
+  if (Number.isNaN(a) || Number.isNaN(b) || b <= a) return 0;
+  return Math.round((b - a) / 86_400_000);
+}
+
+export default function BookSection({ inquiryConfigured }: Props) {
   const site = useSiteContent();
   const { booking } = site.text;
   const reduce = useReducedMotion();
@@ -69,6 +90,14 @@ export default function BookSection() {
     };
   }, []);
 
+  const ownerEmail = site.text.footer.email;
+  const mailtoHref = buildMailto(ownerEmail, site.text.footer.brand, {
+    checkIn,
+    checkOut,
+    guests,
+    nights: nightsFrom(checkIn, checkOut),
+  });
+
   const range = validateRange(checkIn, checkOut);
   const rangeValid = range.ok;
   const guestsValid = validateGuests(guests, booking.guestsMax) !== null;
@@ -88,11 +117,15 @@ export default function BookSection() {
       setError(minStayCheck.reason);
       return;
     }
+    // Best available path, in order. Each one degrades to the next rather
+    // than to a dead end: checkout takes the money outright; the form reaches
+    // the owner's inbox; the contact panel hands over the address itself and
+    // needs nothing configured to work.
     if (isBookingWidgetConfigured()) {
       setWidgetOpen(true);
       return;
     }
-    setStage("form");
+    setStage(inquiryConfigured ? "form" : "contact");
   };
 
   const submitInquiry = async () => {
@@ -219,13 +252,52 @@ export default function BookSection() {
               onGuestsChange={setGuests}
               onReserve={openInquiry}
             />
+          ) : stage === "contact" ? (
+            /* The floor. Nothing here depends on a key, a domain or a server:
+               a mailto link with the dates already filled in cannot be
+               misconfigured, so this stage always works. */
+            <div className="flex flex-col gap-5 border border-dark/10 bg-linen p-8 shadow-[0_20px_45px_rgba(44,40,37,0.1)]">
+              <div className="flex flex-col gap-1">
+                <p className="font-display text-2xl italic text-dark">Request these dates</p>
+                <p className="text-sm text-dark/60">
+                  {prettyDate(checkIn)} &rarr; {prettyDate(checkOut)} &middot; {guests}{" "}
+                  {Number(guests) === 1 ? "guest" : "guests"}
+                </p>
+              </div>
+              <p className="text-base text-dark/70">
+                Email us and we&apos;ll hold these dates and confirm the exact price,
+                usually the same day.
+              </p>
+              <a
+                href={mailtoHref}
+                className="flex h-12 items-center justify-center rounded-full bg-brand text-sm font-semibold uppercase tracking-[0.04em] text-dark transition-colors duration-300 ease-luxe hover:bg-brand-deep hover:text-light active:scale-[0.98]"
+              >
+                Email your request
+              </a>
+              {/* Spelled out as well as linked: a browser with no mail client
+                  configured does nothing at all when the link is clicked, and
+                  then a visible address is the only thing that still works. */}
+              <p className="text-center text-sm text-dark/60">
+                or write to{" "}
+                <a href={`mailto:${ownerEmail}`} className="underline underline-offset-2">
+                  {ownerEmail}
+                </a>
+              </p>
+              <button
+                type="button"
+                onClick={() => setStage("idle")}
+                className="flex h-12 items-center justify-center rounded-full border border-dark/20 text-sm font-semibold uppercase tracking-[0.04em] text-dark transition-colors hover:bg-dark/[0.05]"
+              >
+                Back
+              </button>
+            </div>
           ) : (
             // Contact step — collect who to reply to, then send the inquiry.
             <div className="flex flex-col gap-5 border border-dark/10 bg-linen p-8 shadow-[0_20px_45px_rgba(44,40,37,0.1)]">
               <div className="flex flex-col gap-1">
                 <p className="font-display text-2xl italic text-dark">Request these dates</p>
                 <p className="text-sm text-dark/60">
-                  {checkIn} &rarr; {checkOut} &middot; {guests}{" "}
+                  {prettyDate(checkIn)} &rarr; {prettyDate(checkOut)} &middot; {guests}{" "}
                   {Number(guests) === 1 ? "guest" : "guests"}
                 </p>
               </div>
@@ -283,6 +355,20 @@ export default function BookSection() {
                   </motion.p>
                 )}
               </AnimatePresence>
+
+              {/* Always present, not only after a failure. Delivery can break
+                  upstream at any moment — an expired key, a Resend outage — and
+                  the guest should never have to hit an error to discover there
+                  is another way to reach us. */}
+              {ownerEmail && (
+                <p className="text-sm text-dark/55">
+                  Prefer email?{" "}
+                  <a href={mailtoHref} className="underline underline-offset-2 hover:text-dark">
+                    Write to us directly
+                  </a>{" "}
+                  with these dates.
+                </p>
+              )}
 
               <div className="flex gap-3">
                 <button
