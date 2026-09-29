@@ -5,7 +5,7 @@ import Image from "next/image";
 import { AnimatePresence, motion } from "motion/react";
 import { EASE } from "@/lib/ease";
 import { useReducedMotion } from "@/lib/useReducedMotion";
-import BookingCard from "@/components/BookingCard";
+import BookingWidget from "@/components/BookingWidget";
 import { useSiteContent } from "@/components/site-content";
 import {
   validateRange,
@@ -16,7 +16,6 @@ import {
   type MinStayMap,
 } from "@/lib/booking";
 import { isBookingWidgetConfigured } from "@/lib/bookingWidget";
-import BookingWidgetModal from "@/components/BookingWidgetModal";
 import { buildMailto, prettyDate } from "@/lib/contact";
 
 /** "contact" is the floor: no checkout, no working mail delivery, so the guest
@@ -248,22 +247,8 @@ export default function BookSection({ inquiryConfigured }: Props) {
               <p className="text-base text-dark/60">{booking.sentBody}</p>
             </div>
           ) : stage === "idle" ? (
-            <BookingCard
-              checkIn={checkIn}
-              checkOut={checkOut}
-              guests={guests}
-              unavailable={unavailable}
-              minStay={minStay}
-              priceFromCents={priceFromCents}
-              guestsMax={guestsMax}
-              closedForCheckin={closedForCheckin}
-              closedForCheckout={closedForCheckout}
-              onDatesChange={(ci, co) => {
-                setCheckIn(ci);
-                setCheckOut(co);
-              }}
-              onGuestsChange={setGuests}
-              onReserve={openInquiry}
+            <BookingWidget
+              onEmailInstead={() => setStage(inquiryConfigured ? "form" : "contact")}
             />
           ) : stage === "contact" ? (
             /* The floor. Nothing here depends on a key, a domain or a server:
@@ -412,22 +397,6 @@ export default function BookSection({ inquiryConfigured }: Props) {
       {/* Hospitable checkout. Portals to <body>, so its position in this tree
           is irrelevant — it lives here to keep the booking state it reads in
           one place. Renders nothing unless configured AND open. */}
-      <BookingWidgetModal
-        open={widgetOpen}
-        onClose={() => setWidgetOpen(false)}
-        onEmailInstead={() => {
-          setWidgetOpen(false);
-          // Same three-tier rule as RESERVE. This used to jump straight to the
-          // form, which meant a stalled checkout with no mail delivery landed
-          // the guest on a form that 502s — the exact dead end the fallback
-          // exists to prevent, reachable only when checkout was ALREADY
-          // failing.
-          setStage(inquiryConfigured ? "form" : "contact");
-        }}
-        checkIn={checkIn}
-        checkOut={checkOut}
-        guests={guests}
-      />
     </section>
   );
 }

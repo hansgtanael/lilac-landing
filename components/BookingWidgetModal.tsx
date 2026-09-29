@@ -135,13 +135,35 @@ export default function BookingWidgetModal({
   if (!src) return null;
 
   return createPortal(
+    /* CONTAINED, not full-screen.
+     *
+     * Hospitable's widget cannot be re-coloured — their own feature request for
+     * it has sat in the backlog for years — so the magenta is permanent. Given
+     * that, filling the viewport with it was the wrong call: it let an
+     * un-brandable page take the whole screen, at maximum contrast against a
+     * cream-and-lilac site, and read as "a different website has taken over".
+     *
+     * Held in a panel instead, the same widget reads as a payment step INSIDE
+     * the site: our frame, our ground, our type around it. The width is tuned
+     * to the widget's own narrow column so there are no dead margins inside the
+     * frame, and the panel scrolls rather than the page behind it.
+     */
     <div
       role="dialog"
       aria-modal="true"
       aria-label="Complete your booking"
-      className="fixed inset-0 z-[95] flex flex-col bg-cream"
+      className="fixed inset-0 z-[95] flex items-center justify-center bg-dark/50 p-4 backdrop-blur-[2px] sm:p-6"
+      onMouseDown={(e) => {
+        // Backdrop only — a mousedown that began inside the panel and ended on
+        // the backdrop (a drag while selecting text) must not close checkout.
+        if (e.target === e.currentTarget) onClose();
+      }}
     >
-      <div className="flex items-center justify-between border-b border-dark/10 px-5 py-4 md:px-8">
+    <div
+      className="flex h-[900px] max-h-[92svh] w-full max-w-[620px] flex-col overflow-hidden border border-dark/10 bg-cream shadow-[0_30px_80px_rgba(44,40,37,0.35)]"
+      onMouseDown={(e) => e.stopPropagation()}
+    >
+      <div className="flex items-center justify-between border-b border-dark/10 px-5 py-4">
         <div>
           <p className="font-display text-xl italic leading-none text-dark">Complete your booking</p>
           <p className="mt-1 text-xs uppercase tracking-wide text-dark/55">
@@ -181,7 +203,10 @@ export default function BookingWidgetModal({
 
       {/* data-lenis-prevent: Lenis is stopped while the modal is open and would
           otherwise swallow wheel events before they reach the iframe. */}
-      <div data-lenis-prevent className="relative flex-1">
+      {/* The panel owns the height (900px, the widget's own default, capped to
+          the viewport); this just fills what the header leaves. min-h-0 is
+          required or a flex child refuses to shrink below its content. */}
+      <div data-lenis-prevent className="relative min-h-0 flex-1">
         {/* Opaque, not translucent: the point is to HIDE the widget's
             half-loaded state, not to veil it. A default month with every date
             greyed out, showing through, is what made this look broken. */}
@@ -238,6 +263,7 @@ export default function BookingWidgetModal({
           referrerPolicy="strict-origin-when-cross-origin"
         />
       </div>
+    </div>
     </div>,
     document.body,
   );

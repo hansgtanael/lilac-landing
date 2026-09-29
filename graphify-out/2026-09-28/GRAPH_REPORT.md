@@ -1,16 +1,16 @@
 # Graph Report - lilac-landing-v2  (2026-09-28)
 
 ## Corpus Check
-- 71 files · ~1,082,479 words
+- 71 files · ~1,083,149 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 384 nodes · 642 edges · 22 communities (19 shown, 3 thin omitted)
+- 384 nodes · 643 edges · 22 communities (19 shown, 3 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 8 edges (avg confidence: 0.54)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `b8f0f853`
+- Built from commit: `096ba120`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 

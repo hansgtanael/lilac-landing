@@ -100,8 +100,8 @@
     "semantic_hash": ""
   },
   "components/BookSection.tsx": {
-    "mtime": 1790655420.5950918,
-    "ast_hash": "0599b597e42771103d531a848cab45d1",
+    "mtime": 1790658313.7651584,
+    "ast_hash": "551ed0c3d69d7b3c29ac5dc1ed76716c",
     "semantic_hash": ""
   },
   "components/GalleryNoir.tsx": {
@@ -745,8 +745,8 @@
     "semantic_hash": ""
   },
   "components/BookingWidgetModal.tsx": {
-    "mtime": 1790656353.8482647,
-    "ast_hash": "dad098d56fc30f81abd8422371d125e5",
+    "mtime": 1790657713.428815,
+    "ast_hash": "7b924a90107b75d742acf8791409192c",
     "semantic_hash": ""
   },
   "components/LegalPage.tsx": {
@@ -797,6 +797,11 @@
   "lib/contact.ts": {
     "mtime": 1790650865.029615,
     "ast_hash": "9fd9b72bca0a7551644c2d5348fea749",
+    "semantic_hash": ""
+  },
+  "components/BookingWidget.tsx": {
+    "mtime": 1790658299.8969495,
+    "ast_hash": "87069f75110dbc7f13dace4364b21d06",
     "semantic_hash": ""
   }
 }
