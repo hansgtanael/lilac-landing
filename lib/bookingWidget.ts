@@ -36,6 +36,28 @@ export function isBookingWidgetConfigured(): boolean {
   }
 }
 
+/** Parameters Hospitable's booking widget actually reads.
+ *
+ *  Taken from their own widget loader (cdn.hsptb.com widget-loader.prod.js),
+ *  not guessed: it whitelists exactly these before forwarding anything to the
+ *  frame. Names matter — an unrecognised key is dropped in silence, and the
+ *  guest re-picks dates they already chose on our card. We were sending
+ *  `check_in`, `check_out` and `guests`, none of which exist. All three were
+ *  being thrown away.
+ *
+ *  Note `adults`, not `guests`: their widget splits a party into adults,
+ *  children, infants and pets. Our card asks for one number, so it maps to
+ *  adults, which is what their own loader defaults to as well. */
+const PASSTHROUGH = [
+  "locale",
+  "source",
+  "utm_source",
+  "utm_medium",
+  "utm_campaign",
+  "utm_term",
+  "utm_content",
+] as const;
+
 type Prefill = {
   checkIn?: string;
   checkOut?: string;
@@ -45,19 +67,29 @@ type Prefill = {
 /** Build the iframe src, carrying the guest's current selection across so they
  *  do not re-pick dates they already chose on our card.
  *
- *  The parameter names follow Hospitable's booking-page convention. If a future
- *  version ignores them the widget simply opens unfilled — a cosmetic
- *  regression, never a broken booking — so this stays best-effort by design and
- *  never blocks the modal from opening.
+ *  Campaign parameters on the current page are forwarded too. Their loader
+ *  does this and it is worth keeping: without it a booking that began with an
+ *  ad click arrives in Hospitable with no idea where it came from, and the ad
+ *  spend cannot be judged.
  *
  *  Returns "" when unconfigured so callers can guard on a falsy value. */
 export function buildBookingUrl({ checkIn, checkOut, guests }: Prefill = {}): string {
   if (!isBookingWidgetConfigured()) return "";
 
   const url = new URL(BOOKING_URL);
-  if (checkIn) url.searchParams.set("check_in", checkIn);
-  if (checkOut) url.searchParams.set("check_out", checkOut);
-  if (guests) url.searchParams.set("guests", guests);
+  if (checkIn) url.searchParams.set("checkin", checkIn);
+  if (checkOut) url.searchParams.set("checkout", checkOut);
+  if (guests) url.searchParams.set("adults", guests);
+
+  // Campaign attribution from the page the guest is standing on.
+  if (typeof window !== "undefined") {
+    const here = new URLSearchParams(window.location.search);
+    for (const key of PASSTHROUGH) {
+      const value = here.get(key);
+      if (value && value !== "null") url.searchParams.set(key, value);
+    }
+  }
+
   return url.toString();
 }
 
