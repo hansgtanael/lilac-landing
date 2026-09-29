@@ -69,6 +69,7 @@ type Quote = {
   available: boolean | null;
   subtotalCents: number | null;
   cleaningFeeCents: number | null;
+  serviceFeeCents: number | null;
   taxCents: number | null;
   totalCents: number | null;
   totalExact: boolean;
@@ -129,6 +130,8 @@ export default function BookingCard({
             subtotalCents: typeof data.subtotalCents === "number" ? data.subtotalCents : null,
             cleaningFeeCents:
               typeof data.cleaningFeeCents === "number" ? data.cleaningFeeCents : null,
+            serviceFeeCents:
+              typeof data.serviceFeeCents === "number" ? data.serviceFeeCents : null,
             taxCents: typeof data.taxCents === "number" ? data.taxCents : null,
             totalCents: typeof data.totalCents === "number" ? data.totalCents : null,
             totalExact: data.totalExact !== false,
@@ -152,6 +155,8 @@ export default function BookingCard({
     quote?.configured && quote.subtotalCents !== null ? quote.subtotalCents / 100 : null;
   const liveCleaning =
     quote?.configured && quote.cleaningFeeCents !== null ? quote.cleaningFeeCents / 100 : null;
+  const liveService =
+    quote?.configured && quote.serviceFeeCents !== null ? quote.serviceFeeCents / 100 : null;
   const liveTax = quote?.configured && quote.taxCents !== null ? quote.taxCents / 100 : null;
   const liveTotal = quote?.configured && quote.totalCents !== null ? quote.totalCents / 100 : null;
 
@@ -349,13 +354,19 @@ export default function BookingCard({
                       <span>{fmt(liveTax)}</span>
                     </div>
                   )}
-                  {/* Always $0 and always shown: booking direct rather than
-                      through Airbnb is the whole pitch, and this is the line
-                      that proves it. */}
-                  <div className="flex justify-between">
-                    <span>{booking.serviceFeeLabel}</span>
-                    <span>$0</span>
-                  </div>
+                  {/* This line said "$0" and was hardcoded. It was the
+                      direct-booking pitch stated as fact — and false:
+                      Hospitable charges its own 4% service fee at checkout
+                      ($148.40 on the week I tested), so the card promised a
+                      saving the till did not honour. Now it reports the real
+                      figure, computed in /api/quote alongside every other
+                      charge. */}
+                  {liveService !== null && liveService > 0 && (
+                    <div className="flex justify-between">
+                      <span>{booking.serviceFeeLabel}</span>
+                      <span>{fmt(liveService)}</span>
+                    </div>
+                  )}
                   <div className="h-px w-full bg-dark/10" />
                   <div className="flex justify-between font-medium">
                     <span>

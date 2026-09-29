@@ -28,6 +28,24 @@ const GUESTS_MAX = DEFAULT_MAX_GUESTS;
  *  accident, and it only ever needs to be within ~10x of reality. */
 const EXPECTED_NIGHTLY_USD = 500;
 
+/** Hospitable's own guest service fee on a direct booking.
+ *
+ *  It is NOT in the pricing endpoint — every fee there (cleaning, linens,
+ *  management, community, resort, pet) is either the $287 cleaning or zero.
+ *  Hospitable adds this one itself at checkout, and there is no host setting
+ *  to waive it.
+ *
+ *  The rate is measured, not assumed: their widget quoted $148.40 on a
+ *  $3,423 stay plus $287 cleaning, which is 4.000% of $3,710 to the cent.
+ *  It is applied to the nightly subtotal plus cleaning, before taxes, exactly
+ *  as their breakdown orders it.
+ *
+ *  This is the one figure here that does not come from an API, so it is the
+ *  one that can silently drift. If a guest ever reports a total that differs
+ *  from checkout, THIS CONSTANT IS THE FIRST THING TO CHECK — re-read the
+ *  widget's own "Service fee" line against a live quote and correct it. */
+const SERVICE_FEE_RATE = 0.04;
+
 /** Guard against a price-unit mismatch.
  *
  *  lib/hospitable.ts assumes the API returns nightly price in MINOR units
@@ -183,9 +201,15 @@ export async function GET(request: Request) {
             nights: range.nights,
           })
         : null;
+    // Hospitable charges its service fee on nightly + cleaning, before taxes.
+    const serviceFeeCents =
+      trustSubtotal && cleaningFeeCents !== null
+        ? Math.round((subtotalCents + cleaningFeeCents) * SERVICE_FEE_RATE)
+        : null;
+
     const totalCents =
-      trustSubtotal && cleaningFeeCents !== null && tax
-        ? subtotalCents + cleaningFeeCents + tax.taxCents
+      trustSubtotal && cleaningFeeCents !== null && serviceFeeCents !== null && tax
+        ? subtotalCents + cleaningFeeCents + serviceFeeCents + tax.taxCents
         : null;
 
     return Response.json(
@@ -194,6 +218,7 @@ export async function GET(request: Request) {
         available,
         nights: range.nights,
         cleaningFeeCents,
+        serviceFeeCents,
         taxCents: tax?.taxCents ?? null,
         totalCents,
         // False when a tax rule was skipped (night cap). The card should say

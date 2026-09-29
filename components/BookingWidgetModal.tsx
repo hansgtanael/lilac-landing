@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
-import { buildBookingUrl } from "@/lib/bookingWidget";
+import { buildBookingUrl, bookingWidgetOrigin } from "@/lib/bookingWidget";
 
 type Props = {
   open: boolean;
@@ -21,6 +21,30 @@ type Props = {
  *  detect a 404 inside it — but we CAN detect "nothing ever loaded", which is
  *  the case that strands a guest (network dead, frame blocked, host down). */
 const LOAD_TIMEOUT_MS = 12_000;
+
+/** How long to keep covering the frame after its HTML loads.
+ *
+ *  onLoad fires when the document arrives, which is SECONDS before Hospitable
+ *  has fetched rates and availability. In that gap it renders a default month
+ *  — September here — with every date disabled, because the real calendar data
+ *  has not landed yet. Uncovered, that reads as a broken booking page: a
+ *  calendar you cannot click, on the wrong month, with the dates you just
+ *  picked nowhere in sight. Guests conclude they have to enter everything
+ *  twice, or that the page is dead.
+ *
+ *  So the cover stays up until the widget signals it has rendered real content
+ *  (see READY_MESSAGE below), and this is the backstop for when no such signal
+ *  ever comes. Better a few honest seconds of "loading" than an interactive
+ *  lie. */
+const CONTENT_GRACE_MS = 6_000;
+
+/** Hospitable's widget posts `{ iframeHeight }` to its parent when its content
+ *  resizes — their own loader listens for exactly this to size the frame. The
+ *  first one therefore means "something real has rendered", which is the
+ *  closest thing to a readiness signal a cross-origin frame can give us.
+ *  Treated as a bonus, never a requirement: if it never arrives, the grace
+ *  timer above uncovers the frame anyway. */
+const READY_MESSAGE = "iframeHeight";
 
 /** Hospitable booking widget in a modal over the booking card.
  *
@@ -49,12 +73,32 @@ export default function BookingWidgetModal({
   // new dates gets a fresh src, and the stale "loaded" state would otherwise
   // show an empty frame while the new URL fetches.
   const [loaded, setLoaded] = useState(false);
+  const [contentReady, setContentReady] = useState(false);
   const [stalled, setStalled] = useState(false);
   useEffect(() => {
     if (!open) return;
     setLoaded(false);
+    setContentReady(false);
     setStalled(false);
   }, [open, checkIn, checkOut, guests]);
+
+  // Uncover as soon as the widget says it has drawn something, and otherwise
+  // when the grace period expires. Whichever happens first.
+  useEffect(() => {
+    if (!open || !loaded || contentReady) return;
+    const origin = bookingWidgetOrigin();
+    const onMessage = (e: MessageEvent) => {
+      if (origin && e.origin !== origin) return;
+      const data = e.data as Record<string, unknown> | null;
+      if (data && typeof data === "object" && READY_MESSAGE in data) setContentReady(true);
+    };
+    window.addEventListener("message", onMessage);
+    const t = setTimeout(() => setContentReady(true), CONTENT_GRACE_MS);
+    return () => {
+      window.removeEventListener("message", onMessage);
+      clearTimeout(t);
+    };
+  }, [open, loaded, contentReady]);
 
   // Watchdog: if the frame has not loaded in time, surface the email route
   // rather than leaving a spinner turning forever. The iframe stays mounted, so
@@ -138,13 +182,27 @@ export default function BookingWidgetModal({
       {/* data-lenis-prevent: Lenis is stopped while the modal is open and would
           otherwise swallow wheel events before they reach the iframe. */}
       <div data-lenis-prevent className="relative flex-1">
-        {!loaded && !stalled && (
-          <div className="absolute inset-0 grid place-items-center" aria-hidden>
-            <div className="h-8 w-8 animate-spin rounded-full border-2 border-dark/15 border-t-dark/50" />
+        {/* Opaque, not translucent: the point is to HIDE the widget's
+            half-loaded state, not to veil it. A default month with every date
+            greyed out, showing through, is what made this look broken. */}
+        {!contentReady && !stalled && (
+          <div
+            className="absolute inset-0 z-10 grid place-items-center bg-cream px-6"
+            role="status"
+            aria-live="polite"
+          >
+            <div className="flex flex-col items-center gap-4 text-center">
+              <div className="h-8 w-8 animate-spin rounded-full border-2 border-dark/15 border-t-dark/50" />
+              <p className="text-sm text-dark/60">
+                {checkIn && checkOut
+                  ? "Bringing your dates through to checkout\u2026"
+                  : "Opening secure checkout\u2026"}
+              </p>
+            </div>
           </div>
         )}
         {!loaded && stalled && (
-          <div className="absolute inset-0 grid place-items-center bg-cream px-6">
+          <div className="absolute inset-0 z-20 grid place-items-center bg-cream px-6">
             <div className="flex max-w-sm flex-col items-center gap-4 text-center">
               <p className="font-display text-2xl italic text-dark">
                 The booking window isn&apos;t loading

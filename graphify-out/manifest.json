@@ -15,8 +15,8 @@
     "semantic_hash": ""
   },
   "components/BookingCard.tsx": {
-    "mtime": 1790655420.5974405,
-    "ast_hash": "b3f3d78ddeafea92a271b146929172e8",
+    "mtime": 1790656547.7904615,
+    "ast_hash": "2901e92a4074e3ea04a8f94d0757cba0",
     "semantic_hash": ""
   },
   "components/Experience.tsx": {
@@ -645,8 +645,8 @@
     "semantic_hash": ""
   },
   "app/api/quote/route.ts": {
-    "mtime": 1790655432.9707985,
-    "ast_hash": "dae8407ffb86a58f498f41b1be6a0e89",
+    "mtime": 1790656535.0397954,
+    "ast_hash": "409b06f69cf0fa1c33066b5806220e86",
     "semantic_hash": ""
   },
   "app/studio/[[...tool]]/page.tsx": {
@@ -745,8 +745,8 @@
     "semantic_hash": ""
   },
   "components/BookingWidgetModal.tsx": {
-    "mtime": 1789177602.9912722,
-    "ast_hash": "c29ab83357fef79b8187809ae8483872",
+    "mtime": 1790656353.8482647,
+    "ast_hash": "dad098d56fc30f81abd8422371d125e5",
     "semantic_hash": ""
   },
   "components/LegalPage.tsx": {
