@@ -482,8 +482,8 @@
     },
     "booking": {
       "lakeLabel": "THE LAKE",
-      "heading": "Lilac Landing",
-      "body": "This year-round lake home is the perfect lakeside retreat for couples and families. Newly built with huge picture windows on both floors, incredible views of Keuka Lake, and spectacular sunsets. Three bedrooms plus a huge family room, 2.5 baths, a gourmet kitchen, deck, dock, and beach, just 4.5 miles south of Penn Yan.",
+      "heading": "Book Now",
+      "body": "The same house and the same dates, without the service fee Airbnb and Vrbo add at checkout — on a week here, that runs into the hundreds. Booking direct also means you reach us rather than a support queue, so questions about the dock, the kayaks or an early arrival get answered by the people who own the place. The price below includes cleaning and taxes, so what you see is what you pay.",
       "features": [
         {
           "title": "Lakefront",
@@ -499,7 +499,7 @@
         }
       ],
       "policyTitle": "Direct Booking Policy",
-      "policyBody": "Booking directly through our portal ensures the best rate and eliminates external service fees. Your reservation includes 24/7 concierge support.",
+      "policyBody": "Booking direct keeps the platform commission out of your total and puts you in touch with the owners. Your dates are held the moment you confirm.",
       "sentTitle": "We’ll be in touch soon.",
       "sentBody": "Your dates are noted. Watch your inbox for a reply.",
       "rating": "4.98",
