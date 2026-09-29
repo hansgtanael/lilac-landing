@@ -102,7 +102,30 @@ function OutdoorsCarousel() {
   const reduce = useReducedMotion();
   const [page, setPage] = useState(0);
   const [anim, setAnim] = useState(true);
-  const pages = Math.ceil(OUTDOORS.length / 2);
+  /* One photo at a time on phones, two side by side from md up.
+   *
+   * The tile WIDTH is pure CSS (w-full md:w-1/2) so the first paint is right
+   * on every device with no flash of the wrong layout. Only the page COUNT
+   * has to be known in JavaScript, because it drives the wraparound, and that
+   * cannot be expressed in a media query.
+   *
+   * Defaults to 2 and corrects on mount. A phone is briefly wrong about how
+   * many pages exist, which nothing can observe: the first advance is a full
+   * 3.45s away and this settles in the same tick as mount. */
+  const [perView, setPerView] = useState(2);
+  useEffect(() => {
+    if (typeof window.matchMedia !== "function") return;
+    const mq = window.matchMedia("(min-width: 768px)");
+    const apply = () => {
+      setPerView(mq.matches ? 2 : 1);
+      setPage(0); // a stale page index can land out of range at the new count
+    };
+    apply();
+    mq.addEventListener("change", apply);
+    return () => mq.removeEventListener("change", apply);
+  }, []);
+
+  const pages = Math.ceil(OUTDOORS.length / perView);
 
   /* WHY THESE ARE PRELOADED.
    *
@@ -170,13 +193,13 @@ function OutdoorsCarousel() {
         style={{ transform: `translateX(-${page * 100}%)` }}
       >
         {slides.map((p, i) => (
-          <div key={`${p.src}-${i}`} className="w-1/2 flex-none px-[3px] md:px-1">
-            <div className="relative h-[34vh] min-h-[240px] overflow-hidden md:h-[45vh]">
+          <div key={`${p.src}-${i}`} className="w-full flex-none px-[3px] md:w-1/2 md:px-1">
+            <div className="relative h-[46vh] min-h-[300px] overflow-hidden md:h-[45vh] md:min-h-[240px]">
               <Image
                 src={p.src}
                 alt={p.alt}
                 fill
-                sizes="50vw"
+                sizes="(min-width: 768px) 50vw, 100vw"
                 loading={warm ? "eager" : "lazy"}
                 className="object-cover"
               />
