@@ -60,6 +60,28 @@ export default function Nav() {
     };
   }, []);
 
+  /* Same popup contract as every other dialog on the site (ViewRooms,
+   * PropertyStrip, the booking modal): Escape closes, the page behind cannot
+   * scroll, and Lenis is paused — without that last part the smooth-scroll
+   * instance keeps driving the page under the open panel. */
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const lenis = (window as unknown as { __lilacLenis?: { stop(): void; start(): void } })
+      .__lilacLenis;
+    lenis?.stop();
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prevOverflow;
+      lenis?.start();
+    };
+  }, [open]);
+
   const handleNav = (href: string) => {
     setOpen(false);
     // Defer so the overlay can begin its exit before the scroll fires.
@@ -72,8 +94,8 @@ export default function Nav() {
           Light copy over the pinned hero (soft text-shadow for legibility),
           ink once the cream sections scroll over it. */}
       <nav
-        className={`fixed inset-x-0 top-0 z-40 transition-transform duration-500 ease-luxe ${
-          hidden ? "-translate-y-full" : ""
+        className={`fixed inset-x-0 top-0 z-[60] transition-transform duration-500 ease-luxe ${
+          hidden && !open ? "-translate-y-full" : ""
         }`}
       >
         <div
@@ -90,35 +112,17 @@ export default function Nav() {
             {nav.brand}
           </button>
 
-          <div className="hidden items-center gap-8 md:flex">
-            {LINKS.map((link) => (
-              <button
-                key={link.label}
-                onClick={() => handleNav(navHref(link.href))}
-                className={`font-helvetica text-[14px] font-semibold tracking-[-0.01em] transition-colors duration-300 ease-luxe ${
-                  pastHero
-                    ? "text-dark/80 hover:text-dark"
-                    : "text-light hover:text-light"
-                }`}
-              >
-                {link.label}
-              </button>
-            ))}
-          </div>
-
-          <button
-            onClick={() => handleNav("#reserve")}
-            className="hidden h-9 items-center rounded-full bg-brand px-6 font-helvetica text-[14px] font-bold uppercase tracking-[0.08em] text-dark [text-shadow:none] transition-colors duration-300 ease-luxe hover:bg-brand-dark active:scale-[0.98] md:flex"
-          >
-            {nav.cta}
-          </button>
+          {/* Brand left, hamburger right, nothing between. The inline link row
+              and the booking pill both live in the panel now: a hamburger
+              beside a visible link row is two doors into the same room, and
+              the bar reads calmer over the hero without them. */}
 
           {/* Hamburger — two bars morph into an X. */}
           <button
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
-            className="relative h-5 w-6 md:hidden"
+            className="relative z-50 h-5 w-6"
           >
             <span
               className={`absolute left-0 h-px w-6 transition-all duration-300 ease-luxe ${
@@ -142,33 +146,71 @@ export default function Nav() {
         </div>
       </nav>
 
-      {/* Mobile full-screen overlay menu. */}
+      {/* Slide-over menu. Enters from the right edge, travels left.
+          Everything the bar used to show inline lives here now. */}
       <AnimatePresence>
         {open && (
-          <motion.div
-            className="fixed inset-0 z-30 flex flex-col items-center justify-center gap-8 bg-light/95 backdrop-blur-3xl md:hidden"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.35, ease: EASE }}
-          >
-            {LINKS.map((link, i) => (
-              <motion.button
-                key={link.label}
-                onClick={() => handleNav(navHref(link.href))}
-                className="font-display text-3xl italic text-dark"
-                initial={reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.4,
-                  ease: EASE,
-                  delay: reduce ? 0 : 0.1 + i * 0.05,
-                }}
-              >
-                {link.label}
-              </motion.button>
-            ))}
-          </motion.div>
+          <>
+            {/* Scrim. Dismisses on click, and darkens the page enough that the
+                panel reads as the only live surface. */}
+            <motion.div
+              className="fixed inset-0 z-40 bg-dark/45 backdrop-blur-[2px]"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3, ease: EASE }}
+              onClick={() => setOpen(false)}
+              aria-hidden
+            />
+
+            <motion.div
+              role="dialog"
+              aria-modal="true"
+              aria-label="Menu"
+              className="fixed inset-y-0 right-0 z-50 flex w-[min(420px,86vw)] flex-col bg-cream shadow-[-30px_0_80px_rgba(44,40,37,0.25)]"
+              initial={reduce ? { opacity: 0 } : { x: "100%" }}
+              animate={reduce ? { opacity: 1 } : { x: 0 }}
+              exit={reduce ? { opacity: 0 } : { x: "100%" }}
+              transition={{ duration: 0.45, ease: EASE }}
+            >
+              {/* pt clears the bar the hamburger sits in, so the X is never
+                  covered by the panel it opened. */}
+              <div className="flex flex-1 flex-col justify-center gap-7 px-10 pb-12 pt-24">
+                {LINKS.map((link, i) => (
+                  <motion.button
+                    key={link.label}
+                    onClick={() => handleNav(navHref(link.href))}
+                    className="text-left font-display text-3xl italic text-dark transition-colors duration-300 ease-luxe hover:text-brand-deep"
+                    initial={reduce ? { opacity: 1, x: 0 } : { opacity: 0, x: 18 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{
+                      duration: 0.4,
+                      ease: EASE,
+                      delay: reduce ? 0 : 0.12 + i * 0.05,
+                    }}
+                  >
+                    {link.label}
+                  </motion.button>
+                ))}
+
+                {/* The booking CTA, last and styled as the only filled thing in
+                    the panel — the one action among a list of destinations. */}
+                <motion.button
+                  onClick={() => handleNav("#reserve")}
+                  className="mt-4 flex h-12 items-center justify-center rounded-full bg-brand px-8 font-helvetica text-[14px] font-bold uppercase tracking-[0.08em] text-dark transition-colors duration-300 ease-luxe hover:bg-brand-dark active:scale-[0.98]"
+                  initial={reduce ? { opacity: 1, x: 0 } : { opacity: 0, x: 18 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{
+                    duration: 0.4,
+                    ease: EASE,
+                    delay: reduce ? 0 : 0.12 + LINKS.length * 0.05,
+                  }}
+                >
+                  {nav.cta}
+                </motion.button>
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </>
